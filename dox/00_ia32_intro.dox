@@ -1,0 +1,54 @@
+/**
+@page ia32_intro Programación de procesadores de arquitectura IA-32
+@author Erwin Meza Vega <emezav@gmail.com>
+
+Ir a: @ref project_start 
+
+Intel, el fabricante de los procesadores de arquitectura IA-32, 
+ha decidido mantener compatibilidad hacia atrás para permitir que el código 
+desarrollado para procesadores desde 386 o 486 pueda ser ejecutado en 
+procesadores actuales.  Esto implica una serie de decisiones de diseño 
+en la estructura interna y en el funcionamiento de los procesadores, que en 
+ciertas ocasiones limita a los programas pero que también ofrece una ventaja 
+competitiva relacionada con la adopción masiva de los procesadores  y la 
+posibilidad de ejecutar programas creados para procesadores anteriores en las 
+versiones actuales sin virtualmente ninguna modificación.
+
+Cada procesador actual cuenta con algunas o todas las características de la 
+arquitectura IA-32. Por ejemplo, algunos procesadores actuales poseen 
+múltiples núcleos con registros de 32 bits o múltiples núcleos con registros 
+de 64 bits.  Un procesador Intel Core 2 Duo cuenta con dos núcleos 
+con registros de 32 bits, y un procesador Xeon generalmente incluye varios 
+núcleos con registros de 64 bits. La generación actual de procesadores Intel 
+Core (Core I3, Core I5 y Core I7) implementan arquitecturas de 2, 4 y hasta 6 
+núcleos con registros de 64 bits.
+
+No obstante, para mantener la compatibilidad hacia atrás, todos los procesadores
+inician en un modo de operación denominado Modo Real (también llamado Modo
+de Direcciones Real o Real Addres Mode), en el cual se comportan como un 
+procesador 8086 con algunas extensiones que le permiten habilitar el  modo de 
+operación en el cual aprovechan todas sus características. 
+ 
+El conocimiento de la arquitectura IA-32 ofrece una posibilidad sin igual 
+para el aprendizaje de la programación básica de una amplia gama de 
+procesadores, desde la programación en modo real hasta la programación en modo 
+protegido, usado por los Sistemas Operativos Modernos. 
+
+En los siguientes apartados se presentan los conceptos básicos relacionados
+con la programación de procesadores de la Arquitectura IA-32
+
+- @ref ia32_operation_modes
+- @ref ia32_memory_organization
+- @ref ia32_execution_environment
+- @ref protected_mode_setup
+- @ref gdt_page
+- @ref idt_page
+- @ref bios_and_booting
+- @ref ia32_assembly_basics
+	- @ref ia32_using_the_stack
+	- @ref ia32_using_routines
+	- @ref ia32_using_bios_services
+
+  @see http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html (Enlace externo)
+
+*/

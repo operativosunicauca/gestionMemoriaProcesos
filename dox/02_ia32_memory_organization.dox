@@ -1,0 +1,173 @@
+/**
+@page ia32_memory_organization Organización de Memoria en Procesadores IA-32
+@author Erwin Meza Vega <emezav@gmail.com>
+
+@ref project_start : @ref ia32_intro : Organización de la Memoria
+
+La memoria en los procesadores de arquitectura IA-32 se puede organizar y 
+manejar en tres formas básicas: Modo Segmentado, Modo Real de Direcciones y 
+Modo Plano. A continuación se muestran los detalles de cada uno de estos modos.
+
+@par Modo Segmentado
+
+Este es el modo por defecto de organización de memoria. En este modo, la memoria
+se aprecia como un conjunto de espacios lineales denominados segmentos. Cada 
+segmento puede ser de diferente tipo, siendo los más comunes segmentos de código
+y datos.
+
+Para referenciar un byte dentro de un segmento se debe usar una dirección lógica
+, que se compone de un par selector: desplazamiento (offset). El valor del 
+selector se usa como índice en una tabla de descriptores. El descriptor
+referenciado contiene la base del segmento, es decir la dirección lineal del 
+inicio del segmento.
+
+El desplazamiento (offset) determina el número de bytes que se debe desplazar 
+desde el  la base segmento. Así se obtiene una dirección lineal en el espacio 
+de direcciones de memoria.
+
+Si el procesador tiene deshabilitada la paginación (comportamiento por defecto),
+la dirección lineal es la misma dirección física (En RAM). En el momento
+de habilitar la paginación, el procesador debe realizar un proceso adicional
+para traducir la dirección lineal obtenida a una dirección física. 
+ El offset se almacena en un registro de propósito general, cuyo
+tamaño es de 32 bits de esta forma, el tamaño máximo de un segmento es de 4GB.
+
+A continuación se presenta una figura que ilustra cómo realiza este proceso.
+
+@verbatim
+
+
+   Dirección Lógica                           Espacio lineal de direcciones
+   +-------+  +---------------+         4 GB +--------------------+
+   | sel   |  |  offset       |              |                    |
+   +-------+  +---------------+              |                    | 
+    selector    desplazamiento               |                    |
+      |              |                       |                    | 
+      |              |                       |                    |
+      |              |                       |--------------------|--+         
+      |              |                       |                    |  |    
+      |              |                       |   Segmento de      |  | Tamaño
+      |              |                       |   Memoria          |  | del
+      |              |                       |                    |  | segmento
+      |              +---------------------> | Dirección Lineal   |  | (límite)
+      |                                      |        ^           |  |
+      |              +                       |        |           |  |
+      |                                      |        |           |  |
+      +------------ base   ----------------->|--------|-----------|--+ Base del
+          Con el selector se halla           |        |           |    segmento
+          la "base" del segmento             |        |           |      ^
+          (Su dirección de inicio en la      |        |           |      |
+           memoria)                          |        |           |      |
+                                             |        |           |      |
+                                           0 +--------------------+      -
+
+@endverbatim     
+ 
+ Consulte la página @ref gdt_page para más detalles de la traducción de una
+ dirección lógica a una dirección lineal. 
+   
+ @par Modo Real de Direcciones
+ 
+El modo real de direcciones es un caso especial del modo segmentado, 
+que se usa cuando el procesador se encuentra operando en Modo Real. 
+Se usa para  ofrecer compatibilidad con programas desarrollados para 
+generaciones anteriores de procesadores, que abarcan hasta el propio 8086.  
+En modo real de direcciones el espacio lineal de direcciones se encuentra 
+dividido en segmentos con un tamaño máximo de 64 Kilobytes. Esto se debe a que 
+cuando el computador opera en modo real, sólo  es sólo es posible usar los 16 
+bits menos significativos de los registros de propósito general, que se
+usan para almacenar el desplazamiento de la dirección lineal dentro del 
+segmento.
+
+Las direcciones lógicas en modo real también están conformadas por un selector 
+y un offset. Tanto el selector como el desplazamiento tienen un tamaño de 16 
+bits. Con el fin de permitir el acceso a un espacio de direcciones lineal mayor,
+el selector almacena la dirección de inicio del segmento dividida en 16. 
+Para traducir una dirección lógica a lineal, el procesador toma el valor del 
+selector y lo multiplica automáticamente por 16, para hallar la base del 
+segmento. Luego a esta base le suma el offset, para obtener una dirección lineal
+de 20 bits. Así, en modo real sólo se puede acceder al primer MegaByte de
+memoria.
+La siguiente figura ilustra el proceso de transformar una dirección lógica a 
+lineal en el modo real de direcciones.
+
+@verbatim
+
+
+   Dirección Lógica                           Espacio lineal de direcciones
+   +-------+  +---------------+         1 MB +--------------------+
+   |base/16|  |   offset      |              |                    |
+   +-------+  +---------------+              |                    | 
+    selector    desplazamiento               |                    |
+      |              |                       |                    | 
+      |              |                       |                    |
+      |              |                       |--------------------|--+         
+      |              |                       |                    |  |    
+      |              |                       |   Segmento de      |  | Tamaño
+      |              |                       |   Memoria          |  | del
+      |              |                       |                    |  | segmento
+      |              +---------------------> | Dirección Lineal   |  | (límite)
+      |                                      |        ^           |  | Máx 64 KB
+      |              +                       |        |           |  |
+      |                                      |        |           |  |
+      +------------ base   ----------------->|--------|-----------|--+ Base del
+          El selector almacena la base       |        |           |    segmento
+          del segmento dividida en 16.       |        |           |      ^
+          El procesador multiplica el        |        |           |      |
+          valor del selector por 16 para     |        |           |      |
+          hallar la base del segmento.       |        |           |      |
+                                           0 +--------------------+      -
+
+@endverbatim  
+
+@par Modo Plano (Flat)
+
+El modo plano es otro caso especial del modo segmentado. La memoria en este 
+modo se presenta como un espacio continuo de direcciones 
+(espacio lineal de direcciones).  Para procesadores de 32 bits, este espacio 
+abarca desde el byte 0 hasta el byte 2^32 (4GB).
+En la práctica, el modo plano se puede activar al definir segmentos que ocupan 
+todo el espacio lineal (con base = 0 y un tamaño igual al máximo tamaño 
+disponible).
+
+Dado que en este modo se puede ignorar la base del segmento (al considerar 
+que siempre inicia en 0), el desplazamiento en una dirección lógica es igual 
+a la dirección lineal (Ver figura).
+  
+
+@verbatim
+
+
+   Dirección Lógica                           Espacio lineal de direcciones
+   +-------+  +---------------+         4 GB +--------------------+-+
+   | sel   |  |   offset      |              |                    | |
+   +-------+  +---------------+              |                    | |
+    selector    desplazamiento               |                    | |
+      |              |                       |                    | |
+      |              |                       |                    | |
+      |              |                       |                    | |          
+      |              |                       |                    | |     
+      |              |                       |   Segmento de      | |  Tamaño
+      |              |                       |   Memoria          | |  del
+      |              |   offset              |                    | |  segmento
+      |              +---------------------> | Dirección Lineal   | |    =
+      |                                      |  = offset          | |  Tamaño 
+      |              +                       |        ^           | |  del 
+      |             base = 0                 |        |           | |  espacio
+      |                                      |        |           | |  lineal
+      |   En el modo plano (flat), el        |        |           | |  de      
+      |   segmento tiene como base 0 y como  |        |           | |direcciones
+      |   límite el tamaño del espacio       |        |           | |     
+      |   lineal de direcciones.             |        |           | |     
+      |                                      |        |           | |     
+      +----------------------------------->0 +--------------------+-+     
+
+@endverbatim 
+
+  @see @ref bios_and_booting
+  @see @ref protected_mode_setup 
+
+      
+  @see http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html (Enlace externo)
+
+*/

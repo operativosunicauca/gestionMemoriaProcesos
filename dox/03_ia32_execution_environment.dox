@@ -1,0 +1,387 @@
+/**
+@page ia32_execution_environment Entorno de ejecución en IA-32
+@author Erwin Meza Vega <emezav@gmail.com>
+
+@ref project_start : @ref ia32_intro : Entorno de Ejecución
+
+Cualquier programa o tarea a ser ejecutado en un procesador de arquitectura 
+IA-32 cuenta con un entorno de ejecución compuesto por un espacio de 
+direcciones de memoria y un conjunto de registros. A continuación se describen 
+estos componentes.
+
+@section ia32_linear_memory Espacio Lineal de Direcciones
+
+En la arquitectura IA-32 la memoria puede ser vista como una secuencia lineal 
+(o un arreglo) de bytes, uno tras del otro. A cada byte le corresponde una 
+dirección única (Ver figura).
+
+@verbatim
+
+                 Espacio Lineal de Direcciones
+                +------------------------------+
+                |                              |
+                |                              |
+                |                              |
+                |                              |
+                |                              |
+                |                              |
+                |                              |
+                |                              |
+                +------------------------------+
+                | Valor (byte)                 |<-- Siguiente dirección lineal
+                +------------------------------+
+                | Valor (byte)                 |
+                +------------------------------+<--+
+                |                              |   | Dirección lineal
+                |                              |   | (desplazamiento desde el
+                |                              |   | inicio del espacio lineal)
+                |                              |   |
+                |                              |   |
+                +------------------------------+   |
+
+
+@endverbatim
+     
+ 
+
+El código dentro de una tarea o un programa puede referenciar un espacio lineal
+de direcciones tan grande como lo permitan los registros del procesador. Por
+ejemplo, en modo real sólo es posible acceder a los 64 KB dentro de un segmento
+definido (2^16 = 64 KB), y en modo protegido de 32 bits se puede acceder a un
+espacio lineal de hasta 4 GB (2^32 = 4 GB). 
+  
+Este espacio lineal puede estar mapeado directamente a la memoria física. Si el 
+procesador cuenta con las extensiones requeridas, es posible acceder a un 
+espacio físico de hasta 64 Gigabytes.
+
+Se debe recordar que la arquitectura IA-32 siempre hace uso de un modelo de
+memoria segmentado, sin importar su modo de operación 
+(@ref ia32_memory_organization). Los sistemas operativos actuales optan por
+usar un modelo plano (Flat) en modo protegido, por lo cual pueden tener acceso
+a todo el espacio lineal de direcciones.
+
+
+@section ia32_io_memory Espacio de Direcciones de Entrada / Salida
+
+Los procesadores IA-32 incluyen otro espacio de direcciones, diferente al 
+espacio lineal de direcciones , llamado espacio de direcciones de 
+Entrada / Salida. A este espacio de 65536 (64K) direcciones se mapean los 
+registros de los controladores de dispositivos de entrada / salida como el 
+teclado, los discos o el mouse (Ver figura). 
+
+@verbatim
+               Espacio de direcciones de E/S
+               
+                     65535           
+  +----------------+
+  |                |
+  |                |               Controlador de           Dispositivo
+  |                |               Dispositivo             (disco, teclado, etc)
+  +----------------+               +---------+              +---------------+
+  |   byte         |<------------- | estado  |<-------------|               |
+  +----------------+               +---------+              |               |
+  |   byte         |<------------- | control |<-------------|               |
+  +----------------+               +---------+              +---------------+
+  |                |
+  |                |
+  +----------------+
+
+@endverbatim 
+
+El acceso al espacio de direcciones de E/S se realiza a través de un par de 
+instrucciones específicas del procesador (in y out). Al leer o escribir un
+byte en una dirección de E/S, el byte se transfiere al puerto correspondiente
+del dispositivo.
+
+Se debe consultar la documentación de cada dispositivo de E/S para determinar
+cuales son las direcciones de E/S a través de las cuales se puede acceder
+a los registros de su controlador.
+
+Por ejemplo, el controlador de teclado (8042) tiene asignadas las siguientes
+direcciones de entrada / salida:
+
+@verbatim
+Dirección de E/S         Operación             Descripción
+0x60                     Lectura               Buffer de entrada
+0x60                     Escritura             Puerto de comandos
+0x64                     Lectura               Registro de Estado del teclado
+0x64                     Escritura             Puerto de comandos
+
+@endverbatim
+
+Este controlador deberá ser programado para habilitar la línea de direcciones
+A20, que en los procesadores actuales se encuentra deshabilitada al inicio para
+permitir la compatibilidad con programas desarrollados para procesadores 
+anteriores.
+
+@section ia32_register_set Conjunto de Registros IA-32
+
+El procesador cuenta con una serie de registros en los cuales puede almacenar 
+datos. Estos registros pueden ser clasificados en:
+- Registros de propósito general: Utilizados para almacenar valores, realizar 
+  operaciones aritméticas o lógicas o para referenciar el espacio de 
+  direcciones lineal o de E/S. En procesadores IA-32 bits existen ocho (8)
+  registros de propósito general, cada uno de los cuales tiene un tamaño de 
+  32 bits. Estos registros son: EAX, EBX, ECX, EDX, ESI, EDI, ESP y EBP. 
+  A pesar que se denominan registros de propósito general, y pueden ser 
+  utilizados como tal, estos registros tienen usos especiales para algunas 
+  instrucciones del procesador. Ppor ejemplo la instrucción DIV (dividir) hace
+  uso especial de los registros EAX y EDX, dependiendo del tamaño del operando. 
+- Registros de segmento: Estos registros permiten almacenar apuntadores al 
+  espacio de direcciones lineal. Los procesadores IA-32 poseen seis (6) 
+  registros de segmento. Estos son: CS (código), DS (datos), ES, FS, GS (datos),
+  y SS (pila). Su uso depende del modo de operación. En modo real, los 
+  registros de segmento almacenan un apuntador a la dirección lineal del 
+  inicio del segmento dividida en 16. En modo protegido se denominan  
+  'selectores', y contienen un apuntador a una estructura de datos en la cual 
+  se describe un segmento de memoria (ver @ref gdt_page).
+- Registro EFLAGS: Este registro de 32 bits contiene una serie de banderas 
+  (flags) que tienen diversos usos. Algunas reflejan el estado del procesador 
+  y otras controlan su ejecución. Existen instrucciones específicas para 
+  modificar el valor de EFLAGS. Otras instrucciones modifican el valor de EFLAGS
+  de forma implícita. Por ejemplo, si al realizar una operación aritmética o 
+  lógica se obtiene como resultado cero, el bit ZF (Zero Flag) del registro
+  EFLAGS se establece en 1, para indicar esta condición. Esta bandera
+  puede ser chequeada para realizar algún tipo de opración o salto dentro
+  del código.
+- Registro EIP: Este registro almacena el apuntador a la dirección lineal de 
+  la siguiente instrucción que el procesador debe ejecutar. Esta dirección
+  es relativa al segmento al cual se referencia con el registro de segmento CS.
+- Registros de control: El procesador posee cinco (5) registros de control 
+  CR0 a CR5. Estos registros junto con EFLAGS controlan la ejecución del 
+  procesador.
+- Registros para el control de la memoria: Estos registros apuntan a las 
+  estructura de datos requeridas para el funcionamiento del procesador en 
+  modo protegido. Ellos son: GDTR, IDTR, TR y LDTR.
+- Registros de depuración: Estos registros contienen información que puede 
+  ser usada para depurar el código que está ejecutando el procesador. 
+  Los procesadores IA-32 cuentan con ocho (8) registros de depuración, DR0 a 
+  DR7.
+- Registros específicos: Cada variante de procesador IA-32 incluye otros 
+  registros, tales como los registros MMX, los registros de la unidad de 
+  punto flotante (FPU) entre otros.
+  
+Algunos registros de propósito general pueden ser sub-divididos en registros 
+más pequeños a los cuales se puede tener acceso. Esto permite la compatibilidad 
+con programas diseñados para procesadores anteriores. 
+
+A continuación se presentan las posibles sub-divisiones de los registros de
+propósito general, considerando procesadores de hasta 64 bits:
+
+@verbatim
+
+64 bits   32 bits   16 bits   8 bits   8 bits
+RAX         EAX        AX       AH        AL
+RBX         EBX        BX       BH        BL
+RCX         ECX        CX       CH        CL
+RDX         EDX        DX       DH        DL
+RSI         ESI        SI       No accesible
+RDI         EDI        DI       No accesible
+RSP         ESP        SP       No accesible
+RBP         EBP        BP       No accesible
+@endverbatim
+
+A nivel de programación, es posible acceder a cada uno de estos sub-registros 
+de acuerdo con el modo de operación. Por ejemplo, para modo de direcciones 
+real, es posible usar los registros de 8 bits y los registros de 16 bits. 
+En modo protegido se puede usar los registros de 8, 16 y 32 bits. 
+Si el procesador cuenta con registros de 64 bits y se encuentra en el modo de 
+64 bits, es posible acceder a los registros de 8, 16, 32 y 64 bits.
+
+La siguiente figura muestra como se encuentran dispuestos los bits de los 
+registros de propósito general. Los registros EBX, ECX y EDX se encuentran 
+dispuestos de la misma forma que EAX. Los registros EDI, ESP Y EBP se disponen 
+de la misma forma que ESI.
+
+@verbatim
+
+             Subdivisión de los registros EAX, EBX, ECX y EDX
+  63                                   31                15         7       0
+  +------------------------------------+-----------------+---------+--------+
+  |                                    |                 |         |        |
+  |                                    |                 |         |        |
+  +------------------------------------+-----------------+---------+--------+
+                                                         |-- AH ---|-- Al --|     
+                                                         |------- AX -------|
+                                       |---------------- EAX ---------------| 
+  |-------------------------------   RAX  ----------------------------------|                     
+
+
+             Subdivisión de los registros ESI, EDI, ESP y EBP
+  63                                   31                15                 0
+  +------------------------------------+-----------------+------------------+
+  |                                    |                 |                  |
+  |                                    |                 |                  |
+  +------------------------------------+-----------------+------------------+
+                                                         |------- SI -------|
+                                       |---------------- ESI ---------------| 
+  |-------------------------------   RSI  ----------------------------------|                     
+
+@endverbatim
+
+
+@par Formato de almacenamiento de datos
+
+El formato de almacenamiento de la arquitectura IA-32 es Little-Endian, lo cual
+significa que los bits menos significativos de un número se almacenan en las 
+posiciones menores de la memoria y de los registros, y los bits más 
+significativos se almacenan en posiciones superiores. La siguiente figura
+muestra cómo se almacena el número 0x7C00 en un registro y en la memoria.
+
+El número 0x7C00 almacenado en un registro se ve así:
+@verbatim
+
+  Número en formato hexadecimal: 0x7C00
+                           
+                Número almacenado en un registro
+           Bit más                                      Bit menos
+           significativo                              significativo
+              15                                              0
+  +-----------------------------------------------------------+
+  | 0| 0| 0| 0| 0| 1| 1| 1| 1| 1| 0| 0| 0| 0| 0| 0| 0| 0| 0| 0| 
+  +-----------------------------------------------------------+
+                                                  |--- 0 -----|
+                                      |--- 0 -----|
+                          |--- C -----|
+               |--- 7 ----|
+               
+ 
+ @endverbatim
+ 
+ El mismo número almacenado en memoria se ve así:
+ 
+ @verbatim
+ 
+ 
+               Número almacenado en memoria
+               Cada dirección de memoria almacena un byte (8 bits)
+               
+               +-----------------------+
+               |  |  |  |  |  |  |  |  |                   ^
+               +-----------------------+                   |  Dirección de 
+               |  |  |  |  |  |  |  |  |                   |  incremento
+               +-----------------------+                   |  en la memoria
+               |  |  |  |  |  |  |  |  |                   |
+               +-----------------------+
+               |  |  |  |  |  |  |  |  |
+               +-----------------------+
+       = 0x7C  | 0| 1| 1| 1| 1| 1| 0| 0|   <-- Dirección mayor de memoria
+               +-----------------------+
+       = 0x00  | 0| 0| 0| 0| 0| 0| 0| 0|   <-- Dirección menor de memoria
+               +-----------------------+           
+  
+@endverbatim
+
+@section ia32_main_registers Registros principales de IA-32
+
+Si bien todos los registros de la arquitectura IA-32 son importantes, existen
+algunos que determinan el modo de ejecución  el estado del procesador. A 
+continuación se presenta el formato de estos registros.
+
+@par Registro EFLAGS
+
+Este registro almacena información del estado del procesador y configura 
+su ejecución. Tiene el formato que se presenta en la siguiente figura.
+
+@verbatim
+
+Registro EFLAGS (32 bits)
+
+
+      31               23              15              7             0
+      +---------------------------------------------------------------+
+      | | | | | | | | | | | |V|V| | | | | |   | | | | | | | | | | | | |
+      |0|0|0|0|0|0|0|0|0|0|I|I|I|A|V|R|0|N|IO |O|D|I|T|S|Z|0|A|0|P|1|C|
+      | | | | | | | | | | |D|P|F|C|M|F| |T|PL |F|F|F|F|F|F| |F| |F| |F|
+      +---------------------------------------------------------------+
+                           | | | | | |   |  |  | | | | | |   |   |   |
+  ID Flag -----------------+ | | | | |   |  |  | | | | | |   |   |   |
+  Virtual Interrupt Pending -+ | | | |   |  |  | | | | | |   |   |   |
+  Virtual Interrupt Flag  -----+ | | |   |  |  | | | | | |   |   |   |
+  Alignment Check ---------------+ | |   |  |  | | | | | |   |   |   |
+  Virtual 8086 Mode ---------------+ |   |  |  | | | | | |   |   |   |
+  Resume Flag -----------------------+   |  |  | | | | | |   |   |   |
+  Nested Task ---------------------------+  |  | | | | | |   |   |   |
+  I/O Privilege Level ----------------------+  | | | | | |   |   |   |
+  Overflow Flag -------------------------------+ | | | | |   |   |   |
+  Direction Flag --------------------------------+ | | | |   |   |   |
+  Interrupt Flag ----------------------------------+ | | |   |   |   |
+  Trap Flag -----------------------------------------+ | |   |   |   |
+  Sign Flag -------------------------------------------+ |   |   |   |
+  Zero Flag ---------------------------------------------+   |   |   |
+  Auxiliary Carry Flag --------------------------------------+   |   |
+  Parity Flag ---------------------------------------------------+   |
+  Carry Flag --------------------------------------------------------+
+  
+@endverbatim
+
+Los bits del registro EFLAGS se pueden clasificar en:
+- Bits de estado: Reflejan el estado actual del procesador.  Son bits de estado:
+  OF, SF, ZF, AF y PF.
+- Bits de control: Controlan de alguna forma la ejecución del procesador. 
+  Dentro de EFLAGS se encuentra el bit DF, que permite controlar la dirección 
+  de avance en las operaciones sobre cadenas de caracteres.
+- Bits del sistema: Los bits ID, VIP, VIF, AC, VM, RF, NT, IOPL, IF y TF son 
+  usados por el procesador para determinar condiciones en su ejecución, o 
+  para habilitar / deshabilitar determinadas características. Por ejemplo, 
+  estableciendo el bit IF en 1 se habilitan las interrupciones, mientras un 
+  valor de 0 en este bit deshabilita las interrupciones. 
+- Bits reservados: Estos bits se reservan por la arquitectura IA-32 para futura
+  expansión. Deben permanecer con los valores que se muestran en la figura 
+  (cero o uno). No se deben usar, ya que es posible que en versiones 
+  posteriores de los procesadores IA-32 tengan un significado específico.
+
+
+@par Registro CR0
+
+A continuación se ilustra el Control Register 0 (CR0). Este registro controla
+aspectos vitales de la ejecución, como el modo protegido y la paginación.
+
+@verbatim
+
+Registro CR0 (32 bits)
+
+
+      31               23        18 16 15              7             0
+      +---------------------------------------------------------------+
+      | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
+      |P|C|N| | | | | | | | | | |A| |W| | | | | | | | | | |N|E|T|E|M|P|
+      |G|D|W| | | | | | | | | | |M| |P| | | | | | | | | | |E|T|S|M|P|E|
+      +---------------------------------------------------------------+
+       | | |                     |  |                      | | | | | |
+       +-|-|-- Paging            |  |                      | | | | | |
+         | |                     |  |                      | | | | | |
+         +-|-- Cache Disable     |  |                      | | | | | |
+           |                     |  |                      | | | | | |
+           +-- Non-write through |  |                      | | | | | |
+                                 |  |                      | | | | | |
+  Alignment Mask ----------------+  |                      | | | | | |
+  Write Protect --------------------+                      | | | | | |
+  Numeric Error -------------------------------------------+ | | | | |
+  Extension Type --------------------------------------------+ | | | |
+  Task Switched -----------------------------------------------+ | | |
+  Emulation -----------------------------------------------------+ | |
+  Monitor Coprocessor ---------------------------------------------+ |
+  Protection Enable -------------------------------------------------+
+  
+@endverbatim
+
+Los bits más importantes de CR0 desde el punto de vista de programación son el 
+bit 0 (Protection Enable – PE), y el bit 31 (Paging – PG). Estos permiten 
+habilitar el modo protegido y la paginación, respectivamente.
+
+No obstante antes de pasar a modo protegido y de habilitar la paginación se 
+deben configurar unas estructuras de datos que controlan la ejecución del 
+procesador. 
+
+Para habilitar el modo protegido se deberá tener configurada de antemano una
+@ref gdt_page. Esta tabla deberá ser configurada por el cargador de arranque
+o por el código inicial del kernel.
+  @see @ref ia32_assembly_basics
+  @see @ref ia32_operation_modes
+  @see @ref bios_and_booting
+  @see @ref protected_mode_setup 
+      
+  @see http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html (Enlace externo)
+
+*/

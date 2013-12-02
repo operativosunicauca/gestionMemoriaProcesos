@@ -1,0 +1,709 @@
+/**
+@page interrupts_exceptions_irq Gestión de Interrupciones, Excepciones e IRQ
+@author Erwin Meza Vega <emezav@gmail.com>
+
+@ref project_start : Gestión de Interrupciones, Excepciones e IRQ
+
+En la arquitectura IA-32 se definen tres fuentes básicas de interrupción:
+- Excepciones: Son condiciones de error que se presentan en la ejecución. Por 
+  ejemplo, al realizar una división por cero se lanza la excepción Division By
+  Zero. Es una interrupción generada internamente por el procesador.
+- Interrupciones de los dispositivos de hardware (discos, teclado, floppy, etc).
+  Los dispositivos de hardware realizan solicitudes de interrupción (Interrupt
+  Request - IRQ). Cada IRQ tiene asociado un número de interrupción predefinido,
+  pero es posible cambiarlo por programación.
+- Interrupciones por software, generadas mediante la instrucción
+@verbatim
+  int N
+@endverbatim
+  donde N es el número de interrupción.
+
+La arquitectura IA-32 soporta 256 interrupciones. De estas, las 32 primeras 
+(número 0 a 31) se asignan por defecto a las excepciones del procesador. 
+
+A continuación se muestra una descripción de las interrupciones para IA-32.
+
+@verbatim
+Número de    | Descripción
+Interrupción |
+(dec/hex)    |
+-------------|-------------------------------------------------
+  0  0x00    | Divide error:
+             | Ocurre durante una instrucción DIV, cuando el divisor
+             | es cero o cuando ocurre un desbordamiento del cociente.
+             | Esta excepción no genera código de error.
+
+  1  0x01    | (Reservada)
+             | Esta excepción no genera código de error.  
+
+  2  0x02    | Nonmaskable interrupt:
+             | Ocurre debido a una interrupcion de hardware que no se puede
+             |  enmascarar.
+             | Esta excepción no genera código de error.
+
+  3  0x03    | Breakpoint:
+             | Ocurre cuando el procesador encuentra una instrucción INT 3
+             | Esta excepción no genera código de error.
+
+  4  0x04    | Overflow:
+             | Ocurre cuando el procesador encuentra una instrucción INTO
+             | y el bit OF (Overflow) del registro EFLAGS se encuentra activo.
+             | Esta excepción no genera código de error.
+
+  5  0x05    | Bounds check (BOUND instruction):
+             | Ocurre cuando el procesador, mientras ejecuta una instrucción
+             | BOUND, encuentra que el operando excede el límite especificado.
+             | Esta excepción no genera código de error.
+
+  6  0x06    | Invalid opcode:
+             | Ocurre cuando se detecta un código de operación inválido.
+             | Esta excepción no genera código de error.
+
+  7  0x07    | Device Not Available (No Math Coprocessor)
+             | Ocurre para alguna de las dos condiciones:
+             | - El procesador encuentra una instrucción ESC (Escape)
+             |   y el bit EM (emulate) bit de CR0 (control register zero)
+             |   se encuentra activo.
+             | - El procesador encuentra una instrucción WAIT o una instrucción
+             |   ESC y los bits MP (monitor coprocessor) y TS (task switched)
+             |   del registro CR0 se encuentran activos.
+             | Esta excepción no genera código de error.
+
+  8  0x08    | Double fault:
+             | Ocurre cuando el procesador detecta una excepción mientras trata
+             | de invocar el manejador de una excepción anterior.
+             | Esta excepción genera un código de error.
+
+  9  0x09    | Coprocessor segment overrun:
+             | Ocurre cuando se detecta una violación de página o segmento
+             | mientras se transfiere la porción media de un operando de 
+             | coprocesador al NPX.
+             | Esta excepción no genera código de error.
+
+ 10  0xA     | Invalid TSS:
+             | Ocurre si el TSS es inválido al tratar de cambiar de tarea (Task 
+             |  switch).
+             | Esta excepción genera código de error.
+
+ 11  0xB     | Segment not present:
+             | Ocurre cuando el procesador detecta que el bit P (presente) de un
+             | descriptor de segmento es cero.
+             | Esta excepción genera código de error.
+
+ 12  0xC     | Stack exception:
+             | Ocurre para las siguientes condiciones:
+             | - Como resultado de una violación de límite en cualquier operación
+             |   que se refiere al registro de segmento de pila (SS)
+             | - Cuando se trata de establecer SS con un selector cuyo descriptor
+             |   asociado se encuentra marcado como no presente, pero es válido
+             | Esta excepción genera código de error.
+
+ 13  0xD     | General protection violation (GP):
+             | Cada violación de protección que no causa otra excepción
+             | causa una GP.
+             | - Exceder el límite de segmento para CS, DS, ES, FS, o GS
+             | - Exceder el límite de segmento cuando se referencia una tabla de
+             |   descriptores
+             | - Transferir el control a un segmento que no es ejecutable
+             | - Escribir en un segmento de datos de sólo lectura o en un 
+             |   segmento de código
+             | - Leer de un segmento marcado como sólo de ejecución
+             | - Cargar en SS un selector que referencia a un segmento de sólo 
+             |   lectura
+             | - Cargar SS, DS, ES, FS, o GS con un selector que referencia a un
+             |   descriptor de tipo "sistema"
+             | - Cargar DS, ES, FS, o GS con un selector que referencia a un 
+             |   descriptor de segmento marcado como ejecutable que además no se
+             |   puede leer
+             | - Cargar en SS un selector que referencia un descriptor  de 
+             |   segmento ejecutable
+             | - Acceder a la memoria por medio de DS, ES, FS, o GS cuando estos
+             |   registros de segmento contienen un selector nulo
+             | - Pasar la ejecución (task switch) a una tarea marcada como "Busy"
+             | - Violar las reglas de privilegios
+             | - Cargar CR0 con los bits PG=1 y PE=0 (habilitar la paginación y
+             |      no habilitar el modo protegido)
+             | - Lanzar una interrupción o una excepción a través de un trap 
+             |   gate desde Modo Virtual 8086 a un privilegio (DPL) diferente 
+             |   de cero 
+             | Esta excepción genera código de error.
+
+ 14  0xE     | Page fault:
+             | Ocurre cuando la paginación está habilitada (PG = 1) en CR0
+             | y el procesador detecta alguna de las siguientes condiciones
+             | cuando trata de traducir una dirección lineal a física:
+             | - El directorio de tabla de páginas o la tabla de páginas requerido
+             |   para realizar la traducción tiene 0 en su bit de presente (P)
+             | - El procedimiento actual no tiene los suficientes privilegios para
+             |   acceder la página indicada.
+             | Esta excepción genera código de error.
+
+ 15  0xF     | (Reservada)
+             | Esta excepción no genera código de error.
+
+ 16  0x10    | x87 FPU Floating-Point Error (Math Fault)
+             | Ocurre cuando el procesador detecta una señal del coprocesador en el
+             | pin de entrada ERROR#.
+
+ 17  0x11    | Alignment Check
+             | Ocurre cuando se realiza una referencia de datos en la memoria a 
+             | una región no alineada.
+             | Esta excepción genera código de error.
+ 
+ 18  0x12    | Machine Check
+             | Depende del modelo y las características del procesador.
+             | Esta excepción no genera código de error.
+          
+ 19  0x23    | SIMD Floating-Point Exception
+             | Ocurre cuando existe un error en las instrucciones SSE/SSE2/SSE3.
+             | Esta excepción no genera código de error.
+          
+
+ 20  0x24    | Reservadas por Intel.
+  hasta      |
+ 31  0x1F    | Estas excepciones no generan código de error.
+             |
+             
+              
+ 32  0x20    | Interrupción externa o interrupción invocada mediante la
+  hasta      | instrucción INT N
+ 255 0xFF    | Estas interrupciones no generan código de error
+ 
+ 
+@endverbatim
+@note Tabla adaptada de Intel® 64 and IA-32 Architectures Software Developer's 
+Manual Volume 3A: System Programming Guide, Part 1. Sección 5.3.1.
+
+@section idt_structure Tabla de Descriptores de Interrupción (IDT)
+
+La IDT es una estructura de datos que usa el procesador en el momento en que
+ocurre la interrupción, y que debe estar configurada antes de habilitar las
+interrupciones. Es una tabla que contiene una serie de entradas denominadas 
+"descriptores", que definen entre otros parámetros la dirección de memoria
+en la cual se encuentra cada rutina de manejo de interrupción.
+
+El siguiente esquema muestra la IDT y las rutinas de manejo de interrupción
+en memoria:
+
+@verbatim
+
+        +------------------------------+
+        |                              |
+        |                              |
+        +------------------------------+
+        | Rutina de manejo de          |<------+
+        | interrupción 255             |       |
+        +------------------------------+       |
+        |                              |       |
+        | ...                          |       |
+        +------------------------------+       |
+        | Rutina de manejo de          |       |
+        | interrupción 2               |       |
+        +------------------------------+       |
+        | Rutina de manejo de          |<----+ |
+        | interrupción 1               |     | |
+        +------------------------------+     | |
+        | Rutina de manejo de          | <-+ | |
+        | interrupción 0               |   | | |
+        +------------------------------+   | | |
+        |                              |   | | |
+        |                              |   | | |
+        |                              |   | | |
+        +------------------------------+   | | |
+        | Descriptor de Interrupción   |<------+
+        | 255                          |   | |  
+        +------------------------------+   | |  
+        | ...                          |   | |  
+        |                              |   | |
+        +------------------------------+   | |
+        | Descriptor de Interrupción   |<----+
+        | 1                            |   |
+        +------------------------------+   |
+        | Descriptor de Interrupción   |<--+
+        | 0                            |
+        +------------------------------+ <--- Inicio de la Tabla de Descriptores
+        |                              |      de Interrupción (IDT)
+        |                              |
+        |                              |
+        |                              |
+        |                              |
+        +------------------------------+         
+
+@endverbatim
+
+La IDT está conformada por 256 descriptores, uno para cada interrupción. Cada 
+descriptor ocupa 8 bytes, y puede ser de uno de los siguientes tipos:
+ - Task-Gate 
+ - Interrupt-Gate
+ - Trap-Gate
+
+Cada entrada tiene el siguiente formato:
+
+@verbatim
+
+ 31                23               15--FLAGS---------- 7                0
+ +-----------------------------------+-+-----+---------+-----+---------+
+ |                                   | |     | TYPE    |  (ALWAYS 0)   |
+ |           OFFSET 31..16           |P| DPL |0 D 1 1 0|0 0 0 0 0 0 0 0| 4
+ |                                   | |     |         |               |
+ +-----------------------------------+-+-----+---------+---------------+
+ |                                   |                                 |
+ |            SELECTOR               |          OFFSET 15..0           | 0
+ |                                   |                                 |
+ +-----------------------------------+---------------------------------+
+
+@endverbatim
+
+En donde:
+- Offset: Desplazamiento (offset) en el cual se encuentra la rutina de manejo 
+        de interrupción (la dirección de memoria de la rutina) dentro de
+        un segmento de código.
+- Selector: Selector que referencia al descriptor de segmento de código en la 
+        GDT dentro del cual se encuentra la rutina de manejo de interrupción.
+- D		: Tipo de descriptor : (0=16 bits), (1=32 bits)
+- FLAGS :  compuesto por los bits P (1 bit), DPL (2 bits) y TYPE (5 bits).
+Para un interrupt gate, el valor de FLAGS es 0x8E = 10001110 (P = 1, DPL = 0,
+D = 1) 
+
+La dirección lógica segmento : offset que se obtiene del descriptor se traduce
+a una dirección lineal. Si la paginación se encuentra deshabilitada (por 
+defecto), la dirección lineal es la misma dirección física en la cual se 
+encuentra la rutina que atenderá la interrupción.
+
+
+@par Carga de la IDT
+
+Para cargar la IDT se utiliza la instrucción de ensamblador
+  @code 
+  lidt ptr_addr
+  @endcode
+ 
+La instrucción idt toma el puntero y lo carga en el registro IDTR del 
+procesador. ptr_addr corresponde a la dirección de memoria en la cual se 
+encuentra una estructura de datos que describe la IDT. Esta estructura de 
+datos se denomina 'puntero a la IDT', 'IDT Pointer'.
+
+El puntero al IDT tiene el siguiente formato:
+@verbatim
+ 47                  15              0
+ +----------------------------------+
+ |      base         |    límite    |
+ +----------------------------------+
+
+@endverbatim
+ en donde:
+ base = dirección lineal de la IDT, que corresponde a la dirección
+ de memoria de IDT.
+
+ límite = tamaño de la IDT en Bytes. Si la IDT tiene 256 entradas y el
+ tamaño de cada entrada es de 8 bytes, el tamaño total de la IDT
+ es de 2048 bytes (2 KB).
+
+@section interrupt_management Gestión de Interrupciones en IA-32
+
+Cuando ocurre una interrupción (0 a 255), el procesador busca en la IDT la
+rutina que la atenderá. La función setup_idt() ha configurado la IDT para que
+se ejecute la rutina isrN cuando ocurre la interrupción N. Estas rutinas se 
+definen en ensamblador en el archivo isr.S.
+
+Las rutinas isr0 ... isr255 almacenan el estado actual del procesador, y 
+también el número de la interrupción que ocurrió. Estas rutinas guardan el 
+apuntador al tope de la pila en el cual se encuentra el estado del procesador
+en las variables globales current_ss y current_esp, y luego invocan a la función
+interrupt_dispatcher() implementada en idt.c.
+
+La rutina interrupt_dispatcher toma el marco de pila y extrae el número de
+la interrupción que ocurrió. Con este valor busca dentro de la tabla de
+manejadores de interrupción (la variable @ref interrupt_handlers) el
+apuntador a la rutina que manejará la interrupción correspondiente.
+
+Si encuentra un apuntador válido, invoca la rutina de manejo de interrupción.
+Cuando esta rutina termina, retorna de nuevo el control a 
+interrupt_dispatcher().
+
+A su vez, interrupt_dispatcher() retorna a la función isrN que la invocó.
+
+Luego, la función isrN invoca a la función return_from_interrupt() (isr.S), 
+la cual recupera el estado del procesador y retorna de la interrupción al
+sitio en el cual la ejecución fue interrumpida.
+
+
+@verbatim
+
+             Esquema general del Manejo de Interrupciones
+
+   La función interrupt_dispatcher()              +-----------------------+
+   busca dentro del arreglo                       |                       |
+   interrupt_handlers                     +------>| Función para atender  |
+   el apuntador a la rutina de            |       | la interrupción N     |
+   manejo de interrupción                 |       |                       |
+   (handler) N.                           |   +---+-----------------------+
+                                          |   |               
+interrupt_handlers (idt.c)                |   v
+   +--------------------------------------------------------------------------+
+   | * handler 0 | * handler 1 | ... | *handler N | ...  | ...  | handler 255 |
+   +--------------------------------------------------------------------------+ 
+                                         |   |  La función de manejo de 
+      Todas las ISR establecen un        |   |  interrupción retorna el control
+      marco de pila estándar e           |<--+        
+      invocan a la función          interrupt_dispatcher()
+      interrupt_dispatcher()             ^   
+                                         |--------+------+--------------+
+IDT (idt.c)                              |        |      |              |
+    +------------------------------------------------------------------------+
+    | isr0 | isr1 | ... | isr31 | ... | isrN  | isr47 | isr48 | ... | isr255 |
+    +------------------------------------------------------------------------+
+                                        ^
+                                        |
+                        Interrupción N -+
+          
+@endverbatim
+
+@par Instalar y Desinstalar Manejadores de Interrupción
+
+Para instalar un nuevo manejador de interrupción, se debe invocar a la función 
+install_interrupt_handler() definida en el archivo idt.c. Esta función 
+recibe como parámetro el número de interrupción, y el apuntador a la rutina
+que manejará la interrupción. Este apuntador se almacena en la posición 
+correspondiente en el arreglo (la tabla) @ref interrupt_handlers.
+
+Para desinstalar un manejador de interrupción, se debe especificar el número de 
+interrupción. Esta función elimina el apuntador correspondiente en el arreglo 
+(la tabla) @ref interrupt_handlers.
+
+@section exception_management Gestión de Excepciones
+
+Para gestionar las excepciones se agrega una capa de abstracción adicional.
+Luego de configurar las 255 rutinas manejadoras de interrupción (setup_idt())
+el código  del kernel en cmain() invoca a la función setup_exceptions().
+
+Esta función configura las entradas 0 a 31 de la tabla interrupt_handlers con
+apuntadores a la función exception_dispatcher(). Esta función permite 
+centralizar la gestión de excepciones.
+
+De forma similar al arreglo @ref interrupt_handlers de idt.c que permite 
+almacenar los apuntadores a las funciones que manejarán las 255 interrupciones
+IA-32, en el archivo exception.c se define el arreglo (la tabla) 
+@ref exception_handlers que almacena los apuntadores a las funciones que
+manejarán las 32 excepciones IA-32.
+
+@par Proceso de gestión de una excepción
+
+A continuación se describe el proceso para gestionar una excepción.
+
+-# Cuando ocurre una excepción N (interrupción 0 a 31), se ejecuta la rutina 
+   isrN ( 0 <= N <= 31) correspondiente (configurada en setup_idt()).
+-# La rutina isrN crea el marco de pila en el cual almacena el estado del 
+   procesador, guarda el apuntador actual a la pila (current_ss y current_esp)
+   e invoca a la función interrupt_dispatcher().
+-# La función interrupt_dispatcher() busca dentro de la tabla 
+   @ref interrupt_handlers el apuntador a la rutina de manejo de interrupción.
+   Debido a que la función setup_exceptions() ha configurado las entradas 0 a 31
+   para que apunten a la función exception_dispatcher() (exception.c), se 
+   invoca esta función.
+-# La función  exception_dispatcher() busca dentro de la tabla 
+   @ref exception_handlers el apuntador a la función que manejará la excepción
+   correspondiente (que se configura con la función install_exception_handler()
+   en el archivo exception.c). Si existe un manejador de excepción, se invoca. 
+   En caso contrario, imprime un error y entra en un ciclo infinito.
+-# Cuando la rutina de manejo de excepción termina, retorna el control a la
+   función exception_dispatcher(). Esta a su vez retorna el control a 
+   interrupt_dispatcher(), la cual retorna a la función isrN definida en isr.S.
+-# Luego de recibir el control de interrupt_dispatcher(), la rutina isrN 
+   invoca a la función return_from_interrupt() definida en isr.S. Esta 
+   función recupera el estado del procesador y retorna al sitio en el cual
+   el procesador fue interrumpido. 
+
+@verbatim
+
+             Esquema general del Manejo de Excepciones
+             
+             
+ La función exception_dispatcher()                +-----------------------+
+   busca dentro del arreglo                       | Rutina de manejo de   |
+   exception_handlers                     +------>| la excepción N        |
+   el apuntador a la rutina de            |       |                       |
+   manejo de excepción                    |       |                       |
+   (handler) N.                           |   +---+-----------------------+
+                                          |   |               
+exception_handlers (exception.c)          |   v
+   +--------------------------------------------------------------------------+
+   | * handler 0 | * handler 1 | ... | *handler N | ...  | ...  | handler 31  |
+   +--------------------------------------------------------------------------+
+                                           ^    | 
+                                           |	|
+                                           N    |
+                                           |    v
+                                           +-----------------+          
+                                                             |
+   La función interrupt_dispatcher()              +-----------------------+
+   busca dentro del arreglo                       | Las entradas 0 a 31   |
+   interrupt_handlers                     +------>| de interrupt_handlers |
+   el apuntador a la rutina de            |       | apuntan a la rutina   |
+   manejo de interrupción                 |       | exception_dispatcher  |
+   (handler) N.                           |   +---+-----------------------+
+                                          |   |               
+interrupt_handlers (idt.c)                |   v
+   +--------------------------------------------------------------------------+
+   | * handler 0 | * handler 1 | ... | *handler N | ...  | ...  | handler 255 |
+   +--------------------------------------------------------------------------+ 
+                                         |   |  La función de manejo de 
+      Todas las ISR establecen un        |   |  interrupción retorna el control
+      marco de pila estándar e           |<--+        
+      invocan a la función          interrupt_dispatcher()
+      interrupt_dispatcher()             ^
+                                         |    
+                           +-------------+                              
+IDT (idt.c)                |                        
+    +------------------------------------------------------------------------+
+    | isr0 | isr1 | ... | isrN  | isr31 | ... | isr47 | isr48 | ... | isr255 |
+    +------------------------------------------------------------------------+
+                            ^
+                            |
+     Excepción N (0-31) ----+
+          
+@endverbatim
+
+@par Instalar y Desinstalar Manejadores de Excepción
+
+Para instalar un nuevo manejador de excepción, se debe invocar a la función 
+install_exception_handler(() definida en el archivo exception.c. Esta función 
+recibe como parámetro el número de excepción, y el apuntador a la rutina
+que manejará la excepción. Este apuntador se almacena en la posición 
+correspondiente en el arreglo (la tabla) @ref exception_handlers.
+
+Para desinstalar un manejador de excepción, se debe especificar el número de 
+excepción. Esta función elimina el apuntador correspondiente en el arreglo 
+(la tabla) @ref exception_handlers.
+
+@section irq_management Gestión de Solicitudes de Interrupción - IRQ
+
+Cuando un dispositivo de Entrada / Salida requiere atención, lanza una 
+Solicitud de Interrupción (Interrupt Request - IRQ). Estas IRQ son recibidas por
+un dispositivo llamado el PIC PIC (Programmable Interrupt Controller). El 
+trabajo del PIC consiste en recibir y priorizar las IRQ recibidas, y enviar una
+señal de interrupción a la CPU. 
+
+En la arquitectura IA-32 el sistema cuenta con dos controladores PIC, uno 
+llamado "Maestro" y otro "Esclavo", que se encuentra conectado en cascada al 
+PIC Maestro. Cada PIC puede atender 8 líneas de IRQ, por lo tanto se pueden
+atender hasta 16 solicitudes.
+
+Al arranque del sistema, las líneas de interrupción IRQ0 a IRQ 5 se encuentran 
+mapeadas a las interrupciones numero 0x8 a 0xF. Las líneas de interrupción
+IRQ8 a IRQ 15 se encuentran mapeadas a las interrupciones 0x70 a 0x77.
+
+@par Lista de Solicitudes de Interrupción
+
+La lista de IRQ es la siguiente:
+
+@verbatim
+
+                Número de 
+    IRQ        Interrupción   Descripción
+    ----      -------------   ---------------------------------------
+    IRQ0         0x08         Timer 
+    IRQ1         0x09         Teclado 
+    IRQ2         0x0A         Cascade para el PIC esclavo 
+    IRQ3         0x0B         Puerto serial 2 
+    IRQ4         0x0C         Puerto serial 1
+    IRQ5         0x0D         AT: Puerto paralelo2  PS/2 : reservado 
+    IRQ6         0x0E         Diskette 
+    IRQ7         0x0F         Puerto paralelo 1 
+    IRQ8/IRQ0    0x70         Reloj de tiempo real del CMOS 
+    IRQ9/IRQ1    0x71         Refresco vertical de CGA 
+    IRQ10/IRQ2   0x72         Reservado 
+    IRQ11/IRQ3   0x73         Reservado 
+    IRQ12/IRQ4   0x74         AT: reservado. PS/2: disp. auxiliar 
+    IRQ13/IRQ5   0x75         FPU (Unidad de Punto Flotante) 
+    IRQ14/IRQ6   0x76         Controlador de disco duro 
+    IRQ15/IRQ7   0x77         Reservado
+  
+@endverbatim  
+
+Al observar la tabla anterior, se hace evidente que existe un problema:
+las interrupciones 0x8 a 0x0F también son utilizadas para las excepciones de la 
+arquitectura IA-32, ya que éstas siempre ocupan las interrupciones 0-31.
+
+Por esta razón, es necesario reprogramar el PIC para que las interrupciones de 
+entrada/salida se mapeen después de las excepciones de IA-32, es decir desde la 
+interrupción numero 32 en adelante. A la IRQ 0 (Timer) le corresponderá
+la interrupción número 32, y asi sucesivamente.
+
+A continuación se presenta el proceso, que se implementa en la función
+irq_remap() del archivo irq.c. Esta función es invocada por setup_irq() en el
+momento de configurar la IRQ.
+
+@verbatim
+   /* Initialization Command Word 1 - ICW1
+	Esta es la palabra primaria para inicializar el PIC.
+	Para inicializar el PIC se requiere que los bits 0 y 4 de ICW1 esten en
+	1 y los demas en 0. Esto significa que el valor de ICW1 es 0x11.
+	ICW1 debe ser escrita en el  registro de comandos del PIC maestro
+	(dirección de e/s 0x20). Si existe un PIC esclavo, ICW1 se debe enviar
+	tambien su registro de comandos del PIC esclavo (0xA0)
+	*/
+
+	outb(MASTER_PIC_COMMAND_PORT, 0x11);
+	outb(SLAVE_PIC_COMMAND_PORT, 0x11);
+
+	/* Initialization Command Word 2 - ICW2
+	Esta palabra permite definir la dirección base (inicial) en la tabla de
+	descriptores de interrupcion que el PIC va a utilizar.
+
+	Debido a que las primeras 32 entradas estan reservadas para las
+	excepciones en la arquitectura IA-32, ICW2 debe contener un valor mayor o
+	igual a 32 (0x20). Los valores  de ICW2 representan el numero de IRQ
+	base que manejara el PIC
+
+	Al utilizar los PIC en cascada, se debe enviar ICW2 a los dos
+	controladores en su registro de datos (0x21 y 0xA1 para maestro y
+	esclavo respectivamente), indicando la dirección en la IDT que va a ser
+	utilizada por cada uno de ellos.
+
+	Las primeras 8 IRQ van a ser manejadas por el PIC maestro y se mapearan
+	a partir del numero 32 (0x20). Las siguientes 8 interrupciones las manejara
+	el PIC esclavo, y se mapearan a partir de la interrupcion 40 (0x28).
+	*/
+
+	outb(MASTER_PIC_DATA_PORT, IDT_IRQ_OFFSET);
+	outb(SLAVE_PIC_DATA_PORT, IDT_IRQ_OFFSET + 8);
+
+	/* Initialization Control Word 3 - ICW3
+	Esta palabra permite definir cuales lineas de IRQ van a ser compartidas
+	por los PIC maestro y esclavo. Al igual que ICW2, ICW3 tambien se
+	escribe en los 	registros de datos de los PIC (0x21 y 0xA1 para el PIC
+	maestro y esclavo,respectivamente).
+
+	Dado que en la arquitectura Intel el PIC maestro se conecta con el PIC
+	esclavo por medio de la linea IRQ 2, el valor de ICW3 debe ser 00000100
+	(0x04), que define el bit 3 (correspondiente a la linea IRQ2) en 1.
+
+	Para el PIC esclavo, el numero de la linea se debe representar en
+	notacion binaria. Por lo tanto, 000 corresponde a la linea de IRQ 0,
+	001 corresponde a la linea de IRQ 1, 010 corresponde a la linea de
+	IRQ 2, y asi sucesivamente.
+	Debido a que se va a utilizar la linea de IRQ 2, el valor de ICW3
+	para el PIC esclavo debe ser 00000010, (0x02).
+	*/
+
+	outb(MASTER_PIC_DATA_PORT, 0x04);
+	outb(SLAVE_PIC_DATA_PORT, 0x02);
+
+	/* Initialization Control Word 4 - ICW4
+	Para ICW4 solo es necesario establecer su bit 0 (x86 mode) y escribirla
+	en los registros de datos del PIC maestro y esclavo (0x21 y 0xA1).
+	El valor de ICW4 debe ser entonces 00000001, es decir, 0x01.
+	*/
+	outb(MASTER_PIC_DATA_PORT, 0x01);
+	outb(SLAVE_PIC_DATA_PORT, 0x01);
+
+	/* Se han mapeado las IRQ!.
+	 * Las IRQ 0-7 seran atendidas por el PIC maestro, y las IRQ 8-15
+	 * por el PIC esclavo. Las IRQ0-15 estaran mapeadas en la IDT a partir
+	 * de la entrada 32 hasta la 47.*/
+@endverbatim
+
+@par Rutina para la gestión de las IRQ
+
+Luego de re-configurar el PIC para que las 16 IRQ generen las interrupciones
+32 a 47, la función setup_irq() configura estas entradas en la tabla
+@ref interrupt_handlers para que apunten a la función irq_dispatcher() definida
+en el archivo irq.c. Esta rutina, similar a exception_dispatcher() permite
+centralizar el manejo de las IRQ.
+
+@par Instalar y Desinstalar Manejadores de IRQ
+
+Para instalar un nuevo manejador de IRQ, se debe invocar a la función 
+install_irq_handler() definida en el archivo irq.c. Esta función recibe
+como parámetro el número de la IRQ (0 a 15), y el apuntador a la rutina
+que manejará la IRQ. Este apuntador se almacena en la posición correspondiente
+en el arreglo (la tabla) @ref irq_handlers.
+
+Para desinstalar un manejador de IRQ, se debe especificar el número de IRQ.
+Esta función elimina el apuntador correspondiente en el arreglo (la tabla)
+@ref irq_handlers.
+
+ @par Proceso de gestión de una IRQ
+
+A continuación se describe el proceso para gestionar una excepción.
+
+-# Cuando ocurre una IRQ N (interrupción 32 a 47), se ejecuta la rutina 
+   isrN ( 32 <= N <= 74) correspondiente (configurada en setup_idt()).
+-# La rutina isrN crea el marco de pila en el cual almacena el estado del 
+   procesador, guarda el apuntador actual a la pila (current_ss y current_esp)
+   e invoca a la función interrupt_dispatcher().
+-# La función interrupt_dispatcher() busca dentro de la tabla 
+   @ref interrupt_handlers el apuntador a la rutina de manejo de interrupción.
+   Debido a que la función setup_irq() ha configurado las entradas 32 a 47
+   para que apunten a la función irq_dispatcher() (irq.c), se 
+   invoca esta función.
+-# La función  irq_dispatcher() busca dentro de la tabla 
+   @ref irq_handlers el apuntador a la función que manejará la IRQ
+   correspondiente (que se configura con la función install_irq_handler() en
+   el archivo irq.c). Si existe un manejador de IRQ, se invoca. En
+   caso contrario, la función irq_dispatcher() retorna.
+-# Cuando la rutina de manejo de IRQ termina, retorna el control a la
+   función irq_dispatcher(). Esta a su vez retorna el control a 
+   interrupt_dispatcher(), la cual retorna a la función isrN definida en isr.S.
+-# Luego de recibir el control de interrupt_dispatcher(), la rutina isrN 
+   invoca a la función return_from_interrupt() definida en isr.S. Esta 
+   función recupera el estado del procesador y retorna al sitio en el cual
+   el procesador fue interrumpido. 
+
+@verbatim
+
+             Esquema general del Manejo de IRQ
+             
+             
+ La función irq_dispatcher()                      +-----------------------+
+   busca dentro del arreglo                       | Rutina de manejo de   |
+   irq_handlers el apuntador              +------>| la IRQ I (que         |
+   a la rutina de manejo de IRQ           |       | corresponde a la      |
+   (handler) N.                           |       | interrupción 32 + I)  |
+                                          |   +---+-----------------------+
+                                          |   |               
+irq_handlers (irq.c)                      |   v
+   +--------------------------------------------------------------------------+
+   | * handler 0 | * handler 1 | ... | *handler I | ...  | ...  | handler 15  |
+   +--------------------------------------------------------------------------+
+                                           ^    | 
+                                           |	|
+    A la interrupción N ( 32 <= N <= 47)   I    |
+    le corresponde la IRQ I = N - 32       |    v
+                                           +-----------------+          
+                                                             |
+   La función interrupt_dispatcher()              +-----------------------+
+   busca dentro del arreglo                       | Las entradas 32 a 47  |
+   interrupt_handlers                     +------>| de interrupt_handlers |
+   el apuntador a la rutina de            |       | apuntan a la rutina   |
+   manejo de interrupción                 |       | irq_dispatcher        |
+   (handler) N.                           |   +---+-----------------------+
+                                          |   |               
+interrupt_handlers (idt.c)                |   v
+   +--------------------------------------------------------------------------+
+   | * handler 0 | * handler 1 | ... | *handler N | ...  | ...  | handler 255 |
+   +--------------------------------------------------------------------------+ 
+                                         |   |  La función de manejo de 
+      Todas las ISR establecen un        |   |  interrupción retorna el control
+      marco de pila estándar e           |<--+        
+      invocan a la función          interrupt_dispatcher()
+      interrupt_dispatcher()             ^
+                                         |    
+                           +-------------+                              
+IDT (idt.c)                |                        
+    +------------------------------------------------------------------------+
+    | isr0 | isr1 | ... | isrN  | isr31 | ... | isr47 | isr48 | ... | isr255 |
+    +------------------------------------------------------------------------+
+                            ^
+                            |
+     Excepción N (0-31) ----+
+          
+@endverbatim
+
+@see http://www.gnu.org/software/grub/manual/multiboot/multiboot.html Especificación Multiboot
+@see http://www.skyfree.org/linux/references/ELF_Format.pdf Especificación ELF
+@see http://www.gnu.org/software/grub/ Página oficial de GRUB (Enlace externo)
+
+
+*/

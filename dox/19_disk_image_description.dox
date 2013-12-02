@@ -1,0 +1,141 @@
+/**
+@page disk_image_description Imagen de Disco usada en el Proyecto
+@author Erwin Meza Vega <emezav@gmail.com>
+
+@ref project_start : Imagen de Disco usada en el Proyecto
+
+En este proyecto se usa imagen de disco duro, en la cual se encuentra
+pre-instalado GRUB. Esta imagen de disco se actualiza dinámicamente para incluir
+el archivo del kernel compilado.
+
+@par Copia del Kernel dentro de la Imagen de Disco
+
+Cuando se ejecuta alguno de los Make Targets definidos dentro del proyecto
+(all, bochs, bochsdbg o qemu), automáticamente se dispara la regla @b all. 
+La regla @b all tiene como pre-requisito el kernel compilado, así que dispara
+las reglas que permiten compilar el código del kernel y obtener el archivo
+en formato ELF llamado kernel.
+
+Dentro de la regla @b all se realiza el siguiente proceso:
+-# Verificar si existe el archivo disk_template.gz (plantilla de la imagen de 
+   disco, comprimida). Si existe, se descomprime el archivo .gz para obtener la
+   plantillallamada disk_template.
+   @verbatim
+   -if test -f disk_template.gz; then \
+	   gunzip disk_template.gz; \
+	   else true; fi
+   @endverbatim
+-# El archivo disk_template es una imagen de disco duro, que ocupa 
+   aproximadamente 5 MB. Dentro de este archivo ya se encuentra instalado GRUB
+   La imagen de disco tiene una geometría de C/H/S de 10/16/63, con una
+   capacidad aproximada de 4.9 MB.
+-# Copiar el archivo del kernel recién generado dentro del directorio 
+   filesys/boot. El directorio filesys contiene la estructura de directorios
+   que se copiará dentro de la única partición de la imagen de disco:
+   @verbatim
+
+/ -+    <-- Directorio raíz de la única partición en la imagen de disco
+   |
+   boot <-- Almacena los archivos de GRUB y el kernel compilado
+       |  
+       |  
+       grub  <-- Almacena los archivos de GRUB
+       |   |
+       |   |
+       | e2fs_stage_1_5  <-- Etapa 1.5 de GRUB. cargado por la etapa 1 de GRUB
+       |   |                 Contiene el código para manejar el sistema de 
+       |   |                 archivos de la partición (ext2). Este archivo
+       |   |                 es opcional, ya que al instalar GRUB este archivo
+       |   |                 se copió en el sector adyacente al sector de
+       |   |                 arranque.
+       |   |
+       | menu.lst    <-- Archivo de configuración leido por GRUB al arranque.
+       |   |             especifica la configuración del menú que despliega
+       |   |             GRUB al arranque y ubicación del kernel en 
+       |   |             (la imagen de) disco.
+       | stage1      <-- Etapa 1 de GRUB. Este archivo es opcional, ya que se
+       |   |             copió en el sector de arranque del disco al instalar 
+       |   |             GRUB.
+       |   |             Carga la etapa 1.5 de GRUB. Después carga la
+       |   |             etapa 2 de GRUB desde el disco y le pasa el control.
+       |   |             Este archivo es opcional.
+       |   |
+       | stage2      <-- Etapa 2 de GRUB. Cargada por la etapa 1 de GRUB.
+       |                 Configura el sistema y presenta el menú que
+       |                 permite cargar el kernel.
+       |                 Este archivo es obligatorio.
+       |                 Cuando el usuario selecciona la única opción 
+       |                 disponible: cargar y pasar el control el archivo kernel
+       |                 que se encuentra en el directorio /boot de la imagen
+       |                 de disco
+       |                 El kernel se carga a la dirección de memoria 0x100000
+       |                 (1 MB)
+       |                  
+       kernel   <-- Archivo que contiene el código compilado del kernel.
+@endverbatim
+   Este proceso se realiza con el comando:
+   @verbatim
+   #Copiar el kernel al directorio filesys/kernel
+	cp -f kernel filesys/boot/kernel
+   @endverbatim
+-# Crear una copia de la plantilla de la imagen de disco disk_template
+   a un archivo llamado disk_image. Esto se realiza para tener siempre una
+   plantilla vacía en el archivo disk_template.
+   El archivo disk_image será la imagen de disco cargada por los emuladores
+   bochs y grub.
+   @verbatim
+   	#Copiar la plantilla a la imagen de disco
+	cp -f disk_template disk_image
+   @endverbatim
+-# Extraer la primera partición de la imagen de disco. La primera partición
+   empieza en el sector 63 de la imagen de disco. 
+   @verbatim
+	#Extraer la particion inicial
+	dd if=disk_template of=first_partition bs=512 skip=63
+   @endverbatim
+-# Actualizar el contenido de la primera partición (en el archivo first_partition)
+   con el contenido del directorio filesys. Esto se realiza con la
+   utilidad e2fsimage.
+   @verbatim
+	#Copiar el kernel al sistema de archivos
+	e2fsimage -f first_partition -d filesys -n
+   @endverbatim
+-# Luego se debe copiar la partición actualizada de nuevo a la imagen de disco,
+   y borrar el archivo first_partition.
+   @verbatim
+	#Copiar la particion actualizada a la imagen de disco
+	dd if=first_partition of=disk_image bs=512 seek=63
+	#Borrar la particion actualizada
+	rm -f first_partition	
+   @endverbatim
+ 
+Con este proceso la imagen de disco se actualiza automáticamente cada vez que
+se compila el kernel.
+
+A continuación se reproduce la regla 'all' definida en el archivo Makefile.
+@verbatim
+all: kernel
+	-if test -f disk_template.gz; then \
+	   gunzip disk_template.gz; \
+	   else true; fi
+	#Copiar el kernel al directorio filesys/kernel
+	cp -f kernel filesys/boot/kernel
+	#Copiar la plantilla a la imagen de disco
+	cp -f disk_template disk_image
+	#Extraer la particion inicial
+	dd if=disk_template of=first_partition bs=512 skip=63
+	#Copiar el kernel al sistema de archivos
+	e2fsimage -f first_partition -d filesys -n
+	#Copiar la particion actualizada a la imagen de disco
+	dd if=first_partition of=disk_image bs=512 seek=63
+	#Borrar la particion actualizada
+	rm -f first_partition	
+@endverbatim
+
+@see @ref disk_image_creation
+@see http://www.gnu.org/software/grub/manual/multiboot/multiboot.html Especificación Multiboot
+@see http://www.skyfree.org/linux/references/ELF_Format.pdf Especificación ELF
+@see http://www.gnu.org/software/grub/ Página oficial de GRUB (Enlace externo)
+
+
+*/

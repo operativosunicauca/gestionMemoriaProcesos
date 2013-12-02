@@ -1,0 +1,530 @@
+/**
+@page disk_image_creation Creación de Imágenes de Disco con GRUB preinstalado
+@author Erwin Meza Vega <emezav@gmail.com>
+
+@ref project_start : Creación de Imágenes de Disco con GRUB preinstalado
+
+A continuación se presenta el proceso para crear una imagen de disco e instalar
+GRUB en su sector de arranque. 
+
+@par Requisitos del sistema 
+
+Se debe cumplir con los siguientes requisitos:
+-# Utilidades para gestión de discos (fdisk, mke2fs)
+-# Grub
+-# Utilidad dd
+-# Utilidad e2fsimage
+
+Estos requisitos son cumplidos por la mayoría de instalaciones de Linux.
+La utilidad e2fsimage no se encuentra instalada por defecto, así que deberá ser
+instalada. En Ubuntu se puede usar la herramienta apt-get o el gestor
+de paquetes synaptic para instalarla. En otros sistemas operativos Linux, se
+deberá instalar primero las dependencias de e2fsimage (generalmente se 
+encuentran en un paquete llamado e2fsprogs), y luego descargar e instalar desde
+el código fuente e2fsimage.
+
+En Windows es posible cumplir estos requisitos en un entorno Cygwin o 
+MinGW/Msys.
+
+@par Breve Descripción de la Geometría C/H/S de (la imagen de) un Disco Duro
+
+La ubicación de cualquier sector dentro de un disco se describe mediante tres 
+parámetros:
+- C : Cilindro (pista) en el cual se encuentra el sector.
+- H : Cabeza, que permite determinar el "plato" en el cual se encuentra la 
+      pista.
+- S : Permite ubicar un sector dentro de una pista.
+
+Para más detalles acerca de C/H/S, consulte la documentación disponible en la 
+siguiente página y sus páginas relacionadas:
+
+http://www.storagereview.com/guide/tracksDifference.html
+
+En un disco duro se supone que todas las pistas contienen el mismo número de
+sectores. Si bien esto no es correcto desde el punto de vista físico (ya que
+las pistas son concéntricas) la lógica del dispositivo realiza los ajustes
+correspondientes para que el software pueda referenciar la misma cantidad 
+de sectores dentro de todas las pistas.
+
+La fórmula para calcular la capacidad aproximada de un disco viene dada por sus
+valores máximos de C, H y S. El cálculo se ilustra a continuación:
+
+@verbatim                                                                
+                                                             Capacidad
+               =     Número de sectores del disco          * de un sector
+                                                             (512 bytes) 
+                   _____________________________________
+   Capacidad       Número de pistas del     Sectores por
+   del         =   disco                 *  pista          * 512
+   disco           _____________________
+   en bytes        Número de   Número de    Sectores por   * 512
+               =    cilindros   Cabezas      Pista
+                                      
+               =   C      *     H    *      S              * 512
+
+@endverbatim
+
+Donde C, H y S son el número de cilindros, cabezas y sectores por pista que
+tiene el disco. 
+
+Si se fijan los parámetros H (cabezas) y S (sectores por pista), el tamaño del 
+disco dependerá del número de cilindros. Así tomando H = 16 y S = 63, 
+el número de cilindros para un disco con capacidad de @b X MB se puede
+calcular mediante la siguiente fórmula:
+
+@verbatim
+             Capacidad del disco en bytes
+      C =   ------------------------------
+                   H * S * 512
+@endverbatim
+
+De esta forma, para un disco con capacidad de 5 MB, se tiene:
+
+@verbatim
+                  5242880   (5 MB)    
+      C =   ------------------------  =  10
+                 16 * 63 * 512
+@endverbatim
+
+Se debe tener en cuenta que la capacidad del disco no es exactamente 5 MB, 
+en realidad es un poco menos. Esto se debe a que no se pueden tener valores
+decimales para C, H y S.  
+
+La siguiente tabla ilustra este aspecto: 
+
+@verbatim
+           Bytes por  Capacidad en   Capacidad en  Capacidad en    Número de
+C   H   S  Sector     bytes          KB            MB              Sectores
+-   -   -  ------     --------       -----------   ------------    ---------- 
+10  16  63  512       5160960        5040          4,92            10080
+20  16  63  512       10321920       10080         9,84            20160
+30  16  63  512       15482880       15120         14,77           30240
+100 16  63  512       51609600       50400         49,22           100800
+
+@endverbatim
+ 
+@par Creación del archivo de la imagen de disco
+
+Conociendo los valores de C, H y S y el número de sectores que determinan la 
+capacidad X deseada, es posible crear una imagen de disco mediante el comando
+dd:
+
+@verbatim
+   dd if=/dev/zero of=disk_template bs=512 count=10080
+@endverbatim
+
+El comando dd copia a nivel de bloques de un archivo de entrada a un archivo
+de salida.
+Los parámetros de este comando son:
+- if Archivo de entrada (input file). El archivo /dev/zero es un archivo 
+  especial que permite generar tantos '0' como sean necesarios.
+- of Archivo de salida (output file). El archivo resultante se llamará 
+  disk_template
+- bs Tamaño de un bloque. Por defecto 512 bytes. Si la imagen es muy grande,
+  el tamaño de bloque se puede especificar en MB (bs=1MiB).
+- count: Número de bloques a copiar. 10080 bloques de 512 bytes, aprox. 4.9 MB.
+
+@par Creación de  particiones dentro de la imagen de disco
+
+Para crear las particiones dentro de la imagen de disco, se usa el comando
+fdisk. Se debe pasar como parámetro el número de cilindros, sectores y cabezas
+de acuerdo con la geometría del disco.
+
+@verbatim
+fdisk -C 10 -H 16 -S 63 disk_template
+@endverbatim
+
+La primera vez que se ejecuta el comando, fdisk advierte que la imagen de disco
+no contiene una tabla de particiones válida. Esto es cierto, debido a que
+el archivo disk_image sólo contiene ceros. El mensaje es el siguiente:
+
+@verbatim
+El dispositivo no contiene una tabla de particiones DOS válida ni una etiqueta de disco Sun o SGI o OSF
+Se está creando una nueva etiqueta de disco DOS con el identificador 0x221c4d50.
+Los cambios sólo permanecerán en la memoria, hasta que decida escribirlos. 
+Tras esa operación, el contenido anterior no se podrá recuperar.
+
+Atención: el indicador 0x0000 inválido de la tabla de particiones 4 se corregirá mediante w(rite)
+
+AVISO: El modo de compatibilidad DOS es obsoleto. Se recomienda fuertemente 
+         apagar el modo (orden «c») y cambiar mostrar unidades a
+         sectores (orden «u»).
+
+Orden (m para obtener ayuda):
+@endverbatim
+
+Al escribir el comando @b w, fdisk corrige este error y termina su ejecución.
+
+@verbatim
+El dispositivo no contiene una tabla de particiones DOS válida ni una etiqueta de disco Sun o SGI o OSF
+Se está creando una nueva etiqueta de disco DOS con el identificador 0x221c4d50.
+Los cambios sólo permanecerán en la memoria, hasta que decida escribirlos. 
+Tras esa operación, el contenido anterior no se podrá recuperar.
+
+Atención: el indicador 0x0000 inválido de la tabla de particiones 4 se corregirá mediante w(rite)
+
+AVISO: El modo de compatibilidad DOS es obsoleto. Se recomienda fuertemente 
+         apagar el modo (orden «c») y cambiar mostrar unidades a
+         sectores (orden «u»).
+
+Orden (m para obtener ayuda): w 
+¡Se ha modificado la tabla de particiones!
+
+Se están sincronizando los discos.
+@endverbatim
+
+Se debe iniciar de nuevo fdisk:
+
+@verbatim
+fdisk -C 10 -H 16 -S 63 disk_template
+@endverbatim
+
+Esta vez no se muestra el error anterior.
+
+Se puede invocar el comando @b m para obtener ayuda de las opciones de fdisk: 
+
+@verbatim
+Orden (m para obtener ayuda): m
+Orden  Acción
+   a   Conmuta el indicador de iniciable
+   b   Modifica la etiqueta de disco bsd
+   c   Conmuta el indicador de compatibilidad con DOS
+   d   Suprime una partición
+   l   Lista los tipos de particiones conocidos
+   m   Imprime este menú
+   n   Añade una nueva partición
+   o   Crea una nueva tabla de particiones DOS vacía
+   p   Imprime la tabla de particiones
+   q   Sale sin guardar los cambios
+   s   Crea una nueva etiqueta de disco Sun
+   t   Cambia el identificador de sistema de una partición
+   u   Cambia las unidades de visualización/entrada
+   v   Verifica la tabla de particiones
+   w   Escribe la tabla en el disco y sale
+   x   Funciones adicionales (sólo para usuarios avanzados)
+
+Orden (m para obtener ayuda): 
+@endverbatim
+
+Los comandos a usar son:
+- n Añade una nueva partición. Se debe elegir partición de tipo primaria,
+    número de partición 1 (es la primera partición), primer cilindro = 1,
+    último cilindro = 10 (la partición ocupa todo el disco).
+    @verbatim
+Orden (m para obtener ayuda): n
+Acción de la orden
+   e   Partición extendida
+   p   Partición primaria (1-4)
+p
+Número de partición (1-4): 1
+Primer cilindro (1-10, valor predeterminado 1): 1
+Último cilindro, +cilindros o +tamaño{K,M,G} (1-10, valor predeterminado 10): 10
+
+Orden (m para obtener ayuda):
+    @endverbatim 
+- p Permite listar la tabla de particiones. Deberá aparecer la partición creada
+  en el paso anterior.
+  @verbatim
+Orden (m para obtener ayuda): p
+
+Disco disk_template: 0 MB, 0 bytes
+16 cabezas, 63 sectores/pista, 10 cilindros
+Unidades = cilindros de 1008 * 512 = 516096 bytes
+Tamaño de sector (lógico / físico): 512 bytes / 512 bytes
+Tamaño E/S (mínimo/óptimo): 512 bytes / 512 bytes
+Identificador de disco: 0x221c4d50
+
+   Dispositivo Inicio    Comienzo      Fin      Bloques  Id  Sistema
+disk_template1               1          10        5008+  83  Linux
+
+Orden (m para obtener ayuda):
+  @endverbatim
+  @note Es posible que (como en la gráfica) fdisk muestre 0 MB como el tamaño
+  del disco. Esto es normal, debido a que no se está usando un disco real
+  sino una imagen de disco.
+- a Permite activar una partición (definirla como la partición de arranque
+  del disco.
+  @verbatim
+Orden (m para obtener ayuda): a
+Número de partición (1-4): 1
+
+Orden (m para obtener ayuda): p
+
+Disco disk_template: 0 MB, 0 bytes
+16 cabezas, 63 sectores/pista, 10 cilindros
+Unidades = cilindros de 1008 * 512 = 516096 bytes
+Tamaño de sector (lógico / físico): 512 bytes / 512 bytes
+Tamaño E/S (mínimo/óptimo): 512 bytes / 512 bytes
+Identificador de disco: 0x221c4d50
+
+   Dispositivo Inicio    Comienzo      Fin      Bloques  Id  Sistema
+disk_template1   *           1          10        5008+  83  Linux
+
+Orden (m para obtener ayuda): 
+  
+  @endverbatim
+- w Guarda los cambios realizados en la imagen de disco y cierra fdisk.
+@verbatim
+Orden (m para obtener ayuda): w
+¡Se ha modificado la tabla de particiones!
+
+Se están sincronizando los discos.
+@endverbatim
+
+Ahora se debe verificar que la partición quedó creada y activa dentro de la
+imagen de disco. Además es importante saber exactamente el sector a partir
+del cual comienza la partición definida. Esto se logra mediante el comando:
+
+@verbatim
+fdisk -C 10 -H 16 -S 63 -u -l disk_template
+@endverbatim
+
+El resultado es el siguiente:
+@verbatim
+Disco disk_template: 0 MB, 0 bytes
+16 cabezas, 63 sectores/pista, 10 cilindros, 0 sectores en total
+Unidades = sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico / físico): 512 bytes / 512 bytes
+Tamaño E/S (mínimo/óptimo): 512 bytes / 512 bytes
+Identificador de disco: 0x221c4d50
+
+   Dispositivo Inicio    Comienzo      Fin      Bloques  Id  Sistema
+disk_template1   *          63       10079        5008+  83  Linux
+@endverbatim
+
+Se puede ver que la partición comienza en el sector 63 del disco. 
+
+@par Formateo de la Partición en el Disco
+
+Para dar formato a la partición dentro del disco, se debe hacer uso de
+la utilidad mke2fs. Si bien es posible "montar" la partición que se encuentra
+dentro de la imagen de disco, es más recomendable extraer esta partición,
+formatearla de forma independiente y luego llevarla de nuevo dentro de la
+imagen de disco. 
+A continuación se describe el proceso para extraer la partición de la imagen
+de disco, formatearla e insertarla de nuevo dentro de la imagen de disco.
+-# Extraer la partición de la imagen de disco. El comando 
+@verbatim
+fdisk -C 10 -H 16 -S 63 -u -l disk_template
+@endverbatim
+ permite encontra el sector desde el cual comienza la primera partición:
+@verbatim
+   Dispositivo Inicio    Comienzo      Fin      Bloques  Id  Sistema
+disk_template1   *          63       10079        5008+  83  Linux
+@endverbatim
+Para extraer la partición de la imagen de disco, se puede usar de nuevo el 
+comando @b dd:
+@verbatim
+dd if=disk_template of=first_partition bs=512 skip=63
+@endverbatim
+El parámetro skip=63 le especifica a @b dd que debe descartar los primeros
+63 sectores (sector 0 al 62) de la entrada. Esto permite extraer únicamente
+la primera partición. No es necesario especificar el número de bloques a sacar,
+en este caso solo existe una partición.
+El resultado de este comando es el siguiente:
+@verbatim
+10177+0 registros de entrada
+10177+0 registros de salida
+5210624 bytes (5,2 MB) copiados, 0,0709376 s, 73,5 MB/s
+@endverbatim
+-# Formatear la partición extraida. Esto se logra mediante el comando:
+@verbatim
+mke2fs first_partition
+@endverbatim
+La respuesta de mke2fs es la siguiente:
+@verbatim
+mke2fs 1.41.14 (22-Dec-2010)
+first_partition no es un dispositivo especial de bloques.
+¿Continuar de todas formas? (s,n) s
+Etiqueta del sistema de ficheros=
+Tipo de SO: Linux
+Tamaño del bloque=1024 (bitácora=0)
+Tamaño del fragmento=1024 (bitácora=0)
+Stride=0 blocks, Stripe width=0 blocks
+1272 nodos-i, 5088 bloques
+254 bloques (4.99%) reservados para el superusuario
+Primer bloque de datos=1
+Número máximo de bloques del sistema de ficheros=5242880
+1 bloque de grupo
+8192 bloques por grupo, 8192 fragmentos por grupo
+1272 nodos-i por grupo
+
+Escribiendo las tablas de nodos-i: hecho                           
+Escribiendo superbloques y la información contable del sistema de ficheros: hecho
+
+Este sistema de ficheros se revisará automáticamente cada 27 montajes o
+180 días, lo que suceda primero.  Utilice tune2fs -c o -i para cambiarlo.
+@endverbatim
+
+
+@par Copia de archivos dentro de la partición formateada
+
+Ya se tiene el archivo first_partition, que contiene una partición formateada.
+Ahora dentro de este archivo se deberá crear la estructura de directorios que 
+contiene los archivos de GRUB, para su instalación.
+
+Este proceso se puede realizar usando el comando @b mount para montar la 
+partición, luego copiar los archivos y finalmente usar el comando @b umount
+para desmontar la partición.
+
+Otra estrategia consiste en utilizar el programa e2fsimage, que permite agregar
+archivos y directorios directamente a un archivo de partición sin necesidad 
+de montarlo o desmontarlo. La única restricción consiste en que no se pueden
+sobreescribir archivos o directorios que ya existan dentro de la partición.
+
+El proceso de usar e2fsimage se describe a continuación:  
+
+-# Crear una estructura de directorios que contenga los archivos de GRUB y los 
+   archivos de configuración. Para el ejemplo se creará un directorio llamado
+   filesys, el cual se reproduce la siguiente estructura:
+  @verbatim
+  filesys
+  |
+   boot 
+       |  
+       |  
+       grub  <-- Almacena los archivos de GRUB
+       |   |
+       |   |
+       | e2fs_stage_1_5
+       |   |       
+       | stage1       
+       |   |             
+       | stage2
+ 
+  @endverbatim
+Los archivos e2fs_stage_1_5, stage1 y stage2 se pueden copiar del directorio
+/boot/grub. 
+La copia de estos archivos se realiza con los siguientes pasos:
+@verbatim
+ mkdir filesys
+ mkdir -p filesys/boot/grub
+ cp /boot/grub/stage1 filesys/boot/grub
+ cp /boot/grub/e2fs_stage1_5 filesys/boot/grub
+ cp /boot/grub/stage2 filesys/boot/grub 
+@endverbatim
+-# Actualizar el contenido de la primera partición de la imagen de disco a 
+partir del directorio creado en el paso anterior. Para ello se usa el comando 
+e2fsimage:
+@verbatim
+e2fsimage -f first_partition -d filesys -n
+@endverbatim
+El resultado del comando es el siguiente:
+@verbatim
+e2fsimage - Version: 0.2.2
+Copied 2 Directorys, 3 regular files, 0 symlinks
+0 hard links and 0 special files - total 5
+@endverbatim
+El archivo de partición ahora contiene los archivos requeridos para instalar
+GRUB. Ahora se deberá tomar de nuevo el archivo first_partition (la partición
+con los archivos, e insertarlo de nuevo dentro de la imagen de disco. Esto
+se logra de nuevo con el comando @b dd:
+@verbatim
+dd if=first_partition of=disk_image bs=512 seek=63
+@endverbatim
+
+Este comando permite tomar el archivo de entrada (la partición actualizada) e
+insertarlo en el archivo de salida (la imagen de disco), omitiendo 63 bloques
+del archivo de salida (seek=63). Con esto se inserta la partición dentro de la 
+imagen del disco saltando los sectores 0 a 62.
+
+El resultado de este comando es el siguiente:
+@verbatim
+10177+0 registros de entrada
+10177+0 registros de salida
+5210624 bytes (5,2 MB) copiados, 0,0718208 s, 72,6 MB/s
+@endverbatim 
+
+
+@par Instalar GRUB dentro de la imagen de disco
+
+Ahora se debe instalar GRUB dentro de la imagen de disco, que ya cuenta con
+los archivos requeridos dentro de su primera partición. Esto se logra mediante 
+la siguiente secuencia:
+-#  Ejecutar GRUB para instalarlo en el archivo disk_image (la imagen de disco)
+@verbatim
+grub
+@endverbatim
+Se inicia el proceso de instalación de GRUB:
+@verbatim
+    GNU GRUB  version 0.97  (640K lower / 3072K upper memory)
+
+ [ Minimal BASH-like line editing is supported.  For the first word, TAB
+   lists possible command completions.  Anywhere else TAB lists the possible
+   completions of a device/filename. ]
+
+grub>
+@endverbatim
+-# Realizar la secuencia de instalación de GRUB, especificando la partición
+en la cual se encuentra el kernel (la primera partición = 0) y el archivo del
+kernel.
+@verbatim
+grub> device (hd0) disk_template
+
+grub> geometry (hd0) 10 16 63
+drive 0x80: C/H/S = 10/16/63, The number of sectors = 10080, disk_template
+   Partition num: 0,  Filesystem type is ext2fs, partition type 0x83
+
+grub> root (hd0,0)
+ Filesystem type is ext2fs, partition type 0x83
+
+grub> setup (hd0)
+ Checking if "/boot/grub/stage1" exists... yes
+ Checking if "/boot/grub/stage2" exists... yes
+ Checking if "/boot/grub/e2fs_stage1_5" exists... yes
+ Running "embed /boot/grub/e2fs_stage1_5 (hd0)"...  17 sectors are embedded.
+succeeded
+ Running "install /boot/grub/stage1 (hd0) (hd0)1+17 p (hd0,0)/boot/grub/stage2
+/boot/grub/menu.lst"... succeeded
+Done.
+
+grub> 
+@endverbatim
+Los comandos de esta secuencia de instalación son los siguientes:
+- device (hd0) disk_template : Especifica a GRUB que el dispositivo (disco) 
+  sobre el   cual será instalado es el archivo disk_template.
+- geometry (hd0) 10 16 63 : Especifica la geometría de (la imagen de) disco
+  del dispositivo.
+- root (hd0, 0) : Define la partición raíz en la cual se encuentra el kernel
+  que GRUB debe cargar se encuentra en la primera partición del dispositivo
+  (las particiones se numeran desde cero, así que es la primera partición)
+- setup (hd0) : Instalar GRUB en el sector maestro de (la imagen de) disco.
+  También es posible instalar GRUB en el sector de arranque de la partición,
+  mediante el comando setup (hd0,0).
+
+Con esta secuencia GRUB se encuentra instalado dentro de la imagen de disco. 
+
+Debido a que la plantilla de imagen de disco sólo contiene a GRUB, si se intenta
+arrancar presentará un prompt y no cargará ningún kernel ( ya que no existe).
+
+Para arrancar un kernel, se deberán incluir dos archivos más en la imagen de 
+disco:
+- El archivo boot/grub/menu.lst, que contiene la configuración de GRUB y las
+ opciones de arranque.
+- Un kernel.
+
+Por ejemplo, se puede crear el siguiente archivo menu.lst:
+
+@verbatim
+default 0
+timeout 10
+color cyan/blue white/blue
+
+title Aprendiendo Sistemas Operativos
+root (hd0,0)
+kernel /boot/kernel
+
+@endverbatim
+
+En este caso se está definiendo que el kernel a cargar es un archivo llamado
+kernel dentro del directorio boot. Se deberán insertar los dos archivos
+dentro de la imagen de disco (boot/grub/menu.lst y boot/kernel).
+
+@see http://www.storagereview.com/guide/index_geom.html Geometría de Disco Duro
+@see http://sourceforge.net/projects/e2fsimage/ Página  de la utilidad e2fsimage
+@see http://www.gnu.org/software/grub/manual/multiboot/multiboot.html Especificación Multiboot
+@see http://www.skyfree.org/linux/references/ELF_Format.pdf Especificación ELF
+@see http://www.gnu.org/software/grub/ Página oficial de GRUB (Enlace externo)
+
+
+*/

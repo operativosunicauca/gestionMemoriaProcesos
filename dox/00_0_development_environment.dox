@@ -1,0 +1,169 @@
+/**
+@page development_environment Entorno de Desarrollo y Ejecución
+@author Erwin Meza Vega <emezav@gmail.com>
+
+@ref project_start : Entorno de Desarrollo y Ejecución
+
+@section environment_description Descripción del Entorno de Desarrollo y Ejecución
+
+Para el desarrollo y la ejecución del software de la Serie Aprendiendo Sistemas
+Operativos se requiere, además del código, los siguientes programas:
+
+- Editor de texto o IDE (Opcional): Permite la edición de código. Un IDE 
+  permite además  compilar y ejecutar los ejemplos de forma más ágil. En caso 
+  de no contar con   un IDE, se puede usar una consola de comandos 
+  (@ref using_without_ide). 
+  Los proyectos de la Serie se agrupan como un Workspace y pueden importar 
+  directamente en Eclipse.
+- Compilador, Ensamblador y Linker (Requerido): Se requiere el compilador GNU 
+  de C (@b gcc), el ensamblador (@b as) y el Linker (@b ld), en una versión que 
+  permita generar archivos ELF de 32 bits.
+  En sistemas Linux de 32 bits, @b gcc, @b as y @b ld se instalan por defecto o
+  pueden ser instalados fácilmente. En otros sistemas es necesario (compilar o)
+  instalar un "Compilador Cruzado" (cross-compiler) que permita generar 
+  archivos ejecutables en formato ELF de 32 bits.
+- Utilidades GNU (requeridas): se requiere además otra serie de utilidades GNU 
+  como @b make, @b dd, @b hexdump, @b addr2line, y @b rm. Estas utilidades se 
+  encuentran disponibles en Linux por defecto, y existen versiones similares 
+  para otros sistemas operativos. Por ejemplo en Windows estas utilidades
+  se pueden instalar como parte de MinGW/Msys o Cygwin.
+- Utilidad GZIP (Requerida): permite comprimir archivos. Disponible por 
+  defecto en Linux, se puede instalar en otros sistemas operativos.
+- Emulador de CPU o Máquina Virtual (Requerido) : Un kernel de sistema operativo
+  no puede ser ejecutado directamente en el hardware, si ya existe un sistema 
+  operativo ejecutándose. Se requiere un emulador de cpu (como bochs o qemu), 
+  o una máquina virtual (como VirtualBox o VMWare) para crear un 
+   "computador virtual" en el cual se arranca desde la imagen de disco creada.
+- Utilidades para gestión de imágenes de disco (Requerido): Debido a que en la 
+  mayoría de los proyectos de la serie se usa una imagen de disco que contiene
+  una partición ext2, es necesario contar con la utilidad @b e2fsimage. Esta
+  utilidad puede ser (compilada o) instalada en Linux y Windows.
+- Utilidad para la generación de documentación (Opcional): Cada proyecto de la 
+  Serie Aprendiendo Sistemas Operativos permite generar su documentación en 
+  formato HTML o RTF gracias al software @b Doxygen. Este software se encuentra 
+  disponible para Linux y Windows.
+  
+En síntesis, el entorno de desarrollo básico para la Serie consta de:
+
+- Compilador / ensamblador : proporcionados por el sistema operativo (linux) o
+  por sus versiones análogas dentro de MinGW / Msys o en Cygwin (windows).
+- Utilidades GNU: proporcionadas por el sistema operativo (linux) o por sus
+  versiones análogas dentro de MinGW / Msys o Cygwin (windows).
+- IDE Eclipse: Se usa la Versión Eclipse CDT (C/C++ Development Tools)
+- Java JRE: Necesario para ejecutar el IDE Eclipse.
+- Emuladores: Qemu o Bochs. Disponibles en  Linux y Windows. En Windows, la 
+  versión de Bochs que permite usar el depurador gráfico se debe instalar por
+  separado. La Serie incluye también el emulador JPC. Este emulador opera a una
+  velocidad de hasta el 20 % de la velocidad del procesador, por lo cual solo 
+  se recomienda su uso si no es posible usar bochs o qemu.
+
+@section using_eclipse Compilación y Ejecución con Eclipse
+
+Para compilar y ejecutar los ejemplos de Eclipse, se deberá abrir el Workspace
+(directorio) en el cual se descomprimieron los ejemplos de la serie, por medio 
+de la opción de Eclipse File -> Switch Workspace...
+
+Al seleccionar el directorio que contiene todos los ejemplos puede tener acceso
+a los ejemplos, cada uno como projecto de Eclipse.
+
+Seleccionar la opción de menú Window -> Show View -> Make Target.
+
+Para cada ejemplo (proyecto) existen los siguientes Make Targets:
+- all: Permite compilar el código y crear la imagen de disco
+- bochs: Ejecuta el emulador bochs para arrancar la imagen de disco creada. Si
+  algún archivo de código fuente se ha modificado, el código será compilado
+  y la imagen será creada nuevamente.
+- bochsdbg: Similar al anterior, pero inicia la versión de Bochs que tiene el 
+ depurador gráfico habilitado. Si no se encuentra disponible, se muestra un 
+ error.
+- jpc: Ejecuta el emulador JPC para arrancar la imagen de disco creada. Si
+  algún archivo de código fuente se ha modificado, el código será compilado
+  y la imagen será creada nuevamente.
+- jpcdbg: Similar al anterior, pero inicia un JPC en modo depurador.
+- qemu: Ejecuta el emulador qemu para arrancar la imagen de disco creada. Si
+  algún archivo de código fuente se ha modificado, el código será compilado
+  y la imagen será creada nuevamente.
+ 
+Para limpiar los archivos temporales de compilación y las imágenes de disco,
+se pueden seleccionar los proyectos en el explorador de proyecto, abrir el menú
+contextual (click derecho) y seleccionar la opción Clean Project. También
+se puede seleccionar la opción Project -> Clean.. para limpiar alguno o todos
+los proyectos.
+
+@section using_without_ide Compilación y Ejecución sin un IDE
+
+Cada ejemplo puede ser compilado y ejecutado aún si se cumplen todos los 
+requerimientos  de software, pero no se cuenta con un IDE. Para ello 
+se deben llevar a cabo los siguientes pasos:
+
+-# Abrir un shell (bash). Este se encuentra disponible en Linux y en Windows 
+mediante MinGW/Msys.
+-# Navegar al directorio del ejemplo que se desea ejecutar
+-# Ejecutar uno de los siguientes comandos:
+   - make : compila el código y crea la imagen de disco
+   - make bochs : ejecuta el emulador bochs para que arranque la imagen de disco              
+   - make bochsdbg : similar al comando anterior, pero ejecuta bochs con el 
+     depurador gráfico habilitado, si está instalado. En caso contrario produce
+     error.
+   - make jpc: ejecuta el emulador jpc para que arranque la imagen de disco
+   - make jpcdbg : ejecuta el depurador jpc para que arranque la imagen de disco
+   - make qemu : ejecuta el emulador qemu para que arranque la imagen de disco 
+   - make clean : borra la imagen de disco y los archivos de compilación
+
+La edición del código se puede realizar con un editor de texto cualquiera, como
+gedit o vim en Linux, o notepad, pspad o notepad++ en windows.
+
+@par Desarrollo y Ejecución en Sistemas Operativos de 64 bits
+
+Para sistemas operativos de 64 bits, la estrategia recomendada consiste en
+instalar VirtualBox o VmWare, instalar un Sistema Operativo de 32 bits como
+una máquina virtual y dentro de este sistema instalar el software requerido.
+
+@section environment_used Entorno usado para la creación de la Serie
+
+El entorno en el cual se desarrolló la Serie es el siguiente:
+- Sistema Operativo: Windows 7
+- IDE: Versión de Eclipse CDT. No incluye el JRE de Java.
+- Java: J2SE (Java Standard Edition de Oracle)
+- Emuladores / Máquinas Virtuales: Qemu, Bochs. Se instaló además una versión
+  de bochs con el depurador gráfico habilitado, cuyo ejecutable se renombró a
+  bochsdbg y se copió en el mismo directorio de la instalación de Bochs. 
+  También se incluye el emulador jpc, que solo tiene a Java como requerimiento.
+- Compilador, Ensamblador, Linker, Utilidades GNU y otras utilidades requeridas:
+  Proporcionadas por el entorno MinGW/Msys, en la cual se compiló e instaló
+  el compilador cruzado de C (cross-gcc), la utilidad dd y gzip, y la utilidad 
+  e2fsimage compilada con CygWin. La instalación de MinGW / Msys incluye
+  las utilidades estándar de linux como cat, dd, rm, mkdir, ls, etc.) 
+
+Para garantizar su compatibilidad con un entorno de desarrollo / ejecución 
+basado en Linux, La serie también se probó en el mismo computador usando dos 
+distribuciones de Linux que se ejecutan como máquinas virtuales de VirtualBox:
+
+- Una instalación de Ubuntu 11 (32 bits) en la cual se se instaló y configuró 
+  el siguiente  software:
+  - Paquetes base del sistema: coreutils (incluye cat, dd, rm, ls, mkdir, etc.)
+  - Versión completa de Eclipse CDT, que incluye el JRE de java.
+  - Paquetes de los emuladores:  qemu, qemu-common, qemu-kvm, vgabios, bochs,
+    bochs-wx, bochsbios, bximage. Se incluye la versión de bochs con el 
+    depurador gráfico.
+  - Compiladores: gcc-4.5-base, gcc-4.5 y sus dependencias.
+  - Otras utilidades: binutils (incluye as y ld), e2fsimage (depende de 
+    e2fsprogs), gzip, make, grub (para crear la plantilla de
+    la imagen de disco) 
+- Una instalación de Mandriva Free 2010 (32 bits), en la cual se instaló y 
+  configuró el siguiente software:
+  - Paquetes base del sistema: coreutils (incluye cat, dd, rm, ls, mkdir, etc.)
+  - Versión completa de Eclipse CDT, que incluye el JRE de java.
+  - Paquetes para los emuladores: qemu (con sus dependencias), bochs (con sus
+    dependencias)
+  - Paquetes de los emuladores: qemu, bochs. El paquete de bochs incluye el 
+    depurador gráfico por defecto.
+  - Otras utilidades: binutils (incluye as y ld), e2fsimage (instalado
+    desde su código fuente, se debe instalar primero el paquete e2fsprogs-devel)
+    gzip, make, grub (para crear la plantilla de la imagen de disco) 
+
+ 
+@see http://sourceforge.net/projects/e2fsimage/ Página de la utilidad e2fsimage
+
+
+*/

@@ -1,0 +1,154 @@
+/**
+@mainpage Gestión de Memoria Física
+@author Erwin Meza Vega <emezav@gmail.com>
+
+@section project_start Información del Proyecto
+ 
+En este proyecto se implementa la lógica para gestionar la memoria física, con
+un mapa de bits en el cual cada bit (unidad de asignación) referencia 4096 
+(4 KB) bytes de memoria (constante @ref MEMORY_UNIT_SIZE en physmem.c). 
+
+@par Tamaño del Mapa de Bits
+
+Si se tiene una memoria física (RAM) de 4 GB, el número de unidades sería:
+@verbatim
+    4GB / MEMORY_UNIT_SIZE = 4 GB / 4096 = 1048576 = 1 M de unidades.
+@endverbatim
+
+Dado que un byte almacena 8 bits, el número de bytes requerido para
+todo el mapa de bits se obtiene al dividir el número de unidades entre 8:
+@verbatim
+   1 M / 8 = 131072 = 128 KB.   
+@endverbatim
+
+En los ejemplos se usa un mapa de bits de este tamaño (128 KB), para soportar
+hasta 4 GB de memoria física.
+
+El mapa de bits referenciado con el puntero @ref memory_bitmap (physmem.c)
+se configura en la dirección de memoria @ref MMAP_LOCATION. Esta área de memoria
+se encuentra disponible, debido a que el kernel fue cargado por encima del 
+límite de 1 MB.
+
+La información de la memoria disponible se obtiene de la Estructura de 
+Información Multiboot pasada por el GRUB al kernel (por medio del registro EBX
+en start.S y luego en la variable global @ref multiboot_info_location definida 
+en el archivo kernel.c.
+
+El código principal del kernel en cmain() invoca a la función setup_memory() 
+(physmem.c), la cual toma la variable global @ref multiboot_info_location y
+obtiene la información del mapa de memoria construido por GRUB. Con este
+mapa de memoria inicializa el mapa de bits referenciado por la variable
+@ref memory_bitmap.
+
+El mapa de bits inicialmente se llena de ceros, para indicar todo el espacio
+de 4 GB como no disponible. Luego a partir de la información obtenida de GRUB
+se busca la región de memoria física que se encuentre por encima del kernel y
+de los módulos cargados, y que esté marcada por GRUB como disponible. Esta 
+región de memoria se marca como memoria disponible dentro del mapa de bits (
+los bits se establecen en 1).
+
+El inicio de la región de memoria disponible se referencia con la variable 
+global @ref allowed_free_start. Esta variable permite realizar una validación
+al momento de liberar una unidad de memoria, ya que sólo se puede liberar una
+unidad que se encuentre por encima de @ref allowed_free_start.
+
+Adicionalmente se establece la variable global @ref base_unit, la cual almacena
+el número de la unidad de memoria que inicia en @ref allowed_free_start.
+
+La siguiente gráfica ilustra la configuración del mapa de bits en memoria: 
+
+@verbatim
+      
+      Mapa de Bits de la Memoria Física
+ +-------------------------------+ Máximo (teórico) de la memoria (4 GB)
+ |                        1048576| <-- En un espacio de 4 GB existen 1048576
+ |  Memoria no instalada         |     (1 M) unidades de 4 KB.
+ +-------------------------------+
+ |  ...                          |                                      
+ |                               |     
+ +-------------------------------+
+ |  Memoria No instalada    X + 1| <-- Unidades no disponibles, debido a que                                     
+ |                               |     la memoria física es menor que 4 GB.                                                             
+ +-------------------------------+ <-- Fin de la memoria física disponible
+ |  Memoria Disponible          X|  Se tienen X - N unidades de asignación
+ |                               |  disponibles
+ +-------------------------------+
+ |  Memoria Disponible        ...| <-- Unidades de asignación de 4 KB.
+ |                               |
+ +-------------------------------+
+ |  Memoria Disponible        ...|
+ |                               |
+ +-------------------------------+
+ |  Memoria Disponible          N| N = número de la primera unidad disponible
+ |                               | <-- base_unit = N
+ +-------------------------------+ <-- Inicio de la memoria física disponible
+ |  Módulos cargados con el   ...|     (alllowed_free_start)
+ |  Kernel                       |
+ +-------------------------------+
+ |  Datos del kernel          K+1|
+ |                               |
+ +-------------------------------+
+ |  Código del kernel           K|
+ |                               |
+ +-------------------------------+ <--- 0x100000 (1 MB)
+ |                            ...|
+ |                               |
+ +-------------------------------+   - 
+ |                            ...|   | Mapa de bits (máximo tamaño: 128 KB)
+ |                               |   | Cada bit representa una región de 4 KB
+ +-------------------------------+   | de memoria. Cada byte representa 32 KB  
+ | 1 | 1 | 0 | 1 | 0 | 1 | 1 | 1 |   | de memoria.
+ +-------------------------------+   - <-- 0x500  = MMAP_LOCATION
+ |                            ...|
+ |                               |
+ +-------------------------------+
+ |                              1|
+ |                               |
+ +-------------------------------+
+ |                              0|<-- Número de la unidad de asignación.
+ |                               |
+ +-------------------------------+ Inicio de la memoria física
+      
+ 
+@endverbatim
+ 
+@par Asignación de Memoria
+
+La asignación de memoria se puede realizar de dos formas:
+- Asignar una unidad de memoria de 4 KB: Se recorre el mapa de bits buscando 
+  un bit que se encuentre en 1 (región disponible). A partir del desplazamiento
+  del bit dentro del mapa de bits, se puede determinar la dirección física que
+  le corresponde. Vea la función allocate_unit() en el archivo physmem.c.
+- Asignar una región de memoria de N bytes: Primero se redondea el tamaño 
+  solicitado a un múltiplo del tamaño de una unidad de asignación. Luego se 
+  busca dentro del mapa de bits un número consecutivo de bits que sumen la
+  cantidad de memoria solicitada. Se retorna la dirección fisica que le 
+  corresponde al primer bit en el mapa de bits. Vea la función
+  allocate_unit_region() en el archivo physmem.c.
+  
+@par Liberado de Memoria
+
+Se puede liberar memoria de dos formas:
+- Liberar una unidad de memoria: Recibe como parámetro dirección de memoria.
+  Si la dirección de memoria no se encuentra alineada al límite de una unidad de
+  memoria, se toma como dirección el límite de unidad más cercano por debajo. 
+  A partir de la dirección de memoria, se obtiene el bit correspondiente en 
+  el mapa de bits, y se marca como disponible. Vea la función free_unit() 
+  en el archivo physmem.c.
+- Liberar una región de memoria: Recibe como parámetro la dirección de inicio
+  de la región y su tamaño. Si la dirección de inicio de la región no se 
+  encuentra alineada al límite de una unidad de  memoria, se toma como 
+  dirección el límite de unidad más cercano por debajo.
+  Luego, en el mapa de bits se marcan como disponibles los bits que 
+  corresponden a las unidades que  conforman la región. Vea la función 
+  free_region() en el archivo physmem.c.
+   
+ 
+ @see <a href="pages.html">Páginas relacionadas</a>
+
+*/
+/**
+
+ @include settings.dox
+
+*/

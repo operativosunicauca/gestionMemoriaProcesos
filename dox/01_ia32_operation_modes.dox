@@ -1,0 +1,36 @@
+/**
+@page ia32_operation_modes Modos de Operación de procesadores IA-32
+@author Erwin Meza Vega <emezav@gmail.com>
+
+@ref project_start : @ref ia32_intro : Modos de Operación
+
+Los procesadores IA-32 pueden operar en varios modos:
+- Modo protegido: Este es el modo nativo del procesador. Aprovecha todas las 
+  características de su arquitectura, tales como registros de 32 bits, y 
+  el acceso a todo su conjunto de instrucciones y extensiones.
+- Modo real: En este modo el procesador se encuentra en un entorno de ejecución
+  en el cual se comporta como un 8086 muy rápido, y sólo tiene acceso a un 
+  conjunto limitado de instrucciones que le permiten ejecutar tareas básicas y 
+  habilitar el modo protegido. La limitación más notable en este modo consiste 
+  en que sólo se puede acceder a los 16 bits menos significativos de los 
+  registros de propósito general, y sólo se pueden utilizar los 20 bits menos 
+  significativos del bus de direcciones. Esto causa que en modo real solo se 
+  pueda acceder a 1  Megabyte de memoria. Como se mencionó anteriormente, todos
+  los procesadores de IA-32 inician en este modo.
+- Modo de mantenimiento del sistema: En este modo se puede pasar a un entorno 
+  de ejecución limitado, para realizar tareas de mantenimiento o depuración. 
+- Modo Virtual 8086: Este es un sub-modo al cual se puede acceder cuando el 
+  procesador opera en modo protegido. Permite ejecutar código desarrollado para 
+  8086 en un entorno multi-tarea y protegido.
+- Modo IA32-e: Para procesadores de 64 bits, además de los modos anteriores 
+  existen otros dos sub-modos: modo de compatibilidad y modo de 64 bits. El 
+  modo de compatibilidad permite la ejecución de programas desarrollados para 
+  modo protegido sin ninguna modificación, y el modo de 64 bits proporciona 
+  soporte para acceder a los 64 bits de los registros y un espacio de 
+  direcciones mayor que 64 Gigabytes.
+
+  @see @ref bios_and_booting
+  @see @ref protected_mode_setup
+  @see http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html (Enlace externo)
+
+*/
