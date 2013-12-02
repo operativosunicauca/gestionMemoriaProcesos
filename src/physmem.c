@@ -400,3 +400,7 @@ void  kfree(void * ptr) {
 
 	free_from_heap(kernel_heap, header);
 }
+
+/**
+ * Commit de Peuba para Grupo B
+ */
