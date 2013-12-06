@@ -93,4 +93,62 @@ void free_unit(char *addr);
  */
 void free_region(char *start_addr, unsigned int length);
 
+typedef struct {
+	char state;
+	int start;
+	int size;
+	struct memory_node *previous;
+	struct memory_node *next;
+} memory_node;
+
+typedef struct {
+	memory_node *mem_head;
+	memory_node *mem_tail;
+	int count;
+} memory_list;
+
+static __inline__ memory_node* create_memory_node(char state, unsigned int start, unsigned int size){
+	memory_node *ret;
+	ret = (memory_node*) kmalloc( sizeof(memory_node) );
+	ret->state = state;
+	ret->start = start;
+	ret->size = size;
+	ret->previous = 0;
+	ret->next = 0;
+
+	return ret;
+}
+static __inline__ memory_list *create_memory_list(char * start_addr, unsigned int length){
+	memory_node *mem_node;
+	memory_list *mem_list;
+	unsigned int start = (unsigned int)start_addr / MEMORY_UNIT_SIZE;
+	int size = length / MEMORY_UNIT_SIZE;
+
+	mem_node = create_memory_node('L', start, size);
+
+	mem_list = (memory_list *) kmalloc( sizeof(memory_list) );
+	mem_list->mem_head = mem_node;
+	mem_list->mem_tail = mem_node;
+	mem_list->count = 0;
+
+	return mem_list;
+}
+
+static __inline__ void agregar_nodo(memory_list *mem_list, memory_node *mem_node){
+
+	if( mem_list == 0 ) { return; }
+	if( mem_list->mem_tail == 0 ) { /*TODO*/
+		mem_list->mem_head = mem_node;
+		mem_list->mem_tail = mem_node;
+		mem_list->count = 0;
+	}
+	else{
+		mem_node->previous = mem_list->mem_tail;
+		mem_list->mem_tail->next = mem_node;
+		mem_list->mem_tail = mem_node;
+	}
+	mem_list->count++;
+}
+
 #endif /* PHYSMEM_H_ */
+

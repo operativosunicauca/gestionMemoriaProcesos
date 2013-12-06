@@ -14,6 +14,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+memory_list *kernel_list;
+
+typedef struct cnode {
+     char state;
+     int start;
+     int size;
+} cnode;
 /* Referencia a la variable global kernel_keap */
 /** @brief Variable global para el heap. Sobre este heap actua kmalloc. */
 static heap_t * kernel_heap;
@@ -252,6 +259,22 @@ void setup_memory(void){
 
 		/* Marcar la región de memoria como disponible */
 		free_region((char*)memory_start, memory_length);
+		kernel_list = create_memory_list((char*)memory_start, memory_length);
+
+		//memory_node *mem_n1, *mem_n2, *mem_n3, *mem_n4;
+		//mem_n1 = (memory_node *)create_memory_node('U', 1, 2);
+		//mem_n2 = (memory_node *)create_memory_node('U', 1, 2);
+		//mem_n3 = (memory_node *)create_memory_node('U', 1, 2);
+		//mem_n4 = (memory_node *)create_memory_node('U', 1, 2);
+
+		//agregar_nodo(kernel_list, mem_n1);
+		//agregar_nodo(kernel_list, mem_n2);
+		//agregar_nodo(kernel_list, mem_n3);
+		//agregar_nodo(kernel_list, mem_n4);
+
+		print_list();
+		printf("allocate_unit %u \n", allocate_unit());
+		print_list();
 
 		/* Establecer la dirección de memoria a partir
 		 * de la cual se puede liberar memoria */
@@ -261,13 +284,13 @@ void setup_memory(void){
 		total_units = free_units;
 		base_unit = next_free_unit;
 
-		 printf("Available memory at: 0x%x units: %d Total memory: %d\n",
+		 printf("Available memory at: 0x%x ---units: %d Total memory: %d\n",
 				memory_start, total_units, memory_length);
 	}
  }
 
 /**
- @brief Busca una unidad libre dentro del mapa de bits de memoria.
+ @brief Busca una unidad libre dentro de la lista enlazada de la memoria.
  * @return Dirección de inicio de la unidad en memoria.
  */
   char * allocate_unit(void) {
@@ -288,7 +311,31 @@ void setup_memory(void){
 	 * Es posible que se deba partir un nodo libre en dos.
 	 * Se debe retornar un apuntador char * al inicio de la
 	 * region libre. */
+	 memory_node *ptr = (memory_node *) kmalloc( sizeof(memory_node) );
+	 for( ptr = kernel_list->mem_head; ptr != 0; ptr = ptr->next) {
+	 		if( ptr->state == 'L' ) {
+	 			if(ptr->size == 1)
+	 			{
+	 				ptr->state = 'U';
+	 			}
+	 			else {
+	 				memory_node *new_node = create_memory_node('L',(ptr->start+1),(ptr->size-1));
+	 				ptr->state = 'U';
+	 				ptr->size  = 1;
 
+	 				new_node->previous = ptr;
+	 				new_node->next = ptr->next;
+
+	 				memory_node *n = ptr->next;
+	 				n->previous = new_node;
+	 				ptr->next = new_node;
+
+	 			}
+	 			memory_node *n = ptr->next;
+	 			return (n->start * MEMORY_UNIT_SIZE);
+	 		}
+
+	 }
  	 return 0;
   }
 
@@ -401,6 +448,12 @@ void  kfree(void * ptr) {
 	free_from_heap(kernel_heap, header);
 }
 
-/**
- *       Commit de Peuba para Grupo B
- */
+void print_list(){
+	memory_node *ptr = (memory_node *) kmalloc( sizeof(memory_node) );
+	printf("-----Kernel list-----\n");
+	int i;
+	for( i = 0, ptr = kernel_list->mem_head; ptr != 0; i++, ptr = ptr->next){
+		printf("\tnodo %d\t state %c\t start %d\t size %d\n", i, ptr->state, ptr->start, ptr->size);
+	}
+	kfree(ptr);
+}
