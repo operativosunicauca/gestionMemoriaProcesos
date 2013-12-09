@@ -42,6 +42,10 @@ void cmain(unsigned int magic, void * multiboot_info) {
 	unsigned int allocations;
 
 	char * addr;
+	char * addr0;
+	char * addr1;
+	char * addr2;
+	char * addr3;
 
 	/* Referencia a la estructura de datos multiboot_header en start.S */
 	extern multiboot_header_t multiboot_header;
@@ -62,29 +66,72 @@ void cmain(unsigned int magic, void * multiboot_info) {
 	/* Configurar las IRQ */
 	setup_irq();
 
-	/* Configurar el mapa de bits de memoria del kernel */
+	/* Configurar la lista enlazada para gesionar la memoria del kernel */
 	setup_memory();
 
-	printf("Kernel started\n");
-
+	printf("------- Kernel started -------\n");
+	//print_list();
+	//print_list_right_letf();
 	/* Probar la gestion de unidades de memoria */
 
+	/* Reservar una region de 64 KB 16 Unidades*/
+	//allocate_unit_region(0xFFFF);
+	//print_list();
+
+
 	/* Reservar una unidad  */
-	addr = allocate_unit();
-	printf("Allocated address: %x = %d\n", addr, addr);
+	//addr = allocate_unit();
+	//printf("Allocated address: 0x%x = %d\n", addr, addr);
 
-	addr = allocate_unit_region(0xFFFF);
+	allocate_unit_region(5*4096);
+	//addr0 = allocate_unit();
+	//printf("Allocated address: 0x%x = %d\n", addr0, addr0);
+	//addr1 = allocate_unit();
+	//printf("Allocated address: 0x%x = %d\n", addr1, addr1);
+	//addr2 = allocate_unit();
+	//printf("Allocated address: 0x%x = %d\n", addr2, addr2);
+	addr3 = allocate_unit();
+	printf("Allocated address: 0x%x = %d\n", addr3, addr3);
 
-	printf("Allocated region: %x\n", addr);
+	print_list();
 
-	addr = allocate_unit();
+	//free_unit((char*)addr0);
+	//free_unit((char*)addr1);
+	//free_unit((char*)addr2);
+	//print_list();
 
-	printf("Allocated address: %x\n", addr);
+	free_unit(523*4096);
+	print_list();
+	//print_list_right_letf();
+	free_unit(524*4096);
+	print_list();
+	printf("free region");
 
-	printf("Last allocated address: %x, %u\n",addr, addr);
+	//free_region(525*4096, 2*4096);
+	//print_list();
+	free_unit(526*4096);
+	print_list();
+
+	free_region(525*4096, 4*4096);
+	print_list();
+	/*
+	addr3 = allocate_unit();
+		printf("0000000000000000000000Allocated address: 0x%x = %d\n", addr3, addr3);
+		print_list();
+	*/
+
+	//addr = allocate_unit_region(0xFFFF);
+
+	//printf("Allocated region: %x\n", addr);
+
+	//addr = allocate_unit();
+
+	//printf("Allocated address: %x\n", addr);
+
+	//printf("Last allocated address: %x, %u\n",addr, addr);
 
 	inline_assembly("sti");
 
-	printf("Kernel finished\n");
+	printf("------- Kernel finished -------\n");
 
 }

@@ -96,7 +96,7 @@ void free_region(char *start_addr, unsigned int length);
 typedef struct {
 	char state;
 	int start;
-	int size;
+	int units;
 	struct memory_node *previous;
 	struct memory_node *next;
 } memory_node;
@@ -107,37 +107,35 @@ typedef struct {
 	int count;
 } memory_list;
 
-static __inline__ memory_node* create_memory_node(char state, unsigned int start, unsigned int size){
+static __inline__ memory_node* create_memory_node(char state, int start, int units){
 	memory_node *ret;
 	ret = (memory_node*) kmalloc( sizeof(memory_node) );
 	ret->state = state;
 	ret->start = start;
-	ret->size = size;
+	ret->units = units;
 	ret->previous = 0;
 	ret->next = 0;
 
 	return ret;
 }
-static __inline__ memory_list *create_memory_list(char * start_addr, unsigned int length){
-	memory_node *mem_node;
-	memory_list *mem_list;
-	unsigned int start = (unsigned int)start_addr / MEMORY_UNIT_SIZE;
-	int size = length / MEMORY_UNIT_SIZE;
 
-	mem_node = create_memory_node('L', start, size);
+static __inline__ memory_list *create_memory_list(char * start_addr, unsigned int length){
+	memory_list *mem_list;
+	memory_node *mem_node;
+	mem_node = create_memory_node('L', (unsigned int)start_addr / MEMORY_UNIT_SIZE, length / MEMORY_UNIT_SIZE);
 
 	mem_list = (memory_list *) kmalloc( sizeof(memory_list) );
 	mem_list->mem_head = mem_node;
 	mem_list->mem_tail = mem_node;
-	mem_list->count = 0;
+	mem_list->count = 1;
 
 	return mem_list;
 }
-
+/*
 static __inline__ void agregar_nodo(memory_list *mem_list, memory_node *mem_node){
 
 	if( mem_list == 0 ) { return; }
-	if( mem_list->mem_tail == 0 ) { /*TODO*/
+	if( mem_list->mem_tail == 0 ) {
 		mem_list->mem_head = mem_node;
 		mem_list->mem_tail = mem_node;
 		mem_list->count = 0;
@@ -149,6 +147,8 @@ static __inline__ void agregar_nodo(memory_list *mem_list, memory_node *mem_node
 	}
 	mem_list->count++;
 }
+*/
+
 
 #endif /* PHYSMEM_H_ */
 
