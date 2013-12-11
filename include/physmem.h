@@ -118,51 +118,13 @@ typedef struct {
 typedef struct {
 	memory_node *mem_head;
 	memory_node *mem_tail;
-	int count;
 } memory_list;
 
-static __inline__ memory_node* create_memory_node(char state, int start, int units){
-	memory_node *ret;
-	ret = (memory_node*) kmalloc( sizeof(memory_node) );
-	ret->state = state;
-	ret->start = start;
-	ret->units = units;
-	ret->previous = 0;
-	ret->next = 0;
-
-	return ret;
-}
-
-static __inline__ memory_list *create_memory_list(char * start_addr, unsigned int length){
-	memory_list *mem_list;
-	memory_node *mem_node;
-	mem_node = create_memory_node('L', (unsigned int)start_addr / MEMORY_UNIT_SIZE, length / MEMORY_UNIT_SIZE);
-
-	mem_list = (memory_list *) kmalloc( sizeof(memory_list) );
-	mem_list->mem_head = mem_node;
-	mem_list->mem_tail = mem_node;
-	mem_list->count = 1;
-
-	return mem_list;
-}
-/*
-static __inline__ void agregar_nodo(memory_list *mem_list, memory_node *mem_node){
-
-	if( mem_list == 0 ) { return; }
-	if( mem_list->mem_tail == 0 ) {
-		mem_list->mem_head = mem_node;
-		mem_list->mem_tail = mem_node;
-		mem_list->count = 0;
-	}
-	else{
-		mem_node->previous = mem_list->mem_tail;
-		mem_list->mem_tail->next = mem_node;
-		mem_list->mem_tail = mem_node;
-	}
-	mem_list->count++;
-}
-*/
-
-
+/* TODO comentar create_memory_node */
+memory_node* create_memory_node(char state, int start, int units);
+/* TODO comentar create_memory_list*/
+memory_list *create_memory_list(char * start_addr, unsigned int length);
+/* TODO comentar print_list */
+void print_list();
 #endif /* PHYSMEM_H_ */
 

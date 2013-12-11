@@ -70,6 +70,15 @@ void cmain(unsigned int magic, void * multiboot_info) {
 	setup_memory();
 
 	printf("------- Kernel started -------\n");
+	print_list();
+	allocate_unit_region(15859*4096);
+	print_list();
+	free_unit(523*4096);
+	print_list();
+
+	free_unit(525*4096);
+	print_list();
+
 	//print_list();
 	//print_list_right_letf();
 	/* Probar la gestion de unidades de memoria */
@@ -83,37 +92,37 @@ void cmain(unsigned int magic, void * multiboot_info) {
 	//addr = allocate_unit();
 	//printf("Allocated address: 0x%x = %d\n", addr, addr);
 
-	allocate_unit_region(5*4096);
+	//allocate_unit_region(5*4096);
 	//addr0 = allocate_unit();
 	//printf("Allocated address: 0x%x = %d\n", addr0, addr0);
 	//addr1 = allocate_unit();
 	//printf("Allocated address: 0x%x = %d\n", addr1, addr1);
 	//addr2 = allocate_unit();
 	//printf("Allocated address: 0x%x = %d\n", addr2, addr2);
-	addr3 = allocate_unit();
-	printf("Allocated address: 0x%x = %d\n", addr3, addr3);
+	//addr3 = allocate_unit();
+	//printf("Allocated address: 0x%x = %d\n", addr3, addr3);
 
-	print_list();
+	//print_list();
 
 	//free_unit((char*)addr0);
 	//free_unit((char*)addr1);
 	//free_unit((char*)addr2);
 	//print_list();
 
-	free_unit(523*4096);
-	print_list();
+	//free_unit(523*4096);
+	//print_list();
 	//print_list_right_letf();
-	free_unit(524*4096);
-	print_list();
-	printf("free region");
+	//free_unit(524*4096);
+	//print_list();
+	//printf("free region");
 
 	//free_region(525*4096, 2*4096);
 	//print_list();
-	free_unit(526*4096);
-	print_list();
+	//free_unit(526*4096);
+	//print_list();
 
-	free_region(525*4096, 4*4096);
-	print_list();
+	//free_region(525*4096, 4*4096);
+	//print_list();
 	/*
 	addr3 = allocate_unit();
 		printf("0000000000000000000000Allocated address: 0x%x = %d\n", addr3, addr3);

@@ -585,10 +585,18 @@ void free_unit(char * addr) {
 
 			 }
 	 }
-	else if(ptr->start > unit && ptr->state == 'U'){
+	else if(ptr->start > unit){
 		printf("aaaaaaaaaaaaaaaaaa %u", (unsigned int)addr / 4096);
 		new_nodel = ptr->previous; //
 		if(new_nodel->state == 'U') {
+
+			if(ptr->start == (unit + 1) && ptr->state == 'L'){
+				new_nodel->units -= 1;
+				ptr->units += 1;
+				ptr->start -= 1;
+				break;
+			}
+
 			new_noder = ptr->next;
 
 			memory_node *new_node = (memory_node *) kmalloc( sizeof( memory_node) );
@@ -608,6 +616,7 @@ void free_unit(char * addr) {
 			nn->previous = new_node;
 			new_node->next = nn;
 			nn->next = ptr;
+			ptr->previous = nn;
 
 			new_nodel->units = unit - new_nodel->start;
 			new_nodel->next = new_node;
@@ -616,7 +625,32 @@ void free_unit(char * addr) {
 		}
 		break;
 	}
+	else if(ptr->start < unit && ptr == kernel_list->mem_tail ){
+		printf("afssssssssssssssssssssssssssss");
+		new_noder = ptr->next;
 
+		memory_node *new_node = (memory_node *) kmalloc( sizeof( memory_node) );
+		/* nuevo usado */
+		memory_node *nn = (memory_node *) kmalloc( sizeof( memory_node) );
+		nn->start = unit + 1;
+		nn->state = 'U';
+		nn->units = ptr->start - nn->start;
+
+		/* nuevo libre*/
+		new_node->state = 'L';
+		new_node->start = unit;
+		new_node->units = 1;
+		new_node->previous = new_nodel;
+
+		/* nuevo usado */
+		nn->previous = new_node;
+		new_node->next = nn;
+		nn->next = ptr;
+		ptr->previous = nn;
+
+		new_nodel->units = unit - new_nodel->start;
+		new_nodel->next = new_node;
+	}
 	 }
 
 
@@ -680,10 +714,10 @@ void  kfree(void * ptr) {
 
 	free_from_heap(kernel_heap, header);
 }
-
+/* TODO comentar print_list */
 void print_list(){
 	memory_node *ptr = (memory_node *) kmalloc( sizeof(memory_node) );
-	printf("-----Kernel list-----\n");
+	printf(" Kernel memory_list !!!\n");
 	int i;
 	for( i = 0, ptr = kernel_list->mem_head; ptr != 0; i++, ptr = ptr->next){
 		printf("\tnodo %d\t state %c\t start %d\t units %d\n", i, ptr->state, ptr->start, ptr->units);
@@ -692,17 +726,34 @@ void print_list(){
 }
 void print_list_right_letf(){
 	memory_node *ptr = (memory_node *) kmalloc( sizeof(memory_node) );
-	printf("-----Kernel list-----\n");
+	printf(" Kernel memory_list !!!\n");
 	int i;
 	for( i = 0, ptr = kernel_list->mem_tail; ptr != 0; i++, ptr = ptr->previous){
 		printf("\tnodo %d\t state %c\t start %d\t units %d\n", i, ptr->state, ptr->start, ptr->units);
 	}
 	kfree(ptr);
 }
+/* TODO comentar create_memory_node */
+memory_node* create_memory_node(char state, int start, int units){
+	memory_node *ret;
+	ret = (memory_node*) kmalloc( sizeof(memory_node) );
+	ret->state = state;
+	ret->start = start;
+	ret->units = units;
+	ret->previous = 0;
+	ret->next = 0;
 
-/*
-memory_node* fusionar_nodo(memory_node* mem_node){
-	mem_node->previous
-	return 0;
+	return ret;
 }
-*/
+/* TODO comentar create_memory_list*/
+memory_list *create_memory_list(char * start_addr, unsigned int length){
+	memory_list *mem_list;
+	memory_node *mem_node;
+	mem_node = create_memory_node('L', (unsigned int)start_addr / MEMORY_UNIT_SIZE, length / MEMORY_UNIT_SIZE);
+
+	mem_list = (memory_list *) kmalloc( sizeof(memory_list) );
+	mem_list->mem_head = mem_node;
+	mem_list->mem_tail = mem_node;
+
+	return mem_list;
+}
