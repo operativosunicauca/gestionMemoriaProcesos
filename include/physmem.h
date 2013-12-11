@@ -93,14 +93,27 @@ void free_unit(char *addr);
  */
 void free_region(char *start_addr, unsigned int length);
 
+/*
+ * @brief Representa un nodo de memoria.
+ */
 typedef struct {
+	/*Define el estado del nodo, 'L' si el nodo esta disponible y 'U' si esta usado.*/
 	char state;
+	/*Define el inicio de la region de memoria que representa el nodo actual.*/
 	int start;
+	/*Permite determinar la unidad de memoria en la que termina la region
+	 * (Unidad Final = start + units ).*/
 	int units;
+
+	/*Apuntadores a los nodos anterior y siguiente del nodo actual.*/
 	struct memory_node *previous;
 	struct memory_node *next;
 } memory_node;
 
+/*
+ *@brief Representa una lista de nodos de memoria.
+ *@details Contiene un apuntador a la cabeza, otro a la cola de la lista
+ *y un contador que representa el tamaño de los nodos de la lista.*/
 typedef struct {
 	memory_node *mem_head;
 	memory_node *mem_tail;

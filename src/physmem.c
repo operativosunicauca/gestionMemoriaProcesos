@@ -8,8 +8,8 @@
  * de 4096 bytes.
  */
 
-/*
- * Commit de prueba
+/**
+ * @brief Commit de prueba
  */
 #include <kmm.h>
 #include <physmem.h>
@@ -17,6 +17,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**@brief Lista enlazada para gestionar la memoria ocupada y disponible.
+ *@details Esta variable almacena el apuntador a una memory_list, la cual
+ * ayudara al kernel a gestionar la memoria disponible y usada. */
 memory_list *kernel_list;
 
 /* Referencia a la variable global kernel_keap */
@@ -287,41 +290,63 @@ void setup_memory(void){
  * @return Dirección de inicio de la unidad en memoria.
  */
   char * allocate_unit(void) {
+
+	 /*Indica la unidad libre
 	 unsigned int unit;
+	 Variable de entrada
 	 unsigned int entry;
-	 unsigned int offset;
+	 Variable de desplazamiento
+	 unsigned int offset;*/
 
-
-	// printf ("%d ", free_units);
-	 /* Si no existen unidades libres, retornar*/
+	 /* Si no existen unidades libres, da un aviso y retorna cero (0).*/
 	 if (free_units == 0) {
-		 //printf("Warning! out of memory!\n");
+		 printf("Warning! out of memory!\n");
 		 return 0;
 	 }
 
-	/* TODO: Implementar la logica para recorrer la lista de
-	 * unidades de memoria y buscar un espacio libre.
-	 * Es posible que se deba partir un nodo libre en dos.
-	 * Se debe retornar un apuntador char * al inicio de la
-	 * region libre. */
+	 /*Puntero a un nodo de memoria.*/
 	 memory_node *ptr;
 
+	 /*Recorre la lista de memoria en busca de un nodo libre.
+	  *Inicia desde la cabeza de la lista de nodos de memoria
+	  * y termina cuando ha encontrado dicho nodo o llega al final de la lista.
+	  */
 	 for( ptr = kernel_list->mem_head; ptr != 0; ptr = ptr->next) {
-	 		if( ptr->state == 'L' ) {
+
+		 	/*Si encuentra un nodo libre...*/
+		 	if( ptr->state == 'L' ) {
+
+		 		/*Si el nodo tiene una sola unidad en la region, establecer su estado en usado.*/
 	 			if(ptr->units == 1) {
 	 				ptr->state = 'U';
 	 			}
 	 			else {
+	 				/*Si el nodo tiene mas de una unidad libre, se crea un nuevo nodo.
+	 				 *Su estado se establece en Libre, el inicio del nodo es el inicio del nodo
+	 				 *actual más uno y las unidades en las unidades del nodo actual menos 1.
+	 				 *Como se usa la primera unidad de la region libre, el nuevo nodo
+	 				 *representa el nuevo espacio libre que queda.
+	 				 */
 	 				memory_node *new_node = create_memory_node('L', (ptr->start+1), (ptr->units-1));
+
+	 				/*Establece como usada la primera unidad del nodo actual.*/
 	 				ptr->state = 'U';
 	 				ptr->units = 1;
 
+	 				/*Enlaza el nodo 'anterior' del nuevo nodo al nodo actual,
+	 				 *con el objetivo de colocar el nuevo nodo a la 'derecha' del actual.*/
 	 				new_node->previous = ptr;
 
+	 				/*Si el nodo actual es la cola de la lista, el 'siguiente' de nodo actual
+	 				 *se enlaza al nuevo nodo y a su vez, este último se coloca como la cola
+	 				 *de la lista.*/
 	 				if(ptr->next == 0){
 	 					ptr->next = new_node;
 	 					kernel_list->mem_tail = new_node;
 	 				}
+	 				/*Sino, se enlaza el nodo actual, el nodo siguiente a éste y el
+	 				 *nuevo nodo, de tal manera que el nuevo nodo quede entre el actual y el
+	 				 *siguiente del actual.*/
 	 				else {
 	 					new_node->next = ptr->next;
 	 					memory_node *n = ptr->next;
@@ -329,74 +354,113 @@ void setup_memory(void){
 	 					ptr->next = new_node;
 	 				}
 	 			}
+	 			/*Finalmente se retorna la dirección de inicio de la unidad en memoria.*/
 	 			return (ptr->start * MEMORY_UNIT_SIZE);
 	 		}
-
 	 }
+	 printf("Warning! out of memory!\n");
  	 return 0;
   }
 
-
-  /** @brief Busca una región de memoria contigua libre dentro de la lista enlazada de la
+  /** @brief Busca una región de memoria contigua libre dentro de la lista enlazada
    * de memoria.
    * @param length Tamaño de la región de memoria a asignar.
    * @return Dirección de inicio de la región en memoria.
    */
   char * allocate_unit_region(unsigned int length) {
-	unsigned int unit;
-	unsigned int unit_count;
-	unsigned int i;
-	int result;
 
+	/*Variable de unidad*/
+    unsigned int unit;
+    /*Número de unidades*/
+    unsigned int unit_count;
+    /*Variable iteradora*/
+    unsigned int i;
+    /*Variable de resultado*/
+    int result;
+
+    /* Se calcula el número de unidades a asignar dividiendo el tamaño (en bytes)
+     * entre el tamaño de cada unidad. Se debe tener encuenta que unit_count
+     * almacena la parte entera de la division.*/
 	unit_count = (length / MEMORY_UNIT_SIZE);
 
+	/* Si la división anterior no es exacta, se necesita una unidad más que representa
+	 * la parte decimal restante, por cual se aumenta unit_count en uno (1)*/
 	if (length % MEMORY_UNIT_SIZE > 0) {
 		unit_count++;
 	}
 
-	//printf("\tAllocating %d units\n", unit_count);
-
+	/*Si no existen unidades libres, da un aviso y retorna cero (0).*/
 	if (free_units < unit_count) {
-		//TODO una region que ocupe toda la memoria disponible
-		//printf("Warning! out of memory!\n");
-		 return 0;
+		printf("Warning! out of memory!\n");
+		return 0;
 	}
 
-	/* TODO: Iterar por la lista para encontra un nodo
-	 * que tenga al menos el numero de unidades solicitados.
-	 * Marcar el nodo como usado, y crear un nuevo nodo en
-	 * el cual queda el resto de unidades disponibles. */
+	/*Se crea un puntero a un nodo de memoria para recorrer la lista de memoria.*/
 	memory_node *ptr;
+
+	/* Se crea un puntero a un nodo de memoria y se reserva espacio en memoria para su uso.*/
 	memory_node *new_node = (memory_node *) kmalloc( sizeof(memory_node) );
+
+	/*Se crea un nodo de memoria auxiliar.*/
 	memory_node *aux_node;
+
+	/* Recorre la lista de gestión de memoria en busca de un nodo
+	 * que tenga al menos el numero de unidades solicitadas.
+	 * Inicia desde la cabeza de la lista de nodos de memoria
+	 * y termina cuando ha encontrado dicho nodo o cuando llega al final de la lista.*/
 	for( ptr = kernel_list->mem_head; ptr != 0; ptr = ptr->next) {
-		if( ptr->state == 'L'){
-			if( ptr->units > unit_count ){
+		/*Si se encuentra un nodo libre.*/
+		if( ptr->state == 'L') {
+			/*Si las unidades del nodo actual son mayores que las unidades a asignar, */
+			if( ptr->units > unit_count ) {
+				/*Se cambia el estado del nodo actual a usado*/
 				ptr->state = 'U';
+
+				/* new_node representa el nuevo nodo que se ubicará a la 'derecha' del nodo actual
+				 * y contendrá las unidades libres restantes a partir de las unidades asignadas.
+				 */
 				new_node->state = 'L';
 				new_node->start = ptr->start + unit_count;
 				new_node->units = ptr->units - unit_count;
 
+				/*Se cambian las unidades del nodo actual por las unidades solicitadas (unit_count).*/
 				ptr->units = unit_count;
 
+				/*El nodo auxiliar contiene la referencia del nodo siguiente al nodo actual.*/
 				aux_node = ptr->next;
+
+				/* Si el nodo auxiliar es nulo indica que el nodo actual (ptr) es la cola de la lista
+				 * de gestión de memoria.*/
 				if(aux_node == 0) {
-					/* tail */
+					/* Por lo tanto el nuevo nodo será la cola de la lista de memoria. */
 					kernel_list->mem_tail = new_node;
 				}
+
+				/* El nodo 'Anterior' al auxiliar será ahora el nuevo nodo,
+				 * el nodo 'Anterior' al nuevo será el nodo actual (ptr),
+				 * el nodo 'Siguiente' al nuevo será el auxiliar nodo
+				 * y por ultimo el nodo 'Siguiente' al actual será el nuevo nodo
+				 * De esta manera el nuevo nodo que se creo queda en medio del nodo actual
+				 * y el siguiente nodo al actual (si existe nodo siguiente al actual) sino
+				 * el nuevo nodo quedara como cola de la lista de memoria*/
 				aux_node->previous = new_node;
 				new_node->previous = ptr;
 				new_node->next = aux_node;
 				ptr->next = new_node;
 
+				/*Se cambia el valor de inicio del nodo actual por el mismo valor
+				 * multiplicado por el tamaño de la unidad de memoria*/
 				return ptr->start * MEMORY_UNIT_SIZE;
 			}
+			/* Si no se encuentra una unidad de memoria mayor a las unidades solicitadas
+			 * el nodo actual cambia su estado a usado 'U' y  */
 			else{
 				ptr->state = 'U';
 				return ptr->start * MEMORY_UNIT_SIZE;
 			}
 		}
 	}
+	  printf("Warning! out of memory!\n");
 	  return 0;
   }
 
@@ -405,27 +469,43 @@ void setup_memory(void){
  * @param addr Dirección de memoria dentro del área a liberar.
  */
 void free_unit(char * addr) {
-	//printf("------------Allocated address: 0x%x = %d\n", addr, addr);
+	 //printf("------------Allocated address: 0x%x = %d\n", addr, addr);
+	 /*Variable inicio*/
 	 unsigned int start;
+	 /*Variable de entrada*/
 	 unsigned int entry;
+	 /*........*/
 	 int offset;
+	 /*Variable de unidad*/
 	 unsigned int unit;
 
+	 /*La variable 'start' se inicializa con la dirección de memoria ya redondeada */
 	 start = round_down_to_memory_unit((unsigned int)addr);
 
+	 /*Si el valor de inicio (start) es menor memoria permitida para liberar se retorna*/
 	 if (start < allowed_free_start) {return;}
 
+	 /*La unidad será la división entre el inicio y el tamaño de unidad de memoria */
 	 unit = start / MEMORY_UNIT_SIZE;
 
 	 /* TODO: Buscar la unidad en la lista de unidades, y marcarla como
 	  * disponible.
 	  * Es posible que se requiera fusionar nodos en la lista!*/
 	 /* SET UNIT */
+
+	 /*Se crea un puntero a un nodo de memoria para recorrer la lista de memoria.*/
 	 memory_node *ptr;
+	 /*Se crea un nodo de memoria auxiliar 'nodel'.*/
 	 memory_node *new_nodel;
+	 /*Se crea un nodo de memoria auxiliar 'noder'.*/
 	 memory_node *new_noder;
+	 /*Se crea un nodo de memoria auxiliar 'naux'.*/
 	 memory_node *new_naux;
 
+	 /* Recorre la lista de memoria buscando la unidad en las lista de unidades y la
+	  * marca como disponible cuando la encuentre.
+	  * Inicia desde la cabeza de la lista de nodos de memoria
+	  * y termina cuando ha encontrado dicho nodo o cuando llega al final de la lista.*/
 	 for( ptr = kernel_list->mem_head; ptr != 0; ptr = ptr->next) {
 		 if(ptr->start == unit && ptr->state == 'U'){
 			 if(ptr->units == 1){
@@ -551,13 +631,17 @@ void free_unit(char * addr) {
 
 /**
  * @brief Permite liberar una región de memoria.
- * @param start_addr Dirección de memoria del inicio de la región a liberar
- * @param length Tamaño de la región a liberar
+ * @param start_addr Dirección de memoria del inicio de la región a liberar.
+ * @param length Tamaño de la región a liberar.
  */
 void free_region(char * start_addr, unsigned int length) {
+
+	 /* Unidad de inicio de la región a liberar. */
 	 unsigned int start;
+	 /* última unidad de la región a liberar. */
 	 unsigned int end;
 
+	 /* Se redondea la dirección de inicio */
 	 start = round_down_to_memory_unit((unsigned int)start_addr);
 
 	 if (start < allowed_free_start) {return;}
