@@ -305,7 +305,7 @@ void setup_memory(void){
 	 }
 
 	 /*Puntero a un nodo de memoria.*/
-	 memory_node *ptr;
+	 nodo_iterator ptr;
 
 	 /*Recorre la lista de memoria en busca de un nodo libre.
 	  *Inicia desde la cabeza de la lista de nodos de memoria
@@ -506,12 +506,12 @@ void free_unit(char * addr) {
 	  * marca como disponible cuando la encuentre.
 	  * Inicia desde la cabeza de la lista de nodos de memoria
 	  * y termina cuando ha encontrado dicho nodo o cuando llega al final de la lista.*/
+
 	 for( ptr = kernel_list->mem_head; ptr != 0; ptr = ptr->next) {
 		 if(ptr->start == unit && ptr->state == 'U'){
 			 if(ptr->units == 1){
 				 new_nodel = ptr->previous;
 				 new_noder = ptr->next;
-
 				 ptr->state = 'L';
 
 				 if( new_nodel->state == 'L'){
@@ -548,10 +548,6 @@ void free_unit(char * addr) {
 							 kfree(new_noder);
 						 }
 					 }
-					 else{
-					 	// left and right USADOS
-						 ptr->state = 'L';
-					 }
 				 }
 			 }
 			 else //ptr->units>1
@@ -583,75 +579,65 @@ void free_unit(char * addr) {
 				 break;
 
 			 }
+		 }
+		 else if(ptr->start > unit){
+			 printf("aaaaaaaaaaaaaaaaaa %u", (unsigned int)addr / 4096);
+			 new_nodel = ptr->previous; //
+			 if(new_nodel->state == 'U') {
+
+				 if(ptr->start == (unit + 1) && ptr->state == 'L'){
+					 new_nodel->units -= 1;
+					 ptr->units += 1;
+					 ptr->start -= 1;
+					 break;
+				 }
+
+				 new_noder = ptr->next;
+
+				 memory_node *new_node = (memory_node *) kmalloc( sizeof( memory_node) );
+				 /* nuevo usado */
+				 memory_node *nn = (memory_node *) kmalloc( sizeof( memory_node) );
+				 nn->start = unit + 1;
+				 nn->state = 'U';
+				 nn->units = ptr->start - nn->start;
+
+				 /* nuevo libre*/
+				 new_node->state = 'L';
+				 new_node->start = unit;
+				 new_node->units = 1;
+				 new_node->previous = new_nodel;
+
+				 /* nuevo usado */
+				 nn->previous = new_node;
+				 new_node->next = nn;
+				 nn->next = ptr;
+				 ptr->previous = nn;
+
+				 new_nodel->units = unit - new_nodel->start;
+				 new_nodel->next = new_node;
+			 }
+			 break;
+		 }
+		 else if(ptr->start < unit && ptr->start>1 && ptr == kernel_list->mem_tail && ptr->state == 'U'){
+			 memory_node *new_node = (memory_node *) kmalloc( sizeof( memory_node) );
+
+			 /*Guardo el numero de unidades del nodo ptr en una vble tmp*/
+			 int tmp = ptr->units;
+
+			 /*Se modifica solo las unidades*/
+			 ptr->units = unit - ptr->start;
+
+			 /* nuevo libre*/
+			 new_node->state = 'L';
+			 new_node->start = unit;
+			 new_node->units = tmp - ptr->units;
+
+			 new_node->previous = ptr;
+			 ptr->next = new_node;
+
+			 kernel_list->mem_tail = new_node;
+		 }
 	 }
-	else if(ptr->start > unit){
-		printf("aaaaaaaaaaaaaaaaaa %u", (unsigned int)addr / 4096);
-		new_nodel = ptr->previous; //
-		if(new_nodel->state == 'U') {
-
-			if(ptr->start == (unit + 1) && ptr->state == 'L'){
-				new_nodel->units -= 1;
-				ptr->units += 1;
-				ptr->start -= 1;
-				break;
-			}
-
-			new_noder = ptr->next;
-
-			memory_node *new_node = (memory_node *) kmalloc( sizeof( memory_node) );
-			/* nuevo usado */
-			memory_node *nn = (memory_node *) kmalloc( sizeof( memory_node) );
-			nn->start = unit + 1;
-			nn->state = 'U';
-			nn->units = ptr->start - nn->start;
-
-			/* nuevo libre*/
-			new_node->state = 'L';
-			new_node->start = unit;
-			new_node->units = 1;
-			new_node->previous = new_nodel;
-
-			/* nuevo usado */
-			nn->previous = new_node;
-			new_node->next = nn;
-			nn->next = ptr;
-			ptr->previous = nn;
-
-			new_nodel->units = unit - new_nodel->start;
-			new_nodel->next = new_node;
-
-
-		}
-		break;
-	}
-	else if(ptr->start < unit && ptr == kernel_list->mem_tail ){
-		printf("afssssssssssssssssssssssssssss");
-		new_noder = ptr->next;
-
-		memory_node *new_node = (memory_node *) kmalloc( sizeof( memory_node) );
-		/* nuevo usado */
-		memory_node *nn = (memory_node *) kmalloc( sizeof( memory_node) );
-		nn->start = unit + 1;
-		nn->state = 'U';
-		nn->units = ptr->start - nn->start;
-
-		/* nuevo libre*/
-		new_node->state = 'L';
-		new_node->start = unit;
-		new_node->units = 1;
-		new_node->previous = new_nodel;
-
-		/* nuevo usado */
-		nn->previous = new_node;
-		new_node->next = nn;
-		nn->next = ptr;
-		ptr->previous = nn;
-
-		new_nodel->units = unit - new_nodel->start;
-		new_nodel->next = new_node;
-	}
-	 }
-
 
 	 /* Marcar la unidad recien liberada como la proxima unidad
 	  * para asignar */
@@ -689,7 +675,6 @@ void free_region(char * start_addr, unsigned int length) {
 	 /* Almacenar el inicio de la región liberada para una próxima asignación */
 	 next_free_unit = (unsigned int)start_addr / MEMORY_UNIT_SIZE;
  }
-
 
 
 /**
