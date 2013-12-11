@@ -1,3 +1,0 @@
-/*
- * Prueba archivo adicionado.
- */
