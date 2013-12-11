@@ -402,5 +402,5 @@ void  kfree(void * ptr) {
 }
 
 /*
- * Prueba de commit en el grupo A
+ * Prueba de commit en el grupo A .
  */
