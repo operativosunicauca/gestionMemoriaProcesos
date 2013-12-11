@@ -307,6 +307,7 @@ void setup_memory(void){
 	 /*Puntero a un nodo de memoria.*/
 	 nodo_iterator ptr;
 
+
 	 /*Recorre la lista de memoria en busca de un nodo libre.
 	  *Inicia desde la cabeza de la lista de nodos de memoria
 	  * y termina cuando ha encontrado dicho nodo o llega al final de la lista.
