@@ -26,6 +26,7 @@ static __inline__ unsigned int round_down_to_memory_unit(addr) {
     return addr - remainder;
 }
 
+
 /** @brief Función que redondea una dirección de memoria a la dirección
  *  más cercana por encima que sea múltiplo de MEMORY_UNIT_SIZE */
 static __inline__ unsigned int round_up_to_memory_unit(addr) {

@@ -502,6 +502,7 @@ void free_unit(char * addr) {
 	 /*Se crea un nodo de memoria auxiliar 'naux'.*/
 	 memory_node *new_naux;
 
+
 	 /* Recorre la lista de memoria buscando la unidad en las lista de unidades y la
 	  * marca como disponible cuando la encuentre.
 	  * Inicia desde la cabeza de la lista de nodos de memoria
