@@ -67,10 +67,27 @@ void cmain(unsigned int magic, void * multiboot_info) {
 
 	printf("Kernel started\n");
 
+		//allocate_unit();
+		//allocate_unit();
+		//allocate_unit();
+		//allocate_unit();
+		//allocate_unit_region(16);
+		allocate_unit_region(15858);
+		allocate_unit();
+		main();
+		//free_unit(523*4096);
+		//free_unit(524*4096);
+		//main();
+		//allocate_unit();
+		//main();
+		free_region(523*4096,15858);
+		main();
+		free_unit(16381*4096);
+		main();
 	/* Probar la gestion de unidades de memoria */
 
 	/* Reservar una unidad  */
-	addr = allocate_unit();
+	/*addr = allocate_unit();
 	printf("Allocated address: %x = %d\n", addr, addr);
 
 	addr = allocate_unit_region(0xFFFF);
@@ -84,7 +101,7 @@ void cmain(unsigned int magic, void * multiboot_info) {
 	printf("Last allocated address: %x, %u\n",addr, addr);
 
 	inline_assembly("sti");
-
+*/
 	printf("Kernel finished\n");
 
 }

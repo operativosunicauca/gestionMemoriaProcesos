@@ -37,9 +37,7 @@ static __inline__ unsigned int round_up_to_memory_unit(addr) {
 	if (remainder > 0) {
 		return addr + MEMORY_UNIT_SIZE - remainder;
 	}
-
 	return addr;
-
 }
 
 /** @brief Tamanio en bytes del HEAP del kernel, 1 MB */
@@ -52,8 +50,6 @@ static __inline__ unsigned int round_up_to_memory_unit(addr) {
  *  		 no es posible asignar memoria.
  */
 void * kmalloc(unsigned int size);
-
-
 
 /**
  * @brief Solicita liberar una region de memoria dentro del heap
@@ -71,26 +67,88 @@ void setup_memory(void);
  @brief Busca una unidad libre dentro del mapa de bits de memoria.
  * @return Dirección de inicio de la unidad en memoria.
  */
-char * allocate_unit(void);
+void allocate_unit();
 
 /** @brief Busca una región de memoria contigua libre dentro del mapa de bits
  * de memoria.
  * @param length Tamaño de la región de memoria a asignar.
  * @return Dirección de inicio de la región en memoria.
  */
-char * allocate_unit_region(unsigned int length);
+void allocate_unit_region(unsigned int length);
 
-/**
- * @brief Permite liberar una unidad de memoria.
- * @param addr Dirección de memoria dentro del área a liberar.
- */
-void free_unit(char *addr);
+
 
 /**
  * @brief Permite liberar una región de memoria.
  * @param start_addr Dirección de memoria del inicio de la región a liberar
  * @param length Tamaño de la región a liberar
  */
-void free_region(char *start_addr, unsigned int length);
+void free_region(unsigned int start_addr, unsigned int length);
+
+/*-------------Se crea todo lo referente a la memory_lista -------------------*/
+
+
+typedef struct node {
+	char state;
+	unsigned int start;
+	unsigned int length;
+       struct node *next;
+       struct node *previous;
+}node;
+
+
+typedef node * node_iterator;
+
+typedef struct memory_list {
+       node *head;
+       node *tail;
+       int count;
+} memory_list;
+
+static __inline__ memory_list * create_memory_list();
+
+static __inline__ void inicializar_memoria_disponible(memory_list *,unsigned int,unsigned int);
+
+static __inline__ node * create_node(char,unsigned int ,unsigned int);
+
+static __inline__ void clear_memory_list(memory_list *);
+
+static __inline__ void * push_front(memory_list *, node *);
+
+static __inline__ void * push_back(memory_list *, node * );
+
+static __inline__ void * front(const memory_list *);
+
+static __inline__ void * back(memory_list *);
+
+static __inline__ void * pop_front(memory_list *);
+
+static __inline__ void * pop_back(memory_list *);
+
+static __inline__ int empty(memory_list *);
+
+static __inline__ node_iterator head(memory_list *);
+
+static __inline__ node_iterator tail(memory_list *);
+
+static __inline__ node_iterator next(node_iterator);
+
+static __inline__ node_iterator previous(node_iterator );
+
+void main();
+
+/**
+ * @brief Permite liberar una unidad de memoria.
+ * @param addr Dirección de memoria dentro del área a liberar.
+ */
+void free_unit( unsigned int);
+
+void recorrido(memory_list*,unsigned int);
+
+void unirNodosLibres(memory_list *,node *);
+
+void free_unit_original(char *);
+
+void free_region_original(char *, unsigned int);
 
 #endif /* PHYSMEM_H_ */
