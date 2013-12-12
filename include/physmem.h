@@ -26,6 +26,7 @@ static __inline__ unsigned int round_down_to_memory_unit(addr) {
     return addr - remainder;
 }
 
+
 /** @brief Función que redondea una dirección de memoria a la dirección
  *  más cercana por encima que sea múltiplo de MEMORY_UNIT_SIZE */
 static __inline__ unsigned int round_up_to_memory_unit(addr) {
@@ -110,8 +111,6 @@ typedef struct {
 	struct memory_node *next;
 } memory_node;
 
-typedef memory_node* nodo_iterator;
-
 /*
  *@brief Representa una lista de nodos de memoria.
  *@details Contiene un apuntador a la cabeza, otro a la cola de la lista
@@ -123,10 +122,8 @@ typedef struct {
 
 /* TODO comentar create_memory_node */
 memory_node* create_memory_node(char state, int start, int units);
-
 /* TODO comentar create_memory_list*/
 memory_list *create_memory_list(char * start_addr, unsigned int length);
-
 /* TODO comentar print_list */
 void print_list();
 #endif /* PHYSMEM_H_ */

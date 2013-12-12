@@ -52,6 +52,11 @@ unsigned int memory_length;
 /** @brief Mínima dirección de memoria permitida para liberar */
 unsigned int allowed_free_start;
 
+/* TODO comentar min-ima unidad en memoria*/
+ int min;
+/* TODO comentar max-ima unidad en memoria */
+ int max;
+
 /**
  * @brief Esta rutina inicializa el mapa de bits de memoria,
  * a partir de la informacion obtenida del GRUB.
@@ -267,8 +272,6 @@ void setup_memory(void){
 		/* Crear la lista del Kernel */
 		kernel_list = create_memory_list((char*)memory_start, memory_length);
 
-		print_list();
-		//printf("allocate_unit %u \n", allocate_unit());
 		//print_list();
 
 		/* Establecer la dirección de memoria a partir
@@ -282,6 +285,9 @@ void setup_memory(void){
 		 printf("Available memory at: 0x%x units: %d Total memory: %d\n",
 				memory_start, total_units, memory_length);
 		 printf("base unit %d\n", base_unit);
+		 /* TODO cometar asignacion de min y max */
+		 min = base_unit;
+		 max = (base_unit + total_units) - 1;
 	}
  }
 
@@ -305,8 +311,7 @@ void setup_memory(void){
 	 }
 
 	 /*Puntero a un nodo de memoria.*/
-	 nodo_iterator ptr;
-
+	 memory_node *ptr;
 
 	 /*Recorre la lista de memoria en busca de un nodo libre.
 	  *Inicia desde la cabeza de la lista de nodos de memoria
@@ -356,6 +361,7 @@ void setup_memory(void){
 	 				}
 	 			}
 	 			/*Finalmente se retorna la dirección de inicio de la unidad en memoria.*/
+	 			free_units--;
 	 			return (ptr->start * MEMORY_UNIT_SIZE);
 	 		}
 	 }
@@ -451,12 +457,14 @@ void setup_memory(void){
 
 				/*Se cambia el valor de inicio del nodo actual por el mismo valor
 				 * multiplicado por el tamaño de la unidad de memoria*/
+				free_units -= ptr->units;
 				return ptr->start * MEMORY_UNIT_SIZE;
 			}
 			/* Si no se encuentra una unidad de memoria mayor a las unidades solicitadas
 			 * el nodo actual cambia su estado a usado 'U' y  */
 			else{
 				ptr->state = 'U';
+				free_units -= ptr->units;
 				return ptr->start * MEMORY_UNIT_SIZE;
 			}
 		}
@@ -470,7 +478,6 @@ void setup_memory(void){
  * @param addr Dirección de memoria dentro del área a liberar.
  */
 void free_unit(char * addr) {
-	 //printf("------------Allocated address: 0x%x = %d\n", addr, addr);
 	 /*Variable inicio*/
 	 unsigned int start;
 	 /*Variable de entrada*/
@@ -493,7 +500,12 @@ void free_unit(char * addr) {
 	  * disponible.
 	  * Es posible que se requiera fusionar nodos en la lista!*/
 	 /* SET UNIT */
-
+	 /* TOOD comentar -> si se pide liberar una unidad inexistente */
+	 if ( unit > max ) {
+		 printf(" Warnig address no exist !!! \n");
+		 return;
+	 }
+	 if( free_units == (max - min) + 1 ){ return; }
 	 /*Se crea un puntero a un nodo de memoria para recorrer la lista de memoria.*/
 	 memory_node *ptr;
 	 /*Se crea un nodo de memoria auxiliar 'nodel'.*/
@@ -503,16 +515,16 @@ void free_unit(char * addr) {
 	 /*Se crea un nodo de memoria auxiliar 'naux'.*/
 	 memory_node *new_naux;
 
+
 	 /* Recorre la lista de memoria buscando la unidad en las lista de unidades y la
 	  * marca como disponible cuando la encuentre.
 	  * Inicia desde la cabeza de la lista de nodos de memoria
 	  * y termina cuando ha encontrado dicho nodo o cuando llega al final de la lista.*/
-
 	 for( ptr = kernel_list->mem_head; ptr != 0; ptr = ptr->next) {
+		 new_nodel = ptr->previous; // left (previous);
+		 new_noder = ptr->next; // right (next);
 		 if(ptr->start == unit && ptr->state == 'U'){
 			 if(ptr->units == 1){
-				 new_nodel = ptr->previous;
-				 new_noder = ptr->next;
 				 ptr->state = 'L';
 
 				 if( new_nodel->state == 'L'){
@@ -549,12 +561,16 @@ void free_unit(char * addr) {
 							 kfree(new_noder);
 						 }
 					 }
+					 else{
+					 	// left and right USADOS
+						 ptr->state = 'L';
+					 }
 				 }
+				 free_units ++;
+				 break;
 			 }
 			 else //ptr->units>1
 			 {
-				 new_nodel = ptr->previous;
-				 new_noder = ptr->next;
 				 if( new_nodel->state == 'L' ){
 					new_nodel->units += 1;
 				 	ptr->units -= 1;
@@ -577,68 +593,91 @@ void free_unit(char * addr) {
 					 ptr->units = 1;
 					 ptr->next = new_ptr;
 				 }
+				 free_units ++;
 				 break;
 
 			 }
-		 }
-		 else if(ptr->start > unit){
-			 printf("aaaaaaaaaaaaaaaaaa %u", (unsigned int)addr / 4096);
-			 new_nodel = ptr->previous; //
-			 if(new_nodel->state == 'U') {
+	 } // end if
+	else if(ptr->start > unit){
+		if(new_nodel->state == 'U') {
 
-				 if(ptr->start == (unit + 1) && ptr->state == 'L'){
-					 new_nodel->units -= 1;
-					 ptr->units += 1;
-					 ptr->start -= 1;
-					 break;
-				 }
+			if(ptr->start == (unit + 1) && ptr->state == 'L'){
+				new_nodel->units -= 1;
+				ptr->units += 1;
+				ptr->start -= 1;
+				free_units ++;
+				break;
+			}
+			memory_node *new_node = (memory_node *) kmalloc( sizeof( memory_node) );
+			/* nuevo usado */
+			memory_node *nn = (memory_node *) kmalloc( sizeof( memory_node) );
+			nn->start = unit + 1;
+			nn->state = 'U';
+			nn->units = ptr->start - nn->start;
 
-				 new_noder = ptr->next;
+			/* nuevo libre*/
+			new_node->state = 'L';
+			new_node->start = unit;
+			new_node->units = 1;
+			new_node->previous = new_nodel;
 
-				 memory_node *new_node = (memory_node *) kmalloc( sizeof( memory_node) );
-				 /* nuevo usado */
-				 memory_node *nn = (memory_node *) kmalloc( sizeof( memory_node) );
-				 nn->start = unit + 1;
-				 nn->state = 'U';
-				 nn->units = ptr->start - nn->start;
+			/* nuevo usado */
+			nn->previous = new_node;
+			new_node->next = nn;
+			nn->next = ptr;
+			ptr->previous = nn;
 
-				 /* nuevo libre*/
-				 new_node->state = 'L';
-				 new_node->start = unit;
-				 new_node->units = 1;
-				 new_node->previous = new_nodel;
+			new_nodel->units = unit - new_nodel->start;
+			new_nodel->next = new_node;
+		}
+		free_units ++;
+		break;
+	}
+	else if( kernel_list->mem_tail == ptr && ptr->state != 'L'){
+		//printf("unit > (mem_tail->star)\n");
+		// new node first
+		memory_node *new_st = (memory_node *) kmalloc(sizeof(memory_node));
+		// new node second
+		memory_node *new_nd = (memory_node *) kmalloc(sizeof(memory_node));
+		/**/
+		new_st->state = 'U';
+		new_st->start = ptr->start;
+		new_st->units = unit - ptr->start;
+		new_st->previous = 0;
+		new_st->next = new_nd;
+		/* Se resta el número de unidades del primer nodo creado*/
+		ptr->units -= new_st->units;
+		/**/
+		new_nd->state = 'L';
+		new_nd->start = unit;
+		new_nd->units = 1;
+		new_nd->previous = new_st;
+		new_nd->next = 0;
+		/* Se resta la unidad del segundo nodo creado para liberar*/
+		ptr->units--;
+		ptr->start = unit + 1;
 
-				 /* nuevo usado */
-				 nn->previous = new_node;
-				 new_node->next = nn;
-				 nn->next = ptr;
-				 ptr->previous = nn;
+		if(ptr->units <= 0){
+			kernel_list->mem_tail = new_nd;
+		}
+		else{
+			ptr->previous = new_nd;
+			new_nd->next = ptr;
+		}
+		/**/
+		if(kernel_list->mem_head != ptr){
+			new_nodel->next = new_st;
+			new_st->previous = new_nodel;
+		}
+		else{
+			kernel_list->mem_head = new_st;
+		}
+		free_units ++;
+		break;
+	}
+	//else if(ptr->start == unit && ptr->state == 'L'){ free_units--; break; }
+	} // end for
 
-				 new_nodel->units = unit - new_nodel->start;
-				 new_nodel->next = new_node;
-			 }
-			 break;
-		 }
-		 else if(ptr->start < unit && ptr->start>1 && ptr == kernel_list->mem_tail && ptr->state == 'U'){
-			 memory_node *new_node = (memory_node *) kmalloc( sizeof( memory_node) );
-
-			 /*Guardo el numero de unidades del nodo ptr en una vble tmp*/
-			 int tmp = ptr->units;
-
-			 /*Se modifica solo las unidades*/
-			 ptr->units = unit - ptr->start;
-
-			 /* nuevo libre*/
-			 new_node->state = 'L';
-			 new_node->start = unit;
-			 new_node->units = tmp - ptr->units;
-
-			 new_node->previous = ptr;
-			 ptr->next = new_node;
-
-			 kernel_list->mem_tail = new_node;
-		 }
-	 }
 
 	 /* Marcar la unidad recien liberada como la proxima unidad
 	  * para asignar */
@@ -646,7 +685,7 @@ void free_unit(char * addr) {
 
 
 	 /* Aumentar en 1 el numero de unidades libres */
-	 free_units ++;
+	 // printf("free_units %d\n", free_units);
 
  }
 
@@ -676,6 +715,7 @@ void free_region(char * start_addr, unsigned int length) {
 	 /* Almacenar el inicio de la región liberada para una próxima asignación */
 	 next_free_unit = (unsigned int)start_addr / MEMORY_UNIT_SIZE;
  }
+
 
 
 /**
