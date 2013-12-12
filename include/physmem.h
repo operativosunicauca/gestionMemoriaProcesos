@@ -147,8 +147,4 @@ void recorrido(memory_list*,unsigned int);
 
 void unirNodosLibres(memory_list *,node *);
 
-void free_unit_original(char *);
-
-void free_region_original(char *, unsigned int);
-
 #endif /* PHYSMEM_H_ */

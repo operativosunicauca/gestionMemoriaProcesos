@@ -254,7 +254,7 @@ void setup_memory(void){
 		printf("Memory start at %u = %x\n", (memory_start), memory_start);
 
 		/* Marcar la región de memoria como disponible */
-		free_region_original((char*)memory_start, memory_length);
+		//free_region_original((char*)memory_start, memory_length);
 
 //----------------------------------------------------------------------------------
 		kernel_list = create_memory_list();
@@ -355,12 +355,14 @@ void free_unit(unsigned int start_dir) {
 				if(ptr->state == 'U' && ptr->start == start){
 					if(ptr->length == 1){
 						ptr->state = 'L';
+						free_units = free_units + 1;
 						unirNodosLibres(kernel_list,ptr);
 					}
 					else{
 						node *n = create_node('L',ptr->start,1);
 						ptr->start = ptr->start + 1;
 						ptr->length = ptr->length - 1;
+						free_units = free_units + 1;
 						if(ptr->previous != 0){
 							ptr->previous->next = n;
 							n->previous = ptr->previous;
@@ -398,51 +400,6 @@ void free_region(unsigned int start_addr, unsigned int length){
 	/* Almacenar el inicio de la región liberada para una próxima asignación */
 	//next_free_unit = (unsigned int)start_addr / MEMORY_UNIT_SIZE;
 }
-
-//--------------------------------------------------------
-
-void free_unit_original(char * addr) {
-	 unsigned int start;
-	 unsigned int entry;
-	 int offset;
-	 unsigned int unit;
-
-	 start = round_down_to_memory_unit((unsigned int)addr);
-
-	 if (start < allowed_free_start) {return;}
-
-	 unit = start / MEMORY_UNIT_SIZE;
-
-	 /* TODO: Buscar la unidad en la lista de unidades, y marcarla como
-	  * disponible.
-	  * Es posible que se requiera fusionar nodos en la lista!*/
-
-	 /* Marcar la unidad recien liberada como la proxima unidad
-	  * para asignar */
-	 next_free_unit = unit;
-
-	 /* Aumentar en 1 el numero de unidades libres */
-	 free_units ++;
-
- }
-
-void free_region_original(char * start_addr, unsigned int length) {
-	 unsigned int start;
-	 unsigned int end;
-
-	 start = round_down_to_memory_unit((unsigned int)start_addr);
-
-	 if (start < allowed_free_start) {return;}
-
-	 end = start + length;
-
-	 for (; start < end; start += MEMORY_UNIT_SIZE) {
-		 free_unit_original((char*)start);
-	 }
-
-	 /* Almacenar el inicio de la región liberada para una próxima asignación */
-	 next_free_unit = (unsigned int)start_addr / MEMORY_UNIT_SIZE;
- }
 
 /**
  * @brief Solicita asignacion de memoria dentro del heap.
@@ -485,7 +442,7 @@ static __inline__ void  inicializar_memoria_disponible(memory_list *kernel_list,
 	node *n;
 	n = create_node('L',start / MEMORY_UNIT_SIZE,length / MEMORY_UNIT_SIZE);
 	push_front(kernel_list,n);
-
+	free_units = n->length;
 	//printf("---->ESTADO: %c, INICIO: 0x%u, TAMAÑO: 0x%u\n",n->state, n->start, n->length);
 }
 
