@@ -19,7 +19,6 @@
  *
  */
 
-
 #include <pm.h>
 #include <multiboot.h>
 #include <stdio.h>
