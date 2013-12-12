@@ -26,7 +26,6 @@ static __inline__ unsigned int round_down_to_memory_unit(addr) {
     return addr - remainder;
 }
 
-
 /** @brief Función que redondea una dirección de memoria a la dirección
  *  más cercana por encima que sea múltiplo de MEMORY_UNIT_SIZE */
 static __inline__ unsigned int round_up_to_memory_unit(addr) {
@@ -53,8 +52,6 @@ static __inline__ unsigned int round_up_to_memory_unit(addr) {
  *  		 no es posible asignar memoria.
  */
 void * kmalloc(unsigned int size);
-
-
 
 /**
  * @brief Solicita liberar una region de memoria dentro del heap
@@ -95,36 +92,54 @@ void free_unit(char *addr);
 void free_region(char *start_addr, unsigned int length);
 
 /*
- * @brief Representa un nodo de memoria.
+ * @brief Estructura que representa un nodo de una lista para la gestión de memoria.
  */
 typedef struct {
 	/*Define el estado del nodo, 'L' si el nodo esta disponible y 'U' si esta usado.*/
 	char state;
-	/*Define el inicio de la region de memoria que representa el nodo actual.*/
+	/* Define la unidad donde inicia la región de memoria representada por el nodo. */
 	int start;
-	/*Permite determinar la unidad de memoria en la que termina la region
-	 * (Unidad Final = start + units ).*/
+	/* Define el número de unidades de la región de memoria representada por el nodo. */
 	int units;
 
-	/*Apuntadores a los nodos anterior y siguiente del nodo actual.*/
+	/* Apuntadores al nodo anterior y al nodo siguiente del actual. */
 	struct memory_node *previous;
 	struct memory_node *next;
 } memory_node;
 
 /*
- *@brief Representa una lista de nodos de memoria.
- *@details Contiene un apuntador a la cabeza, otro a la cola de la lista
- *y un contador que representa el tamaño de los nodos de la lista.*/
+ * @brief Estructura que representa una lista de nodos para la gestión de memoria disponible.
+ * @details Contiene un apuntador a la cabeza y otro a la cola de la lista.
+ * */
 typedef struct {
 	memory_node *mem_head;
 	memory_node *mem_tail;
 } memory_list;
 
-/* TODO comentar create_memory_node */
-memory_node* create_memory_node(char state, int start, int units);
-/* TODO comentar create_memory_list*/
+/* @brief Permite crear una lista para la gestión de memoria con un nodo inicial que representa
+ * la totalidad del espacio libre.
+ * @param start_addr Dirección a partir de la cual la memoria está disponible.
+ * @param length Tamaño en bytes de la región de memoria disponible.
+ * @return Puntero a una lista para la gestión de memoria.
+ * */
 memory_list *create_memory_list(char * start_addr, unsigned int length);
-/* TODO comentar print_list */
-void print_list();
-#endif /* PHYSMEM_H_ */
 
+/* @brief Permite crear un nodo que será usado en una lista de gestión de memoria.
+ * @param state Define el estado del nodo, 'L' si el nodo está disponible y 'U' si está usado.
+ * @param start Define la unidad donde inicia la región de memoria representada por el nodo.
+ * @param units Define el número de unidades de la región de memoria representada por el nodo.
+ * @return Puntero a un nodo que será usado en una lista de gestión de memoria.
+ * */
+memory_node* create_memory_node(char state, int start, int units);
+
+/* @brief Recorre la lista de gestión de memoria al tiempo que imprime la información
+ * de cada nodo.
+ * */
+void print_list();
+
+/* @brief Recorre de derecha a izquierda la lista de gestión de memoria al tiempo que imprime
+ * la información de cada nodo.
+ * */
+void print_list_right_letf();
+
+#endif /* PHYSMEM_H_ */
