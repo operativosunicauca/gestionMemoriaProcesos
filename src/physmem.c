@@ -317,8 +317,8 @@ void setup_memory(void){
 	  *Inicia desde la cabeza de la lista de nodos de memoria
 	  * y termina cuando ha encontrado dicho nodo o llega al final de la lista.
 	  */
-	 for( ptr = kernel_list->mem_head; ptr != 0; ptr = ptr->next) {
-
+	 for( ptr = kernel_list->mem_head; ptr != 0; ptr = ptr->next)
+	 {
 		 	/*Si encuentra un nodo libre...*/
 		 	if( ptr->state == 'L' ) {
 
@@ -333,7 +333,14 @@ void setup_memory(void){
 	 				 *Como se usa la primera unidad de la region libre, el nuevo nodo
 	 				 *representa el nuevo espacio libre que queda.
 	 				 */
-	 				memory_node *new_node = create_memory_node('L', (ptr->start+1), (ptr->units-1));
+
+	 				memory_node * new_node = (memory_node*) kmalloc(sizeof(memory_node));
+
+	 				//new_node->start = (ptr->start+1);
+	 				//new_node->state = 'L';
+	 				//new_node->units = ptr->units-1;
+
+	 				//memory_node *new_node = create_memory_node('L', (ptr->start+1), (ptr->units-1));
 
 	 				/*Establece como usada la primera unidad del nodo actual.*/
 	 				ptr->state = 'U';
@@ -361,7 +368,7 @@ void setup_memory(void){
 	 				}
 	 			}
 	 			/*Finalmente se retorna la dirección de inicio de la unidad en memoria.*/
-	 			free_units--;
+	 			free_units--; /*TODO Comentar free_units*/
 	 			return (ptr->start * MEMORY_UNIT_SIZE);
 	 		}
 	 }
@@ -463,14 +470,17 @@ void setup_memory(void){
 			/* Si no se encuentra una unidad de memoria mayor a las unidades solicitadas
 			 * el nodo actual cambia su estado a usado 'U' y  */
 			else{
-				ptr->state = 'U';
-				free_units -= ptr->units;
-				return ptr->start * MEMORY_UNIT_SIZE;
+				if(ptr->units == unit_count) /*TODO Comentar los de unidad = unit*/
+				{
+					ptr->state = 'U';
+					free_units -= ptr->units; /*TODO Comentar!!!*/
+					return ptr->start * MEMORY_UNIT_SIZE;
+				}
 			}
 		}
 	}
-	  printf("Warning! out of memory!\n");
-	  return 0;
+	printf("Warning! out of memory!\n");
+	return 0;
   }
 
 /**
@@ -480,10 +490,6 @@ void setup_memory(void){
 void free_unit(char * addr) {
 	 /*Variable inicio*/
 	 unsigned int start;
-	 /*Variable de entrada*/
-	 unsigned int entry;
-	 /*........*/
-	 int offset;
 	 /*Variable de unidad*/
 	 unsigned int unit;
 
@@ -500,12 +506,14 @@ void free_unit(char * addr) {
 	  * disponible.
 	  * Es posible que se requiera fusionar nodos en la lista!*/
 	 /* SET UNIT */
-	 /* TOOD comentar -> si se pide liberar una unidad inexistente */
+	 /* TODO comentar -> si se pide liberar una unidad inexistente */
 	 if ( unit > max ) {
 		 printf(" Warnig address no exist !!! \n");
 		 return;
 	 }
+	 /*TODO Comeentaarr estoo*/
 	 if( free_units == (max - min) + 1 ){ return; }
+
 	 /*Se crea un puntero a un nodo de memoria para recorrer la lista de memoria.*/
 	 memory_node *ptr;
 	 /*Se crea un nodo de memoria auxiliar 'nodel'.*/
@@ -514,7 +522,6 @@ void free_unit(char * addr) {
 	 memory_node *new_noder;
 	 /*Se crea un nodo de memoria auxiliar 'naux'.*/
 	 memory_node *new_naux;
-
 
 	 /* Recorre la lista de memoria buscando la unidad en las lista de unidades y la
 	  * marca como disponible cuando la encuentre.
@@ -526,47 +533,60 @@ void free_unit(char * addr) {
 		 if(ptr->start == unit && ptr->state == 'U'){
 			 if(ptr->units == 1){
 				 ptr->state = 'L';
+				 /*TODO Comentar Mezclas de nodos*/
 
 				 if( new_nodel->state == 'L'){
 					 if( new_noder->state == 'L'){
 						 // left and right LIBRES
 						 new_nodel->units += ptr->units + new_noder->units;
-						 new_nodel->next = new_noder->next;
-						 new_naux = new_noder->next;
-						 new_naux->previous = new_nodel;
+
+						 /*TODO Faltaba controlar lo de la cola*/
+
+						 if(new_noder->next == 0){ /*Si es la colaa*/
+							 kernel_list->mem_tail = new_nodel;
+						 }
+						 else {
+							 new_nodel->next = new_noder->next;
+							 new_naux = new_noder->next;
+							 new_naux->previous = new_nodel;
+						 }
+
+						 /*TODO Se libera memoria porq se quito el nodo de la derecha de ptr*/
+						 new_noder->previous = 0;
+						 new_noder->next = 0;
+						 kfree(new_noder);
 					 }
 					 else{
 						 // left LIBRE and right USADO
 						 new_nodel->units += ptr->units;
 						 new_noder->previous = new_nodel;
 						 new_nodel->next = new_noder;
-						 ptr = 0;
-						 kfree(ptr);
 					 }
+					 /*TODO Comentar liberacion de memoria, ya que el nodo ptr no va en la lista*/
+					 ptr->next = 0;
+					 ptr->previous = 0;
+					 kfree(ptr);
 				 }
 				 else{
 					 if( new_noder->state == 'L'){
 					 	// left USADO and right LIBRE
 						 ptr->units += new_noder->units;
-						 if(kernel_list->mem_tail == ptr->next ){
+						 new_noder = ptr->next;
+						 if(kernel_list->mem_tail == new_noder ){ /*Si ptr->next es la colaa*/
 							 kernel_list->mem_tail = ptr;
-							 ptr->next = 0;
-							 kfree(ptr->next);
 						 }
 						 else{
 							 ptr->next = new_noder->next;
 							 new_naux = new_noder->next;
 							 new_naux->previous = ptr;
-							 new_noder = 0;
-							 kfree(new_noder);
 						 }
-					 }
-					 else{
-					 	// left and right USADOS
-						 ptr->state = 'L';
+						 /*TODO Se liberra memoria, porque se desenlazo new_noder del kernel_list*/
+						 new_noder->next = 0;
+						 new_noder->previous = 0;
+						 kfree(new_noder);
 					 }
 				 }
-				 free_units ++;
+				 free_units ++;/*TODO free_units*/
 				 break;
 			 }
 			 else //ptr->units>1
@@ -576,18 +596,15 @@ void free_unit(char * addr) {
 				 	ptr->units -= 1;
 				 	ptr->start += 1;
 				 }
-				 else{
-					 memory_node *new_ptr = (memory_node *) kmalloc( sizeof(memory_node) );
-					 new_ptr->state = 'U';
-					 new_ptr->start = ptr->start + 1;
-					 new_ptr->units = ptr->units -1;
+				 else{ /*new_nodel puede ser usado o nulo, Aqui aparte de esto se controla lo de la cabeza*/
+					 memory_node *new_ptr = create_memory_node('U', ptr->start + 1,ptr->units -1);
 
 					 new_ptr->previous = ptr;
-					 if(ptr->next == 0){
+					 if(ptr->next == 0){ /*Es decir, si ptr es la cola*/
 						 kernel_list->mem_tail = new_ptr;
 					 }
 					 new_ptr->next = ptr->next;
-					 new_noder->previous = new_ptr;
+					 new_noder->previous = new_ptr; /*Ojooo*/
 
 					 ptr->state = 'L';
 					 ptr->units = 1;
@@ -601,24 +618,19 @@ void free_unit(char * addr) {
 	else if(ptr->start > unit){
 		if(new_nodel->state == 'U') {
 
-			if(ptr->start == (unit + 1) && ptr->state == 'L'){
+			if(ptr->start == (unit + 1) && ptr->state == 'L'){ /*Condicional para proceder a mezclar nodos*/
 				new_nodel->units -= 1;
 				ptr->units += 1;
 				ptr->start -= 1;
 				free_units ++;
 				break;
 			}
-			memory_node *new_node = (memory_node *) kmalloc( sizeof( memory_node) );
-			/* nuevo usado */
-			memory_node *nn = (memory_node *) kmalloc( sizeof( memory_node) );
-			nn->start = unit + 1;
-			nn->state = 'U';
-			nn->units = ptr->start - nn->start;
+			/* nuevo nodo usado */
+			memory_node *nn = create_memory_node('U',unit+1,ptr->start-(unit+1));
 
-			/* nuevo libre*/
-			new_node->state = 'L';
-			new_node->start = unit;
-			new_node->units = 1;
+			/* nuevo nodo libre*/
+			memory_node *new_node = create_memory_node('L',unit,1);
+
 			new_node->previous = new_nodel;
 
 			/* nuevo usado */
@@ -633,24 +645,18 @@ void free_unit(char * addr) {
 		free_units ++;
 		break;
 	}
-	else if( kernel_list->mem_tail == ptr && ptr->state != 'L'){
+	else if( kernel_list->mem_tail == ptr && ptr->state != 'L'){/*Case special*/
 		//printf("unit > (mem_tail->star)\n");
 		// new node first
-		memory_node *new_st = (memory_node *) kmalloc(sizeof(memory_node));
+		memory_node *new_st = create_memory_node('U',ptr->start, unit - ptr->start);
 		// new node second
-		memory_node *new_nd = (memory_node *) kmalloc(sizeof(memory_node));
-		/**/
-		new_st->state = 'U';
-		new_st->start = ptr->start;
-		new_st->units = unit - ptr->start;
-		new_st->previous = 0;
+		memory_node *new_nd = create_memory_node('L',unit,1);
+
+		new_st->previous = 0; /*Ojoo*/
 		new_st->next = new_nd;
 		/* Se resta el número de unidades del primer nodo creado*/
 		ptr->units -= new_st->units;
-		/**/
-		new_nd->state = 'L';
-		new_nd->start = unit;
-		new_nd->units = 1;
+
 		new_nd->previous = new_st;
 		new_nd->next = 0;
 		/* Se resta la unidad del segundo nodo creado para liberar*/
@@ -659,9 +665,13 @@ void free_unit(char * addr) {
 
 		if(ptr->units <= 0){
 			kernel_list->mem_tail = new_nd;
+			/*Falta liberar memoria*/
+			ptr->next = 0;
+			ptr->previous = 0;
+			kfree(ptr);
 		}
 		else{
-			ptr->previous = new_nd;
+			ptr->previous = new_nd; //Liberar previous
 			new_nd->next = ptr;
 		}
 		/**/
@@ -675,9 +685,6 @@ void free_unit(char * addr) {
 		free_units ++;
 		break;
 	}
-	//else if(ptr->start == unit && ptr->state == 'L'){ free_units--; break; }
-	} // end for
-
 
 	 /* Marcar la unidad recien liberada como la proxima unidad
 	  * para asignar */
@@ -688,6 +695,7 @@ void free_unit(char * addr) {
 	 // printf("free_units %d\n", free_units);
 
  }
+}
 
 /**
  * @brief Permite liberar una región de memoria.
