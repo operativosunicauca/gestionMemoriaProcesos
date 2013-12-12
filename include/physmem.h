@@ -76,8 +76,6 @@ void allocate_unit();
  */
 void allocate_unit_region(unsigned int length);
 
-
-
 /**
  * @brief Permite liberar una región de memoria.
  * @param start_addr Dirección de memoria del inicio de la región a liberar
@@ -111,29 +109,17 @@ static __inline__ void inicializar_memoria_disponible(memory_list *,unsigned int
 
 static __inline__ node * create_node(char,unsigned int ,unsigned int);
 
-static __inline__ void clear_memory_list(memory_list *);
-
 static __inline__ void * push_front(memory_list *, node *);
 
 static __inline__ void * push_back(memory_list *, node * );
-
-static __inline__ void * front(const memory_list *);
-
-static __inline__ void * back(memory_list *);
 
 static __inline__ void * pop_front(memory_list *);
 
 static __inline__ void * pop_back(memory_list *);
 
-static __inline__ int empty(memory_list *);
-
 static __inline__ node_iterator head(memory_list *);
 
-static __inline__ node_iterator tail(memory_list *);
-
 static __inline__ node_iterator next(node_iterator);
-
-static __inline__ node_iterator previous(node_iterator );
 
 void main();
 
@@ -143,7 +129,14 @@ void main();
  */
 void free_unit( unsigned int);
 
-void recorrido(memory_list*,unsigned int);
+/**
+ * @brief Permite liberar una región de memoria.
+ * @param start_addr Dirección de memoria del inicio de la región a liberar
+ * @param length Tamaño de la región a liberar
+ */
+void free_region(unsigned int start_addr, unsigned int length);
+
+void asignar_unidades(memory_list*,unsigned int);
 
 void unirNodosLibres(memory_list *,node *);
 

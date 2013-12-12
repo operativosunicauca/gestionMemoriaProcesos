@@ -281,7 +281,6 @@ void setup_memory(void){
  */
 void allocate_unit() {
 
-	// printf ("%d ", free_units);
 	/* Si no existen unidades libres, retornar*/
 	if (free_units == 0) {
 		//printf("Warning! out of memory!\n");
@@ -292,7 +291,7 @@ void allocate_unit() {
 	 * Es posible que se deba partir un nodo libre en dos.
 	 * Se debe retornar un apuntador char * al inicio de la
 	 * region libre. */
-		recorrido(kernel_list,1);
+		asignar_unidades(kernel_list,1);
 	return;
 }
 
@@ -313,20 +312,17 @@ void allocate_unit_region(unsigned int length) {
 		unit_count++;
 	}
 
-	//printf("\tAllocating %d units\n", unit_count);
-
-	/*if (free_units < unit_count) {
+	if (free_units < unit_count) {
 		//printf("Warning! out of memory!\n");
-		return 0;
-	}*/
-
+		return;
+	}
 
 	/* TODO: Iterar por la memory_lista para encontra un nodo
 	 * que tenga al menos el numero de unidades solicitados.
 	 * Marcar el nodo como usado, y crear un nuevo nodo en
 	 * el cual queda el resto de unidades disponibles. */
 	if(length > 1){
-			recorrido(kernel_list,length);
+			asignar_unidades(kernel_list,length);
 	}
 	else{
 			allocate_unit();
@@ -345,38 +341,37 @@ void free_unit(unsigned int start_dir) {
 	start = round_down_to_memory_unit(start_dir);
 	start = start / 4096;
 	//if (start < allowed_free_start) {return;}
-
 	/* TODO: Buscar la unidad en la memory_lista de unidades, y marcarla como
 	 * disponible.
 	 * Es posible que se requiera fusionar nodos en la memory_lista!*/
 
-			node_iterator ptr;
-			for (ptr = head(kernel_list); ptr != 0; ptr= next(ptr)) {
-				if(ptr->state == 'U' && ptr->start == start){
-					if(ptr->length == 1){
-						ptr->state = 'L';
-						free_units = free_units + 1;
-						unirNodosLibres(kernel_list,ptr);
-					}
-					else{
-						node *n = create_node('L',ptr->start,1);
-						ptr->start = ptr->start + 1;
-						ptr->length = ptr->length - 1;
-						free_units = free_units + 1;
-						if(ptr->previous != 0){
-							ptr->previous->next = n;
-							n->previous = ptr->previous;
-							n->next = ptr;
-							ptr->previous = n;
-							unirNodosLibres(kernel_list,ptr->previous);
-						}
-						else{
-							push_front(kernel_list,n);
-							unirNodosLibres(kernel_list,ptr->previous);
-						}
-					}
+	node_iterator ptr;
+	for (ptr = head(kernel_list); ptr != 0; ptr= next(ptr)) {
+		if(ptr->state == 'U' && ptr->start == start){
+			if(ptr->length == 1){
+				ptr->state = 'L';
+				free_units = free_units + 1;
+				unirNodosLibres(kernel_list,ptr);
+			}
+			else{
+				node *n = create_node('L',ptr->start,1);
+				ptr->start = ptr->start + 1;
+				ptr->length = ptr->length - 1;
+				free_units = free_units + 1;
+				if(ptr->previous != 0){
+					ptr->previous->next = n;
+					n->previous = ptr->previous;
+					n->next = ptr;
+					ptr->previous = n;
+					unirNodosLibres(kernel_list,ptr->previous);
+				}
+				else{
+					push_front(kernel_list,n);
+					unirNodosLibres(kernel_list,ptr->previous);
 				}
 			}
+		}
+	}
 }
 /**
  * @brief Permite liberar una región de memoria.
@@ -425,8 +420,6 @@ void  kfree(void * ptr) {
 
 /*-----------------se implementa todo lo referente a la memory_lista-------------------*/
 
-//typedef node * node_iterator;
-
 static __inline__ memory_list * create_memory_list() {
 	memory_list *ret;
 	ret = (memory_list *) kmalloc(sizeof(memory_list));
@@ -458,28 +451,6 @@ create_node(char state,unsigned int start,unsigned int length) {
 	ret->previous = 0;
 	return ret;
 }
-
-static __inline__ void clear_memory_list(memory_list *l) {
-	if (l ==0) {return;}
-	node *aux, *ptr;
-
-	ptr = l->head;
-
-	//printf("Clearing memory_list...\n");
-	while (ptr != 0) {
-		aux = ptr;
-		ptr = ptr->next;
-		free(aux);
-		aux = 0;
-	}
-
-	//printf("Finished clearing memory_list\n");
-
-	l->head = 0;
-	l->tail = 0;
-	l->count = 0;
-}
-
 
 static __inline__ void *
 push_front(memory_list *l, node * unit) {
@@ -530,20 +501,6 @@ push_back(memory_list *l, node * unit) {
 }
 
 static __inline__ void *
-front(const memory_list *l) {
-	if (l == 0) {return 0;}
-	if (l->head == 0) {return 0;}
-	return l->head;
-}
-
-static __inline__ void *
-back(memory_list *l) {
-	if (l == 0) {return 0;}
-	if (l->tail == 0) {return 0;}
-	return l->tail;
-}
-
-static __inline__ void *
 pop_front(memory_list *l) {
 	node *ret;
 
@@ -591,29 +548,14 @@ pop_back(memory_list *l) {
 	return (void*)0;
 }
 
-static __inline__ int empty(memory_list *l) {
-	return ((l== 0) || l->head==0);
-}
-
 static __inline__ node_iterator head(memory_list *l) {
 	if (l ==0) {return 0;}
 	return l->head;
 }
 
-static __inline__ node_iterator tail(memory_list *l) {
-	if (l ==0) {return 0;}
-	return l->tail;
-}
-
-
 static __inline__ node_iterator next(node_iterator it) {
 	if (it == 0) {return 0;}
 	return it->next;
-}
-
-static __inline__ node_iterator previous(node_iterator it) {
-	if (it == 0) {return 0;}
-	return it->previous;
 }
 
 /*la prueba simple de memory_listas*/
@@ -622,11 +564,11 @@ void main(){
 	printf("<<<<<<KERNEL LIST>>>>>>\n");
 	node_iterator ptr;
 	for (ptr = head(kernel_list); ptr != 0; ptr= next(ptr)) {
-		printf("---->ESTADO: %c, INICIO: 0x%u, TAMANO: %u\n",ptr->state, ptr->start, ptr->length);
+		printf("---->ESTADO: %c, UNIDAD INICIO: %u, TAMANO: %u\n",ptr->state, ptr->start, ptr->length);
 	}
 }
 
-void recorrido(memory_list *klist,unsigned int nUnits)
+void asignar_unidades(memory_list *klist,unsigned int nUnits)
 {
 	node_iterator ptr;
 	node *n;
@@ -679,7 +621,6 @@ void recorrido(memory_list *klist,unsigned int nUnits)
 			}
 		}
 	}
-
 }
 
 void unirNodosLibres(memory_list *klist , node* posicionActual )
@@ -689,14 +630,12 @@ void unirNodosLibres(memory_list *klist , node* posicionActual )
 	if(infoActual->state=='L'){ //Solo si esta si es un nodo q se posiciona como libre..
 		node *nodoAnterior = posicionActual->previous;
 		node *nodoSiguiente = posicionActual->next;
-		node *nodoABorrar = posicionActual;
 		if (nodoAnterior == 0 && nodoSiguiente == 0) {
 			return; //porq es el unico en la lista, no hay nada q hacer
 		}
 		if( (nodoAnterior->state== 'L') && ((nodoSiguiente)->state== 'L') ){//si el nodo anterior y el siguiente tienen estado L
-			//pero antes q todo... si hay libre a la derecha y a la izquierda
-			//en este caso quitamos el nodo de posicionActual, y el de la derecha
-			//>>
+
+
 			nodoAnterior->length = (nodoAnterior->length)+(posicionActual->length) +(nodoSiguiente->length );
 			if((posicionActual->next)->next != 0){
 				nodoAnterior->next = (posicionActual->next)->next; //...U-U-L-L'-L-U
@@ -736,23 +675,17 @@ void unirNodosLibres(memory_list *klist , node* posicionActual )
 				return;
 			}
 			else{
-				//nodoAnterior= datoResultante;
-
 				nodoAnterior->length = ((nodoAnterior->length)+(posicionActual->length));
 				pop_back(klist);
 				return;
 			}
 		}
 
-			/////corregido aparentemente hasta aqui///////////////////
-
 		if(nodoAnterior==0 ){
 				//  -L'-?-? ...
 			if(nodoSiguiente != 0){
 				if((nodoSiguiente)->state== 'L' ){
 					// -L'-L-?- ...
-					//nodoSiguiente->next = (nodoSiguiente->next)->next;
-					//if(((nodoSiguiente->next)->next)!=0){ //evitar de algun error...
 	           		if((nodoSiguiente->next)!=0){
 
 						posicionActual->length = ((posicionActual->length)+(nodoSiguiente->length) );
@@ -762,13 +695,10 @@ void unirNodosLibres(memory_list *klist , node* posicionActual )
 						nodoSiguiente->previous = 0;
 						kfree(nodoSiguiente);
 					}else{
-							//((nodoSiguiente->next))=0; //<<<revisar si es necesario...
 						posicionActual->length = ((posicionActual->length)+(nodoSiguiente->length) );
 						pop_back(klist);
 					}
-						//-----corregido aparentemente hasta aquí...
-
-						return;
+	           		return;
 				}
 			}else{
 					// -L'-
