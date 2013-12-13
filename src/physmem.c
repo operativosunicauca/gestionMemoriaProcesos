@@ -19,6 +19,7 @@
  * ayudara al kernel a gestionar la memoria disponible y usada. */
 memory_list *kernel_list;
 
+
 /* Referencia a la variable global kernel_keap */
 /** @brief Variable global para el heap. Sobre este heap actua kmalloc. */
 static heap_t * kernel_heap;
