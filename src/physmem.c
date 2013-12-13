@@ -533,6 +533,7 @@ void free_unit(char * addr) {
 
 				 if( new_nodel->state == 'L'){
 					 if( new_noder->state == 'L'){
+
 						 /* Si el nodo derecho e izquierdo son libres, se suma a las
 						  * unidades del nodo izquierdo, las unidades del nodo actual
 						  * y del derecho.*/
@@ -541,6 +542,7 @@ void free_unit(char * addr) {
 						 /* Si el nodo siguiente al actual es la cola de la lista, el nodo anterior
 						  * al actual pasa a ser la nueva cola de la lista. */
 						 if(new_noder->next == 0){
+							 new_nodel->next = 0;
 							 kernel_list->mem_tail = new_nodel;
 						 }
 						 /* Sino, se enlaza el nodo izquierdo con el resto de la lista
@@ -587,6 +589,7 @@ void free_unit(char * addr) {
 						 /* Si el nodo derecho es la cola de la lista, el nodo actual
 						  * pasa a ser la nueva cola de la lista. */
 						 if(kernel_list->mem_tail == new_noder ){
+							 ptr->next = 0;
 							 kernel_list->mem_tail = ptr;
 						 }
 						 /* Sino, se enlaza el nodo actual con el resto de la lista
@@ -627,7 +630,6 @@ void free_unit(char * addr) {
 				  * una unidad de memoria y modificando los valores de los nodos que sean
 				  * necesarios. */
 				 else{
-
 					 /* Se crea un nuevo nodo que representa la región de memoria restante luego
 					  * de haber liberado una unidad. */
 					 memory_node * new_ptr = create_memory_node('U', ptr->start + 1,ptr->units -1);
