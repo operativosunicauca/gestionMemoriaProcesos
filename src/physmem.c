@@ -99,8 +99,6 @@ void setup_memory(void){
 		}
 	}
 
-	//printf("Mods end: %u\n", mods_end);
-
 	/* si flags[6] = 1, los campos mmap_length y mmap_addr son validos */
 
 	/* Revisar las regiones de memoria, y extraer la region de memoria
@@ -163,7 +161,6 @@ void setup_memory(void){
 				/* Verificar si el kernel se encuentra en esta region */
 				if (multiboot_header.bss_end >= tmp_start &&
 						multiboot_header.bss_end <= tmp_start + tmp_length) {
-					//printf("Kernel is on this region!. Base: %u\n", tmp_start);
 					/* El kernel se encuentra en esta region. Tomar el inicio
 					 * de la memoria disponible en la posicion en la cual
 					 * finaliza el kernel
@@ -253,10 +250,7 @@ void setup_memory(void){
 
 		printf("Memory start at %u = %x\n", (memory_start), memory_start);
 
-		/* Marcar la región de memoria como disponible */
-		//free_region_original((char*)memory_start, memory_length);
-
-//----------------------------------------------------------------------------------
+		/* Crear la memory_list con un unico nodo disponible*/
 		kernel_list = create_memory_list();
 		inicializar_memoria_disponible(kernel_list,(memory_start), memory_length);
 
@@ -283,14 +277,13 @@ void allocate_unit() {
 
 	/* Si no existen unidades libres, retornar*/
 	if (free_units == 0) {
-		//printf("Warning! out of memory!\n");
+		printf("Warning! out of memory!\n");
 		return;
 	}
-	/* TODO: Implementar la logica para recorrer la memory_lista de
-	 * unidades de memoria y buscar un espacio libre.
-	 * Es posible que se deba partir un nodo libre en dos.
-	 * Se debe retornar un apuntador char * al inicio de la
-	 * region libre. */
+	/*En este metodo asignar_unidades(kernel_list,1) se implementa
+	 * la logica para recorrer la memory_list de unidades de memoria
+	 *  y buscar un espacio libre.
+	 *  Internamente de serr necesario se parte un nodo libre en dos.*/
 		asignar_unidades(kernel_list,1);
 	return;
 }
@@ -317,10 +310,12 @@ void allocate_unit_region(unsigned int length) {
 		return;
 	}
 
-	/* TODO: Iterar por la memory_lista para encontra un nodo
-	 * que tenga al menos el numero de unidades solicitados.
-	 * Marcar el nodo como usado, y crear un nuevo nodo en
-	 * el cual queda el resto de unidades disponibles. */
+	/*En este segmento se hace llamado a la función
+	 * asignar_unidades(kernel_list,length); con el fin de iterar
+	 * por la memory_list y encontrar un nodo que tenga al menos
+	 * el número de nodos solicitado, de ser necesario, marcar el
+	 * nodo como usado, y crear un nuevo nodo en el cual queda
+	 * el resto de unidades disponibles.*/
 	if(length > 1){
 			asignar_unidades(kernel_list,length);
 	}
@@ -339,12 +334,13 @@ void free_unit(unsigned int start_dir) {
 	unsigned int unit;
 
 	start = round_down_to_memory_unit(start_dir);
+	if (start < allowed_free_start) {return;}
 	start = start / 4096;
-	//if (start < allowed_free_start) {return;}
-	/* TODO: Buscar la unidad en la memory_lista de unidades, y marcarla como
-	 * disponible.
-	 * Es posible que se requiera fusionar nodos en la memory_lista!*/
-
+	/* Se busca la unidad en la memory_list deunidades y se marca
+	 * como libre 'L'.
+	 * Se invoca el metodo unirNodosLibres(kernel_list,nodo_libre);
+	 * ya que de ser necesario se fusionarán nodos del amemory_list.
+	 */
 	node_iterator ptr;
 	for (ptr = head(kernel_list); ptr != 0; ptr= next(ptr)) {
 		if(ptr->state == 'U' && ptr->start == start){
@@ -374,7 +370,11 @@ void free_unit(unsigned int start_dir) {
 	}
 }
 /**
- * @brief Permite liberar una región de memoria.
+ * @brief Permite liberar una región de memoria. Primero declaramos 2 unsigned int (start y end)
+ * a statr le asignamos la dirección de memoria donde empieza la región de memoria que vamos a liberar,
+ *   luego verificamos que la región empiece dentro de ona posición permitida. A end se le asignará el número
+ *   donde termina esta región y después en un ciclo for que va desde start hasta end se irá liberando
+ *   cada unidad de memoria.
  * @param start_addr Dirección de memoria del inicio de la región a liberar
  * @param length Tamaño de la región a liberar
  */
@@ -391,9 +391,6 @@ void free_region(unsigned int start_addr, unsigned int length){
 	for (; start < end; start += MEMORY_UNIT_SIZE) {
 		free_unit(start);
 	}
-
-	/* Almacenar el inicio de la región liberada para una próxima asignación */
-	//next_free_unit = (unsigned int)start_addr / MEMORY_UNIT_SIZE;
 }
 
 /**
@@ -436,7 +433,6 @@ static __inline__ void  inicializar_memoria_disponible(memory_list *kernel_list,
 	n = create_node('L',start / MEMORY_UNIT_SIZE,length / MEMORY_UNIT_SIZE);
 	push_front(kernel_list,n);
 	free_units = n->length;
-	//printf("---->ESTADO: %c, INICIO: 0x%u, TAMAÑO: 0x%u\n",n->state, n->start, n->length);
 }
 
 static __inline__ node *
@@ -454,13 +450,9 @@ create_node(char state,unsigned int start,unsigned int length) {
 
 static __inline__ void *
 push_front(memory_list *l, node * unit) {
-	//node * n;
-
 	if (l == 0) {
 		return 0;
 	}
-
-	//n = create_node(unit->state ,unit->start,unit->length);
 
 	if (l->head == 0) { /*Primer elemento en la memory_lista  */
 		l->head = unit;

@@ -83,9 +83,9 @@ void allocate_unit_region(unsigned int length);
  */
 void free_region(unsigned int start_addr, unsigned int length);
 
-/*-------------Se crea todo lo referente a la memory_lista -------------------*/
-
-
+/**
+ * @brief Estructura que permite crear unidades o regiones
+ */
 typedef struct node {
 	char state;
 	unsigned int start;
@@ -97,30 +97,80 @@ typedef struct node {
 
 typedef node * node_iterator;
 
+/**
+ * @brief Estructura que maneja las unidades o regiones.
+ */
 typedef struct memory_list {
        node *head;
        node *tail;
        int count;
 } memory_list;
 
+/**
+ * @brief Permite crear la memory_list vacia.
+ */
 static __inline__ memory_list * create_memory_list();
 
+/**
+ * @brief Permite crear la memory_list con el numero de undades disponobles para asignar.
+ * @param start_addr Dirección de memoria del inicio de la región libre
+ * @param length Tamaño region o numero de unidades libres.
+ */
 static __inline__ void inicializar_memoria_disponible(memory_list *,unsigned int,unsigned int);
 
+/**
+ * @brief Permite crear una unidad o region.
+ * @param state estado de la unidad o region libre:'L' o usada: 'U'.
+ * @param start Direccion de la unidad o region trabajado.
+ * @param length Tamaño de la unidad o region trabajado.
+ */
 static __inline__ node * create_node(char,unsigned int ,unsigned int);
 
+/**
+ * @brief Permite asignar al frente una unidad o región nueva a la memory_list.
+ * @param memory_list lista de memoria.
+ * @param nodo Unidad o región asignada.
+ */
 static __inline__ void * push_front(memory_list *, node *);
 
+/**
+ * @brief Permite asignar al final una unidad o región nueva a la memory_list.
+ * @param memory_list lista de memoria.
+ * @param nodo Unidad o región asignada.
+ */
 static __inline__ void * push_back(memory_list *, node * );
 
+/**
+ * @brief Permite actualizar la memory_list removiendo al frente
+ * una unidad o region que ha sido fusionada.
+ * @param memory_list lista de memoria.
+ */
 static __inline__ void * pop_front(memory_list *);
 
+/**
+ * @brief Permite actualizar la memory_list removiendo al final
+ * una unidad o region que ha sido fusionada.
+ * @param memory_list lista de memoria.
+ */
 static __inline__ void * pop_back(memory_list *);
 
+/**
+ * @brief Permite Extraer la cabeza de la lista para cualquier caso que
+ * requiera ser iterada.
+ * @param memory_list lista de memoria.
+ */
 static __inline__ node_iterator head(memory_list *);
 
+/**
+ * @brief Permite permite recorrer la memory_list
+ * a partir de una unidad o region.
+ * @param memory_list lista de memoria.
+ */
 static __inline__ node_iterator next(node_iterator);
 
+/**
+ * @brief Permite imprimir los datos de la memory_list.
+ */
 void main();
 
 /**
@@ -136,8 +186,18 @@ void free_unit( unsigned int);
  */
 void free_region(unsigned int start_addr, unsigned int length);
 
+/**
+ * @brief Permite asignar unidades en la memory_list.
+ * @param memory_list lista de memoria.
+ * @param length Tamaño de unidades a asignar.
+ */
 void asignar_unidades(memory_list*,unsigned int);
 
+/**
+ * @brief Permite fusionar nodos libres y adyacentes.
+ * @param memory_list lista de memoria.
+ * @param nodo unidad o región que se acaba de liberar.
+ */
 void unirNodosLibres(memory_list *,node *);
 
 #endif /* PHYSMEM_H_ */
