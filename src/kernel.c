@@ -37,6 +37,7 @@ unsigned int multiboot_info_location;
  * 	@param magic  Número mágico pasado por GRUB al código de start,S
  *  @param multiboot_info Apuntador a la estructura de información multiboot
  */
+
 void cmain(unsigned int magic, void * multiboot_info) {
 	unsigned int i;
 	unsigned int allocations;
