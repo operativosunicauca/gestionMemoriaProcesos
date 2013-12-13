@@ -534,16 +534,16 @@ void free_unit(char * addr) {
 		 new_nodel = ptr->previous;
 		 new_noder = ptr->next;
 
-		 /* CASO 1.
+		 /*	CASO 1.
 		  * Si el estado del nodo es usado y el inicio del nodo actual coincide
 		  * con la unidad a liberar.*/
 		 if(ptr->start == unit && ptr->state == 'U'){
 
 			 /* CASO 1a.
-			  * Si el número de unidades del nodo actual equivale a 1, se cambia su
-			  * estado a Libre. */
+			  * Si el número de unidades del nodo actual equivale a 1 */
 			 if(ptr->units == 1){
 
+				 /* Se cambia el estado del nodo actual a Libre. */
 				 ptr->state = 'L';
 
 				 /* Se chequea si el nodo derecho o izquierdo del nodo actual están libres
@@ -556,12 +556,12 @@ void free_unit(char * addr) {
 						  * y del derecho.*/
 						 new_nodel->units += ptr->units + new_noder->units;
 
-						 /* Si el nodo siguiente al actual es la cola, el nodo anterior
+						 /* Si el nodo siguiente al actual es la cola de la lista, el nodo anterior
 						  * al actual pasa a ser la nueva cola de la lista. */
 						 if(new_noder->next == 0){
 							 kernel_list->mem_tail = new_nodel;
 						 }
-						 /* Sino se enlaza el nodo izquierdo con el resto de la lista
+						 /* Sino, se enlaza el nodo izquierdo con el resto de la lista
 						  * de memoria excluyendo el nodo actual y el derecho. */
 						 else {
 							 new_nodel->next = new_noder->next;
@@ -589,129 +589,186 @@ void free_unit(char * addr) {
 					 ptr->previous = 0;
 					 kfree(ptr);
 				 }
+
+				 /* En este punto, el nodo izquierdo está usado, se chequea si el nodo derecho
+				  * está libre con el fin de fusionar dicho nodo con el actual. */
 				 else{
 					 if( new_noder->state == 'L'){
-					 	// left USADO and right LIBRE
+
+						 /* Se actulizan las unidades del nodo actual sumando sus unidades con
+						  * las del nodo derecho. */
 						 ptr->units += new_noder->units;
+
+						 /* Se establece el nodo derecho como el nodo siguiente al actual. */
 						 new_noder = ptr->next;
-						 if(kernel_list->mem_tail == new_noder ){ /*Si ptr->next es la colaa*/
+
+						 /* Si el nodo derecho es la cola de la lista, el nodo actual
+						  * pasa a ser la nueva cola de la lista. */
+						 if(kernel_list->mem_tail == new_noder ){
 							 kernel_list->mem_tail = ptr;
 						 }
+						 /* Sino, se enlaza el nodo actual con el resto de la lista
+						  * de memoria excluyendo el nodo derecho. */
 						 else{
 							 ptr->next = new_noder->next;
 							 new_naux = new_noder->next;
 							 new_naux->previous = ptr;
 						 }
-						 /*TODO Se liberra memoria, porque se desenlazo new_noder del kernel_list*/
+						 /* Se desenlaza el nodo derecho de la lista y se libera memoria del
+						  * montículo del kernel. */
 						 new_noder->next = 0;
 						 new_noder->previous = 0;
 						 kfree(new_noder);
 					 }
 				 }
-				 free_units ++;/*TODO free_units*/
+				 /* Se aumenta el número de unidades libres de memoria. */
+				 free_units ++;
 				 break;
 			 }
-			 else //ptr->units>1
+
+			 /* CASO 1b.
+			  * Si el número de unidades del nodo actual es mayor que 1. */
+			 else
 			 {
+				 /* Si el nodo izquierdo es Libre, se resta una unidad al nodo actual y se le
+				  * adiciona al nodo izquierdo, actualizando los valores que sean necesarios. */
 				 if( new_nodel->state == 'L' ){
 					new_nodel->units += 1;
 				 	ptr->units -= 1;
 				 	ptr->start += 1;
 				 }
-				 else{ /*new_nodel puede ser usado o nulo, Aqui aparte de esto se controla lo de la cabeza*/
-					 memory_node *new_ptr = create_memory_node('U', ptr->start + 1,ptr->units -1);
 
+				 /* En este punto, el nodo izquierdo puede estar usado o nulo.
+				  * Se crea un nuevo nodo y se enlaza a la derecha del actual, liberando
+				  * una unidad de memoria y modificando los valores de los nodos que sean
+				  * necesarios. */
+				 else{
+
+					 /* Se crea un nuevo nodo que representa la región de memoria restante luego
+					  * de haber liberado una unidad. */
+					 memory_node * new_ptr = create_memory_node('U', ptr->start + 1,ptr->units -1);
+
+					 /* Este nuevo nodo se enlaza por la parte izquierda al actual. */
 					 new_ptr->previous = ptr;
-					 if(ptr->next == 0){ /*Es decir, si ptr es la cola*/
+
+					 /* Si el nodo actual es la cola de la lista, el nuevo nodo
+					  * pasa a ser la nueva cola de la lista. */
+					 if(ptr->next == 0){
 						 kernel_list->mem_tail = new_ptr;
 					 }
-					 new_ptr->next = ptr->next;
-					 new_noder->previous = new_ptr; /*Ojooo*/
 
+					 /* El nuevo nodo se enlaza por la derecha con el resto de la lista
+					  * (si existe) que hace referencia al lado derecho del nodo actual. */
+					 new_ptr->next = ptr->next;
+					 new_noder->previous = new_ptr;
+
+					 /* Se libera una unidad de memoria en el nodo actual y se enlaza este último
+					  * por la derecha con el nuevo nodo (resto de la lista). */
 					 ptr->state = 'L';
 					 ptr->units = 1;
 					 ptr->next = new_ptr;
 				 }
+				 /* Se aumenta el número de unidades libres de memoria. */
 				 free_units ++;
 				 break;
-
 			 }
-	 } // end if
-	else if(ptr->start > unit){
-		if(new_nodel->state == 'U') {
+		}
+		/* CASO 2.
+		 * Si el inicio del nodo actual es mayor que la unidad requerida a liberar y además
+		 * el estado del nodo izquierdo es Usado. */
+		else if(ptr->start > unit){
+			if(new_nodel->state == 'U') {
 
-			if(ptr->start == (unit + 1) && ptr->state == 'L'){ /*Condicional para proceder a mezclar nodos*/
-				new_nodel->units -= 1;
-				ptr->units += 1;
-				ptr->start -= 1;
-				free_units ++;
-				break;
+				/*Condicional para proceder a mezclar nodos*/
+				if(ptr->start == (unit + 1) && ptr->state == 'L'){
+					new_nodel->units -= 1;
+					ptr->units += 1;
+					ptr->start -= 1;
+					free_units ++;
+					break;
+				}
+				/* nuevo nodo usado */
+				memory_node *nn = create_memory_node('U',unit+1,ptr->start-(unit+1));
+
+				/* nuevo nodo libre*/
+				memory_node *new_node = create_memory_node('L',unit,1);
+
+				new_node->previous = new_nodel;
+
+				/* nuevo usado */
+				nn->previous = new_node;
+				new_node->next = nn;
+				nn->next = ptr;
+				ptr->previous = nn;
+
+				new_nodel->units = unit - new_nodel->start;
+				new_nodel->next = new_node;
 			}
-			/* nuevo nodo usado */
-			memory_node *nn = create_memory_node('U',unit+1,ptr->start-(unit+1));
-
-			/* nuevo nodo libre*/
-			memory_node *new_node = create_memory_node('L',unit,1);
-
-			new_node->previous = new_nodel;
-
-			/* nuevo usado */
-			nn->previous = new_node;
-			new_node->next = nn;
-			nn->next = ptr;
-			ptr->previous = nn;
-
-			new_nodel->units = unit - new_nodel->start;
-			new_nodel->next = new_node;
+			free_units ++;
+			break;
 		}
-		free_units ++;
-		break;
-	}
-	else if( kernel_list->mem_tail == ptr && ptr->state != 'L'){/*Case special*/
-		//printf("unit > (mem_tail->star)\n");
-		// new node first
-		memory_node *new_st = create_memory_node('U',ptr->start, unit - ptr->start);
-		// new node second
-		memory_node *new_nd = create_memory_node('L',unit,1);
+		/* CASO 3.
+		 * */
+		else if( kernel_list->mem_tail == ptr && ptr->state != 'L'){
 
-		new_st->previous = 0; /*Ojoo*/
-		new_st->next = new_nd;
-		/* Se resta el número de unidades del primer nodo creado*/
-		ptr->units -= new_st->units;
+			/* Se crea un 'nodo_primero' que será un nodo que contiene la región de memoria
+			 * usada restante por el lado izquierdo a la unidad que se va a liberar. */
+			memory_node *new_st = create_memory_node('U',ptr->start, unit - ptr->start);
 
-		new_nd->previous = new_st;
-		new_nd->next = 0;
-		/* Se resta la unidad del segundo nodo creado para liberar*/
-		ptr->units--;
-		ptr->start = unit + 1;
+			/* Se crea un 'nodo_segundo' que será un nodo que contiene la unidad liberada. */
+			memory_node *new_nd = create_memory_node('L',unit,1);
 
-		if(ptr->units <= 0){
-			kernel_list->mem_tail = new_nd;
-			/*Falta liberar memoria*/
-			ptr->next = 0;
-			ptr->previous = 0;
-			kfree(ptr);
-		}
-		else{
-			ptr->previous = new_nd; //Liberar previous
-			new_nd->next = ptr;
-		}
-		/**/
-		if(kernel_list->mem_head != ptr){
-			new_nodel->next = new_st;
-			new_st->previous = new_nodel;
-		}
-		else{
-			kernel_list->mem_head = new_st;
-		}
-		free_units ++;
-		break;
-	}
+			/* Se 'limpia' el nodo anterior al 'nodo_primero' y se establece a 'nodo_segundo'
+			 * como su nodo siguiente. */
+			new_st->previous = 0;
+			new_st->next = new_nd;
 
-	 /* Marcar la unidad recien liberada como la proxima unidad
-	  * para asignar */
-	 next_free_unit = unit;
- }
+			/* Se resta al nodo actual el número de unidades del 'nodo_primero'. */
+			ptr->units -= new_st->units;
+
+			/* Se completa el enlace doble entre 'nodo_primero' y 'nodo_segundo' y se 'limpia'
+			 * el nodo siguiente a este último. */
+			new_nd->previous = new_st;
+			new_nd->next = 0;
+
+			/* Se resta una unidad al nodo actual, y se establece el inicio de este nodo.
+			 * Este nodo contiene la región de memoria usada restante por el lado derecho a la
+			 * unidad que se va a liberar. */
+			ptr->units--;
+			ptr->start = unit + 1;
+
+			/* Si las unidades del nodo actual son menores o iguales a cero, se desenlaza este
+			 * nodo y se establece como cola de la lista a 'nodo_segundo'. */
+			if(ptr->units <= 0){
+				kernel_list->mem_tail = new_nd;
+				ptr->next = 0;
+				ptr->previous = 0;
+				kfree(ptr);
+			}
+			/* Sino, se enlazan los nodos 'nodo_segundo' y el actual.
+			 * De esta manera queda en este orden: 'nodo_primero'-'nodo_segundo'-'nodo_actual'. */
+			else{
+				ptr->previous = new_nd;
+				new_nd->next = ptr;
+			}
+			/* Si el nodo actual no es la cabeza de la lista se enlaza por la izquierda el resto de
+			 * los elementos de la lista con el 'nodo_primero'. */
+			if(kernel_list->mem_head != ptr){
+				new_nodel->next = new_st;
+				new_st->previous = new_nodel;
+			}
+			/* Sinol, el 'nodo_primero' será la nueva cabeza de la lista.. */
+			else{
+				kernel_list->mem_head = new_st;
+			}
+			/* Se aumenta el número de unidades libres de memoria. */
+			free_units ++;
+			break;
+		}
+
+		/* Marcar la unidad recién liberada como la proxima unidad para asignar. */
+	     next_free_unit = unit;
+	 }
 }
 
 /**
