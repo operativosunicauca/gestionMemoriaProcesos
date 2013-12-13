@@ -831,11 +831,12 @@ void  kfree(void * ptr) {
  * */
 void print_list(){
 	memory_node *ptr = (memory_node *) kmalloc( sizeof(memory_node) );
-	printf(" Kernel memory_list !!!\n");
+	printf("Kernel memory_list:\n");
 	int i;
 	for( i = 0, ptr = kernel_list->mem_head; ptr != 0; i++, ptr = ptr->next){
-		printf("\tnodo %d\t state %c\t start %d\t units %d\n", i, ptr->state, ptr->start, ptr->units);
+		printf("\tnodo %d\t state %c\t start %d\t units %d\n", (i+1), ptr->state, ptr->start, ptr->units);
 	}
+	printf("\n");
 	kfree(ptr);
 }
 
@@ -844,11 +845,12 @@ void print_list(){
  * */
 void print_list_right_letf(){
 	memory_node *ptr = (memory_node *) kmalloc( sizeof(memory_node) );
-	printf(" Kernel memory_list !!!\n");
+	printf("Kernel memory_list:\n");
 	int i;
 	for( i = 0, ptr = kernel_list->mem_tail; ptr != 0; i++, ptr = ptr->previous){
 		printf("\tnodo %d\t state %c\t start %d\t units %d\n", i, ptr->state, ptr->start, ptr->units);
 	}
+	printf("\n");
 	kfree(ptr);
 }
 

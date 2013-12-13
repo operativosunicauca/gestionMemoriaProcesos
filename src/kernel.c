@@ -66,13 +66,19 @@ void cmain(unsigned int magic, void * multiboot_info) {
 	setup_memory();
 
 	printf("------- Kernel started -------\n");
+	printf("Initial list:\n");
+	print_list();
 	addr = allocate_unit_region(0xFFFF);
 	printf("Allocated region: %x\n", addr);
+	print_list();
 	addr = allocate_unit();
 	printf("Allocated address: %x\n", addr);
 	printf("Last allocated address: %x, %u\n",addr, addr);
+	print_list();
+	addr = (char *)0x20c000;
+	free_unit(addr);
+	printf("Free address: %x\n", addr);
+	print_list();
 	inline_assembly("sti");
-
 	printf("------- Kernel finished -------\n");
-
 }
