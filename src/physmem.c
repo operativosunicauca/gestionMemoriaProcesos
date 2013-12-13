@@ -8,9 +8,6 @@
  * de 4096 bytes.
  */
 
-/**
- * @brief Commit de prueba
- */
 #include <kmm.h>
 #include <physmem.h>
 #include <multiboot.h>
@@ -30,7 +27,7 @@ static heap_t * kernel_heap;
  * heap del kernel */
 unsigned int kernel_heap_start;
 
- /** @brief Siguiente unidad disponible en el mapa de bits */
+ /** @brief Siguiente unidad disponible en la lista enlazada. */
  unsigned int next_free_unit;
 
  /** @brief Numero de marcos libres en la memoria */
@@ -52,13 +49,14 @@ unsigned int memory_length;
 /** @brief Mínima dirección de memoria permitida para liberar */
 unsigned int allowed_free_start;
 
-/* TODO comentar min-ima unidad en memoria*/
+/* @brief Mínima unidad donde empieza la memoria disponible. */
  int min;
-/* TODO comentar max-ima unidad en memoria */
+
+/* @brief Máxima unidad donde termina la memoria disponible. */
  int max;
 
 /**
- * @brief Esta rutina inicializa el mapa de bits de memoria,
+ * @brief Esta rutina inicializa la lista enlazada para la gestión de memoria,
  * a partir de la informacion obtenida del GRUB.
  */
 void setup_memory(void){
@@ -114,7 +112,7 @@ void setup_memory(void){
 	/* si flags[6] = 1, los campos mmap_length y mmap_addr son validos */
 
 	/* Revisar las regiones de memoria, y extraer la region de memoria
-	 * de mayor tamano, maracada como disponible, cuya dirección base sea
+	 * de mayor tamano, marcada como disponible, cuya dirección base sea
 	* mayor o igual a la posicion del kernel en memoria.
 	*/
 
@@ -201,7 +199,7 @@ void setup_memory(void){
 			 }else {
 				 /* El kernel no se encuentra en esta region, verificar si
 				  * su tamano es mayor que la region mas grande encontrada
-				  * hasta ahora
+				  * hasta ahora.
 				  */
 				 if (tmp_length > memory_length) {
 					 memory_start = tmp_start;
@@ -263,29 +261,25 @@ void setup_memory(void){
 
 		printf("Memory start at %u = %x\n", memory_start, memory_start);
 
-		/* Marcar la región de memoria como disponible */
-		//free_region((char*)memory_start, memory_length);
-
-		/* NUMERO TOTAL DE UNIDADES LIBRES AL INICIAR LA MEMORIA */
+		/* Se calcula el número de unidades libres al iniciar la gestión de memoria. */
 		free_units = memory_length  / MEMORY_UNIT_SIZE;
 
-		/* Crear la lista del Kernel */
+		/* Se crea una lista para la gestión de memoria disponible. */
 		kernel_list = create_memory_list((char*)memory_start, memory_length);
 
-		//print_list();
-
-		/* Establecer la dirección de memoria a partir
-		 * de la cual se puede liberar memoria */
+		/* Establecer la dirección de memoria a partir de la cual se puede liberar memoria */
 		allowed_free_start = memory_start;
 		next_free_unit = allowed_free_start / MEMORY_UNIT_SIZE;
 
+		/* Se establece el total de unidades libres y la unidad de memoria base. */
 		total_units = free_units;
 		base_unit = next_free_unit;
 
 		 printf("Available memory at: 0x%x units: %d Total memory: %d\n",
 				memory_start, total_units, memory_length);
 		 printf("base unit %d\n", base_unit);
-		 /* TODO cometar asignacion de min y max */
+
+		 /* Se establece la unidad mínima y la unidad máxima de memoria permitida. */
 		 min = base_unit;
 		 max = (base_unit + total_units) - 1;
 	}
@@ -296,13 +290,6 @@ void setup_memory(void){
  * @return Dirección de inicio de la unidad en memoria.
  */
   char * allocate_unit(void) {
-
-	 /*Indica la unidad libre
-	 unsigned int unit;
-	 Variable de entrada
-	 unsigned int entry;
-	 Variable de desplazamiento
-	 unsigned int offset;*/
 
 	 /* Si no existen unidades libres, da un aviso y retorna cero (0).*/
 	 if (free_units == 0) {
@@ -319,30 +306,23 @@ void setup_memory(void){
 	  */
 	 for( ptr = kernel_list->mem_head; ptr != 0; ptr = ptr->next)
 	 {
-		 	/*Si encuentra un nodo libre...*/
+		 	/*Si encuentra un nodo libre.*/
 		 	if( ptr->state == 'L' ) {
 
-		 		/*Si el nodo tiene una sola unidad en la region, establecer su estado en usado.*/
+		 		/*Si el nodo tiene una sola unidad en la region, establece su estado en usado.*/
 	 			if(ptr->units == 1) {
 	 				ptr->state = 'U';
 	 			}
 	 			else {
 	 				/*Si el nodo tiene mas de una unidad libre, se crea un nuevo nodo.
 	 				 *Su estado se establece en Libre, el inicio del nodo es el inicio del nodo
-	 				 *actual más uno y las unidades en las unidades del nodo actual menos 1.
+	 				 *actual más uno y las unidades son las unidades del nodo actual menos 1.
 	 				 *Como se usa la primera unidad de la region libre, el nuevo nodo
 	 				 *representa el nuevo espacio libre que queda.
 	 				 */
+	 				memory_node *new_node = create_memory_node('L', (ptr->start+1), (ptr->units-1));
 
-	 				memory_node * new_node = (memory_node*) kmalloc(sizeof(memory_node));
-
-	 				//new_node->start = (ptr->start+1);
-	 				//new_node->state = 'L';
-	 				//new_node->units = ptr->units-1;
-
-	 				//memory_node *new_node = create_memory_node('L', (ptr->start+1), (ptr->units-1));
-
-	 				/*Establece como usada la primera unidad del nodo actual.*/
+	 				/* Establece como usada la primera unidad del nodo actual. */
 	 				ptr->state = 'U';
 	 				ptr->units = 1;
 
@@ -367,11 +347,15 @@ void setup_memory(void){
 	 					ptr->next = new_node;
 	 				}
 	 			}
-	 			/*Finalmente se retorna la dirección de inicio de la unidad en memoria.*/
-	 			free_units--; /*TODO Comentar free_units*/
+	 			/* Se disminuye el número de unidades libres en memoria y se retorna la dirección
+	 			 * de inicio de la unidad en memoria.*/
+	 			free_units--;
 	 			return (ptr->start * MEMORY_UNIT_SIZE);
 	 		}
 	 }
+
+	 /* Si se recorrió toda la lista enlazada y no se encontró una unidad de memoria libre, se
+	  * informa lo sucedido y se retorna cero (0). */
 	 printf("Warning! out of memory!\n");
  	 return 0;
   }
@@ -387,18 +371,14 @@ void setup_memory(void){
     unsigned int unit;
     /*Número de unidades*/
     unsigned int unit_count;
-    /*Variable iteradora*/
-    unsigned int i;
-    /*Variable de resultado*/
-    int result;
 
     /* Se calcula el número de unidades a asignar dividiendo el tamaño (en bytes)
      * entre el tamaño de cada unidad. Se debe tener encuenta que unit_count
-     * almacena la parte entera de la division.*/
+     * almacena la parte entera de la division. */
 	unit_count = (length / MEMORY_UNIT_SIZE);
 
 	/* Si la división anterior no es exacta, se necesita una unidad más que representa
-	 * la parte decimal restante, por cual se aumenta unit_count en uno (1)*/
+	 * la parte decimal restante, por cual se aumenta unit_count en uno (1). */
 	if (length % MEMORY_UNIT_SIZE > 0) {
 		unit_count++;
 	}
@@ -421,13 +401,13 @@ void setup_memory(void){
 	/* Recorre la lista de gestión de memoria en busca de un nodo
 	 * que tenga al menos el numero de unidades solicitadas.
 	 * Inicia desde la cabeza de la lista de nodos de memoria
-	 * y termina cuando ha encontrado dicho nodo o cuando llega al final de la lista.*/
+	 * y termina cuando ha encontrado dicho nodo o cuando llega al final de la lista. */
 	for( ptr = kernel_list->mem_head; ptr != 0; ptr = ptr->next) {
 		/*Si se encuentra un nodo libre.*/
 		if( ptr->state == 'L') {
-			/*Si las unidades del nodo actual son mayores que las unidades a asignar, */
+			/*Si las unidades del nodo actual son mayores que las unidades a asignar. */
 			if( ptr->units > unit_count ) {
-				/*Se cambia el estado del nodo actual a usado*/
+				/* Se cambia el estado del nodo actual a usado. */
 				ptr->state = 'U';
 
 				/* new_node representa el nuevo nodo que se ubicará a la 'derecha' del nodo actual
@@ -443,42 +423,43 @@ void setup_memory(void){
 				/*El nodo auxiliar contiene la referencia del nodo siguiente al nodo actual.*/
 				aux_node = ptr->next;
 
-				/* Si el nodo auxiliar es nulo indica que el nodo actual (ptr) es la cola de la lista
-				 * de gestión de memoria.*/
+				/* Si el nodo auxiliar es nulo indica que el nodo actual (ptr) es la cola de la lista. */
 				if(aux_node == 0) {
 					/* Por lo tanto el nuevo nodo será la cola de la lista de memoria. */
 					kernel_list->mem_tail = new_node;
 				}
 
-				/* El nodo 'Anterior' al auxiliar será ahora el nuevo nodo,
-				 * el nodo 'Anterior' al nuevo será el nodo actual (ptr),
-				 * el nodo 'Siguiente' al nuevo será el auxiliar nodo
-				 * y por ultimo el nodo 'Siguiente' al actual será el nuevo nodo
-				 * De esta manera el nuevo nodo que se creo queda en medio del nodo actual
-				 * y el siguiente nodo al actual (si existe nodo siguiente al actual) sino
-				 * el nuevo nodo quedara como cola de la lista de memoria*/
+				/* El nuevo nodo que se creó queda en medio del nodo actual
+				 * y del siguiente nodo al actual (si existe). Sino
+				 * el nuevo nodo quedara como cola de la lista de memoria. */
 				aux_node->previous = new_node;
 				new_node->previous = ptr;
 				new_node->next = aux_node;
 				ptr->next = new_node;
 
-				/*Se cambia el valor de inicio del nodo actual por el mismo valor
-				 * multiplicado por el tamaño de la unidad de memoria*/
+				/* Se disminuye el número de unidades libres en memoria y se retorna la dirección
+				 * de inicio de la región en memoria. */
 				free_units -= ptr->units;
 				return ptr->start * MEMORY_UNIT_SIZE;
 			}
-			/* Si no se encuentra una unidad de memoria mayor a las unidades solicitadas
-			 * el nodo actual cambia su estado a usado 'U' y  */
+			/* Si no se encuentra una unidad de memoria mayor a las unidades solicitadas. */
 			else{
-				if(ptr->units == unit_count) /*TODO Comentar los de unidad = unit*/
+				/* Se chequea que el número de unidades del nodo actual sea igual a las unidades
+				 * solicitadas. De ser así se cambia el estado del nodo actual por usado. */
+				if(ptr->units == unit_count)
 				{
 					ptr->state = 'U';
-					free_units -= ptr->units; /*TODO Comentar!!!*/
+
+					/* Se disminuye el número de unidades libres en memoria y se retorna la dirección
+					 * de inicio de la región en memoria. */
+					free_units -= ptr->units;
 					return ptr->start * MEMORY_UNIT_SIZE;
 				}
 			}
 		}
 	}
+	/* Si se recorrió toda la lista enlazada y no se encontró una región de memoria libre, se
+	 * informa lo sucedido y se retorna cero (0). */
 	printf("Warning! out of memory!\n");
 	return 0;
   }
@@ -488,12 +469,13 @@ void setup_memory(void){
  * @param addr Dirección de memoria dentro del área a liberar.
  */
 void free_unit(char * addr) {
+
 	 /*Variable inicio*/
 	 unsigned int start;
 	 /*Variable de unidad*/
 	 unsigned int unit;
 
-	 /* Se redondea la dirección de memoria de inicio y se almacena en 'start'.*/
+	 /* Se redondea la dirección de memoria de inicio y se almacena en 'start'. */
 	 start = round_down_to_memory_unit((unsigned int)addr);
 
 	 /* Si la dirección de inicio (start) es menor que la mínima permitida para liberar,
@@ -505,22 +487,22 @@ void free_unit(char * addr) {
 	 unit = start / MEMORY_UNIT_SIZE;
 
 	 /* Si se pide liberar una unidad que está por fuera del límite, se muestra un
-	  * mensaje de advertencia y no se libera nmemoria. */
+	  * mensaje de advertencia y no se libera memoria. */
 	 if ( unit > max ) {
 		 printf(" Warning address no exist !!! \n");
 		 return;
 	 }
 
-	 /* TODO COMENTAR!! */
+	 /* Si todas las unidades de memoria están libres, no se libera memoria. */
 	 if( free_units == (max - min) + 1 ){ return; }
 
 	 /*Puntero a un nodo de memoria para recorrer la lista de memoria.*/
 	 memory_node *ptr;
-	 /*Nodo de memoria auxiliar, representa un nodo izquierdo.*/
+	 /*Puntero a un nodo de memoria auxiliar, representa un nodo izquierdo.*/
 	 memory_node *new_nodel;
-	 /*Nodo de memoria auxiliar, representa un nodo derecho.*/
+	 /*Puntero a un nodo de memoria auxiliar, representa un nodo derecho.*/
 	 memory_node *new_noder;
-	 /*Nodo de memoria auxiliar.*/
+	 /*Puntero a un nodo de memoria auxiliar.*/
 	 memory_node *new_naux;
 
 	 /* Recorre y busca la unidad en la lista para la gestión de memoria y la marca
@@ -621,6 +603,8 @@ void free_unit(char * addr) {
 						 kfree(new_noder);
 					 }
 				 }
+				 /* Marcar la unidad recién liberada como la proxima unidad para asignar. */
+			     next_free_unit = unit;
 				 /* Se aumenta el número de unidades libres de memoria. */
 				 free_units ++;
 				 break;
@@ -668,6 +652,8 @@ void free_unit(char * addr) {
 					 ptr->units = 1;
 					 ptr->next = new_ptr;
 				 }
+				 /* Marcar la unidad recién liberada como la proxima unidad para asignar. */
+			     next_free_unit = unit;
 				 /* Se aumenta el número de unidades libres de memoria. */
 				 free_units ++;
 				 break;
@@ -679,36 +665,49 @@ void free_unit(char * addr) {
 		else if(ptr->start > unit){
 			if(new_nodel->state == 'U') {
 
-				/*Condicional para proceder a mezclar nodos*/
+				/* Caso especial. Se da cuando la unidad a liberar coincide con la última unidad de la
+				 * región del nodo izquierdo y además el nodo actual es libre. Cuando se libera dicha unidad
+				 * se obtiene una región resultante libre por lo que se modifica el nodo actual
+				 * para que contenga dicha región. */
 				if(ptr->start == (unit + 1) && ptr->state == 'L'){
 					new_nodel->units -= 1;
 					ptr->units += 1;
 					ptr->start -= 1;
+					/* Marcar la unidad recién liberada como la proxima unidad para asignar. */
+				    next_free_unit = unit;
+				    /* Se aumenta el número de unidades libres de memoria. */
 					free_units ++;
 					break;
 				}
-				/* nuevo nodo usado */
-				memory_node *nn = create_memory_node('U',unit+1,ptr->start-(unit+1));
 
-				/* nuevo nodo libre*/
-				memory_node *new_node = create_memory_node('L',unit,1);
+				/* Se crea un 'nodo_primero' que será el nodo que contiene la unidad de memoria a liberar. */
+				memory_node *new_st = create_memory_node('L',unit,1);
 
-				new_node->previous = new_nodel;
+				/* Se crea un 'nodo_segundo' que será un nodo que contiene la región de memoria
+				 * usada restante el cual se ubicará a la izquierda del nodo actual. */
+				memory_node *new_nd = create_memory_node('U',unit+1,ptr->start-(unit+1));
 
-				/* nuevo usado */
-				nn->previous = new_node;
-				new_node->next = nn;
-				nn->next = ptr;
-				ptr->previous = nn;
+				/* Se enlazan los nodos 'nodo_primero', 'nodo_segundo', 'nodo_izquierdo' y 'nodo_actual'.
+				 * De esta manera queda en este orden:
+				 * 'nodo_izquierdo'-'nodo_primero'-'nodo_segundo'-'nodo_actual'. */
+				new_st->previous = new_nodel;
+				new_nd->previous = new_st;
+				new_st->next = new_nd;
+				new_nd->next = ptr;
+				ptr->previous = new_nd;
+				new_nodel->next = new_st;
 
+				/* Se actualiza el número de unidades del nodo izquierdo. */
 				new_nodel->units = unit - new_nodel->start;
-				new_nodel->next = new_node;
 			}
+			/* Marcar la unidad recién liberada como la proxima unidad para asignar. */
+			next_free_unit = unit;
+			/* Se aumenta el número de unidades libres de memoria. */
 			free_units ++;
 			break;
 		}
 		/* CASO 3.
-		 * */
+		 * Si el nodo actual está libre y es la cola de la lista. */
 		else if( kernel_list->mem_tail == ptr && ptr->state != 'L'){
 
 			/* Se crea un 'nodo_primero' que será un nodo que contiene la región de memoria
@@ -757,17 +756,16 @@ void free_unit(char * addr) {
 				new_nodel->next = new_st;
 				new_st->previous = new_nodel;
 			}
-			/* Sinol, el 'nodo_primero' será la nueva cabeza de la lista.. */
+			/* Sino, el 'nodo_primero' será la nueva cabeza de la lista. */
 			else{
 				kernel_list->mem_head = new_st;
 			}
+			/* Marcar la unidad recién liberada como la proxima unidad para asignar. */
+		    next_free_unit = unit;
 			/* Se aumenta el número de unidades libres de memoria. */
 			free_units ++;
 			break;
 		}
-
-		/* Marcar la unidad recién liberada como la proxima unidad para asignar. */
-	     next_free_unit = unit;
 	 }
 }
 
