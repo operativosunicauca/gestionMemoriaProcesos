@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia de la Estructura interrupt_state</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../classes.html"><span>Índice&#160;de&#160;estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../functions.html"><span>Campos&#160;de&#160;datos</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Campos de datos</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia de la Estructura interrupt_state</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Estructura que define el estado del procesador al recibir una interrupción o una excepción.  
+ <a href="../../df/d23/structinterrupt__state.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Campos de datos</h2></td></tr>
+<tr class="memitem:a8fbe564b6eaa9affe24c8fbed1a4c7ea"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a8fbe564b6eaa9affe24c8fbed1a4c7ea">gs</a></td></tr>
+<tr class="memdesc:a8fbe564b6eaa9affe24c8fbed1a4c7ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del selector GS (Tope de la pila)  <a href="#a8fbe564b6eaa9affe24c8fbed1a4c7ea">Más...</a><br/></td></tr>
+<tr class="separator:a8fbe564b6eaa9affe24c8fbed1a4c7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88d3d1b872b301364b825176981daf14"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a88d3d1b872b301364b825176981daf14">fs</a></td></tr>
+<tr class="memdesc:a88d3d1b872b301364b825176981daf14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del selector FS.  <a href="#a88d3d1b872b301364b825176981daf14">Más...</a><br/></td></tr>
+<tr class="separator:a88d3d1b872b301364b825176981daf14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4305a24abee1f4912083d877c499fcad"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a4305a24abee1f4912083d877c499fcad">es</a></td></tr>
+<tr class="memdesc:a4305a24abee1f4912083d877c499fcad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del selector ES.  <a href="#a4305a24abee1f4912083d877c499fcad">Más...</a><br/></td></tr>
+<tr class="separator:a4305a24abee1f4912083d877c499fcad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41d22b14f5b54c8488f5969c012000d7"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a41d22b14f5b54c8488f5969c012000d7">ds</a></td></tr>
+<tr class="memdesc:a41d22b14f5b54c8488f5969c012000d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del selector DS.  <a href="#a41d22b14f5b54c8488f5969c012000d7">Más...</a><br/></td></tr>
+<tr class="separator:a41d22b14f5b54c8488f5969c012000d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21967b2580b9725a17075b898ff3abc3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a21967b2580b9725a17075b898ff3abc3">edi</a></td></tr>
+<tr class="memdesc:a21967b2580b9725a17075b898ff3abc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del registro EDI.  <a href="#a21967b2580b9725a17075b898ff3abc3">Más...</a><br/></td></tr>
+<tr class="separator:a21967b2580b9725a17075b898ff3abc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae508f942b3572ab3ab749fdc35a763da"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#ae508f942b3572ab3ab749fdc35a763da">esi</a></td></tr>
+<tr class="memdesc:ae508f942b3572ab3ab749fdc35a763da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del registro ESI.  <a href="#ae508f942b3572ab3ab749fdc35a763da">Más...</a><br/></td></tr>
+<tr class="separator:ae508f942b3572ab3ab749fdc35a763da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a680481bf6e093a04d619216bef02a2b2"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a680481bf6e093a04d619216bef02a2b2">ebp</a></td></tr>
+<tr class="memdesc:a680481bf6e093a04d619216bef02a2b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del registro EBP.  <a href="#a680481bf6e093a04d619216bef02a2b2">Más...</a><br/></td></tr>
+<tr class="separator:a680481bf6e093a04d619216bef02a2b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1425d6c20cbfa78828ab126434a1921"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#af1425d6c20cbfa78828ab126434a1921">esp</a></td></tr>
+<tr class="memdesc:af1425d6c20cbfa78828ab126434a1921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del registro ESP.  <a href="#af1425d6c20cbfa78828ab126434a1921">Más...</a><br/></td></tr>
+<tr class="separator:af1425d6c20cbfa78828ab126434a1921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8996da18df84dface49e6d219a6fbde0"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a8996da18df84dface49e6d219a6fbde0">ebx</a></td></tr>
+<tr class="memdesc:a8996da18df84dface49e6d219a6fbde0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del registro EBX.  <a href="#a8996da18df84dface49e6d219a6fbde0">Más...</a><br/></td></tr>
+<tr class="separator:a8996da18df84dface49e6d219a6fbde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a033ca834eb49bc602eb0e0b358a9a4f1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a033ca834eb49bc602eb0e0b358a9a4f1">edx</a></td></tr>
+<tr class="memdesc:a033ca834eb49bc602eb0e0b358a9a4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del registro EDX.  <a href="#a033ca834eb49bc602eb0e0b358a9a4f1">Más...</a><br/></td></tr>
+<tr class="separator:a033ca834eb49bc602eb0e0b358a9a4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ea7fea7f82c9647381548939843feaf"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a0ea7fea7f82c9647381548939843feaf">ecx</a></td></tr>
+<tr class="memdesc:a0ea7fea7f82c9647381548939843feaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del registro ECX.  <a href="#a0ea7fea7f82c9647381548939843feaf">Más...</a><br/></td></tr>
+<tr class="separator:a0ea7fea7f82c9647381548939843feaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa35a8540d25648fda11e3cccd6e4e10c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#aa35a8540d25648fda11e3cccd6e4e10c">eax</a></td></tr>
+<tr class="memdesc:aa35a8540d25648fda11e3cccd6e4e10c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor del registro EAX.  <a href="#aa35a8540d25648fda11e3cccd6e4e10c">Más...</a><br/></td></tr>
+<tr class="separator:aa35a8540d25648fda11e3cccd6e4e10c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8d56af1549c1276c20aae645c223ab1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1">number</a></td></tr>
+<tr class="memdesc:ae8d56af1549c1276c20aae645c223ab1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número de la interrupción (o excepción)  <a href="#ae8d56af1549c1276c20aae645c223ab1">Más...</a><br/></td></tr>
+<tr class="separator:ae8d56af1549c1276c20aae645c223ab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d61343c6813d59fa5430f59c7f88e21"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a6d61343c6813d59fa5430f59c7f88e21">error_code</a></td></tr>
+<tr class="memdesc:a6d61343c6813d59fa5430f59c7f88e21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Código de error. Cero para las excepciones que no generan código de error y para las interrupciones.  <a href="#a6d61343c6813d59fa5430f59c7f88e21">Más...</a><br/></td></tr>
+<tr class="separator:a6d61343c6813d59fa5430f59c7f88e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0beff8890c336863cdf529a1514654d6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a0beff8890c336863cdf529a1514654d6">old_eip</a></td></tr>
+<tr class="memdesc:a0beff8890c336863cdf529a1514654d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor de EIP en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesador)  <a href="#a0beff8890c336863cdf529a1514654d6">Más...</a><br/></td></tr>
+<tr class="separator:a0beff8890c336863cdf529a1514654d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a658036b0fbe658096bdc46e946448b38"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a658036b0fbe658096bdc46e946448b38">old_cs</a></td></tr>
+<tr class="memdesc:a658036b0fbe658096bdc46e946448b38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor de CS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesador)  <a href="#a658036b0fbe658096bdc46e946448b38">Más...</a><br/></td></tr>
+<tr class="separator:a658036b0fbe658096bdc46e946448b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f946f7afe757f0bbde34e24632df34c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a0f946f7afe757f0bbde34e24632df34c">old_eflags</a></td></tr>
+<tr class="memdesc:a0f946f7afe757f0bbde34e24632df34c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor de EFLAGS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesador)  <a href="#a0f946f7afe757f0bbde34e24632df34c">Más...</a><br/></td></tr>
+<tr class="separator:a0f946f7afe757f0bbde34e24632df34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66e0cfe3d312535f3bde9efeaac60cad"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#a66e0cfe3d312535f3bde9efeaac60cad">old_esp</a></td></tr>
+<tr class="memdesc:a66e0cfe3d312535f3bde9efeaac60cad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor de ESP en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesador). Sólo se almacena cuando la interrupción o excepción ocurrió cuado una tarea de privilegio mayor a cero se estaba ejecutando.  <a href="#a66e0cfe3d312535f3bde9efeaac60cad">Más...</a><br/></td></tr>
+<tr class="separator:a66e0cfe3d312535f3bde9efeaac60cad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add9cc91d8acb295c7c2d43356d800eda"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d23/structinterrupt__state.html#add9cc91d8acb295c7c2d43356d800eda">old_ss</a></td></tr>
+<tr class="memdesc:add9cc91d8acb295c7c2d43356d800eda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Valor de SS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesador). Sólo se almacena cuando la interrupción o excepción ocurrió cuado una tarea de privilegio mayor a cero se estaba ejecutando.  <a href="#add9cc91d8acb295c7c2d43356d800eda">Más...</a><br/></td></tr>
+<tr class="separator:add9cc91d8acb295c7c2d43356d800eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Estructura que define el estado del procesador al recibir una interrupción o una excepción. </p>
+<p>Al recibir una interrupción, el procesador automáticamente almacena en la pila el valor de CS, EIP y EFLAGS. Si la interrupción ocurrió en un nivel de privilegios diferente de cero, antes de almacenar CS, EIP y EFLAGS se almacena el valor de SS y ESP. El control lo recibe el código del archivo <a class="el" href="../../d5/df9/isr_8_s.html" title="Contiene la definicion y la implementacion de las rutinas de servicio de interrupcion para las 255 in...">isr.S</a>, en el cual almacena (en orden inverso) el estado del procesador contenido en esta estructura. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00070">70</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+</div><h2 class="groupheader">Documentación de los campos</h2>
+<a class="anchor" id="a41d22b14f5b54c8488f5969c012000d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int ds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del selector DS. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00078">78</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa35a8540d25648fda11e3cccd6e4e10c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int eax</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del registro EAX. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00094">94</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a680481bf6e093a04d619216bef02a2b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int ebp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del registro EBP. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00084">84</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8996da18df84dface49e6d219a6fbde0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int ebx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del registro EBX. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00088">88</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ea7fea7f82c9647381548939843feaf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int ecx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del registro ECX. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00092">92</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21967b2580b9725a17075b898ff3abc3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int edi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del registro EDI. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00080">80</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a033ca834eb49bc602eb0e0b358a9a4f1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int edx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del registro EDX. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00090">90</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d61343c6813d59fa5430f59c7f88e21"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int error_code</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Código de error. Cero para las excepciones que no generan código de error y para las interrupciones. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00099">99</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4305a24abee1f4912083d877c499fcad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int es</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del selector ES. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00076">76</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae508f942b3572ab3ab749fdc35a763da"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int esi</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del registro ESI. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00082">82</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af1425d6c20cbfa78828ab126434a1921"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int esp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del registro ESP. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00086">86</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a88d3d1b872b301364b825176981daf14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int fs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del selector FS. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00074">74</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8fbe564b6eaa9affe24c8fbed1a4c7ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int gs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor del selector GS (Tope de la pila) </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00072">72</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae8d56af1549c1276c20aae645c223ab1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int number</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Número de la interrupción (o excepción) </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00096">96</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a658036b0fbe658096bdc46e946448b38"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int old_cs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor de CS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesador) </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00105">105</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0f946f7afe757f0bbde34e24632df34c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int old_eflags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor de EFLAGS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesador) </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00108">108</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0beff8890c336863cdf529a1514654d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int old_eip</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor de EIP en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesador) </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00102">102</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a66e0cfe3d312535f3bde9efeaac60cad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int old_esp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor de ESP en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesador). Sólo se almacena cuando la interrupción o excepción ocurrió cuado una tarea de privilegio mayor a cero se estaba ejecutando. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00113">113</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="add9cc91d8acb295c7c2d43356d800eda"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int old_ss</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Valor de SS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesador). Sólo se almacena cuando la interrupción o excepción ocurrió cuado una tarea de privilegio mayor a cero se estaba ejecutando. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d35/idt_8h_source.html#l00118">118</a> del archivo <a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación para esta estructura fue generada a partir del siguiente fichero:<ul>
+<li>include/<a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

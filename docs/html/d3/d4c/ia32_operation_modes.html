@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Modos de Operación de procesadores IA-32</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li class="current"><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Modos de Operación de procesadores IA-32 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Erwin Meza Vega <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a></dd></dl>
+<p><a class="el" href="../../index.html#project_start">Información del Proyecto</a> : <a class="el" href="../../d8/d50/ia32_intro.html">Programación de procesadores de arquitectura IA-32</a> : Modos de Operación</p>
+<p>Los procesadores IA-32 pueden operar en varios modos:</p>
+<ul>
+<li>Modo protegido: Este es el modo nativo del procesador. Aprovecha todas las características de su arquitectura, tales como registros de 32 bits, y el acceso a todo su conjunto de instrucciones y extensiones.</li>
+<li>Modo real: En este modo el procesador se encuentra en un entorno de ejecución en el cual se comporta como un 8086 muy rápido, y sólo tiene acceso a un conjunto limitado de instrucciones que le permiten ejecutar tareas básicas y habilitar el modo protegido. La limitación más notable en este modo consiste en que sólo se puede acceder a los 16 bits menos significativos de los registros de propósito general, y sólo se pueden utilizar los 20 bits menos significativos del bus de direcciones. Esto causa que en modo real solo se pueda acceder a 1 Megabyte de memoria. Como se mencionó anteriormente, todos los procesadores de IA-32 inician en este modo.</li>
+<li>Modo de mantenimiento del sistema: En este modo se puede pasar a un entorno de ejecución limitado, para realizar tareas de mantenimiento o depuración.</li>
+<li>Modo Virtual 8086: Este es un sub-modo al cual se puede acceder cuando el procesador opera en modo protegido. Permite ejecutar código desarrollado para 8086 en un entorno multi-tarea y protegido.</li>
+<li>Modo IA32-e: Para procesadores de 64 bits, además de los modos anteriores existen otros dos sub-modos: modo de compatibilidad y modo de 64 bits. El modo de compatibilidad permite la ejecución de programas desarrollados para modo protegido sin ninguna modificación, y el modo de 64 bits proporciona soporte para acceder a los 64 bits de los registros y un espacio de direcciones mayor que 64 Gigabytes.</li>
+</ul>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="../../d1/d75/bios_and_booting.html">BIOS y Arranque del Computador</a> </dd>
+<dd>
+<a class="el" href="../../d0/dec/protected_mode_setup.html">Paso a Modo Protegido en Procesadores IA-32</a> </dd>
+<dd>
+<a href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html">http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html</a> (Enlace externo) </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

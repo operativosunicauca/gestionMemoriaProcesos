@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Campos de datos</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="modules.html"><span>Módulos</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="classes.html"><span>Índice&#160;de&#160;estructura&#160;de&#160;datos</span></a></li>
+      <li class="current"><a href="functions.html"><span>Campos&#160;de&#160;datos</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li class="current"><a href="functions.html"><span>Todo</span></a></li>
+      <li><a href="functions_vars.html"><span>Variables</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_b"><span>b</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
+      <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_h"><span>h</span></a></li>
+      <li><a href="#index_k"><span>k</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_o"><span>o</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
+      <li><a href="#index_u"><span>u</span></a></li>
+      <li><a href="#index_v"><span>v</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+<div class="textblock">Lista de todos los campos de estructuras y uniones con enlaces a las estructuras/uniones a que pertenecen:</div>
+
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>addr
+: <a class="el" href="d5/d58/structaout__symbol__table.html#ab36863a07751ac73459d46b677c33b57">aout_symbol_table</a>
+, <a class="el" href="dd/df8/structelf__section__header__table.html#ab36863a07751ac73459d46b677c33b57">elf_section_header_table</a>
+</li>
+<li>always0
+: <a class="el" href="da/d7b/structmod__info.html#a1447feb5d56feef36e4d1c1b72dd98c2">mod_info</a>
+</li>
+<li>aout_symbol_table
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#ac29db74063304e3aa74f112a2042713e">multiboot_info_t</a>
+</li>
+<li>apm_table
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#aae7b644014e461ba36518e269c3b8fab">multiboot_info_t</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>base
+: <a class="el" href="dc/d2c/structidt__pointer__t.html#a2e013c2c6e8010c8116c6f56813df57b">idt_pointer_t</a>
+, <a class="el" href="d9/dd0/structmemreg__header.html#a2e013c2c6e8010c8116c6f56813df57b">memreg_header</a>
+, <a class="el" href="db/dc3/structheap.html#a2e013c2c6e8010c8116c6f56813df57b">heap</a>
+, <a class="el" href="db/d1e/structgdt__pointer__t.html#a2e013c2c6e8010c8116c6f56813df57b">gdt_pointer_t</a>
+, <a class="el" href="d6/d79/structmemreg__footer.html#a2e013c2c6e8010c8116c6f56813df57b">memreg_footer</a>
+</li>
+<li>base_addr_high
+: <a class="el" href="d5/daf/structmemory__map.html#afd2f0a619110c215f4791447d295f206">memory_map</a>
+</li>
+<li>base_addr_low
+: <a class="el" href="d5/daf/structmemory__map.html#a5491572fddb3c9e8921a0613f28f98d5">memory_map</a>
+</li>
+<li>boot_device
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#ae1faa8c6e8cf0ed136cdf5a446fb323d">multiboot_info_t</a>
+</li>
+<li>boot_loader_name
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#ad9808d9aee89b9f5a97798d8fb296036">multiboot_info_t</a>
+</li>
+<li>bss_end
+: <a class="el" href="d1/dbd/structmultiboot__header__struct.html#ad4f401649df3e22e1a7a7e182168c9d1">multiboot_header_struct</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>checksum
+: <a class="el" href="d1/dbd/structmultiboot__header__struct.html#a84db6937fa357622520d26d6e60210ba">multiboot_header_struct</a>
+</li>
+<li>cmdline
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a6225f783a7c24dfc5e88b11b47f64d1f">multiboot_info_t</a>
+</li>
+<li>config_table
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a4086f838e773fefd4d129ff744ae1927">multiboot_info_t</a>
+</li>
+<li>count
+: <a class="el" href="d3/d77/structtypelist__memreg__header.html#ad43c3812e6d13e0518d9f8b8f463ffcf">typelist_memreg_header</a>
+, <a class="el" href="da/d58/structmemreg__header__list.html#ad43c3812e6d13e0518d9f8b8f463ffcf">memreg_header_list</a>
+, <a class="el" href="d7/d99/structmemory__list.html#ad43c3812e6d13e0518d9f8b8f463ffcf">memory_list</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>data_end
+: <a class="el" href="d1/dbd/structmultiboot__header__struct.html#af6fb44a3d0bbb0b914904e326e0a616f">multiboot_header_struct</a>
+</li>
+<li>drives_addr
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a5034c612de1e5e2bc10f054c49ac86c0">multiboot_info_t</a>
+</li>
+<li>drives_length
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a43876a1ebfb04804870d06fc8e1f4270">multiboot_info_t</a>
+</li>
+<li>ds
+: <a class="el" href="df/d23/structinterrupt__state.html#a41d22b14f5b54c8488f5969c012000d7">interrupt_state</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>eax
+: <a class="el" href="df/d23/structinterrupt__state.html#aa35a8540d25648fda11e3cccd6e4e10c">interrupt_state</a>
+</li>
+<li>ebp
+: <a class="el" href="df/d23/structinterrupt__state.html#a680481bf6e093a04d619216bef02a2b2">interrupt_state</a>
+</li>
+<li>ebx
+: <a class="el" href="df/d23/structinterrupt__state.html#a8996da18df84dface49e6d219a6fbde0">interrupt_state</a>
+</li>
+<li>ecx
+: <a class="el" href="df/d23/structinterrupt__state.html#a0ea7fea7f82c9647381548939843feaf">interrupt_state</a>
+</li>
+<li>edi
+: <a class="el" href="df/d23/structinterrupt__state.html#a21967b2580b9725a17075b898ff3abc3">interrupt_state</a>
+</li>
+<li>edx
+: <a class="el" href="df/d23/structinterrupt__state.html#a033ca834eb49bc602eb0e0b358a9a4f1">interrupt_state</a>
+</li>
+<li>elf_section_table
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a328a272ade69cf41a6e50e211ac2a2af">multiboot_info_t</a>
+</li>
+<li>entry_point
+: <a class="el" href="d1/dbd/structmultiboot__header__struct.html#a2ff5bcbf2404b9d1381c6bdb5df3893e">multiboot_header_struct</a>
+</li>
+<li>entry_size
+: <a class="el" href="d5/daf/structmemory__map.html#a2739b8fdf78d3b5b20f1cb7a654e6b2e">memory_map</a>
+</li>
+<li>error_code
+: <a class="el" href="df/d23/structinterrupt__state.html#a6d61343c6813d59fa5430f59c7f88e21">interrupt_state</a>
+</li>
+<li>es
+: <a class="el" href="df/d23/structinterrupt__state.html#a4305a24abee1f4912083d877c499fcad">interrupt_state</a>
+</li>
+<li>esi
+: <a class="el" href="df/d23/structinterrupt__state.html#ae508f942b3572ab3ab749fdc35a763da">interrupt_state</a>
+</li>
+<li>esp
+: <a class="el" href="df/d23/structinterrupt__state.html#af1425d6c20cbfa78828ab126434a1921">interrupt_state</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>flags
+: <a class="el" href="d1/dbd/structmultiboot__header__struct.html#ac92588540e8c1d014a08cd8a45462b19">multiboot_header_struct</a>
+, <a class="el" href="dc/da6/structmultiboot__info__t.html#ac92588540e8c1d014a08cd8a45462b19">multiboot_info_t</a>
+</li>
+<li>free
+: <a class="el" href="db/dc3/structheap.html#ac209944bb7bde1cac4e99f3a83c93355">heap</a>
+</li>
+<li>fs
+: <a class="el" href="df/d23/structinterrupt__state.html#a88d3d1b872b301364b825176981daf14">interrupt_state</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>gs
+: <a class="el" href="df/d23/structinterrupt__state.html#a8fbe564b6eaa9affe24c8fbed1a4c7ea">interrupt_state</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>head
+: <a class="el" href="d3/d77/structtypelist__memreg__header.html#ac274db4bd4e554fbefa49c1f09ef15e1">typelist_memreg_header</a>
+, <a class="el" href="da/d58/structmemreg__header__list.html#ac274db4bd4e554fbefa49c1f09ef15e1">memreg_header_list</a>
+, <a class="el" href="d7/d99/structmemory__list.html#a4bc3a90bae6b2a4949d3160c629879db">memory_list</a>
+</li>
+<li>header
+: <a class="el" href="d6/d79/structmemreg__footer.html#a2ec914f100762f3784ad39a0a89dbf14">memreg_footer</a>
+</li>
+<li>header_addr
+: <a class="el" href="d1/dbd/structmultiboot__header__struct.html#a6ceb66665d7e0c7fb7559c9227a73288">multiboot_header_struct</a>
+</li>
+<li>high
+: <a class="el" href="de/d45/structgdt__descriptor.html#a57443906c445dd48f3238acc8a9c75f3">gdt_descriptor</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_k"></a>- k -</h3><ul>
+<li>kernel_start
+: <a class="el" href="d1/dbd/structmultiboot__header__struct.html#a8d2dd1fe1f2c8013a35896c15c193969">multiboot_header_struct</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>length
+: <a class="el" href="d5/da1/structnode.html#ac8d42bcd4a44e078047ccd7291059238">node</a>
+</li>
+<li>length_high
+: <a class="el" href="d5/daf/structmemory__map.html#afa9951831ed6cdfaeae2251dd9f254f3">memory_map</a>
+</li>
+<li>length_low
+: <a class="el" href="d5/daf/structmemory__map.html#afb2204539d0ac7832ee531b352707260">memory_map</a>
+</li>
+<li>limit
+: <a class="el" href="db/dc3/structheap.html#ad881b1b412cdb9bc8d851726a73c0e5f">heap</a>
+, <a class="el" href="d9/dd0/structmemreg__header.html#ad881b1b412cdb9bc8d851726a73c0e5f">memreg_header</a>
+, <a class="el" href="dc/d2c/structidt__pointer__t.html#ab50c2dcb9d4a34ea1a5ac52272502379">idt_pointer_t</a>
+, <a class="el" href="db/d1e/structgdt__pointer__t.html#ab50c2dcb9d4a34ea1a5ac52272502379">gdt_pointer_t</a>
+</li>
+<li>low
+: <a class="el" href="de/d45/structgdt__descriptor.html#ac7f6edf6d279540453de033a2c6302e4">gdt_descriptor</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>magic
+: <a class="el" href="d1/dbd/structmultiboot__header__struct.html#a7154179fe070a40c828f7c03f454d4d6">multiboot_header_struct</a>
+</li>
+<li>mem_lower
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a44e0f2191ac80ceb8061d8c53eb1bf8f">multiboot_info_t</a>
+</li>
+<li>mem_upper
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a78603b3f857c553132fd9ae9fac0d4b3">multiboot_info_t</a>
+</li>
+<li>mmap_addr
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#ab20d528a1c3c5ce8fc251dfb25a0d5f8">multiboot_info_t</a>
+</li>
+<li>mmap_length
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a776fe5cfff61786521bb7b4f6bacdc4e">multiboot_info_t</a>
+</li>
+<li>mod_end
+: <a class="el" href="da/d7b/structmod__info.html#a1b973d0c3227289d46612a5336cc51cc">mod_info</a>
+</li>
+<li>mod_start
+: <a class="el" href="da/d7b/structmod__info.html#a1b6e4a10e32fe043223a6d0bf4439017">mod_info</a>
+</li>
+<li>mods_addr
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#af5b3157063384ea052b1e65980cc283b">multiboot_info_t</a>
+</li>
+<li>mods_count
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a42e0110571b7a44770732204b2455a7b">multiboot_info_t</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>next
+: <a class="el" href="d5/da1/structnode.html#a0dc1b6470487aa86d9936e3cab8b95be">node</a>
+</li>
+<li>next_memreg_header
+: <a class="el" href="d9/dd0/structmemreg__header.html#abd7b5f85892a0dd7c10a99e8bfdd6d3c">memreg_header</a>
+</li>
+<li>num
+: <a class="el" href="dd/df8/structelf__section__header__table.html#a41ddefd3473727cad32a9767c10faed8">elf_section_header_table</a>
+</li>
+<li>number
+: <a class="el" href="df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1">interrupt_state</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_o"></a>- o -</h3><ul>
+<li>offset_high
+: <a class="el" href="df/d85/structidt__descriptor.html#ae72d6f0a810dd98a2c9e4e946954532d">idt_descriptor</a>
+</li>
+<li>offset_low
+: <a class="el" href="df/d85/structidt__descriptor.html#a57a891ee5a43cf4f06a426d3362f90a2">idt_descriptor</a>
+</li>
+<li>old_cs
+: <a class="el" href="df/d23/structinterrupt__state.html#a658036b0fbe658096bdc46e946448b38">interrupt_state</a>
+</li>
+<li>old_eflags
+: <a class="el" href="df/d23/structinterrupt__state.html#a0f946f7afe757f0bbde34e24632df34c">interrupt_state</a>
+</li>
+<li>old_eip
+: <a class="el" href="df/d23/structinterrupt__state.html#a0beff8890c336863cdf529a1514654d6">interrupt_state</a>
+</li>
+<li>old_esp
+: <a class="el" href="df/d23/structinterrupt__state.html#a66e0cfe3d312535f3bde9efeaac60cad">interrupt_state</a>
+</li>
+<li>old_ss
+: <a class="el" href="df/d23/structinterrupt__state.html#add9cc91d8acb295c7c2d43356d800eda">interrupt_state</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>prev_memreg_header
+: <a class="el" href="d9/dd0/structmemreg__header.html#afdbc0e85a6973afc996aca09651f1d9e">memreg_header</a>
+</li>
+<li>previous
+: <a class="el" href="d5/da1/structnode.html#aba783da56f092df6846bd3b7b9555728">node</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>reserved
+: <a class="el" href="d5/d58/structaout__symbol__table.html#a05d5cbcb44f437341bd9fa37d589aced">aout_symbol_table</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>selector
+: <a class="el" href="df/d85/structidt__descriptor.html#a6dfbfc549c0fa420ccc893f30419419d">idt_descriptor</a>
+</li>
+<li>shndx
+: <a class="el" href="dd/df8/structelf__section__header__table.html#a0d529cca00b446375cb108066469dd2f">elf_section_header_table</a>
+</li>
+<li>size
+: <a class="el" href="dd/df8/structelf__section__header__table.html#aac913b3a1f6ef005d66bf7a84428773e">elf_section_header_table</a>
+</li>
+<li>start
+: <a class="el" href="d5/da1/structnode.html#a885b350339beb75f5940572b641aaa58">node</a>
+</li>
+<li>state
+: <a class="el" href="d5/da1/structnode.html#afc09df66e4e1131bad27f84d29bd8726">node</a>
+</li>
+<li>string
+: <a class="el" href="da/d7b/structmod__info.html#aed1cfb225a5fb77461e7972691e68a72">mod_info</a>
+</li>
+<li>strsize
+: <a class="el" href="d5/d58/structaout__symbol__table.html#af1c88c2019cf4b228d31bd5c713dd214">aout_symbol_table</a>
+</li>
+<li>syms
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#aa8e432149c9063b02c9f8824ce77b561">multiboot_info_t</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>tabsize
+: <a class="el" href="d5/d58/structaout__symbol__table.html#a771e60d26d287f31d89eb7c6d165d3d6">aout_symbol_table</a>
+</li>
+<li>tail
+: <a class="el" href="d3/d77/structtypelist__memreg__header.html#ad5382b60cdbe3a5b4d563e0bd56495c0">typelist_memreg_header</a>
+, <a class="el" href="d7/d99/structmemory__list.html#aad32c04a1a3a51d987b21782f6b97b92">memory_list</a>
+, <a class="el" href="da/d58/structmemreg__header__list.html#ad5382b60cdbe3a5b4d563e0bd56495c0">memreg_header_list</a>
+</li>
+<li>top
+: <a class="el" href="db/dc3/structheap.html#a3fdd42ea34070a54e696b3adc28c4be3">heap</a>
+</li>
+<li>type
+: <a class="el" href="df/d85/structidt__descriptor.html#aa929142c5ddf34cf0915c97a617a1a63">idt_descriptor</a>
+, <a class="el" href="d5/daf/structmemory__map.html#a4bfea42429249a1f65204f0c0f34704a">memory_map</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>used
+: <a class="el" href="d9/dd0/structmemreg__header.html#a5810b6407672b8e7aeba609b4bb649de">memreg_header</a>
+, <a class="el" href="db/dc3/structheap.html#a7600154d0e0948a5a3ad119ad6d9ff4b">heap</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_v"></a>- v -</h3><ul>
+<li>vbe_control_info
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a6ca4f1fc73c6b3aad89de60675693953">multiboot_info_t</a>
+</li>
+<li>vbe_interface_len
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a57c67c71a817473a959b923c2706418f">multiboot_info_t</a>
+</li>
+<li>vbe_interface_off
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#adb49bc35e4fe6d0c2b81c6d43c1917ac">multiboot_info_t</a>
+</li>
+<li>vbe_interface_seg
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a1453d772b1d07f83de6ebf7f07282e0c">multiboot_info_t</a>
+</li>
+<li>vbe_mode
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#ac89d83d219302bb727da29f27e212e8a">multiboot_info_t</a>
+</li>
+<li>vbe_mode_info
+: <a class="el" href="dc/da6/structmultiboot__info__t.html#a044477c7e598b4e18890657b6c23f8a8">multiboot_info_t</a>
+</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

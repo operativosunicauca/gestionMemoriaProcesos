@@ -1,0 +1,545 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia de la Estructura multiboot_info_t</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../classes.html"><span>Índice&#160;de&#160;estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../functions.html"><span>Campos&#160;de&#160;datos</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Campos de datos</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia de la Estructura multiboot_info_t</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Estructura de información Multiboot. Al cargar el kernel, GRUB almacena en el registro EBX un apuntador a la dirección de memoria en la que se encuentra esta estructura.  
+ <a href="../../dc/da6/structmultiboot__info__t.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Campos de datos</h2></td></tr>
+<tr class="memitem:ac92588540e8c1d014a08cd8a45462b19"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#ac92588540e8c1d014a08cd8a45462b19">flags</a></td></tr>
+<tr class="memdesc:ac92588540e8c1d014a08cd8a45462b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Versión e información de Multiboot. El kernel deberá comprobar sus bits para verificar si GRUB le pasó la información solicitada.  <a href="#ac92588540e8c1d014a08cd8a45462b19">Más...</a><br/></td></tr>
+<tr class="separator:ac92588540e8c1d014a08cd8a45462b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44e0f2191ac80ceb8061d8c53eb1bf8f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a44e0f2191ac80ceb8061d8c53eb1bf8f">mem_lower</a></td></tr>
+<tr class="memdesc:a44e0f2191ac80ceb8061d8c53eb1bf8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[0] = 1 Memoria baja reportada por la BIOS.  <a href="#a44e0f2191ac80ceb8061d8c53eb1bf8f">Más...</a><br/></td></tr>
+<tr class="separator:a44e0f2191ac80ceb8061d8c53eb1bf8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78603b3f857c553132fd9ae9fac0d4b3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a78603b3f857c553132fd9ae9fac0d4b3">mem_upper</a></td></tr>
+<tr class="memdesc:a78603b3f857c553132fd9ae9fac0d4b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[0] = 1 Memoria alta reportada por la BIOS.  <a href="#a78603b3f857c553132fd9ae9fac0d4b3">Más...</a><br/></td></tr>
+<tr class="separator:a78603b3f857c553132fd9ae9fac0d4b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1faa8c6e8cf0ed136cdf5a446fb323d"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#ae1faa8c6e8cf0ed136cdf5a446fb323d">boot_device</a></td></tr>
+<tr class="memdesc:ae1faa8c6e8cf0ed136cdf5a446fb323d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[1] = 1 Dispositivo desde el cual se cargó el kernel.  <a href="#ae1faa8c6e8cf0ed136cdf5a446fb323d">Más...</a><br/></td></tr>
+<tr class="separator:ae1faa8c6e8cf0ed136cdf5a446fb323d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6225f783a7c24dfc5e88b11b47f64d1f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a6225f783a7c24dfc5e88b11b47f64d1f">cmdline</a></td></tr>
+<tr class="memdesc:a6225f783a7c24dfc5e88b11b47f64d1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[2] = 1 Línea de comandos usada para cargar el kernel.  <a href="#a6225f783a7c24dfc5e88b11b47f64d1f">Más...</a><br/></td></tr>
+<tr class="separator:a6225f783a7c24dfc5e88b11b47f64d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42e0110571b7a44770732204b2455a7b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a42e0110571b7a44770732204b2455a7b">mods_count</a></td></tr>
+<tr class="memdesc:a42e0110571b7a44770732204b2455a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[3] = 1 Número de módulos cargados junto con el kernel.  <a href="#a42e0110571b7a44770732204b2455a7b">Más...</a><br/></td></tr>
+<tr class="separator:a42e0110571b7a44770732204b2455a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5b3157063384ea052b1e65980cc283b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#af5b3157063384ea052b1e65980cc283b">mods_addr</a></td></tr>
+<tr class="memdesc:af5b3157063384ea052b1e65980cc283b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[3] = 1 Dirección de memoria en la cual se encuentra la información de los módulos cargados por el kernel.  <a href="#af5b3157063384ea052b1e65980cc283b">Más...</a><br/></td></tr>
+<tr class="separator:af5b3157063384ea052b1e65980cc283b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8e432149c9063b02c9f8824ce77b561"><td class="memItemLeft" >union {</td></tr>
+<tr class="memitem:ac29db74063304e3aa74f112a2042713e"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../d1/dc0/multiboot_8h.html#a0f63f69abdd0ba14d60b38b0f9bb8161">aout_symbol_table_t</a>&#160;&#160;&#160;<a class="el" href="../../dc/da6/structmultiboot__info__t.html#ac29db74063304e3aa74f112a2042713e">aout_symbol_table</a></td></tr>
+<tr class="separator:ac29db74063304e3aa74f112a2042713e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a328a272ade69cf41a6e50e211ac2a2af"><td class="memItemLeft" >&#160;&#160;&#160;<a class="el" href="../../d1/dc0/multiboot_8h.html#a9adc073f558ba5ea8a6e04ba252ab353">elf_section_header_table_t</a>&#160;&#160;&#160;<a class="el" href="../../dc/da6/structmultiboot__info__t.html#a328a272ade69cf41a6e50e211ac2a2af">elf_section_table</a></td></tr>
+<tr class="separator:a328a272ade69cf41a6e50e211ac2a2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8e432149c9063b02c9f8824ce77b561"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#aa8e432149c9063b02c9f8824ce77b561">syms</a></td></tr>
+<tr class="separator:aa8e432149c9063b02c9f8824ce77b561"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a776fe5cfff61786521bb7b4f6bacdc4e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a776fe5cfff61786521bb7b4f6bacdc4e">mmap_length</a></td></tr>
+<tr class="memdesc:a776fe5cfff61786521bb7b4f6bacdc4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[6] = 1. Tamaño del mapa de memoria creado por GRUB.  <a href="#a776fe5cfff61786521bb7b4f6bacdc4e">Más...</a><br/></td></tr>
+<tr class="separator:a776fe5cfff61786521bb7b4f6bacdc4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab20d528a1c3c5ce8fc251dfb25a0d5f8"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#ab20d528a1c3c5ce8fc251dfb25a0d5f8">mmap_addr</a></td></tr>
+<tr class="memdesc:ab20d528a1c3c5ce8fc251dfb25a0d5f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[6] = 1. Dirección física de la ubicación del mapa de memoria creado por GRUB.  <a href="#ab20d528a1c3c5ce8fc251dfb25a0d5f8">Más...</a><br/></td></tr>
+<tr class="separator:ab20d528a1c3c5ce8fc251dfb25a0d5f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43876a1ebfb04804870d06fc8e1f4270"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a43876a1ebfb04804870d06fc8e1f4270">drives_length</a></td></tr>
+<tr class="memdesc:a43876a1ebfb04804870d06fc8e1f4270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[7] = 1. Especifica el tamaño total de la estructura que describe los drives reportados por la BIOS.  <a href="#a43876a1ebfb04804870d06fc8e1f4270">Más...</a><br/></td></tr>
+<tr class="separator:a43876a1ebfb04804870d06fc8e1f4270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5034c612de1e5e2bc10f054c49ac86c0"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a5034c612de1e5e2bc10f054c49ac86c0">drives_addr</a></td></tr>
+<tr class="memdesc:a5034c612de1e5e2bc10f054c49ac86c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[7] = 1. Especifica la dirección de memoria en la que se encuentra la estructura que describe los drivers reportados por la BIOS.  <a href="#a5034c612de1e5e2bc10f054c49ac86c0">Más...</a><br/></td></tr>
+<tr class="separator:a5034c612de1e5e2bc10f054c49ac86c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4086f838e773fefd4d129ff744ae1927"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a4086f838e773fefd4d129ff744ae1927">config_table</a></td></tr>
+<tr class="memdesc:a4086f838e773fefd4d129ff744ae1927"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[8] = 1. Especifica la dirección de la tabla de configuración de la BIOS.  <a href="#a4086f838e773fefd4d129ff744ae1927">Más...</a><br/></td></tr>
+<tr class="separator:a4086f838e773fefd4d129ff744ae1927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9808d9aee89b9f5a97798d8fb296036"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#ad9808d9aee89b9f5a97798d8fb296036">boot_loader_name</a></td></tr>
+<tr class="memdesc:ad9808d9aee89b9f5a97798d8fb296036"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[9] = 1. Contiene la dirección de memoria en la cual se encuentra una cadena de caracteres con el nombre del cargador de arranque.  <a href="#ad9808d9aee89b9f5a97798d8fb296036">Más...</a><br/></td></tr>
+<tr class="separator:ad9808d9aee89b9f5a97798d8fb296036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae7b644014e461ba36518e269c3b8fab"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#aae7b644014e461ba36518e269c3b8fab">apm_table</a></td></tr>
+<tr class="memdesc:aae7b644014e461ba36518e269c3b8fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[10] = 1. Especifica la localización en la memoria de la tabla APM.  <a href="#aae7b644014e461ba36518e269c3b8fab">Más...</a><br/></td></tr>
+<tr class="separator:aae7b644014e461ba36518e269c3b8fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ca4f1fc73c6b3aad89de60675693953"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a6ca4f1fc73c6b3aad89de60675693953">vbe_control_info</a></td></tr>
+<tr class="memdesc:a6ca4f1fc73c6b3aad89de60675693953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[11] = 1. Contiene la información de control retornada por la función vbe 00.  <a href="#a6ca4f1fc73c6b3aad89de60675693953">Más...</a><br/></td></tr>
+<tr class="separator:a6ca4f1fc73c6b3aad89de60675693953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a044477c7e598b4e18890657b6c23f8a8"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a044477c7e598b4e18890657b6c23f8a8">vbe_mode_info</a></td></tr>
+<tr class="memdesc:a044477c7e598b4e18890657b6c23f8a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[11] = 1. Contiene la información de modo retornada por la función vbe 00.  <a href="#a044477c7e598b4e18890657b6c23f8a8">Más...</a><br/></td></tr>
+<tr class="separator:a044477c7e598b4e18890657b6c23f8a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac89d83d219302bb727da29f27e212e8a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#ac89d83d219302bb727da29f27e212e8a">vbe_mode</a></td></tr>
+<tr class="memdesc:ac89d83d219302bb727da29f27e212e8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[11] = 1.  <a href="#ac89d83d219302bb727da29f27e212e8a">Más...</a><br/></td></tr>
+<tr class="separator:ac89d83d219302bb727da29f27e212e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1453d772b1d07f83de6ebf7f07282e0c"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a1453d772b1d07f83de6ebf7f07282e0c">vbe_interface_seg</a></td></tr>
+<tr class="memdesc:a1453d772b1d07f83de6ebf7f07282e0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[11] = 1.  <a href="#a1453d772b1d07f83de6ebf7f07282e0c">Más...</a><br/></td></tr>
+<tr class="separator:a1453d772b1d07f83de6ebf7f07282e0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb49bc35e4fe6d0c2b81c6d43c1917ac"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#adb49bc35e4fe6d0c2b81c6d43c1917ac">vbe_interface_off</a></td></tr>
+<tr class="memdesc:adb49bc35e4fe6d0c2b81c6d43c1917ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[11] = 1.  <a href="#adb49bc35e4fe6d0c2b81c6d43c1917ac">Más...</a><br/></td></tr>
+<tr class="separator:adb49bc35e4fe6d0c2b81c6d43c1917ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57c67c71a817473a959b923c2706418f"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/da6/structmultiboot__info__t.html#a57c67c71a817473a959b923c2706418f">vbe_interface_len</a></td></tr>
+<tr class="memdesc:a57c67c71a817473a959b923c2706418f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Presente si flags[11] = 1.  <a href="#a57c67c71a817473a959b923c2706418f">Más...</a><br/></td></tr>
+<tr class="separator:a57c67c71a817473a959b923c2706418f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Estructura de información Multiboot. Al cargar el kernel, GRUB almacena en el registro EBX un apuntador a la dirección de memoria en la que se encuentra esta estructura. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00117">117</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+</div><h2 class="groupheader">Documentación de los campos</h2>
+<a class="anchor" id="ac29db74063304e3aa74f112a2042713e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/dc0/multiboot_8h.html#a0f63f69abdd0ba14d60b38b0f9bb8161">aout_symbol_table_t</a> <a class="el" href="../../d5/d58/structaout__symbol__table.html">aout_symbol_table</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00141">141</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aae7b644014e461ba36518e269c3b8fab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int apm_table</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[10] = 1. Especifica la localización en la memoria de la tabla APM. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00171">171</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1faa8c6e8cf0ed136cdf5a446fb323d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int boot_device</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[1] = 1 Dispositivo desde el cual se cargó el kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00127">127</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad9808d9aee89b9f5a97798d8fb296036"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int boot_loader_name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[9] = 1. Contiene la dirección de memoria en la cual se encuentra una cadena de caracteres con el nombre del cargador de arranque. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00167">167</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6225f783a7c24dfc5e88b11b47f64d1f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int cmdline</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[2] = 1 Línea de comandos usada para cargar el kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00130">130</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4086f838e773fefd4d129ff744ae1927"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int config_table</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[8] = 1. Especifica la dirección de la tabla de configuración de la BIOS. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00163">163</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5034c612de1e5e2bc10f054c49ac86c0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int drives_addr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[7] = 1. Especifica la dirección de memoria en la que se encuentra la estructura que describe los drivers reportados por la BIOS. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00160">160</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a43876a1ebfb04804870d06fc8e1f4270"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int drives_length</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[7] = 1. Especifica el tamaño total de la estructura que describe los drives reportados por la BIOS. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00155">155</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a328a272ade69cf41a6e50e211ac2a2af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/dc0/multiboot_8h.html#a9adc073f558ba5ea8a6e04ba252ab353">elf_section_header_table_t</a> elf_section_table</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00142">142</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac92588540e8c1d014a08cd8a45462b19"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int flags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Versión e información de Multiboot. El kernel deberá comprobar sus bits para verificar si GRUB le pasó la información solicitada. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00120">120</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a44e0f2191ac80ceb8061d8c53eb1bf8f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int mem_lower</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[0] = 1 Memoria baja reportada por la BIOS. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00122">122</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a78603b3f857c553132fd9ae9fac0d4b3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int mem_upper</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[0] = 1 Memoria alta reportada por la BIOS. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00124">124</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab20d528a1c3c5ce8fc251dfb25a0d5f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int mmap_addr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[6] = 1. Dirección física de la ubicación del mapa de memoria creado por GRUB. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00150">150</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a776fe5cfff61786521bb7b4f6bacdc4e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int mmap_length</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[6] = 1. Tamaño del mapa de memoria creado por GRUB. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00147">147</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5b3157063384ea052b1e65980cc283b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int mods_addr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[3] = 1 Dirección de memoria en la cual se encuentra la información de los módulos cargados por el kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00136">136</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a42e0110571b7a44770732204b2455a7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int mods_count</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[3] = 1 Número de módulos cargados junto con el kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00133">133</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa8e432149c9063b02c9f8824ce77b561"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">union { ... }  syms</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6ca4f1fc73c6b3aad89de60675693953"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int vbe_control_info</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[11] = 1. Contiene la información de control retornada por la función vbe 00. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00176">176</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57c67c71a817473a959b923c2706418f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short vbe_interface_len</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[11] = 1. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00190">190</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb49bc35e4fe6d0c2b81c6d43c1917ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short vbe_interface_off</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[11] = 1. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00188">188</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1453d772b1d07f83de6ebf7f07282e0c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short vbe_interface_seg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[11] = 1. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00186">186</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac89d83d219302bb727da29f27e212e8a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int vbe_mode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[11] = 1. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00183">183</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a044477c7e598b4e18890657b6c23f8a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int vbe_mode_info</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Presente si flags[11] = 1. Contiene la información de modo retornada por la función vbe 00. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00180">180</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación para esta estructura fue generada a partir del siguiente fichero:<ul>
+<li>include/<a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo include/irq.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">'defines'</a> &#124;
+<a href="#typedef-members">'typedefs'</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo irq.h<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Este archivo define las rutinas publicas para la gestion de solicitudes de interrupcion (IRQ) de los dispositivos de Entrada / Salida.  
+<a href="#details">Más...</a></p>
+
+<p><a href="../../d2/de7/irq_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+'defines'</h2></td></tr>
+<tr class="memitem:a04c9015da7e7ea45f3b80793809e2d7b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a04c9015da7e7ea45f3b80793809e2d7b">EOI</a>&#160;&#160;&#160;0x20</td></tr>
+<tr class="memdesc:a04c9015da7e7ea45f3b80793809e2d7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">OCW2 (End of Interrupt): Codigo para escribir en el puerto de comandos del PIC para indicar que se ha recibido la interrupción.  <a href="#a04c9015da7e7ea45f3b80793809e2d7b">Más...</a><br/></td></tr>
+<tr class="separator:a04c9015da7e7ea45f3b80793809e2d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb8cddeaad16327c7104e8ee7e47ff14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#adb8cddeaad16327c7104e8ee7e47ff14">MASTER_PIC_COMMAND_PORT</a>&#160;&#160;&#160;0x20</td></tr>
+<tr class="memdesc:adb8cddeaad16327c7104e8ee7e47ff14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirección del puerto de comandos del PIC maestro.  <a href="#adb8cddeaad16327c7104e8ee7e47ff14">Más...</a><br/></td></tr>
+<tr class="separator:adb8cddeaad16327c7104e8ee7e47ff14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25f812fed4a6a3712e9e4d066f1f79c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a25f812fed4a6a3712e9e4d066f1f79c8">SLAVE_PIC_COMMAND_PORT</a>&#160;&#160;&#160;0xA0</td></tr>
+<tr class="memdesc:a25f812fed4a6a3712e9e4d066f1f79c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirección del puerto de comandos del PIC esclavo.  <a href="#a25f812fed4a6a3712e9e4d066f1f79c8">Más...</a><br/></td></tr>
+<tr class="separator:a25f812fed4a6a3712e9e4d066f1f79c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa7a6876158c3a35d7b8b935d99e1871"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#aaa7a6876158c3a35d7b8b935d99e1871">MASTER_PIC_DATA_PORT</a>&#160;&#160;&#160;0x21</td></tr>
+<tr class="memdesc:aaa7a6876158c3a35d7b8b935d99e1871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirección del puerto de datos del PIC maestro.  <a href="#aaa7a6876158c3a35d7b8b935d99e1871">Más...</a><br/></td></tr>
+<tr class="separator:aaa7a6876158c3a35d7b8b935d99e1871"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ff3e7697c551bcf860b1f1c66911e11"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a6ff3e7697c551bcf860b1f1c66911e11">SLAVE_PIC_DATA_PORT</a>&#160;&#160;&#160;0xA1</td></tr>
+<tr class="memdesc:a6ff3e7697c551bcf860b1f1c66911e11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirección del puerto de datos del PIC esclavo.  <a href="#a6ff3e7697c551bcf860b1f1c66911e11">Más...</a><br/></td></tr>
+<tr class="separator:a6ff3e7697c551bcf860b1f1c66911e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5445cbda25025ca7604e50a05a1398ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a>&#160;&#160;&#160;32</td></tr>
+<tr class="memdesc:a5445cbda25025ca7604e50a05a1398ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desplazamiento en la IDT a partir de la cual se configuran las rutinas de manejo de interrupción. En IA-32, este debe ser mayor o igual a 32 debido a que las primeras 32 interrupciones son usadas por las excepciones.  <a href="#a5445cbda25025ca7604e50a05a1398ea">Más...</a><br/></td></tr>
+<tr class="separator:a5445cbda25025ca7604e50a05a1398ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3be79970226cf37a87119174e7b9f9d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a3be79970226cf37a87119174e7b9f9d9">IRQ0_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 0</td></tr>
+<tr class="memdesc:a3be79970226cf37a87119174e7b9f9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ del Timer del Sistema.  <a href="#a3be79970226cf37a87119174e7b9f9d9">Más...</a><br/></td></tr>
+<tr class="separator:a3be79970226cf37a87119174e7b9f9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a399504eda3549c9b61c233f04bf8d776"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a399504eda3549c9b61c233f04bf8d776">IRQ1_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 1</td></tr>
+<tr class="memdesc:a399504eda3549c9b61c233f04bf8d776"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ del Controlador de Teclado.  <a href="#a399504eda3549c9b61c233f04bf8d776">Más...</a><br/></td></tr>
+<tr class="separator:a399504eda3549c9b61c233f04bf8d776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53dbd3d2e234669b25d3fa38f6736f1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a53dbd3d2e234669b25d3fa38f6736f1e">IRQ2_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 2</td></tr>
+<tr class="memdesc:a53dbd3d2e234669b25d3fa38f6736f1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Señal en cascada con el PIC esclavo.  <a href="#a53dbd3d2e234669b25d3fa38f6736f1e">Más...</a><br/></td></tr>
+<tr class="separator:a53dbd3d2e234669b25d3fa38f6736f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cd6678b03975e857c44315958ed0126"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a5cd6678b03975e857c44315958ed0126">IRQ3_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 3</td></tr>
+<tr class="memdesc:a5cd6678b03975e857c44315958ed0126"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ del Controlador del Puerto Serial COM2, si está presente. Compartido con el puerto serial COM4.  <a href="#a5cd6678b03975e857c44315958ed0126">Más...</a><br/></td></tr>
+<tr class="separator:a5cd6678b03975e857c44315958ed0126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab21c6d18aa7854eb50791290ed098041"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#ab21c6d18aa7854eb50791290ed098041">IRQ4_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 4</td></tr>
+<tr class="memdesc:ab21c6d18aa7854eb50791290ed098041"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ del Controlador del Puerto Serial COM1, si está presente. Compartido con el puerto serial COM3.  <a href="#ab21c6d18aa7854eb50791290ed098041">Más...</a><br/></td></tr>
+<tr class="separator:ab21c6d18aa7854eb50791290ed098041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dac284bd090262f9523360a96eb66c4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a4dac284bd090262f9523360a96eb66c4">IRQ5_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 5</td></tr>
+<tr class="memdesc:a4dac284bd090262f9523360a96eb66c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ del puerto 2 de LPT o tarjeta de sonido.  <a href="#a4dac284bd090262f9523360a96eb66c4">Más...</a><br/></td></tr>
+<tr class="separator:a4dac284bd090262f9523360a96eb66c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ac08e52e8dde300b97fb24b3275f5ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a0ac08e52e8dde300b97fb24b3275f5ca">IRQ6_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 6</td></tr>
+<tr class="memdesc:a0ac08e52e8dde300b97fb24b3275f5ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ Controlador de Disco Floppy.  <a href="#a0ac08e52e8dde300b97fb24b3275f5ca">Más...</a><br/></td></tr>
+<tr class="separator:a0ac08e52e8dde300b97fb24b3275f5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4cf482b849c234af6a4cca7a5961046"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#af4cf482b849c234af6a4cca7a5961046">IRQ7_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 7</td></tr>
+<tr class="memdesc:af4cf482b849c234af6a4cca7a5961046"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ del Controlador del puerto 1 de LPT o cualquier dispositivo paralelo.  <a href="#af4cf482b849c234af6a4cca7a5961046">Más...</a><br/></td></tr>
+<tr class="separator:af4cf482b849c234af6a4cca7a5961046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a902194648649df242cf156a522cec66c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a902194648649df242cf156a522cec66c">IRQ8_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 8</td></tr>
+<tr class="memdesc:a902194648649df242cf156a522cec66c"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ del Timer RTC.  <a href="#a902194648649df242cf156a522cec66c">Más...</a><br/></td></tr>
+<tr class="separator:a902194648649df242cf156a522cec66c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5051bb80a390be313818aea4105d5a52"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a5051bb80a390be313818aea4105d5a52">IRQ9_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 9</td></tr>
+<tr class="memdesc:a5051bb80a390be313818aea4105d5a52"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ disponible o usada por el controlador SCSI.  <a href="#a5051bb80a390be313818aea4105d5a52">Más...</a><br/></td></tr>
+<tr class="separator:a5051bb80a390be313818aea4105d5a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa230febd255642eb8a70c3575c819aff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#aa230febd255642eb8a70c3575c819aff">IRQ10_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 10</td></tr>
+<tr class="memdesc:aa230febd255642eb8a70c3575c819aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ disponible o usada por el controlador SCSI o NIC.  <a href="#aa230febd255642eb8a70c3575c819aff">Más...</a><br/></td></tr>
+<tr class="separator:aa230febd255642eb8a70c3575c819aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affea6d314ce2c7d0045de6914d58fefd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#affea6d314ce2c7d0045de6914d58fefd">IRQ11_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 11</td></tr>
+<tr class="memdesc:affea6d314ce2c7d0045de6914d58fefd"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ disponible o usada por el controlador SCSI o NIC.  <a href="#affea6d314ce2c7d0045de6914d58fefd">Más...</a><br/></td></tr>
+<tr class="separator:affea6d314ce2c7d0045de6914d58fefd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e2de3475bbeec15f52318832568fb16"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a6e2de3475bbeec15f52318832568fb16">IRQ12_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 12</td></tr>
+<tr class="memdesc:a6e2de3475bbeec15f52318832568fb16"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ del Mouse o Controlador PS/2.  <a href="#a6e2de3475bbeec15f52318832568fb16">Más...</a><br/></td></tr>
+<tr class="separator:a6e2de3475bbeec15f52318832568fb16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0ce335495042fab36476d9a7824aaad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#ac0ce335495042fab36476d9a7824aaad">IRQ13_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 13</td></tr>
+<tr class="memdesc:ac0ce335495042fab36476d9a7824aaad"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ del Co-Procesador Matemático, FPU o interrupción inter-procesador. a disposición del sistema.  <a href="#ac0ce335495042fab36476d9a7824aaad">Más...</a><br/></td></tr>
+<tr class="separator:ac0ce335495042fab36476d9a7824aaad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af15e46d941a0fd7c6c272eb40d660b38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#af15e46d941a0fd7c6c272eb40d660b38">IRQ14_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 14</td></tr>
+<tr class="memdesc:af15e46d941a0fd7c6c272eb40d660b38"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ del Canal ATA primario.  <a href="#af15e46d941a0fd7c6c272eb40d660b38">Más...</a><br/></td></tr>
+<tr class="separator:af15e46d941a0fd7c6c272eb40d660b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56b532eba1cf09fab30c4275e9cea413"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a56b532eba1cf09fab30c4275e9cea413">IRQ15_INTERRUPT</a>&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 15</td></tr>
+<tr class="memdesc:a56b532eba1cf09fab30c4275e9cea413"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ del Canal ATA SEcundario (para discos duros o CD)  <a href="#a56b532eba1cf09fab30c4275e9cea413">Más...</a><br/></td></tr>
+<tr class="separator:a56b532eba1cf09fab30c4275e9cea413"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cba3a07e50dcfb6bf445510152ae42d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a0cba3a07e50dcfb6bf445510152ae42d">MAX_IRQ_ROUTINES</a>&#160;&#160;&#160;16</td></tr>
+<tr class="memdesc:a0cba3a07e50dcfb6bf445510152ae42d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define el número máximo de rutinas de manejo de IRQ que se pueden definir en el sistema.  <a href="#a0cba3a07e50dcfb6bf445510152ae42d">Más...</a><br/></td></tr>
+<tr class="separator:a0cba3a07e50dcfb6bf445510152ae42d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+'typedefs'</h2></td></tr>
+<tr class="memitem:aefab4cf400de7ad3d73c4fa71c24f45e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d">interrupt_handler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#aefab4cf400de7ad3d73c4fa71c24f45e">irq_handler</a></td></tr>
+<tr class="memdesc:aefab4cf400de7ad3d73c4fa71c24f45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias para el manejador de irq.  <a href="#aefab4cf400de7ad3d73c4fa71c24f45e">Más...</a><br/></td></tr>
+<tr class="separator:aefab4cf400de7ad3d73c4fa71c24f45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a968e852c362480d5ba8d4192e0854af2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a968e852c362480d5ba8d4192e0854af2">setup_irq</a> (void)</td></tr>
+<tr class="memdesc:a968e852c362480d5ba8d4192e0854af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina se encarga de crear las entradas en la IDT para las interrupciones que se desean manejar. Por defecto configura las interrupciones correspondientes a las IRQ de los dispositivos de entradda/ salida, que han sido mapeadas a los numeros 32..47.  <a href="#a968e852c362480d5ba8d4192e0854af2">Más...</a><br/></td></tr>
+<tr class="separator:a968e852c362480d5ba8d4192e0854af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a470fad09cd8ee471a1300ec395666eef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a470fad09cd8ee471a1300ec395666eef">install_irq_handler</a> (int number, <a class="el" href="../../d2/de7/irq_8h.html#aefab4cf400de7ad3d73c4fa71c24f45e">irq_handler</a> handler)</td></tr>
+<tr class="memdesc:a470fad09cd8ee471a1300ec395666eef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina permite definir un nuevo manejador de IRQ.  <a href="#a470fad09cd8ee471a1300ec395666eef">Más...</a><br/></td></tr>
+<tr class="separator:a470fad09cd8ee471a1300ec395666eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41a60b417cdc01ed280ca6bcb9da6cbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/de7/irq_8h.html#a41a60b417cdc01ed280ca6bcb9da6cbd">uninstall_irq_handler</a> (int number)</td></tr>
+<tr class="memdesc:a41a60b417cdc01ed280ca6bcb9da6cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina permite quitar un manejador de IRQ.  <a href="#a41a60b417cdc01ed280ca6bcb9da6cbd">Más...</a><br/></td></tr>
+<tr class="separator:a41a60b417cdc01ed280ca6bcb9da6cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Este archivo define las rutinas publicas para la gestion de solicitudes de interrupcion (IRQ) de los dispositivos de Entrada / Salida. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+</div><h2 class="groupheader">Documentación de los 'defines'</h2>
+<a class="anchor" id="a04c9015da7e7ea45f3b80793809e2d7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define EOI&#160;&#160;&#160;0x20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>OCW2 (End of Interrupt): Codigo para escribir en el puerto de comandos del PIC para indicar que se ha recibido la interrupción. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00017">17</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5445cbda25025ca7604e50a05a1398ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IDT_IRQ_OFFSET&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desplazamiento en la IDT a partir de la cual se configuran las rutinas de manejo de interrupción. En IA-32, este debe ser mayor o igual a 32 debido a que las primeras 32 interrupciones son usadas por las excepciones. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00035">35</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3be79970226cf37a87119174e7b9f9d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ0_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ del Timer del Sistema. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00044">44</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa230febd255642eb8a70c3575c819aff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ10_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ disponible o usada por el controlador SCSI o NIC. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00067">67</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="affea6d314ce2c7d0045de6914d58fefd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ11_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ disponible o usada por el controlador SCSI o NIC. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00069">69</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e2de3475bbeec15f52318832568fb16"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ12_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ del Mouse o Controlador PS/2. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00071">71</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0ce335495042fab36476d9a7824aaad"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ13_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ del Co-Procesador Matemático, FPU o interrupción inter-procesador. a disposición del sistema. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00074">74</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af15e46d941a0fd7c6c272eb40d660b38"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ14_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 14</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ del Canal ATA primario. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00076">76</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a56b532eba1cf09fab30c4275e9cea413"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ15_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 15</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ del Canal ATA SEcundario (para discos duros o CD) </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00078">78</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a399504eda3549c9b61c233f04bf8d776"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ1_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ del Controlador de Teclado. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00046">46</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53dbd3d2e234669b25d3fa38f6736f1e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ2_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Señal en cascada con el PIC esclavo. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00048">48</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5cd6678b03975e857c44315958ed0126"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ3_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ del Controlador del Puerto Serial COM2, si está presente. Compartido con el puerto serial COM4. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00051">51</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab21c6d18aa7854eb50791290ed098041"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ4_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ del Controlador del Puerto Serial COM1, si está presente. Compartido con el puerto serial COM3. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00054">54</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4dac284bd090262f9523360a96eb66c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ5_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ del puerto 2 de LPT o tarjeta de sonido. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00056">56</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ac08e52e8dde300b97fb24b3275f5ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ6_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ Controlador de Disco Floppy. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00058">58</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af4cf482b849c234af6a4cca7a5961046"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ7_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ del Controlador del puerto 1 de LPT o cualquier dispositivo paralelo. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00061">61</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a902194648649df242cf156a522cec66c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ8_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ del Timer RTC. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00063">63</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5051bb80a390be313818aea4105d5a52"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IRQ9_INTERRUPT&#160;&#160;&#160;<a class="el" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">IDT_IRQ_OFFSET</a> + 9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ disponible o usada por el controlador SCSI. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00065">65</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb8cddeaad16327c7104e8ee7e47ff14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASTER_PIC_COMMAND_PORT&#160;&#160;&#160;0x20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dirección del puerto de comandos del PIC maestro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00020">20</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa7a6876158c3a35d7b8b935d99e1871"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASTER_PIC_DATA_PORT&#160;&#160;&#160;0x21</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dirección del puerto de datos del PIC maestro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00026">26</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0cba3a07e50dcfb6bf445510152ae42d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_IRQ_ROUTINES&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Define el número máximo de rutinas de manejo de IRQ que se pueden definir en el sistema. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00082">82</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a25f812fed4a6a3712e9e4d066f1f79c8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SLAVE_PIC_COMMAND_PORT&#160;&#160;&#160;0xA0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dirección del puerto de comandos del PIC esclavo. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00023">23</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6ff3e7697c551bcf860b1f1c66911e11"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SLAVE_PIC_DATA_PORT&#160;&#160;&#160;0xA1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dirección del puerto de datos del PIC esclavo. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00029">29</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de los 'typedefs'</h2>
+<a class="anchor" id="aefab4cf400de7ad3d73c4fa71c24f45e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d">interrupt_handler</a> <a class="el" href="../../d2/de7/irq_8h.html#aefab4cf400de7ad3d73c4fa71c24f45e">irq_handler</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias para el manejador de irq. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/de7/irq_8h_source.html#l00039">39</a> del archivo <a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="a470fad09cd8ee471a1300ec395666eef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void install_irq_handler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/de7/irq_8h.html#aefab4cf400de7ad3d73c4fa71c24f45e">irq_handler</a>&#160;</td>
+          <td class="paramname"><em>handler</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina permite definir un nuevo manejador de IRQ. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>numero de irq a configurar </td></tr>
+    <tr><td class="paramname">handler</td><td>Función a manejar la irq </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/de7/irq_8c_source.html#l00150">150</a> del archivo <a class="el" href="../../dd/de7/irq_8c_source.html">irq.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a968e852c362480d5ba8d4192e0854af2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup_irq </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina se encarga de crear las entradas en la IDT para las interrupciones que se desean manejar. Por defecto configura las interrupciones correspondientes a las IRQ de los dispositivos de entradda/ salida, que han sido mapeadas a los numeros 32..47. </p>
+
+<p>Definición en la línea <a class="el" href="../../dd/de7/irq_8c_source.html#l00126">126</a> del archivo <a class="el" href="../../dd/de7/irq_8c_source.html">irq.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41a60b417cdc01ed280ca6bcb9da6cbd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void uninstall_irq_handler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina permite quitar un manejador de IRQ. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>numero de irq a quitar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/de7/irq_8c_source.html#l00164">164</a> del archivo <a class="el" href="../../dd/de7/irq_8c_source.html">irq.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

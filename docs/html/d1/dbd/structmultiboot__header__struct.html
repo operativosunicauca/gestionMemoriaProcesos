@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia de la Estructura multiboot_header_struct</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../classes.html"><span>Índice&#160;de&#160;estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../functions.html"><span>Campos&#160;de&#160;datos</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Campos de datos</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia de la Estructura multiboot_header_struct</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Definición del tipo de datos del Encabezado Multiboot.  
+ <a href="../../d1/dbd/structmultiboot__header__struct.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Campos de datos</h2></td></tr>
+<tr class="memitem:a7154179fe070a40c828f7c03f454d4d6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbd/structmultiboot__header__struct.html#a7154179fe070a40c828f7c03f454d4d6">magic</a></td></tr>
+<tr class="memdesc:a7154179fe070a40c828f7c03f454d4d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número mágico.  <a href="#a7154179fe070a40c828f7c03f454d4d6">Más...</a><br/></td></tr>
+<tr class="separator:a7154179fe070a40c828f7c03f454d4d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac92588540e8c1d014a08cd8a45462b19"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbd/structmultiboot__header__struct.html#ac92588540e8c1d014a08cd8a45462b19">flags</a></td></tr>
+<tr class="memdesc:ac92588540e8c1d014a08cd8a45462b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags pasadas a GRUB para solicitar información / servicios.  <a href="#ac92588540e8c1d014a08cd8a45462b19">Más...</a><br/></td></tr>
+<tr class="separator:ac92588540e8c1d014a08cd8a45462b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84db6937fa357622520d26d6e60210ba"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbd/structmultiboot__header__struct.html#a84db6937fa357622520d26d6e60210ba">checksum</a></td></tr>
+<tr class="memdesc:a84db6937fa357622520d26d6e60210ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número de chequeo. Este valor debe ser igual a la suma de magic y flags.  <a href="#a84db6937fa357622520d26d6e60210ba">Más...</a><br/></td></tr>
+<tr class="separator:a84db6937fa357622520d26d6e60210ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ceb66665d7e0c7fb7559c9227a73288"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbd/structmultiboot__header__struct.html#a6ceb66665d7e0c7fb7559c9227a73288">header_addr</a></td></tr>
+<tr class="memdesc:a6ceb66665d7e0c7fb7559c9227a73288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desplazamiento (Dirección) en el cual se encuentra el encabezado dentro del archivo del kernel.  <a href="#a6ceb66665d7e0c7fb7559c9227a73288">Más...</a><br/></td></tr>
+<tr class="separator:a6ceb66665d7e0c7fb7559c9227a73288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d2dd1fe1f2c8013a35896c15c193969"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbd/structmultiboot__header__struct.html#a8d2dd1fe1f2c8013a35896c15c193969">kernel_start</a></td></tr>
+<tr class="memdesc:a8d2dd1fe1f2c8013a35896c15c193969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirección en la cual se debe cargar el kernel.  <a href="#a8d2dd1fe1f2c8013a35896c15c193969">Más...</a><br/></td></tr>
+<tr class="separator:a8d2dd1fe1f2c8013a35896c15c193969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6fb44a3d0bbb0b914904e326e0a616f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbd/structmultiboot__header__struct.html#af6fb44a3d0bbb0b914904e326e0a616f">data_end</a></td></tr>
+<tr class="memdesc:af6fb44a3d0bbb0b914904e326e0a616f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirección del final de la sección de datos del kernel.  <a href="#af6fb44a3d0bbb0b914904e326e0a616f">Más...</a><br/></td></tr>
+<tr class="separator:af6fb44a3d0bbb0b914904e326e0a616f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4f401649df3e22e1a7a7e182168c9d1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbd/structmultiboot__header__struct.html#ad4f401649df3e22e1a7a7e182168c9d1">bss_end</a></td></tr>
+<tr class="memdesc:ad4f401649df3e22e1a7a7e182168c9d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirección del final de la sección BSS del kernel.  <a href="#ad4f401649df3e22e1a7a7e182168c9d1">Más...</a><br/></td></tr>
+<tr class="separator:ad4f401649df3e22e1a7a7e182168c9d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ff5bcbf2404b9d1381c6bdb5df3893e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dbd/structmultiboot__header__struct.html#a2ff5bcbf2404b9d1381c6bdb5df3893e">entry_point</a></td></tr>
+<tr class="memdesc:a2ff5bcbf2404b9d1381c6bdb5df3893e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dirección en la cual se debe pasar el control al kernel.  <a href="#a2ff5bcbf2404b9d1381c6bdb5df3893e">Más...</a><br/></td></tr>
+<tr class="separator:a2ff5bcbf2404b9d1381c6bdb5df3893e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Definición del tipo de datos del Encabezado Multiboot. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00045">45</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+</div><h2 class="groupheader">Documentación de los campos</h2>
+<a class="anchor" id="ad4f401649df3e22e1a7a7e182168c9d1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int bss_end</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dirección del final de la sección BSS del kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00061">61</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a84db6937fa357622520d26d6e60210ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int checksum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Número de chequeo. Este valor debe ser igual a la suma de magic y flags. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00052">52</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af6fb44a3d0bbb0b914904e326e0a616f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int data_end</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dirección del final de la sección de datos del kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00059">59</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ff5bcbf2404b9d1381c6bdb5df3893e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int entry_point</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dirección en la cual se debe pasar el control al kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00063">63</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac92588540e8c1d014a08cd8a45462b19"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int flags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flags pasadas a GRUB para solicitar información / servicios. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00049">49</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6ceb66665d7e0c7fb7559c9227a73288"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int header_addr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desplazamiento (Dirección) en el cual se encuentra el encabezado dentro del archivo del kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00055">55</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8d2dd1fe1f2c8013a35896c15c193969"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int kernel_start</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dirección en la cual se debe cargar el kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00057">57</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7154179fe070a40c828f7c03f454d4d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int magic</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Número mágico. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00047">47</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación para esta estructura fue generada a partir del siguiente fichero:<ul>
+<li>include/<a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Uso de la Pila en IA-32</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li class="current"><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Uso de la Pila en IA-32 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Erwin Meza Vega <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a></dd></dl>
+<p><a class="el" href="../../index.html#project_start">Información del Proyecto</a> : <a class="el" href="../../d8/d50/ia32_intro.html">Programación de procesadores de arquitectura IA-32</a> : <a class="el" href="../../d8/d4b/ia32_assembly_basics.html">Ensamblador para procesadores IA-32</a> : Uso de la Pila</p>
+<p>La pila es un elemento muy importante dentro de la arquitectura IA-32. Se puede usar de forma explícita, y es usada de forma implícita cuando se invoca a rutinas (instrucción <b>call</b>) y cuando se gestiona una interrupción.</p>
+<h1><a class="anchor" id="stack_description"></a>
+Organización de la Pila</h1>
+<p>Los procesadores de arquitectura IA-32 proporcionan tres registros para manipular la pila. Estos registros son:</p>
+<ul>
+<li>Registro de segmento SS (stack segment)</li>
+<li>Registro de propósito general ESP (stack pointer)</li>
+<li>Registro de propósito general EBP (base pointer).</li>
+</ul>
+<p>La pila tiene la siguiente organización:</p>
+<pre class="fragment">      Disposición de la pila en IA-32
+      
+      +-----------------+
+      |                 |
+      +-----------------+
+      |  valor          |&lt;--+
+      +-----------------+   |
+      |  valor          |&lt;--+-----Valores almacenados en la pila
+      +-----------------+   |
+      |  valor          |&lt;--+
+      +-----------------+ &lt;-- Tope de la pila. ESP = desplazamiento desde la
+      |                 |                            base de la pila
+      |  Espacio        |
+      |  disponible en  |
+      |  la pila        |
+      |                 |
+      |                 |
+      +-----------------+ &lt;---  Base de la pila. SS apunta a la Base de la Pila
+      |                 |
+      |                 |
+      +-----------------+</pre><p>Es importante resaltar que en los procesadores IA-32 la pila crece de una posición más alta a una posición más baja en la memoria. Es decir, cada vez que se almacena un byte o un word en la pila, ESP se decrementa y apunta a una dirección menor en la memoria.</p>
+<h2><a class="anchor" id="stack_operations"></a>
+Operaciones sobre la pila</h2>
+<p>Las operaciones sobre la pila dependen del modo de ejecución del procesador, de la siguiente forma:</p>
+<ul>
+<li>Modo real: En modo real (16 bits), la unidad mínima de almacenamiento en la pila es un word. Esto significa que si un programa intenta almacenar un byte en la pila (que es válido), el procesador insertará automáticamente un byte vacío para mantener una pila uniforme con unidades de almacenamiento de dos bytes (16 bits).</li>
+<li>Modo protegido: En este modo la unidad mínima de almacenamiento es un doubleword (4 bytes, 32 bits). Si se almacena un byte o un word, automáticamente se insertan los bytes necesarios para tener una pila uniforme con unidades de almacenamiento de cuatro bytes (32 bits). En el modo de compatibilidad de 64 bits también se usa esta unidad de almacenamiento.</li>
+<li>Modo de 64 bits: La unidad mínima de almacenamiento es un quadword (8 bytes, 64 bits). Tambien se pueden almacenar bytes, words o doublewords, ya que el procesador inserta los bytes necesarios en cada caso para tener unidades uniformes de 8 bytes (64 bits).</li>
+</ul>
+<p>A continuación se presentan las instrucciones básicas para el manejo de la pila.</p>
+<dl class="section user"><dt>Instrucción push</dt><dd></dd></dl>
+<p>La instrucción push almacena un valor inmediato (constante), o el valor de un registro en el tope de la pila. El apuntador al tope de la pila (ESP) se decrementa en el número de bytes almacenados.</p>
+<p>La siguiente instrucción en modo real permite almacenar el valor del registro AX en la pila (un word):</p>
+<pre class="fragment">pushw %ax
+</pre><p>En sintaxis Intel, simplemente se omite el sufijo 'w': </p>
+<pre class="fragment">push ax
+</pre><p>Esta instrucción almacena en la pila el valor de AX (2 bytes), y decrementa el valor de SP en 2. La pila lucirá así:</p>
+<pre class="fragment">      +-----------------+    
+      |  valor          |                                       
+      +-----------------+ &lt;-- ESP antes de la instrucción push AX
+      |  valor de AX    |  push AX Coloca el valor de AX en la pila (2 bytes) 
+      +-----------------+ &lt;-- ESP = Nuevo tope de la pila luego de push AX 
+      |                 |                                           
+      |  Espacio        |
+      |  disponible en  |
+      |  la pila        |
+      |                 |
+      |                 |
+      +-----------------+ &lt;---  Base de la pila. SS apunta a la Base de la Pila
+      |                 |
+      |                 |
+      +-----------------+</pre><p>La instrucción push permite almacenar en la pila los valores de los registros del procesador y también valores inmediatos.</p>
+<p>La siguiente instrucción en modo protegido de 32 bits permite almacenar el valor del registro EAX en la pila (un doubleword, 32 bits): </p>
+<pre class="fragment">pushl %eax
+</pre><p>En sintaxis Intel, simplemente se omite el sufijo 'l': </p>
+<pre class="fragment">push eax
+</pre><p>Esta instrucción almacena en la pila el valor de EAX (4 bytes), y decrementa el valor de ESP en 4. La pila lucirá así:</p>
+<pre class="fragment">      +-----------------+    
+      |  valor          |                                       
+      +-----------------+ &lt;-- ESP antes de la instrucción push EAX
+      |  valor de EAX   | push EAX coloca el valor de EAX en la pila (4 bytes) 
+      +-----------------+ &lt;-- ESP = Nuevo tope de la pila luego de push EAX 
+      |                 |                                           
+      |  Espacio        |
+      |  disponible en  |
+      |  la pila        |
+      |                 |
+      |                 |
+      +-----------------+ &lt;---  Base de la pila. SS apunta a la Base de la Pila
+      |                 |
+      |                 |
+      +-----------------+</pre><dl class="section user"><dt>Instrucción pop</dt><dd></dd></dl>
+<p>Por su parte, la instrucción pop retira un valor de la pila (word, doubleword o quadword según el modo de operación y el sufijo de la instrucción), lo almacena en el registro destino especificado e incrementa SP (ESP o RSP según el modo de operación) en 2, 4 o 8.</p>
+<p>Se debe tener en cuenta que luego de sacar un valor de la pila, no se puede garantizar que el valor sacado se conserve en la pila.</p>
+<p>Por ejemplo, para sacar un valor del tope de la pila en modo protegido de 32 bits y almacenarlo en el registro EAX, se usa la siguiente instrucción: </p>
+<pre class="fragment"> popl %eax
+</pre><p>En sintaxis Intel: </p>
+<pre class="fragment">pop eax
+</pre><p>Esta instrucción saca del tope de la pila un doubleword (cuatro bytes) y los almacena en el registro EAX, como lo muestra la siguiente figura.</p>
+<pre class="fragment">      +-----------------+    
+      |  valor          |                                       
+      +-----------------+ &lt;-- ESP después de pop EAX (ESP = ESP + 4)
+      |  valor          | pop EAX : Este valor se almacena en EAX (4 bytes)  
+      +-----------------+ &lt;-- ESP antes de pop EAX 
+      |                 |                                           
+      |  Espacio        |
+      |  disponible en  |
+      |  la pila        |
+      |                 |
+      |                 |
+      +-----------------+ &lt;---  Base de la pila. SS apunta a la Base de la Pila
+      |                 |
+      |                 |
+      +-----------------+</pre><p>La instrucción pop toma el valor del tope de la pila y lo almacena en el registro de destino especificado en la misma operación. Se debe tener en cuenta ue luego de extraer un valor de la pila no se garantiza que aún siga allí.</p>
+<p>En modo real la instrucción pop retira dos bytes de la pila, y en modo de 64 bits retira 8 bytes de la pila.</p>
+<dl class="section user"><dt>Instrucción pushf</dt><dd></dd></dl>
+<p>Esta instrucción toma el valor del registro EFLAGS y lo almacena en la pila.</p>
+<pre class="fragment">      +-----------------+    
+      |  valor          |                                       
+      +-----------------+ &lt;-- ESP antes de la instrucción pushf
+      | valor de EFLAGS | pushf coloca el valor de EFLAGS en la pila (4 bytes) 
+      +-----------------+ &lt;-- ESP = Nuevo tope de la pila luego de pushf 
+      |                 |                                           
+      |  Espacio        |
+      |  disponible en  |
+      |  la pila        |
+      |                 |
+      |                 |
+      +-----------------+ &lt;---  Base de la pila. SS apunta a la Base de la Pila
+      |                 |
+      |                 |
+      +-----------------+</pre><p>En modo real solo se puede tener acceso a los 16 bits menos significativos de EFLAGS, por lo cual solo se ocupan 2 bytes en la pila y SP se decrementa en 2. En modo de 64 bits se ocupan 8 bytes (64 bits) para el registro RFLAGS.</p>
+<dl class="section user"><dt>Instrucción popf</dt><dd></dd></dl>
+<p>Esta instrucción toma el valor almacenado en el tope de la pila y lo almacena en el registro EFLAGS (32 bits), los 16 bits menos significativos de EFLAGS en modo real y RFLAGS en modo de 64 bits.</p>
+<pre class="fragment">      +-----------------+    
+      |  valor          |                                       
+      +-----------------+ &lt;-- ESP después de popf (ESP = ESP + 4)
+      |  valor          | popf : Este valor se almacena en EFLAGS (4 bytes)  
+      +-----------------+ &lt;-- ESP antes de popf 
+      |                 |                                           
+      |  Espacio        |
+      |  disponible en  |
+      |  la pila        |
+      |                 |
+      |                 |
+      +-----------------+ &lt;---  Base de la pila. SS apunta a la Base de la Pila
+      |                 |
+      |                 |
+      +-----------------+</pre><dl class="section user"><dt>Instrucción pusha</dt><dd></dd></dl>
+<p>Esta instrucción almacena el valor de los registros de propósito general en la pila. De acuerdo con el modo de operación del procesador, se almacenarán los registros en el siguiente orden:</p>
+<ul>
+<li>En modo protegido de 32 bits, se almacenan EAX, ECX, EDX, EBX, valor de ESP antes de pusha, EBP, ESI y EDI.</li>
+<li>En modo real (16 bits), se almacenan AX, CX, DX, BX, valor de SP antes de pusha, BP, SI y DI.</li>
+<li>En modo de 64 bits, se almacenan RAX, RCX, RDX, RBX, valor de RSP antes de pusha, RBP, RSI y RDI.</li>
+</ul>
+<p>Así, en modo protegido de 32 bits <b>cada</b> valor almacenado en la pila tomará cuatro bytes. En modo real, tomará dos bytes y en modo de 64 bits <b>cada</b> valor tomará 8 bytes.</p>
+<p>A continuación se presenta un diagrama del funcionamiento de la instrucción pusha en modo protegido de 32 bits.</p>
+<pre class="fragment">      +--------------------+    
+      |  valor             |                                       
+      +--------------------+ &lt;-- ESP antes de pusha
+      |  valor de EAX      |     |
+      +--------------------+     |
+      |  valor de ECX      |     |
+      +--------------------+     |
+      |  valor de EDX      |     |
+      +--------------------+     |
+      |  valor de EBX      |     |
+      +--------------------+     |
+      |  ESP antes de pusha| &lt;---+
+      +--------------------+
+      |  valor de EBP      |  
+      +--------------------+
+      |  valor de ESI      |  
+      +--------------------+
+      |  valor de EDI      |  
+      +--------------------+ &lt;-- ESP después de pusha (ESP = ESP - 32) este es 
+      |                    |     el nuevo tope de la pila.
+      |  Espacio           |
+      |  disponible en     |
+      |  la pila           |
+      |                    |
+      |                    |
+      +--------------------+ &lt;---  Base de la pila. SS apunta a la Base de la Pila
+      |                    |
+      |                    |
+      +--------------------+</pre><dl class="section user"><dt>Instrucción popa</dt><dd></dd></dl>
+<p>Esta instrucción extrae de la pila ocho valores, y los almacena en los registros de propósito general, en el siguiente orden (inverso al orden de pusha):</p>
+<p>EDI, ESI, EBP, ESP*, EBX, EDX, ECX, EAX</p>
+<p>El valor de ESP sacado de la pila se descarta.</p>
+<pre class="fragment">      +--------------------+    
+      |  valor             |                                       
+      +--------------------+ &lt;-- ESP después de popa ( ESP = ESP + 32)
+      |  valor             | ---&gt; EAX
+      +--------------------+      
+      |  valor             | ---&gt; ECX
+      +--------------------+      
+      |  valor             | ---&gt; EDX
+      +--------------------+      
+      |  valor             | ---&gt; EBX
+      +--------------------+      
+      |  valor             |  (este valor se descarta)
+      +--------------------+
+      |  valor             | ---&gt; EBP
+      +--------------------+
+      |  valor             | ---&gt; ESI
+      +--------------------+
+      |  valor             | ---&gt; EDI
+      +--------------------+ &lt;-- ESP andtes de pusha 
+      |                    |    
+      |  Espacio           |
+      |  disponible en     |
+      |  la pila           |
+      |                    |
+      |                    |
+      +--------------------+ &lt;---  Base de la pila. SS apunta a la Base de la Pila
+      |                    |
+      |                    |
+      +--------------------+</pre><dl class="section see"><dt>Ver también</dt><dd><a class="el" href="../../d8/d4b/ia32_assembly_basics.html">Ensamblador para procesadores IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d5/d02/ia32_using_routines.html">Creación y uso de rutinas</a> </dd>
+<dd>
+<a class="el" href="../../d0/d4f/ia32_execution_environment.html">Entorno de ejecución en IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d3/d4c/ia32_operation_modes.html">Modos de Operación de procesadores IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d4/de9/ia32_memory_organization.html">Organización de Memoria en Procesadores IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d0/d4f/ia32_execution_environment.html">Entorno de ejecución en IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d0/dec/protected_mode_setup.html">Paso a Modo Protegido en Procesadores IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d8/dfe/gdt_page.html">Tabla Global de Descriptores - GDT</a> </dd>
+<dd>
+<a href="http://www.gnu.org/software/grub/">http://www.gnu.org/software/grub/</a> Página oficial de GRUB (Enlace externo) </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Fichero Fuente include/kmm.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">kmm.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/d9c/kmm_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef MM_H_</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MM_H_</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d0/d32/generic__linked__list_8h.html" title="Contiene el macro para definir una lista de un tipo especifico, con el fin de ser instanciado con dif...">generic_linked_list.h</a>&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="../../d3/d9c/kmm_8h.html#a069194d385408c321c10365701a5f78d">   19</a></span>&#160;<span class="preprocessor">#define FREE_MEMREGS_LIMIT 64</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="../../d3/d9c/kmm_8h.html#ac17688a51d7df7ccf1e2bdebf7c5f669">   23</a></span>&#160;<span class="preprocessor">#define MEMREG_GRANULARITY 4 </span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="../../d3/d9c/kmm_8h.html#a6949db3b119f579e14d86cec8315d43a">   27</a></span>&#160;<span class="preprocessor">#define AVG_ALLOC_SIZE 0x100 </span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/* Estructuras de datos para gestionar la memoria disponible */</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">struct </span><a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="../../d9/dd0/structmemreg__header.html">   33</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header</a> {</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="../../d9/dd0/structmemreg__header.html#a2e013c2c6e8010c8116c6f56813df57b">   35</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/dd0/structmemreg__header.html#a2e013c2c6e8010c8116c6f56813df57b" title="Inicio del área de datos.">base</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="../../d9/dd0/structmemreg__header.html#ad881b1b412cdb9bc8d851726a73c0e5f">   37</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d9/dd0/structmemreg__header.html#ad881b1b412cdb9bc8d851726a73c0e5f" title="Tamaño de la region de memoria.">limit</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="../../d9/dd0/structmemreg__header.html#a5810b6407672b8e7aeba609b4bb649de">   39</a></span>&#160; <span class="keywordtype">int</span> <a class="code" href="../../d9/dd0/structmemreg__header.html#a5810b6407672b8e7aeba609b4bb649de" title="1 = region asignada, 0 = region libre">used</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="../../d9/dd0/structmemreg__header.html#afdbc0e85a6973afc996aca09651f1d9e">   40</a></span>&#160; <a class="code" href="../../d0/d32/generic__linked__list_8h.html#a52880b8e8128834fdb848f917c430c40">DEFINE_GENERIC_LIST_LINKS</a>(<a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header</a>); <span class="comment">/*Links genericos */</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}<a class="code" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9" title="Encabezado de una region de memoria.">memreg_header_t</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="../../d3/d77/structtypelist__memreg__header.html#ad5382b60cdbe3a5b4d563e0bd56495c0">   45</a></span>&#160;<a class="code" href="../../d0/d32/generic__linked__list_8h.html#a138219afaf1d63e471d8a27cde176654" title="Macro par generar los tipos de datos de una lista y los prototipos de las funciones.">DEFINE_GENERIC_LIST_TYPE</a>(<a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header_t</a>, <a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d3/d9c/kmm_8h.html#ade8acb30044ed187bc39bd899b9e03cb" title="Función para comparar dos regiones de memoria.">compare_memreg_header_t</a>(<a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header_t</a> * , <a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header_t</a> *);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="../../d6/d79/structmemreg__footer.html">   51</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d6/d79/structmemreg__footer.html" title="Pie de una region de memoria.">memreg_footer</a> {</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="../../d6/d79/structmemreg__footer.html#a2e013c2c6e8010c8116c6f56813df57b">   53</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/d79/structmemreg__footer.html#a2e013c2c6e8010c8116c6f56813df57b" title="Inicio del area de datos.">base</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="../../d6/d79/structmemreg__footer.html#a2ec914f100762f3784ad39a0a89dbf14">   55</a></span>&#160; <a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header_t</a> * <a class="code" href="../../d6/d79/structmemreg__footer.html#a2ec914f100762f3784ad39a0a89dbf14" title="Apuntador al encabezado.">header</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}<a class="code" href="../../d3/d9c/kmm_8h.html#afa3ea864cd5366d229f7e3d7ba15b968" title="Pie de una region de memoria.">memreg_footer_t</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="../../da/d58/structmemreg__header__list.html">   59</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../da/d58/structmemreg__header__list.html" title="Tipo para lista enlazada de encabezados.">memreg_header_list</a> {</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="../../da/d58/structmemreg__header__list.html#ac274db4bd4e554fbefa49c1f09ef15e1">   61</a></span>&#160; <a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header_t</a> * <a class="code" href="../../da/d58/structmemreg__header__list.html#ac274db4bd4e554fbefa49c1f09ef15e1" title="Cabeza de la lista.">head</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="../../da/d58/structmemreg__header__list.html#ad5382b60cdbe3a5b4d563e0bd56495c0">   63</a></span>&#160; <a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header_t</a> * <a class="code" href="../../da/d58/structmemreg__header__list.html#ad5382b60cdbe3a5b4d563e0bd56495c0" title="Cola de la lista.">tail</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="../../da/d58/structmemreg__header__list.html#ad43c3812e6d13e0518d9f8b8f463ffcf">   65</a></span>&#160; <span class="keywordtype">int</span> <a class="code" href="../../da/d58/structmemreg__header__list.html#ad43c3812e6d13e0518d9f8b8f463ffcf" title="Número de elementos en la lista.">count</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;} <a class="code" href="../../d3/d9c/kmm_8h.html#a1de9c434818f456d56e3134de994abee" title="Tipo para lista enlazada de encabezados.">memreg_header_list_t</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="../../db/dc3/structheap.html">   73</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap</a> {</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="../../db/dc3/structheap.html#a2e013c2c6e8010c8116c6f56813df57b">   75</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../db/dc3/structheap.html#a2e013c2c6e8010c8116c6f56813df57b" title="Inicio de la region de memoria para asignacion dinamica.">base</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="../../db/dc3/structheap.html#a3fdd42ea34070a54e696b3adc28c4be3">   77</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../db/dc3/structheap.html#a3fdd42ea34070a54e696b3adc28c4be3" title="Posición actual del heap.">top</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="../../db/dc3/structheap.html#ad881b1b412cdb9bc8d851726a73c0e5f">   79</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../db/dc3/structheap.html#ad881b1b412cdb9bc8d851726a73c0e5f" title="Tamanio maximo de la region de memoria para asignacion dinamica.">limit</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="../../db/dc3/structheap.html#ac209944bb7bde1cac4e99f3a83c93355">   81</a></span>&#160; <a class="code" href="../../d3/d77/structtypelist__memreg__header.html" title="Definición de las primitivas para gestionar listas de tipo memreg_header_t.">list_memreg_header</a> * <a class="code" href="../../db/dc3/structheap.html#ac209944bb7bde1cac4e99f3a83c93355" title="Lista de regiones de memoria libres.">free</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="../../db/dc3/structheap.html#a7600154d0e0948a5a3ad119ad6d9ff4b">   83</a></span>&#160; <a class="code" href="../../d3/d77/structtypelist__memreg__header.html" title="Definición de las primitivas para gestionar listas de tipo memreg_header_t.">list_memreg_header</a> * <a class="code" href="../../db/dc3/structheap.html#a7600154d0e0948a5a3ad119ad6d9ff4b" title="Lista de regiones de memoria usadas.">used</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}<a class="code" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap_t</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">/* Macros para tamanos */</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="../../d3/d9c/kmm_8h.html#afd39898588e3adee929ed00ea988ce51">   90</a></span>&#160;<span class="preprocessor">#define MEMREG_HEADER_SIZE sizeof(memreg_header_t)</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="../../d3/d9c/kmm_8h.html#a872175f1b2ac007390853db39d3f50e7">   93</a></span>&#160;<span class="preprocessor">#define MEMREG_FOOTER_SIZE sizeof(memreg_footer_t)</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="../../d3/d9c/kmm_8h.html#ad655f6042fb12659e737fe14f5aeba15">   96</a></span>&#160;<span class="preprocessor">#define MEMREG_MIN_SIZE MEMREG_HEADER_SIZE + MEMREG_GRANULARITY \</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">  + MEMREG_FOOTER_SIZE</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="../../d3/d9c/kmm_8h.html#a4ba07e0581b7452a43c9dd01bcaaa068">  101</a></span>&#160;<span class="preprocessor">#define MEMREG_SIZE(size) \</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor"> MEMREG_HEADER_SIZE + size + MEMREG_HEADER_SIZE</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="../../d3/d9c/kmm_8h.html#a6000da6aee6de14d187fec34f0648279">  105</a></span>&#160;<span class="preprocessor">#define HEAP_MIN_SIZE sizeof(heap_t) + MEMREG_MIN_SIZE</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap_t</a> * <a class="code" href="../../d3/d9c/kmm_8h.html#ab7329b26f949fd0f1215f1581441b5e6" title="Esta rutina se encarga de inicializar el area de memoria para asignacion dinamica, y las estructuras de datos requeridas para su gestion.">setup_heap</a>(<span class="keywordtype">void</span> * ptr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d4/d35/idt_8h.html#ab50c2dcb9d4a34ea1a5ac52272502379" title="Tamaño de la IDT.">limit</a>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap_t</a> *  <a class="code" href="../../d3/d9c/kmm_8h.html#a4f4e7166994b33d6635eb65ccf4ec301" title="Permite crear una region de memoria para asignacion dinamica. Importante: Esta rutina asume que la re...">create_heap</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d4/d35/idt_8h.html#a2e013c2c6e8010c8116c6f56813df57b" title="dirección lineal del inicio de la IDT">base</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d4/d35/idt_8h.html#ab50c2dcb9d4a34ea1a5ac52272502379" title="Tamaño de la IDT.">limit</a>);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header_t</a> * <a class="code" href="../../d3/d9c/kmm_8h.html#acae6e3e240fb7587af9064030f554bd4" title="Función privada para expandir el heap en un tamaño especificado.">expand_heap</a>(<a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap_t</a> * <a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d4/d35/idt_8h.html#ab50c2dcb9d4a34ea1a5ac52272502379" title="Tamaño de la IDT.">limit</a>);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keywordtype">void</span> * <a class="code" href="../../d3/d9c/kmm_8h.html#a627759b7f2cf08b30b514d5a1ee0f01c" title="Solicita la asignacion de memoria dentro de un heap. Primero se busca dentro de las regiones libres...">alloc_from_heap</a>(<a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap_t</a> * <a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap</a>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d9c/kmm_8h.html#a5c3b94aa6612d6fb3fdd168e159b2ea6" title="Libera una region de memoria dentro de un heap.">free_from_heap</a>(<a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap_t</a> * <a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap</a>, <a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header_t</a> *header);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d3/d9c/kmm_8h.html#a8a047d6ffbb98be27d82629a1c95f5b9" title="Determina si una region de memoria dada es valida dentro de un heap.">memreg_is_valid</a>(<a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap_t</a> * <a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap</a>, <a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header_t</a> *header);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d9c/kmm_8h.html#a73b5907306b6650c1756577516f69050" title="Imprime la informacion de una region de memoria.">print_memory_region</a>(<a class="code" href="../../d9/dd0/structmemreg__header.html" title="Encabezado de una region de memoria.">memreg_header_t</a> * header);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d9c/kmm_8h.html#a790b0ab8d9b9e632a1b4b6d12ef977ce" title="Imprime el estado de un heap, incluyendo las regiones que se encuentren definidas.">print_heap</a>(<a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap_t</a> *<a class="code" href="../../db/dc3/structheap.html" title="Tipo para la gestión de memoria dinámica Para gestionar la memoria se requiere conocer la dirección d...">heap</a>);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MM_H_ */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

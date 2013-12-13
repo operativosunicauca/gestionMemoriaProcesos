@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Fichero Fuente src/exception.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">exception.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d4/d43/exception_8c.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dd/d2d/exception_8h.html" title="En este archivo se definen los tipos y las funciones relacionados con la gestion de excepciones en la...">exception.h</a>&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="../../d4/d43/exception_8c.html#a3ec3c1e26fba0c6c7090e0d70b805459">   16</a></span>&#160;<a class="code" href="../../dd/d2d/exception_8h.html#a7f0c1b311199826d556ad6f925ff7cb9">exception_handler</a> <a class="code" href="../../d4/d43/exception_8c.html#a3ec3c1e26fba0c6c7090e0d70b805459">exception_handlers</a>[<a class="code" href="../../dd/d2d/exception_8h.html#a7d754bc23dd152e841c98483a9b1d801">MAX_EXCEPTIONS</a>];</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d43/exception_8c.html#acccb5e3de60f72eacd7efb046ec6c267" title="Esta rutina recibe el control de la interrupt_dispatcher. Su trabajo consiste en determinar el vector...">exception_dispatcher</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="../../d4/d43/exception_8c.html#a400a24fe612d4aed84b56f656bef32a2">   27</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *<a class="code" href="../../d4/d43/exception_8c.html#a400a24fe612d4aed84b56f656bef32a2" title="Excepciones del procesador IA-32.">exceptions</a>[] = {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; <span class="stringliteral">&quot;Division By Zero&quot;</span>,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; <span class="stringliteral">&quot;Debug&quot;</span>,</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; <span class="stringliteral">&quot;Non Maskable Interrupt&quot;</span>,</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; <span class="stringliteral">&quot;Breakpoint&quot;</span>,</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; <span class="stringliteral">&quot;Into Detected Overflow&quot;</span>,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; <span class="stringliteral">&quot;Out of Bounds&quot;</span>,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; <span class="stringliteral">&quot;Invalid Opcode&quot;</span>,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span class="stringliteral">&quot;No Coprocessor&quot;</span>,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="stringliteral">&quot;Double Fault&quot;</span>,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; <span class="stringliteral">&quot;Coprocessor Segment Overrun&quot;</span>,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span class="stringliteral">&quot;Bad TSS&quot;</span>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="stringliteral">&quot;Segment Not Present&quot;</span>,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; <span class="stringliteral">&quot;Stack Fault&quot;</span>,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="stringliteral">&quot;General Protection Fault&quot;</span>,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; <span class="stringliteral">&quot;Page Fault&quot;</span>,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; <span class="stringliteral">&quot;Unknown Interrupt&quot;</span>,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; <span class="stringliteral">&quot;Coprocessor Fault&quot;</span>,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <span class="stringliteral">&quot;Alignment Check&quot;</span>,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; <span class="stringliteral">&quot;Machine Check&quot;</span>,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span>,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; <span class="stringliteral">&quot;Reserved&quot;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="../../d4/d43/exception_8c.html#aeabb6fee229c6885f9e32c8d9cf7e8c4">   71</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dd/d2d/exception_8h.html#aeabb6fee229c6885f9e32c8d9cf7e8c4" title="Esta rutina crea un manejador de interrupcion para las 32 excepciones x86 e inicializa la tabla de ma...">setup_exceptions</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="../../dd/d2d/exception_8h.html#a7d754bc23dd152e841c98483a9b1d801">MAX_EXCEPTIONS</a>; i++) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="../../d4/d43/exception_8c.html#a3ec3c1e26fba0c6c7090e0d70b805459">exception_handlers</a>[i] = <a class="code" href="../../d4/d35/idt_8h.html#a5913f7c605f44b2511e7d216c28b6d9d" title="Constante para definir un manejador de interrupcion vacio.">NULL_INTERRUPT_HANDLER</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; <span class="comment">/* En la arquitectura Intel las excepciones tienen vectores (numero) 0..31</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">  * Asi, el vector es el mismo numero de la excepcion*/</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; <span class="keywordflow">for</span> (i=0; i&lt;<a class="code" href="../../dd/d2d/exception_8h.html#a7d754bc23dd152e841c98483a9b1d801">MAX_EXCEPTIONS</a>; i++) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <a class="code" href="../../d5/d05/idt_8c.html#a889ba321f899261c91e92feae534fb70" title="Instala un nuevo manejador de interrupción para un número de interrupción determinado.">install_interrupt_handler</a>(i, <a class="code" href="../../d4/d43/exception_8c.html#acccb5e3de60f72eacd7efb046ec6c267" title="Esta rutina recibe el control de la interrupt_dispatcher. Su trabajo consiste en determinar el vector...">exception_dispatcher</a>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="../../d4/d43/exception_8c.html#acccb5e3de60f72eacd7efb046ec6c267">   93</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d43/exception_8c.html#acccb5e3de60f72eacd7efb046ec6c267" title="Esta rutina recibe el control de la interrupt_dispatcher. Su trabajo consiste en determinar el vector...">exception_dispatcher</a>() {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; <span class="comment">/* Esta variable definida en isr.S contiene el valor del apuntador</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">  * actual al tope de la pila (esp)*/</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; <span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> current_esp;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="../../d5/d05/idt_8c.html#a8e6e7e765b126c17b4080184d13577a7" title="Esta rutina permite mostrar el estado en el cual se encuentra el procesador cuando ocurrio una interr...">dump_interrupt_state</a>(<a class="code" href="../../df/d23/structinterrupt__state.html" title="Estructura que define el estado del procesador al recibir una interrupción o una excepción.">interrupt_state</a> *);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; <a class="code" href="../../df/d23/structinterrupt__state.html" title="Estructura que define el estado del procesador al recibir una interrupción o una excepción.">interrupt_state</a> * state;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; state = (<a class="code" href="../../df/d23/structinterrupt__state.html" title="Estructura que define el estado del procesador al recibir una interrupción o una excepción.">interrupt_state</a> *)current_esp;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; <a class="code" href="../../dd/d2d/exception_8h.html#a7f0c1b311199826d556ad6f925ff7cb9">exception_handler</a> handler;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; <span class="comment">/* Buscar la rutina que maneja la excepcion. El numero</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">  * de la interrupcion (0..31) es el mismo sub-indice en la</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">  * tabla de manejadores de excepcion*/</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; handler = <a class="code" href="../../d4/d43/exception_8c.html#a3ec3c1e26fba0c6c7090e0d70b805459">exception_handlers</a>[state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1" title="Número de la interrupción (o excepción)">number</a>];</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; <span class="comment">/* Si la rutina existe, ejecutarla y pasarle como parametro los registros.*/</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; <span class="keywordflow">if</span> (handler != <a class="code" href="../../d4/d35/idt_8h.html#a5913f7c605f44b2511e7d216c28b6d9d" title="Constante para definir un manejador de interrupcion vacio.">NULL_INTERRUPT_HANDLER</a>) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;   handler(state);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="comment">/* En caso contrario, informar que ocurrio una interrupcion</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">   * que no tiene un manejador asociado.*/</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;x86 Exception [%d]: %s. System Halted!\n&quot;</span>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1" title="Número de la interrupción (o excepción)">number</a>,</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="../../d4/d43/exception_8c.html#a400a24fe612d4aed84b56f656bef32a2" title="Excepciones del procesador IA-32.">exceptions</a>[state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1" title="Número de la interrupción (o excepción)">number</a>]);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="comment">/* Bloquear el kernel cuando ocurre una excepcion que no tiene</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">   * manejador asociado.</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">   * Recuerde que esta rutina se esta ejecutando con las interrupciones</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">   * deshabilitadas, por lo cual no existe forma de romper el</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">   * ciclo infinito que se define a continuacion.*/</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keywordflow">for</span> (;;)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;   ;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="code" href="../../d4/d43/exception_8c.html#a20e07f41764b9b872a45208a9a3900d7">  136</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d4/d43/exception_8c.html#a20e07f41764b9b872a45208a9a3900d7" title="Esta rutina permite definir un nuevo manejador de excepcion para una de las excepciones de los proces...">install_exception_handler</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> index, <a class="code" href="../../dd/d2d/exception_8h.html#a7f0c1b311199826d556ad6f925ff7cb9">exception_handler</a> handler) {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; <span class="keywordflow">if</span> (<a class="code" href="../../d4/d43/exception_8c.html#a3ec3c1e26fba0c6c7090e0d70b805459">exception_handlers</a>[index] != <a class="code" href="../../d4/d35/idt_8h.html#a5913f7c605f44b2511e7d216c28b6d9d" title="Constante para definir un manejador de interrupcion vacio.">NULL_INTERRUPT_HANDLER</a>) {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Error! handler for exception %d was already set!\n&quot;</span>, index);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; <a class="code" href="../../d4/d43/exception_8c.html#a3ec3c1e26fba0c6c7090e0d70b805459">exception_handlers</a>[index] = handler;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="code" href="../../d4/d43/exception_8c.html#a1a16d47440b855c9b6113c7d06465f02">  150</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d43/exception_8c.html#a1a16d47440b855c9b6113c7d06465f02" title="Esta rutina permite quitar un manejador de excepcion.">uninstall_exception_handler</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> index) {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; <span class="comment">/* Simplemente quitar la referencia a la rutina de manejo de interrupcion.*/</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; <span class="keywordflow">if</span> (index &gt; <a class="code" href="../../dd/d2d/exception_8h.html#a7d754bc23dd152e841c98483a9b1d801">MAX_EXCEPTIONS</a>) {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; <a class="code" href="../../d4/d43/exception_8c.html#a3ec3c1e26fba0c6c7090e0d70b805459">exception_handlers</a>[index] = <a class="code" href="../../d4/d35/idt_8h.html#a5913f7c605f44b2511e7d216c28b6d9d" title="Constante para definir un manejador de interrupcion vacio.">NULL_INTERRUPT_HANDLER</a>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;}</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo src/stdlib.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo stdlib.c<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contiene las implementaciones de algunas funciones de utilidad.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="../../dc/d9c/stdlib_8h_source.html">stdlib.h</a>&gt;</code><br/>
+</div>
+<p><a href="../../db/dfa/stdlib_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a6f7c5f5f3ee0253313ff265e4838f803"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dfa/stdlib_8c.html#a6f7c5f5f3ee0253313ff265e4838f803">itoa</a> (unsigned int n, char *buf, int <a class="el" href="../../dc/ddb/pm_8h.html#a2e013c2c6e8010c8116c6f56813df57b">base</a>)</td></tr>
+<tr class="memdesc:a6f7c5f5f3ee0253313ff265e4838f803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convierte un numero en base 2, 10 0 16 a un string terminado en nulo. Si la base es 10, toma el numero con signo.  <a href="#a6f7c5f5f3ee0253313ff265e4838f803">Más...</a><br/></td></tr>
+<tr class="separator:a6f7c5f5f3ee0253313ff265e4838f803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0012a3867d9b474cbe5a724158d09e67"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dfa/stdlib_8c.html#a0012a3867d9b474cbe5a724158d09e67">utoa</a> (unsigned int n, char *buf, int <a class="el" href="../../dc/ddb/pm_8h.html#a2e013c2c6e8010c8116c6f56813df57b">base</a>)</td></tr>
+<tr class="memdesc:a0012a3867d9b474cbe5a724158d09e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convierte un numero sin signo en base 2, 10 0 16 a un string terminado en nulo. Si la base es 10, toma el numero con signo.  <a href="#a0012a3867d9b474cbe5a724158d09e67">Más...</a><br/></td></tr>
+<tr class="separator:a0012a3867d9b474cbe5a724158d09e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8640bfd42f9fb25e610d974eeaa2cafb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dfa/stdlib_8c.html#a8640bfd42f9fb25e610d974eeaa2cafb">atoi</a> (char *buf, int <a class="el" href="../../dc/ddb/pm_8h.html#a2e013c2c6e8010c8116c6f56813df57b">base</a>)</td></tr>
+<tr class="memdesc:a8640bfd42f9fb25e610d974eeaa2cafb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convierte un string a un entero, en la base especificada.  <a href="#a8640bfd42f9fb25e610d974eeaa2cafb">Más...</a><br/></td></tr>
+<tr class="separator:a8640bfd42f9fb25e610d974eeaa2cafb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Contiene las implementaciones de algunas funciones de utilidad. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../db/dfa/stdlib_8c_source.html">stdlib.c</a>.</p>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="a8640bfd42f9fb25e610d974eeaa2cafb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int atoi </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convierte un string a un entero, en la base especificada. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buf</td><td>Buffer que contiene el numero </td></tr>
+    <tr><td class="paramname">base</td><td>Base en la cual se quiere transformar el numero </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Número en la base especificada. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../db/dfa/stdlib_8c_source.html#l00149">149</a> del archivo <a class="el" href="../../db/dfa/stdlib_8c_source.html">stdlib.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f7c5f5f3ee0253313ff265e4838f803"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* itoa </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convierte un numero en base 2, 10 0 16 a un string terminado en nulo. Si la base es 10, toma el numero con signo. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Número a transformar en cadena </td></tr>
+    <tr><td class="paramname">buf</td><td>Buffer que contiene el número transformado a cadena de caracteres </td></tr>
+    <tr><td class="paramname">base</td><td>Base a la cual se desea transformar el número (2, 10 o 16). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Apuntador al buffer en el cual se encuentra el número transformado </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../db/dfa/stdlib_8c_source.html#l00020">20</a> del archivo <a class="el" href="../../db/dfa/stdlib_8c_source.html">stdlib.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0012a3867d9b474cbe5a724158d09e67"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* utoa </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>base</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convierte un numero sin signo en base 2, 10 0 16 a un string terminado en nulo. Si la base es 10, toma el numero con signo. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>Número a transformar en cadena </td></tr>
+    <tr><td class="paramname">buf</td><td>Buffer que contiene el número transformado a cadena de caracteres </td></tr>
+    <tr><td class="paramname">base</td><td>Base a la cual se desea transformar el número (2, 10 o 16). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Apuntador al buffer en el cual se encuentra el número transformado </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../db/dfa/stdlib_8c_source.html#l00091">91</a> del archivo <a class="el" href="../../db/dfa/stdlib_8c_source.html">stdlib.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

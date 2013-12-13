@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Fichero Fuente include/irq.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">irq.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d2/de7/irq_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#ifndef IRQ_H_</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define IRQ_H_</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a04c9015da7e7ea45f3b80793809e2d7b">   17</a></span>&#160;<span class="preprocessor">#define EOI 0x20</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#adb8cddeaad16327c7104e8ee7e47ff14">   20</a></span>&#160;<span class="preprocessor">#define MASTER_PIC_COMMAND_PORT 0x20</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a25f812fed4a6a3712e9e4d066f1f79c8">   23</a></span>&#160;<span class="preprocessor">#define SLAVE_PIC_COMMAND_PORT 0xA0</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#aaa7a6876158c3a35d7b8b935d99e1871">   26</a></span>&#160;<span class="preprocessor">#define MASTER_PIC_DATA_PORT 0x21</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a6ff3e7697c551bcf860b1f1c66911e11">   29</a></span>&#160;<span class="preprocessor">#define SLAVE_PIC_DATA_PORT 0xA1</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">   35</a></span>&#160;<span class="preprocessor">#define IDT_IRQ_OFFSET 32</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#aefab4cf400de7ad3d73c4fa71c24f45e">   39</a></span>&#160;<span class="keyword">typedef</span> <a class="code" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d" title="Definición de tipo para las rutinas de manejo de interrupcion.">interrupt_handler</a> <a class="code" href="../../d2/de7/irq_8h.html#aefab4cf400de7ad3d73c4fa71c24f45e" title="Alias para el manejador de irq.">irq_handler</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/* Constantes para los numeros de interrupcion de las IRQ0 - IRQ15.*/</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a3be79970226cf37a87119174e7b9f9d9">   44</a></span>&#160;<span class="preprocessor">#define IRQ0_INTERRUPT IDT_IRQ_OFFSET + 0</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a399504eda3549c9b61c233f04bf8d776">   46</a></span>&#160;<span class="preprocessor">#define IRQ1_INTERRUPT IDT_IRQ_OFFSET + 1</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a53dbd3d2e234669b25d3fa38f6736f1e">   48</a></span>&#160;<span class="preprocessor">#define IRQ2_INTERRUPT IDT_IRQ_OFFSET + 2</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a5cd6678b03975e857c44315958ed0126">   51</a></span>&#160;<span class="preprocessor">#define IRQ3_INTERRUPT IDT_IRQ_OFFSET + 3</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#ab21c6d18aa7854eb50791290ed098041">   54</a></span>&#160;<span class="preprocessor">#define IRQ4_INTERRUPT IDT_IRQ_OFFSET + 4</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a4dac284bd090262f9523360a96eb66c4">   56</a></span>&#160;<span class="preprocessor">#define IRQ5_INTERRUPT IDT_IRQ_OFFSET + 5</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a0ac08e52e8dde300b97fb24b3275f5ca">   58</a></span>&#160;<span class="preprocessor">#define IRQ6_INTERRUPT IDT_IRQ_OFFSET + 6</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#af4cf482b849c234af6a4cca7a5961046">   61</a></span>&#160;<span class="preprocessor">#define IRQ7_INTERRUPT IDT_IRQ_OFFSET + 7</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a902194648649df242cf156a522cec66c">   63</a></span>&#160;<span class="preprocessor">#define IRQ8_INTERRUPT IDT_IRQ_OFFSET + 8</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a5051bb80a390be313818aea4105d5a52">   65</a></span>&#160;<span class="preprocessor">#define IRQ9_INTERRUPT IDT_IRQ_OFFSET + 9</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#aa230febd255642eb8a70c3575c819aff">   67</a></span>&#160;<span class="preprocessor">#define IRQ10_INTERRUPT IDT_IRQ_OFFSET + 10</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#affea6d314ce2c7d0045de6914d58fefd">   69</a></span>&#160;<span class="preprocessor">#define IRQ11_INTERRUPT IDT_IRQ_OFFSET + 11</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a6e2de3475bbeec15f52318832568fb16">   71</a></span>&#160;<span class="preprocessor">#define IRQ12_INTERRUPT IDT_IRQ_OFFSET + 12</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#ac0ce335495042fab36476d9a7824aaad">   74</a></span>&#160;<span class="preprocessor">#define IRQ13_INTERRUPT IDT_IRQ_OFFSET + 13</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#af15e46d941a0fd7c6c272eb40d660b38">   76</a></span>&#160;<span class="preprocessor">#define IRQ14_INTERRUPT IDT_IRQ_OFFSET + 14</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a56b532eba1cf09fab30c4275e9cea413">   78</a></span>&#160;<span class="preprocessor">#define IRQ15_INTERRUPT IDT_IRQ_OFFSET + 15</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="../../d2/de7/irq_8h.html#a0cba3a07e50dcfb6bf445510152ae42d">   82</a></span>&#160;<span class="preprocessor">#define MAX_IRQ_ROUTINES 16</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/de7/irq_8h.html#a968e852c362480d5ba8d4192e0854af2" title="Esta rutina se encarga de crear las entradas en la IDT para las interrupciones que se desean manejar...">setup_irq</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/de7/irq_8h.html#a470fad09cd8ee471a1300ec395666eef" title="Esta rutina permite definir un nuevo manejador de IRQ.">install_irq_handler</a>(<span class="keywordtype">int</span> number, <a class="code" href="../../d2/de7/irq_8h.html#aefab4cf400de7ad3d73c4fa71c24f45e" title="Alias para el manejador de irq.">irq_handler</a> handler);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d2/de7/irq_8h.html#a41a60b417cdc01ed280ca6bcb9da6cbd" title="Esta rutina permite quitar un manejador de IRQ.">uninstall_irq_handler</a>(<span class="keywordtype">int</span> number);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IRQ_H_ */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

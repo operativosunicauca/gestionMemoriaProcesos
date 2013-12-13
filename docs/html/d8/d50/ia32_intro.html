@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Programación de procesadores de arquitectura IA-32</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li class="current"><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Programación de procesadores de arquitectura IA-32 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Erwin Meza Vega <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a></dd></dl>
+<p>Ir a: <a class="el" href="../../index.html#project_start">Información del Proyecto</a></p>
+<p>Intel, el fabricante de los procesadores de arquitectura IA-32, ha decidido mantener compatibilidad hacia atrás para permitir que el código desarrollado para procesadores desde 386 o 486 pueda ser ejecutado en procesadores actuales. Esto implica una serie de decisiones de diseño en la estructura interna y en el funcionamiento de los procesadores, que en ciertas ocasiones limita a los programas pero que también ofrece una ventaja competitiva relacionada con la adopción masiva de los procesadores y la posibilidad de ejecutar programas creados para procesadores anteriores en las versiones actuales sin virtualmente ninguna modificación.</p>
+<p>Cada procesador actual cuenta con algunas o todas las características de la arquitectura IA-32. Por ejemplo, algunos procesadores actuales poseen múltiples núcleos con registros de 32 bits o múltiples núcleos con registros de 64 bits. Un procesador Intel Core 2 Duo cuenta con dos núcleos con registros de 32 bits, y un procesador Xeon generalmente incluye varios núcleos con registros de 64 bits. La generación actual de procesadores Intel Core (Core I3, Core I5 y Core I7) implementan arquitecturas de 2, 4 y hasta 6 núcleos con registros de 64 bits.</p>
+<p>No obstante, para mantener la compatibilidad hacia atrás, todos los procesadores inician en un modo de operación denominado Modo Real (también llamado Modo de Direcciones Real o Real Addres Mode), en el cual se comportan como un procesador 8086 con algunas extensiones que le permiten habilitar el modo de operación en el cual aprovechan todas sus características.</p>
+<p>El conocimiento de la arquitectura IA-32 ofrece una posibilidad sin igual para el aprendizaje de la programación básica de una amplia gama de procesadores, desde la programación en modo real hasta la programación en modo protegido, usado por los Sistemas Operativos Modernos.</p>
+<p>En los siguientes apartados se presentan los conceptos básicos relacionados con la programación de procesadores de la Arquitectura IA-32</p>
+<ul>
+<li><a class="el" href="../../d3/d4c/ia32_operation_modes.html">Modos de Operación de procesadores IA-32</a></li>
+<li><a class="el" href="../../d4/de9/ia32_memory_organization.html">Organización de Memoria en Procesadores IA-32</a></li>
+<li><a class="el" href="../../d0/d4f/ia32_execution_environment.html">Entorno de ejecución en IA-32</a></li>
+<li><a class="el" href="../../d0/dec/protected_mode_setup.html">Paso a Modo Protegido en Procesadores IA-32</a></li>
+<li><a class="el" href="../../d8/dfe/gdt_page.html">Tabla Global de Descriptores - GDT</a></li>
+<li><a class="el" href="../../d9/d84/idt_page.html">IDT y Gestión de Interrupciones</a></li>
+<li><a class="el" href="../../d1/d75/bios_and_booting.html">BIOS y Arranque del Computador</a></li>
+<li><a class="el" href="../../d8/d4b/ia32_assembly_basics.html">Ensamblador para procesadores IA-32</a><ul>
+<li><a class="el" href="../../da/de6/ia32_using_the_stack.html">Uso de la Pila en IA-32</a></li>
+<li><a class="el" href="../../d5/d02/ia32_using_routines.html">Creación y uso de rutinas</a></li>
+<li><a class="el" href="../../d1/db1/ia32_using_bios_services.html">Uso de los servicios de la BIOS</a></li>
+</ul>
+</li>
+</ul>
+<dl class="section see"><dt>Ver también</dt><dd><a href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html">http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html</a> (Enlace externo) </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

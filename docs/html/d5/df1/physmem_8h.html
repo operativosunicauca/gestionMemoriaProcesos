@@ -1,0 +1,997 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo include/physmem.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Estructuras de datos</a> &#124;
+<a href="#define-members">'defines'</a> &#124;
+<a href="#typedef-members">'typedefs'</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo physmem.h<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contiene las definiciones relacionadas con las gestión de memoria del kernel.  
+<a href="#details">Más...</a></p>
+
+<p><a href="../../d5/df1/physmem_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Estructuras de datos</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da1/structnode.html">node</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura que permite crear unidades o regiones.  <a href="../../d5/da1/structnode.html#details">Más...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura que maneja las unidades o regiones.  <a href="../../d7/d99/structmemory__list.html#details">Más...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+'defines'</h2></td></tr>
+<tr class="memitem:abd03c49c90122f4dc22745979c5db642"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#abd03c49c90122f4dc22745979c5db642">MEMORY_UNIT_SIZE</a>&#160;&#160;&#160;4096</td></tr>
+<tr class="memdesc:abd03c49c90122f4dc22745979c5db642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tamaño de la unidad de asignación de memoria.  <a href="#abd03c49c90122f4dc22745979c5db642">Más...</a><br/></td></tr>
+<tr class="separator:abd03c49c90122f4dc22745979c5db642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fde4dbd3bbdb9a44b67a032f162bb6e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a1fde4dbd3bbdb9a44b67a032f162bb6e">MEMORY_UNITS</a>&#160;&#160;&#160;(<a class="el" href="../../dd/dcb/physmem_8c.html#a3b7c9b85fabf9cce726d13c5974b4797">memory_length</a> / <a class="el" href="../../d5/df1/physmem_8h.html#abd03c49c90122f4dc22745979c5db642">MEMORY_UNIT_SIZE</a>)</td></tr>
+<tr class="memdesc:a1fde4dbd3bbdb9a44b67a032f162bb6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número de unidades en la memoria disponible.  <a href="#a1fde4dbd3bbdb9a44b67a032f162bb6e">Más...</a><br/></td></tr>
+<tr class="separator:a1fde4dbd3bbdb9a44b67a032f162bb6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af654f7f40cf60edfba570a6411640cd4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#af654f7f40cf60edfba570a6411640cd4">KERNEL_HEAP_SIZE</a>&#160;&#160;&#160;0x100000</td></tr>
+<tr class="memdesc:af654f7f40cf60edfba570a6411640cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tamanio en bytes del HEAP del kernel, 1 MB.  <a href="#af654f7f40cf60edfba570a6411640cd4">Más...</a><br/></td></tr>
+<tr class="separator:af654f7f40cf60edfba570a6411640cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+'typedefs'</h2></td></tr>
+<tr class="memitem:af4aeda155dbe167f1c1cf38cb65bf324"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d5/da1/structnode.html">node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#af4aeda155dbe167f1c1cf38cb65bf324">node</a></td></tr>
+<tr class="memdesc:af4aeda155dbe167f1c1cf38cb65bf324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura que permite crear unidades o regiones.  <a href="#af4aeda155dbe167f1c1cf38cb65bf324">Más...</a><br/></td></tr>
+<tr class="separator:af4aeda155dbe167f1c1cf38cb65bf324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeed645bbf6d53327dddcdee4dcc0f427"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a></td></tr>
+<tr class="separator:aeed645bbf6d53327dddcdee4dcc0f427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2958b1a91d28588d354366c7c8b6ca0"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#ae2958b1a91d28588d354366c7c8b6ca0">memory_list</a></td></tr>
+<tr class="memdesc:ae2958b1a91d28588d354366c7c8b6ca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura que maneja las unidades o regiones.  <a href="#ae2958b1a91d28588d354366c7c8b6ca0">Más...</a><br/></td></tr>
+<tr class="separator:ae2958b1a91d28588d354366c7c8b6ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:af711637f21461ed6252595238aa52983"><td class="memItemLeft" align="right" valign="top">static __inline__ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#af711637f21461ed6252595238aa52983">round_down_to_memory_unit</a> (addr)</td></tr>
+<tr class="memdesc:af711637f21461ed6252595238aa52983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que redondea una dirección de memoria a la dirección más cercana por debajo que sea múltiplo de MEMORY_UNIT_SIZE.  <a href="#af711637f21461ed6252595238aa52983">Más...</a><br/></td></tr>
+<tr class="separator:af711637f21461ed6252595238aa52983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04bb1a508cbed0aa2b632fcbb089c597"><td class="memItemLeft" align="right" valign="top">static __inline__ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a04bb1a508cbed0aa2b632fcbb089c597">round_up_to_memory_unit</a> (addr)</td></tr>
+<tr class="memdesc:a04bb1a508cbed0aa2b632fcbb089c597"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que redondea una dirección de memoria a la dirección más cercana por encima que sea múltiplo de MEMORY_UNIT_SIZE.  <a href="#a04bb1a508cbed0aa2b632fcbb089c597">Más...</a><br/></td></tr>
+<tr class="separator:a04bb1a508cbed0aa2b632fcbb089c597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d6d6d860a3dd67eb762ee84a2a8368c"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a6d6d6d860a3dd67eb762ee84a2a8368c">kmalloc</a> (unsigned int size)</td></tr>
+<tr class="memdesc:a6d6d6d860a3dd67eb762ee84a2a8368c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solicita asignacion de memoria dentro del heap.  <a href="#a6d6d6d860a3dd67eb762ee84a2a8368c">Más...</a><br/></td></tr>
+<tr class="separator:a6d6d6d860a3dd67eb762ee84a2a8368c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a069f85a5001d71bc44d8be6532a4e432"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a069f85a5001d71bc44d8be6532a4e432">kfree</a> (void *ptr)</td></tr>
+<tr class="memdesc:a069f85a5001d71bc44d8be6532a4e432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solicita liberar una region de memoria dentro del heap.  <a href="#a069f85a5001d71bc44d8be6532a4e432">Más...</a><br/></td></tr>
+<tr class="separator:a069f85a5001d71bc44d8be6532a4e432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8950a0a5d1ef2c64d6d99cbb29222803"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a8950a0a5d1ef2c64d6d99cbb29222803">setup_memory</a> (void)</td></tr>
+<tr class="memdesc:a8950a0a5d1ef2c64d6d99cbb29222803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina inicializa el mapa de bits de memoria, a partir de la informacion obtenida del GRUB.  <a href="#a8950a0a5d1ef2c64d6d99cbb29222803">Más...</a><br/></td></tr>
+<tr class="separator:a8950a0a5d1ef2c64d6d99cbb29222803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe29acb95fb642b1d6639f7d3593d201"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#afe29acb95fb642b1d6639f7d3593d201">allocate_unit</a> ()</td></tr>
+<tr class="memdesc:afe29acb95fb642b1d6639f7d3593d201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca una unidad libre dentro del mapa de bits de memoria.  <a href="#afe29acb95fb642b1d6639f7d3593d201">Más...</a><br/></td></tr>
+<tr class="separator:afe29acb95fb642b1d6639f7d3593d201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefa6e121afc225468bc3b136428552e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#aefa6e121afc225468bc3b136428552e6">allocate_unit_region</a> (unsigned int length)</td></tr>
+<tr class="memdesc:aefa6e121afc225468bc3b136428552e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca una región de memoria contigua libre dentro del mapa de bits de memoria.  <a href="#aefa6e121afc225468bc3b136428552e6">Más...</a><br/></td></tr>
+<tr class="separator:aefa6e121afc225468bc3b136428552e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad37fdd7c43e1092a00fe53d8eca2a4f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#ad37fdd7c43e1092a00fe53d8eca2a4f9">free_region</a> (unsigned int start_addr, unsigned int length)</td></tr>
+<tr class="memdesc:ad37fdd7c43e1092a00fe53d8eca2a4f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite liberar una región de memoria.  <a href="#ad37fdd7c43e1092a00fe53d8eca2a4f9">Más...</a><br/></td></tr>
+<tr class="separator:ad37fdd7c43e1092a00fe53d8eca2a4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec0ffbc2b9c56d76912e39c2008bab66"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#aec0ffbc2b9c56d76912e39c2008bab66">create_memory_list</a> ()</td></tr>
+<tr class="memdesc:aec0ffbc2b9c56d76912e39c2008bab66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite crear la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> vacia.  <a href="#aec0ffbc2b9c56d76912e39c2008bab66">Más...</a><br/></td></tr>
+<tr class="separator:aec0ffbc2b9c56d76912e39c2008bab66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab6a59fafed2782072f6d7f790e2a61d"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#aab6a59fafed2782072f6d7f790e2a61d">inicializar_memoria_disponible</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *, unsigned int, unsigned int)</td></tr>
+<tr class="memdesc:aab6a59fafed2782072f6d7f790e2a61d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite crear la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> con el numero de undades disponobles para asignar.  <a href="#aab6a59fafed2782072f6d7f790e2a61d">Más...</a><br/></td></tr>
+<tr class="separator:aab6a59fafed2782072f6d7f790e2a61d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac541ca4737fd15ac73fc4d55907f36a5"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#ac541ca4737fd15ac73fc4d55907f36a5">create_node</a> (char, unsigned int, unsigned int)</td></tr>
+<tr class="memdesc:ac541ca4737fd15ac73fc4d55907f36a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite crear una unidad o region.  <a href="#ac541ca4737fd15ac73fc4d55907f36a5">Más...</a><br/></td></tr>
+<tr class="separator:ac541ca4737fd15ac73fc4d55907f36a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21baf943b2f9352509a531b6206fbd9f"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a21baf943b2f9352509a531b6206fbd9f">push_front</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *, <a class="el" href="../../d5/da1/structnode.html">node</a> *)</td></tr>
+<tr class="memdesc:a21baf943b2f9352509a531b6206fbd9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite asignar al frente una unidad o región nueva a la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>.  <a href="#a21baf943b2f9352509a531b6206fbd9f">Más...</a><br/></td></tr>
+<tr class="separator:a21baf943b2f9352509a531b6206fbd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a251f2258231eefe0ad419b73d0fbbba2"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a251f2258231eefe0ad419b73d0fbbba2">push_back</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *, <a class="el" href="../../d5/da1/structnode.html">node</a> *)</td></tr>
+<tr class="memdesc:a251f2258231eefe0ad419b73d0fbbba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite asignar al final una unidad o región nueva a la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>.  <a href="#a251f2258231eefe0ad419b73d0fbbba2">Más...</a><br/></td></tr>
+<tr class="separator:a251f2258231eefe0ad419b73d0fbbba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaccb21f57209d357608ab633a27e8bb"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#afaccb21f57209d357608ab633a27e8bb">pop_front</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *)</td></tr>
+<tr class="memdesc:afaccb21f57209d357608ab633a27e8bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite actualizar la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> removiendo al frente una unidad o region que ha sido fusionada.  <a href="#afaccb21f57209d357608ab633a27e8bb">Más...</a><br/></td></tr>
+<tr class="separator:afaccb21f57209d357608ab633a27e8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f9ed58c02514095b8afe1320b293fbb"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a7f9ed58c02514095b8afe1320b293fbb">pop_back</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *)</td></tr>
+<tr class="memdesc:a7f9ed58c02514095b8afe1320b293fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite actualizar la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> removiendo al final una unidad o region que ha sido fusionada.  <a href="#a7f9ed58c02514095b8afe1320b293fbb">Más...</a><br/></td></tr>
+<tr class="separator:a7f9ed58c02514095b8afe1320b293fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f2d8be1a11543ee8d99cc03bf77aaba"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a6f2d8be1a11543ee8d99cc03bf77aaba">head</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *)</td></tr>
+<tr class="memdesc:a6f2d8be1a11543ee8d99cc03bf77aaba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite Extraer la cabeza de la lista para cualquier caso que requiera ser iterada.  <a href="#a6f2d8be1a11543ee8d99cc03bf77aaba">Más...</a><br/></td></tr>
+<tr class="separator:a6f2d8be1a11543ee8d99cc03bf77aaba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2b96c57dcf1283789c7031f319f7715"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#ac2b96c57dcf1283789c7031f319f7715">next</a> (<a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a>)</td></tr>
+<tr class="memdesc:ac2b96c57dcf1283789c7031f319f7715"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite permite recorrer la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> a partir de una unidad o region.  <a href="#ac2b96c57dcf1283789c7031f319f7715">Más...</a><br/></td></tr>
+<tr class="separator:ac2b96c57dcf1283789c7031f319f7715"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdef7a1fd863a6d3770c1268cb06add3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#acdef7a1fd863a6d3770c1268cb06add3">main</a> ()</td></tr>
+<tr class="memdesc:acdef7a1fd863a6d3770c1268cb06add3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite imprimir los datos de la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>.  <a href="#acdef7a1fd863a6d3770c1268cb06add3">Más...</a><br/></td></tr>
+<tr class="separator:acdef7a1fd863a6d3770c1268cb06add3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0764342c13c1a182cc07d732f3e5738c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a0764342c13c1a182cc07d732f3e5738c">free_unit</a> (unsigned int)</td></tr>
+<tr class="memdesc:a0764342c13c1a182cc07d732f3e5738c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite liberar una unidad de memoria.  <a href="#a0764342c13c1a182cc07d732f3e5738c">Más...</a><br/></td></tr>
+<tr class="separator:a0764342c13c1a182cc07d732f3e5738c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a976cadc7662d76d7023129c66e3a2fd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a976cadc7662d76d7023129c66e3a2fd6">asignar_unidades</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *, unsigned int)</td></tr>
+<tr class="memdesc:a976cadc7662d76d7023129c66e3a2fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite asignar unidades en la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>.  <a href="#a976cadc7662d76d7023129c66e3a2fd6">Más...</a><br/></td></tr>
+<tr class="separator:a976cadc7662d76d7023129c66e3a2fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37faf0202d020fc6220be7d802cb6f04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a37faf0202d020fc6220be7d802cb6f04">unirNodosLibres</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *, <a class="el" href="../../d5/da1/structnode.html">node</a> *)</td></tr>
+<tr class="memdesc:a37faf0202d020fc6220be7d802cb6f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite fusionar nodos libres y adyacentes.  <a href="#a37faf0202d020fc6220be7d802cb6f04">Más...</a><br/></td></tr>
+<tr class="separator:a37faf0202d020fc6220be7d802cb6f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Contiene las definiciones relacionadas con las gestión de memoria del kernel. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../d5/df1/physmem_8h_source.html">physmem.h</a>.</p>
+</div><h2 class="groupheader">Documentación de los 'defines'</h2>
+<a class="anchor" id="af654f7f40cf60edfba570a6411640cd4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define KERNEL_HEAP_SIZE&#160;&#160;&#160;0x100000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tamanio en bytes del HEAP del kernel, 1 MB. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/df1/physmem_8h_source.html#l00044">44</a> del archivo <a class="el" href="../../d5/df1/physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd03c49c90122f4dc22745979c5db642"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEMORY_UNIT_SIZE&#160;&#160;&#160;4096</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tamaño de la unidad de asignación de memoria. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/df1/physmem_8h_source.html#l00014">14</a> del archivo <a class="el" href="../../d5/df1/physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1fde4dbd3bbdb9a44b67a032f162bb6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEMORY_UNITS&#160;&#160;&#160;(<a class="el" href="../../dd/dcb/physmem_8c.html#a3b7c9b85fabf9cce726d13c5974b4797">memory_length</a> / <a class="el" href="../../d5/df1/physmem_8h.html#abd03c49c90122f4dc22745979c5db642">MEMORY_UNIT_SIZE</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Número de unidades en la memoria disponible. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/df1/physmem_8h_source.html#l00017">17</a> del archivo <a class="el" href="../../d5/df1/physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de los 'typedefs'</h2>
+<a class="anchor" id="ae2958b1a91d28588d354366c7c8b6ca0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a>  <a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estructura que maneja las unidades o regiones. </p>
+
+</div>
+</div>
+<a class="anchor" id="af4aeda155dbe167f1c1cf38cb65bf324"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="../../d5/da1/structnode.html">node</a> <a class="el" href="../../d5/da1/structnode.html">node</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Estructura que permite crear unidades o regiones. </p>
+
+</div>
+</div>
+<a class="anchor" id="aeed645bbf6d53327dddcdee4dcc0f427"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="../../d5/da1/structnode.html">node</a>* <a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d5/df1/physmem_8h_source.html#l00098">98</a> del archivo <a class="el" href="../../d5/df1/physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="afe29acb95fb642b1d6639f7d3593d201"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void allocate_unit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Busca una unidad libre dentro del mapa de bits de memoria. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Dirección de inicio de la unidad en memoria. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00276">276</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aefa6e121afc225468bc3b136428552e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void allocate_unit_region </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>length</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Busca una región de memoria contigua libre dentro del mapa de bits de memoria. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>Tamaño de la región de memoria a asignar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Dirección de inicio de la región en memoria. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00296">296</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a976cadc7662d76d7023129c66e3a2fd6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void asignar_unidades </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>int</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permite asignar unidades en la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
+    <tr><td class="paramname">length</td><td>Tamaño de unidades a asignar. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00563">563</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aec0ffbc2b9c56d76912e39c2008bab66"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ <a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a>* create_memory_list </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permite crear la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> vacia. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac541ca4737fd15ac73fc4d55907f36a5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ <a class="el" href="../../d5/da1/structnode.html">node</a>* create_node </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>int</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>int</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permite crear una unidad o region. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>estado de la unidad o region libre:'L' o usada: 'U'. </td></tr>
+    <tr><td class="paramname">start</td><td>Direccion de la unidad o region trabajado. </td></tr>
+    <tr><td class="paramname">length</td><td>Tamaño de la unidad o region trabajado. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad37fdd7c43e1092a00fe53d8eca2a4f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_region </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>start_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permite liberar una región de memoria. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_addr</td><td>Dirección de memoria del inicio de la región a liberar </td></tr>
+    <tr><td class="paramname">length</td><td>Tamaño de la región a liberar</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Permite liberar una región de memoria.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_addr</td><td>Dirección de memoria del inicio de la región a liberar </td></tr>
+    <tr><td class="paramname">length</td><td>Tamaño de la región a liberar </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00381">381</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0764342c13c1a182cc07d732f3e5738c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_unit </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>start_dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permite liberar una unidad de memoria. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Dirección de memoria dentro del área a liberar. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00332">332</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f2d8be1a11543ee8d99cc03bf77aaba"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ <a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a> head </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permite Extraer la cabeza de la lista para cualquier caso que requiera ser iterada. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aab6a59fafed2782072f6d7f790e2a61d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void inicializar_memoria_disponible </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>int</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>int</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permite crear la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> con el numero de undades disponobles para asignar. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_addr</td><td>Dirección de memoria del inicio de la región libre </td></tr>
+    <tr><td class="paramname">length</td><td>Tamaño region o numero de unidades libres. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a069f85a5001d71bc44d8be6532a4e432"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void kfree </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Solicita liberar una region de memoria dentro del heap. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Puntero a la base de la region de memoria a liberar </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00410">410</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d6d6d860a3dd67eb762ee84a2a8368c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* kmalloc </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Solicita asignacion de memoria dentro del heap. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Tamaño requerido </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Puntero a la base de la region de memoria asignada, 0 si no es posible asignar memoria. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00402">402</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acdef7a1fd863a6d3770c1268cb06add3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permite imprimir los datos de la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>. </p>
+
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00554">554</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac2b96c57dcf1283789c7031f319f7715"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ <a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a> next </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permite permite recorrer la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> a partir de una unidad o region. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7f9ed58c02514095b8afe1320b293fbb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void* pop_back </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permite actualizar la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> removiendo al final una unidad o region que ha sido fusionada. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="afaccb21f57209d357608ab633a27e8bb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void* pop_front </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permite actualizar la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> removiendo al frente una unidad o region que ha sido fusionada. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a251f2258231eefe0ad419b73d0fbbba2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void* push_back </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permite asignar al final una unidad o región nueva a la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
+    <tr><td class="paramname">nodo</td><td>Unidad o región asignada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a21baf943b2f9352509a531b6206fbd9f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void* push_front </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Permite asignar al frente una unidad o región nueva a la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
+    <tr><td class="paramname">nodo</td><td>Unidad o región asignada. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af711637f21461ed6252595238aa52983"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ unsigned int round_down_to_memory_unit </td>
+          <td>(</td>
+          <td class="paramtype">addr&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Función que redondea una dirección de memoria a la dirección más cercana por debajo que sea múltiplo de MEMORY_UNIT_SIZE. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/df1/physmem_8h_source.html#l00021">21</a> del archivo <a class="el" href="../../d5/df1/physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a04bb1a508cbed0aa2b632fcbb089c597"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ unsigned int round_up_to_memory_unit </td>
+          <td>(</td>
+          <td class="paramtype">addr&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Función que redondea una dirección de memoria a la dirección más cercana por encima que sea múltiplo de MEMORY_UNIT_SIZE. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/df1/physmem_8h_source.html#l00031">31</a> del archivo <a class="el" href="../../d5/df1/physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8950a0a5d1ef2c64d6d99cbb29222803"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup_memory </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina inicializa el mapa de bits de memoria, a partir de la informacion obtenida del GRUB. </p>
+<p>Existe un mapa de memoria válido creado por GRUB?</p>
+<p>Verificar si la región de memoria cumple con las condiciones para ser considerada "memoria disponible".</p>
+<p>Importante: Si se supone un procesador de 32 bits, los valores de la parte alta de base y length (base_addr_high y length_high) son cero. Por esta razon se pueden ignorar y solo se usan los 32 bits menos significativos de base y length.</p>
+<p>Para que una region de memoria sea considerada "memoria
+disponible", debe cumplir con las siguientes condiciones:</p>
+<ul>
+<li>Estar ubicada en una posicion de memoria mayor o igual que 1 MB.</li>
+<li>Tener su atributo 'type' en 1 = memoria disponible.</li>
+</ul>
+
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00054">54</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a37faf0202d020fc6220be7d802cb6f04"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void unirNodosLibres </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permite fusionar nodos libres y adyacentes. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
+    <tr><td class="paramname">nodo</td><td>unidad o región que se acaba de liberar. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00618">618</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

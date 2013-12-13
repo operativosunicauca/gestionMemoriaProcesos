@@ -1,0 +1,568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo src/kmm.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo kmm.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Este archivo implementa las primitivas para la gestion de memoria.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="../../d3/d9c/kmm_8h_source.html">kmm.h</a>&gt;</code><br/>
+</div>
+<p><a href="../../d8/d6a/kmm_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a7047d5d26c03177a3907dccea3deb90b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6a/kmm_8c.html#a7047d5d26c03177a3907dccea3deb90b">compare_memreg_header_t</a> (<a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *a, <a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *b)</td></tr>
+<tr class="memdesc:a7047d5d26c03177a3907dccea3deb90b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para comparar dos regiones de memoria.  <a href="#a7047d5d26c03177a3907dccea3deb90b">Más...</a><br/></td></tr>
+<tr class="separator:a7047d5d26c03177a3907dccea3deb90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefa8f99203a1f0ec054bd74defd31d10"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6a/kmm_8c.html#aefa8f99203a1f0ec054bd74defd31d10">equals_memreg_header_t</a> (<a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *a, void *b)</td></tr>
+<tr class="memdesc:aefa8f99203a1f0ec054bd74defd31d10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para comparar una región de memoria con un escalar.  <a href="#aefa8f99203a1f0ec054bd74defd31d10">Más...</a><br/></td></tr>
+<tr class="separator:aefa8f99203a1f0ec054bd74defd31d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51139e57f788c33e8e3135195204ec38"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6a/kmm_8c.html#a51139e57f788c33e8e3135195204ec38">IMPLEMENT_GENERIC_LIST_TYPE</a> (<a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a>, <a class="el" href="../../d9/dd0/structmemreg__header.html">memreg_header</a>)</td></tr>
+<tr class="memdesc:a51139e57f788c33e8e3135195204ec38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementación de las primitivas para gestionar listas de tipo memreg_header_t.  <a href="#a51139e57f788c33e8e3135195204ec38">Más...</a><br/></td></tr>
+<tr class="separator:a51139e57f788c33e8e3135195204ec38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7329b26f949fd0f1215f1581441b5e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6a/kmm_8c.html#ab7329b26f949fd0f1215f1581441b5e6">setup_heap</a> (void *ptr, unsigned int <a class="el" href="../../dc/ddb/pm_8h.html#ab50c2dcb9d4a34ea1a5ac52272502379">limit</a>)</td></tr>
+<tr class="memdesc:ab7329b26f949fd0f1215f1581441b5e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina se encarga de inicializar el area de memoria para asignacion dinamica, y las estructuras de datos requeridas para su gestion.  <a href="#ab7329b26f949fd0f1215f1581441b5e6">Más...</a><br/></td></tr>
+<tr class="separator:ab7329b26f949fd0f1215f1581441b5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f4e7166994b33d6635eb65ccf4ec301"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6a/kmm_8c.html#a4f4e7166994b33d6635eb65ccf4ec301">create_heap</a> (unsigned int <a class="el" href="../../dc/ddb/pm_8h.html#a2e013c2c6e8010c8116c6f56813df57b">base</a>, unsigned int <a class="el" href="../../dc/ddb/pm_8h.html#ab50c2dcb9d4a34ea1a5ac52272502379">limit</a>)</td></tr>
+<tr class="memdesc:a4f4e7166994b33d6635eb65ccf4ec301"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite crear una region de memoria para asignacion dinamica. Importante: Esta rutina asume que la region de memoria que se desea crear esta disponible. Si no se utiliza adecuadamente, puede danar regiones de memoria creadas anteriormente.  <a href="#a4f4e7166994b33d6635eb65ccf4ec301">Más...</a><br/></td></tr>
+<tr class="separator:a4f4e7166994b33d6635eb65ccf4ec301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acae6e3e240fb7587af9064030f554bd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6a/kmm_8c.html#acae6e3e240fb7587af9064030f554bd4">expand_heap</a> (<a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *<a class="el" href="../../db/dc3/structheap.html">heap</a>, unsigned int <a class="el" href="../../dc/ddb/pm_8h.html#ab50c2dcb9d4a34ea1a5ac52272502379">limit</a>)</td></tr>
+<tr class="memdesc:acae6e3e240fb7587af9064030f554bd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función privada para expandir el heap en un tamaño especificado.  <a href="#acae6e3e240fb7587af9064030f554bd4">Más...</a><br/></td></tr>
+<tr class="separator:acae6e3e240fb7587af9064030f554bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a627759b7f2cf08b30b514d5a1ee0f01c"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6a/kmm_8c.html#a627759b7f2cf08b30b514d5a1ee0f01c">alloc_from_heap</a> (<a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *<a class="el" href="../../db/dc3/structheap.html">heap</a>, unsigned int size)</td></tr>
+<tr class="memdesc:a627759b7f2cf08b30b514d5a1ee0f01c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solicita la asignacion de memoria dentro de un heap. Primero se busca dentro de las regiones libres, una que tenga un tamaño cercano al buscado. Si no existe una region, expande el heap. Si existe suficiente espacio adicional al buscado dentro de la region, esta region se divide en dos: una region asignada, que se retorna, y una region libre con el espacio sobrante.  <a href="#a627759b7f2cf08b30b514d5a1ee0f01c">Más...</a><br/></td></tr>
+<tr class="separator:a627759b7f2cf08b30b514d5a1ee0f01c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c3b94aa6612d6fb3fdd168e159b2ea6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6a/kmm_8c.html#a5c3b94aa6612d6fb3fdd168e159b2ea6">free_from_heap</a> (<a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *<a class="el" href="../../db/dc3/structheap.html">heap</a>, <a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *header)</td></tr>
+<tr class="memdesc:a5c3b94aa6612d6fb3fdd168e159b2ea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Libera una region de memoria dentro de un heap.  <a href="#a5c3b94aa6612d6fb3fdd168e159b2ea6">Más...</a><br/></td></tr>
+<tr class="separator:a5c3b94aa6612d6fb3fdd168e159b2ea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a047d6ffbb98be27d82629a1c95f5b9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6a/kmm_8c.html#a8a047d6ffbb98be27d82629a1c95f5b9">memreg_is_valid</a> (<a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *<a class="el" href="../../db/dc3/structheap.html">heap</a>, <a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *header)</td></tr>
+<tr class="memdesc:a8a047d6ffbb98be27d82629a1c95f5b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determina si una region de memoria dada es valida dentro de un heap.  <a href="#a8a047d6ffbb98be27d82629a1c95f5b9">Más...</a><br/></td></tr>
+<tr class="separator:a8a047d6ffbb98be27d82629a1c95f5b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73b5907306b6650c1756577516f69050"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6a/kmm_8c.html#a73b5907306b6650c1756577516f69050">print_memory_region</a> (<a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *header)</td></tr>
+<tr class="memdesc:a73b5907306b6650c1756577516f69050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime la informacion de una region de memoria.  <a href="#a73b5907306b6650c1756577516f69050">Más...</a><br/></td></tr>
+<tr class="separator:a73b5907306b6650c1756577516f69050"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a790b0ab8d9b9e632a1b4b6d12ef977ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d6a/kmm_8c.html#a790b0ab8d9b9e632a1b4b6d12ef977ce">print_heap</a> (<a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *<a class="el" href="../../db/dc3/structheap.html">heap</a>)</td></tr>
+<tr class="memdesc:a790b0ab8d9b9e632a1b4b6d12ef977ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime el estado de un heap, incluyendo las regiones que se encuentren definidas.  <a href="#a790b0ab8d9b9e632a1b4b6d12ef977ce">Más...</a><br/></td></tr>
+<tr class="separator:a790b0ab8d9b9e632a1b4b6d12ef977ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Este archivo implementa las primitivas para la gestion de memoria. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../d8/d6a/kmm_8c_source.html">kmm.c</a>.</p>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="a627759b7f2cf08b30b514d5a1ee0f01c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* alloc_from_heap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *&#160;</td>
+          <td class="paramname"><em>heap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Solicita la asignacion de memoria dentro de un heap. Primero se busca dentro de las regiones libres, una que tenga un tamaño cercano al buscado. Si no existe una region, expande el heap. Si existe suficiente espacio adicional al buscado dentro de la region, esta region se divide en dos: una region asignada, que se retorna, y una region libre con el espacio sobrante. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">heap</td><td>Heap del cual se desea obtener el espacio </td></tr>
+    <tr><td class="paramname">size</td><td>Cantidad de memoria a asignar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Apuntador a la region de memoria asignada. 0 si no se puede asignar memoria.</dd></dl>
+<pre class="fragment">Ejemplo:
+     Al solicitar 5M de memoria como no hay una región con la cantidad
+     disponible, entonces la función retornara 0 indicando que no se encuentran regiones con memoria suficiente
+
+                      heap
+     -------     -------     -------     -------     -------
+     |     |     |     |     |     |     |     |     |     |
+     | 36K |-----| 3M  |-----| 6M  |-----| 1M  |-----| 15K |
+     |Libre|     |Usado|     |Usado|     |Libre|     |Usado|
+     -------     -------     -------     -------     -------
+
+
+ * </pre> 
+<p>Definición en la línea <a class="el" href="../../d8/d6a/kmm_8c_source.html#l00232">232</a> del archivo <a class="el" href="../../d8/d6a/kmm_8c_source.html">kmm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7047d5d26c03177a3907dccea3deb90b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int compare_memreg_header_t </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función para comparar dos regiones de memoria. </p>
+
+<p>Definición en la línea <a class="el" href="../../d8/d6a/kmm_8c_source.html#l00013">13</a> del archivo <a class="el" href="../../d8/d6a/kmm_8c_source.html">kmm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4f4e7166994b33d6635eb65ccf4ec301"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a>* create_heap </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>limit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permite crear una region de memoria para asignacion dinamica. Importante: Esta rutina asume que la region de memoria que se desea crear esta disponible. Si no se utiliza adecuadamente, puede danar regiones de memoria creadas anteriormente. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>Dirección lineal de inicio del heap </td></tr>
+    <tr><td class="paramname">limit</td><td>Tamaño de la región de memoria para asignación dinámica. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Apuntador al nuevo heap <pre class="fragment">Ejemplo:
+     Se quiere crear un una region de memoria, en este caso si hay
+     memoria disponible,se solicita 1M, inicia en una base BASE.
+     Inicialmente se encuentra asi:
+
+     -------     -------     -------     -------     -------
+     |     |     |     |     |     |     |     |     |     |
+     | 36K |-----| 3M  |-----| 6M  |-----| 1M  |-----| 15K |
+     |Libre|     |Usado|     |Usado|     |Libre|     |Usado|
+     -------     -------     -------     -------     -------
+     Luego:
+     -------     -------     -------     -------     -------
+     |     |     |     |     |     |     |     |     |     |
+     | 36K |-----| 3M  |-----| 6M  |-----| 1M  |-----| 15K |
+     |Libre|     |Usado|     |Usado|     |Usado|     |Usado|
+     -------     -------     -------     -------     -------</pre> </dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>Esta rutina asume que la region de memoria especificada es válida, y que no está sobreescribiendo otro heap. Al crear el heap se destruye la información que existe en el inicio de la region de memoria especificada. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d8/d6a/kmm_8c_source.html#l00078">78</a> del archivo <a class="el" href="../../d8/d6a/kmm_8c_source.html">kmm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aefa8f99203a1f0ec054bd74defd31d10"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int equals_memreg_header_t </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función para comparar una región de memoria con un escalar. </p>
+
+<p>Definición en la línea <a class="el" href="../../d8/d6a/kmm_8c_source.html#l00018">18</a> del archivo <a class="el" href="../../d8/d6a/kmm_8c_source.html">kmm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acae6e3e240fb7587af9064030f554bd4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a>* expand_heap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *&#160;</td>
+          <td class="paramname"><em>heap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>limit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función privada para expandir el heap en un tamaño especificado. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">heap</td><td>Heap que se desea expandir </td></tr>
+    <tr><td class="paramname">limit</td><td>Tamanio a expandir. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Puntero al encabezado de la nueva region de memoria, 0 si no es posible expandir el heap. Esta region de memoria ya se encuentra insertada dentro de la lista de regiones disponibles. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d8/d6a/kmm_8c_source.html#l00151">151</a> del archivo <a class="el" href="../../d8/d6a/kmm_8c_source.html">kmm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5c3b94aa6612d6fb3fdd168e159b2ea6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_from_heap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *&#160;</td>
+          <td class="paramname"><em>heap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *&#160;</td>
+          <td class="paramname"><em>header</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Libera una region de memoria dentro de un heap. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">heap</td><td>Heap de la cual se desea liberar la región </td></tr>
+    <tr><td class="paramname">header</td><td>Apuntador al encabezado de la region de memoria a liberar <pre class="fragment">Ejemplo 1:
+     Se quiere liberar *heap, al invocarse esta llamada:
+
+                              *heap
+     -------     -------     -------     -------     -------
+     |     |     |     |     |     |     |     |     |     |
+     | 36K |-----| 3M  |-----| 6M  |-----| 1M  |-----| 15K |
+     |Libre|     |Usado|     |Usado|     |Libre|     |Usado|
+     -------     -------     -------     -------     -------
+
+
+     Se ha liberado donde apuntaba *heap.
+
+     Ahora, *heap apunta a:
+                              *heap
+     -------     -------     -------     -------
+     |     |     |     |     |     |     |     |
+     | 36K |-----| 3M  |-----| 7M  |-----| 15k |
+     |Libre|     |Usado|     |Libre|     |Usado|
+     -------     -------     -------     -------</pre> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d8/d6a/kmm_8c_source.html#l00436">436</a> del archivo <a class="el" href="../../d8/d6a/kmm_8c_source.html">kmm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51139e57f788c33e8e3135195204ec38"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IMPLEMENT_GENERIC_LIST_TYPE </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/dd0/structmemreg__header.html">memreg_header</a>&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implementación de las primitivas para gestionar listas de tipo memreg_header_t. </p>
+
+</div>
+</div>
+<a class="anchor" id="a8a047d6ffbb98be27d82629a1c95f5b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int memreg_is_valid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *&#160;</td>
+          <td class="paramname"><em>heap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *&#160;</td>
+          <td class="paramname"><em>header</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Determina si una region de memoria dada es valida dentro de un heap. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">heap</td><td>Apuntador al heap en el cual se encuentra la region </td></tr>
+    <tr><td class="paramname">header</td><td>Apuntador al encabezado de la region a validar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>: 1 = region valida, 0 = region no valida </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d8/d6a/kmm_8c_source.html#l00572">572</a> del archivo <a class="el" href="../../d8/d6a/kmm_8c_source.html">kmm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a790b0ab8d9b9e632a1b4b6d12ef977ce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_heap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *&#160;</td>
+          <td class="paramname"><em>heap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime el estado de un heap, incluyendo las regiones que se encuentren definidas. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">heap</td><td>Heap a imprimir </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d8/d6a/kmm_8c_source.html#l00630">630</a> del archivo <a class="el" href="../../d8/d6a/kmm_8c_source.html">kmm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a73b5907306b6650c1756577516f69050"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_memory_region </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d9c/kmm_8h.html#aa0978a988e5a07018b3d2e0841fae7f9">memreg_header_t</a> *&#160;</td>
+          <td class="paramname"><em>header</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imprime la informacion de una region de memoria. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">header</td><td>Apuntador al encabezado de la región de memoria </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d8/d6a/kmm_8c_source.html#l00601">601</a> del archivo <a class="el" href="../../d8/d6a/kmm_8c_source.html">kmm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab7329b26f949fd0f1215f1581441b5e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a>* setup_heap </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>limit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina se encarga de inicializar el area de memoria para asignacion dinamica, y las estructuras de datos requeridas para su gestion. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Puntero al inicio de la memoria disponible para asignacion dinámica </td></tr>
+    <tr><td class="paramname">limit</td><td>Tamaño de la memoria disponible </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Apuntador al heap inicializado. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d8/d6a/kmm_8c_source.html#l00035">35</a> del archivo <a class="el" href="../../d8/d6a/kmm_8c_source.html">kmm.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Paso a Modo Protegido en Procesadores IA-32</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li class="current"><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Paso a Modo Protegido en Procesadores IA-32 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Erwin Meza Vega <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a></dd></dl>
+<p><a class="el" href="../../index.html#project_start">Información del Proyecto</a> : <a class="el" href="../../d8/d50/ia32_intro.html">Programación de procesadores de arquitectura IA-32</a> : Paso a Modo Protegido</p>
+<p>El manual de intel "Intel Architecture Software Developer's
+Manual , Volume 3: System Programming" (Codigo 243192), en su sección 8.8.1 Switching to Protected Mode, especifica el procedimiento requerido para pasar de modo real a modo protegido. Este procedimiento asegura compatibilidad con todos los procesadores Intel de arquitectura IA-32. Los pasos son:</p>
+<ol type="1">
+<li>Deshabilitar las interrupciones por medio de la instruccion CLI<ul>
+<li>No incluido en el manual de Intel: Por razones históricas, cuando el procesador se encuentra en modo real, su línea de direcciones 20 (A20 Gate) se encuentra deshabilitada, lo cual causa que cualquier dirección de memoria mayor a 2^20 (1MB), sea truncada al limite de 1 MB. Debido a que en modo protegido es necesario usar los 32 bits del bus de direcciones para referenciar hasta 2^32 = 4GB de memoria, es necesario habilitar la linea de direcciones A20. Esto se logra por medio del controlador 8042 (teclado), el cual se puede encontrar fisicamente en la board o integrado dentro de su funcionalidad.</li>
+</ul>
+</li>
+<li>Ejecutar LGDT para cargar una tabla global de descriptores (GDT) válida.</li>
+<li>Ejecutar una instruccion MOV para establecer el bit 0 del registro de control CR0 (PE = Protection Enable).</li>
+<li>Inmediatamente después de establecer el bit PE en CR0, se debe realizar un jmp/call para limpiar la cola de pre-fetch. Si se habilitó paginacion (bit PG = Page Enable), las instrucciones MOV y JMP/CALL deberan estar almacenadas en una página cuya dirección virtual sea idéntica a la dirección fisica.</li>
+<li>Si se va a utilizar un LDT, se debe cargar por medio de la instrucción LLDT.</li>
+<li>Ejecutar una instrucción LTR para cargar el Task Register con el selector de la tarea inicial, o de un área de memoria escribible que pueda ser utilizada para almacenar información de TSS en un Task Switch (cambio de contexto).</li>
+<li>Luego de entrar en modo protegido, los registros de segmento (DS, ES, FS, GS y SS) aún contienen los valores que tenían en modo real (el jmp del paso 4 sólo modifica CS). Se deben cargar selectores validos en estos registros, o el selector nulo (0x0).</li>
+<li>Ejecutar LIDT para cargar una Tabla de Descriptores de Interrupcion válida. La IDT deberá contener entradas válidas al menos para las 32 primeras entradas, que corresponden a las excepciones de la arquitectura IA-32.</li>
+<li>Habilitar las interrupciones por medio de la instrucción STI.</li>
+</ol>
+<p>Cuando se usa un cargador compatible con la Especificación Multiboot para cargar el kernel (como GRUB), se cuenta con las siguientes facilidades:</p>
+<ol type="1">
+<li>La línea de direcciones A20 ya se encuentra activada.</li>
+<li>Ya se ha configurado una GDT temporal. La especificación Multiboot insiste en que se deberá configurar y cargar una GDT propia del kernel tan pronto como sea necesario.</li>
+<li>El kernel debe configurar una pila (los registros SS y ESP) tan pronto como sea posible.</li>
+</ol>
+<dl class="section see"><dt>Ver también</dt><dd><a class="el" href="../../d8/dfe/gdt_page.html">Tabla Global de Descriptores - GDT</a> </dd>
+<dd>
+<a href="http://www.gnu.org/software/grub/manual/multiboot/multiboot.html">http://www.gnu.org/software/grub/manual/multiboot/multiboot.html</a> Especificación Multiboot (Enlace externo) </dd>
+<dd>
+<a href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html">http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html</a> (Enlace externo) </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

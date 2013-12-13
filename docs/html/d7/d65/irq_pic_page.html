@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: PIC y Manejo de Solicitudes de Interrupción</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li class="current"><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">PIC y Manejo de Solicitudes de Interrupción </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Esta página explica los conceptos básicos relacionados con el manejo de solicitudes de interrupción de dispositivos de Entrada y Salida (E/S).</p>
+<h1><a class="anchor" id="pic_section"></a>
+PIC - Programmable Interrupt Controller</h1>
+<p>Cuando un dispositivo de Entrada / Salida requiere atención, lanza una Solicitud de Interrupción (Interrupt Request - IRQ). Estas IRQ son recibidas por un dispositivo llamado el PIC PIC (Programmable Interrupt Controller). El trabajo del PIC consiste en recibir y priorizar las IRQ recibidas, y enviar una señal de interrupción a la CPU.</p>
+<p>En la arquitectura IA-32 el sistema cuenta con dos controladores PIC, uno llamado "Maestro" y otro "Esclavo", que se encuentra conectado en cascada al PIC Maestro. Cada PIC puede atender 8 líneas de IRQ, por lo tanto se pueden atender hasta 16 solicitudes.</p>
+<p>Al arranque del sistema, las líneas de interrupción IRQ0 a IRQ 5 se encuentran mapeadas a las interrupciones numero 0x8 a 0xF. Las líneas de interrupción IRQ8 a IRQ 15 se encuentran mapeadas a las interrupciones 0x70 a 0x77.</p>
+<dl class="section user"><dt>Lista de Solicitudes de Interrupción</dt><dd></dd></dl>
+<p>La lista de IRQ es la siguiente:</p>
+<pre class="fragment">                Número de 
+    IRQ        Interrupción   Descripción
+    ----      -------------   ---------------------------------------
+    IRQ0         0x08         Timer 
+    IRQ1         0x09         Teclado 
+    IRQ2         0x0A         Cascade para el PIC esclavo 
+    IRQ3         0x0B         Puerto serial 2 
+    IRQ4         0x0C         Puerto serial 1
+    IRQ5         0x0D         AT: Puerto paralelo2  PS/2 : reservado 
+    IRQ6         0x0E         Diskette 
+    IRQ7         0x0F         Puerto paralelo 1 
+    IRQ8/IRQ0    0x70         Reloj de tiempo real del CMOS 
+    IRQ9/IRQ1    0x71         Refresco vertical de CGA 
+    IRQ10/IRQ2   0x72         Reservado 
+    IRQ11/IRQ3   0x73         Reservado 
+    IRQ12/IRQ4   0x74         AT: reservado. PS/2: disp. auxiliar 
+    IRQ13/IRQ5   0x75         FPU (Unidad de Punto Flotante) 
+    IRQ14/IRQ6   0x76         Controlador de disco duro 
+    IRQ15/IRQ7   0x77         Reservado</pre><p>Al observar la tabla anterior, se hace evidente que existe un problema: las interrupciones 0x8 a 0x0F también son utilizadas para las excepciones de la arquitectura IA-32, ya que éstas siempre ocupan las interrupciones 0-31.</p>
+<p>Por esta razón, es necesario reprogramar el PIC para que las interrupciones de entrada/salida se mapeen después de las excepciones de IA-32, es decir desde la interrupción numero 32 en adelante. A la IRQ 0 (Timer) le corresponderá la interrupción número 32, y asi sucesivamente.</p>
+<h1><a class="anchor" id="pic_8259a"></a>
+Características del PIC</h1>
+<p>Este microcontrolador maneja las interrupciones en la arquitectura IA-32, y posee los siguientes puertos de entrada/salida:</p>
+<pre class="fragment">Puerto  Descripción
+-----   -----------------------------------------
+0x20    Registro de comandos y estado del PIC maestro
+0x21    Registro de máscara de IRQ y datos del PIC maestro
+0xA0    Registro de comandos y datos del PIC esclavo
+0xA1    Registro de máscara de IRQ y datos del PIC esclavo</pre><h1><a class="anchor" id="pic_setup"></a>
+Configuración del PIC</h1>
+<p>La configuración del PIC se realiza por medio de Palabras de Control de Inicialización (Initialization Control Words - ICW).</p>
+<dl class="section user"><dt>Initialization Control Word 1 (ICW1).</dt><dd></dd></dl>
+<p>Esta es la palabra primaria para inicializar el PIC, y su valor debe ser escrito en el registro de comandos del PIC. El formato de la ICW1 es el siguiente:</p>
+<pre class="fragment">Bit  Descripción
+---  -------------------------------------------------------
+0    1 = El PIC debe esperar a ICW 4 durante la inicializacion
+1    1 = Sólo hay un PIC en el sistema. 0 = El PIC se encuentra conectado en
+     cascada con otros PIC, y se debe enviar ICW3 al controlador.
+2    1 = El intervalo de la dirección CALL es 4, 0 = el intervalo es 8.
+  Este bit es ignorado en x86 y su valor por defecto es 0.
+3    1 = Operar en modo disparado por nivel. 0 = Operar en modo disparado por
+     borde.
+4    Bit de inicializacion. 1 = El PIC debe ser inicializado
+5    Dirección del vector de interrupcion (solo para MCS-80/85), en IA-32 = 0
+6    Dirección del vector de interrupcion (solo para MCS-80/85), en IA-32 = 0
+7    Dirección del vector de interrupcion (solo para MCS-80/85), en IA-32 = 0</pre><p>Para inicializar el PIC se requiere que los bits 0 y 4 sean en 1 y los demás tengan valor 0. Esto significa que el valor de ICW1 es 0x11. ICW1 debe ser escrita en el registro de comandos del PIC maestro (dirección de e/s 0x20).</p>
+<p>Se debe recordar que el PIC se encuentra en cascada con otro (PIC esclavo), por lo tanto tambien se debe escribir ICW1 en el registro de comandos del PIC esclavo (dirección de e/s 0xA0).</p>
+<dl class="section user"><dt>Initialization Control Word 2 (ICW2)</dt><dd></dd></dl>
+<p>Esta palabra permite definir la dirección base (inicial) del vector de interrupción (el número) que el PIC va a utilizar. El formato de ICW2 es el siguiente:</p>
+<pre class="fragment">Bit    Descripción
+---    -------------------------
+0-2    Bits 8-10 de la dirección en la IDT en modo MCS-80/85
+3-7    Bits de la dirección en la IDT en modo MCS-80/85. En x86 especifica la
+    dirección del número de interrupción base.</pre><p>Debido a que las primeras 32 entradas están reservadas para las excepciones en la arquitectura IA-32, ICW2 debe contener un valor mayor o igual a 32 (0x20).</p>
+<p>Al utilizar los PIC en cascada, se debe enviar ICW2 a los dos controladores en su registro de datos (0x21 y 0xA1 para maestro y esclavo respectivamente), indicando la dirección en la IDT que va a ser utilizada por cada uno de ellos.</p>
+<p>Las primeras 8 IRQ van a ser manejadas por el PIC maestro y se mapearán en la interrupción 32 (0x20) en adelante. Las siguientes 8 interrupciones las manejará el PIC esclavo, y se mapearán a la interrupción 40 (0x28) en adelante.</p>
+<dl class="section user"><dt>Initialization Control Word 3 (ICW3)</dt><dd></dd></dl>
+<p>Esta palabra permite definir las lineas de IRQ que van a ser compartidas por los PIC maestro y esclavo. Al igual que ICW2, ICW3 también se escribe en los registros de datos de los PIC (0x21 y 0xA1 para el PIC maestro y esclavo, respectivamente).</p>
+<p>Para el PIC maestro, ICW3 tiene el siguiente formato:</p>
+<pre class="fragment">Bits    Descripción
+----    -------------------------------------------------------------
+0-7     Determina la línea de IRQ que está conectada al PIC esclavo</pre><p>El bit 0 representa la línea de IRQ 0, el bit 1 representa la línea de IRQ 1, el bit 2 representa la línea de IRQ 2, y así sucesivamente.</p>
+<p>Dado que en la arquitectura IA-32 el PIC maestro se conecta con el PIC esclavo por medio de la linea IRQ 2, el valor de ICW3 debe ser 00000100 (0x04), que define el bit 3 (correspondiente a la linea IRQ2) en 1.</p>
+<p>Para el PIC esclavo, ICW3 tiene el siguiente formato: </p>
+<pre class="fragment">Bits     Descripción
+---      -------------------------
+0-2      Número de IRQ que el maestro utiliza para conectarse (en notación
+         binaria)
+3-7      Reservado, debe ser 0</pre><p>El número de la linea se debe representar en notación binaria. Por lo tanto, 000 corresponde a la línea de IRQ 0, 001 corresponde a la línea de IRQ 1, 010 corresponde a la línea de IRQ 2, y asi sucesivamente. Debido a que se va a utilizar la línea de IRQ 2, el valor de ICW3 para el PIC esclavo debe ser 0x00000010, (0x02).</p>
+<dl class="section user"><dt>Inicialization Control Word (ICW4)</dt><dd></dd></dl>
+<p>Esta palabra controla el funcionamiento general del PIC. Su formato es el siguiente:</p>
+<pre class="fragment">Bit   Descripción
+---   -----------------------------------
+0     1 = modo x86 0 = modo MCS-80/86
+1     1 = En el ultimo pulso de recepcion de interrupción, el controlador
+      realiza una operacion End Of Interrupt (EOI)
+2     Sólo se debe usar si el bit 3 es 1. Si este bit es 1, selecciona el 
+      buffer maestro.
+3     1= operar en modo de bufer
+4     Special Fully Nested Mode. Usado en sistema con una gran cantidad de
+      controladores.
+5-7   Reservado, debe ser 0.</pre><p>De esta forma, solo es necesario establecer el bit 0 en ICW4 y escribir ICW4 en los registros de datos del PIC maestro y esclavo (0x21 y 0xA1).</p>
+<h1><a class="anchor" id="pic_ocw"></a>
+Palabras de Control de Operación (Operation Control Word)</h1>
+<p>Antes de retornar de la rutina de servicio de interrupción, se debe enviar al PIC maestro (y esclavo si se establece operacion en cascada) una instrucción EOI (End of Interrupt). Existen dos tipos de EOI: Específica y no especifica.</p>
+<p>Al terminar la rutina de servicio de interrupción, se debe envar OCW2 a los registros de comando del PIC maestro y esclavo (0x20 y 0xA0).</p>
+<p>El formato de OCW2 es el siguiente:</p>
+<pre class="fragment">Bit         Descripción
+-------     -----------------------
+0, 1, 2     Nivel de interrupciones en el cual debe reaccionar
+            el controlador (siempre 0)
+3, 4        Siempre 0  
+5           Solicitud de fin de interrupción. Debe ser 1
+6           Seleccion. Debe ser 0.
+8           Rotación. Debe ser 0.</pre><p>De esta forma, el único bit activo de OCW2 es el bit 5, = 00100000 = 0x20. Este es el valor a enviar a los registros de comando del PIC maestro y esclavo (0x20 y 0xA0 respectivamente).</p>
+<h1><a class="anchor" id="pic_programming"></a>
+Re-Programación del PIC</h1>
+<p>El proceso de re-programar el PIC se realiza mediante el siguiente código:</p>
+<ol type="1">
+<li>Enviar Initialization Command Word 1 - ICW1 al PIC El valor de ICW1 es 0x11. Debe ser escrita en el registro de comandos del PIC maestro (dirección de e/s 0x20). Si existe un PIC esclavo, ICW1 se debe enviar también su registro de comandos del PIC esclavo (0xA0) <pre class="fragment"> outb(MASTER_PIC_COMMAND_PORT, 0x11);
+ outb(SLAVE_PIC_COMMAND_PORT, 0x11);</pre></li>
+<li>Enviar Initialization Command Word 2 - ICW2 al PIC ICW2 debe contener un valor mayor o igual a 32 (0x20). Las primeras 8 IRQ van a ser manejadas por el PIC maestro y se mapearán a partir del numero IDT_IRQ_OFFSET (32). Las siguientes 8 interrupciones las manejará el PIC esclavo, y se mapearán a partir de la interrupcion 40 (0x28). <pre class="fragment"> outb(MASTER_PIC_DATA_PORT, IDT_IRQ_OFFSET);
+ outb(SLAVE_PIC_DATA_PORT, IDT_IRQ_OFFSET + 8);</pre></li>
+<li>Enviar Initialization Control Word 3 - ICW3 al PIC Dado que en la arquitectura Intel el PIC maestro se conecta con el PIC esclavo por medio de la linea IRQ 2, el valor de ICW3 debe ser 00000100 (0x04). Para el PIC esclavo el valor de ICW3 debe ser 00000010 (0x02). <pre class="fragment"> outb(MASTER_PIC_DATA_PORT, 0x04);
+ outb(SLAVE_PIC_DATA_PORT, 0x02);</pre></li>
+<li>Enviar Initialization Control Word 4 - ICW4 al PIC. El valor de ICW4 debe ser entonces 00000001, es decir, 0x01. <pre class="fragment"> outb(MASTER_PIC_DATA_PORT, 0x01);
+ outb(SLAVE_PIC_DATA_PORT, 0x01);</pre> </li>
+</ol>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

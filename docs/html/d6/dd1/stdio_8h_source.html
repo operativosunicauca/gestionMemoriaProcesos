@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Fichero Fuente include/stdio.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">stdio.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/dd1/stdio_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef STDIO_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define STDIO_H_</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../de/d21/asm_8h.html" title="Rutinas para la ejecución de código ensamblador para la arquitectura IA-32.">asm.h</a>&gt;</span> <span class="comment">/* Para operaciones sobre puertos de E/S */</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*@brief Constante que define la dirección lineal del inicio de la memoria de</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * video*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a5016b8a7f88c7f68bc326ff7fc90736c">   17</a></span>&#160;<span class="preprocessor">#define VIDEO_ADDR 0XB8000</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> * <a class="code" href="../../d6/dd1/stdio_8h.html#ab9c7edee839bc15fabe5b63a126afd7f" title="Apuntador al inicio de la memoria de video.">videoptr</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">char</span> <a class="code" href="../../d6/dd1/stdio_8h.html#a4319ad5eb1a906019725d95a3643ee16" title="Byte que almacena los atributos de texto.">text_attributes</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#aa15b9a2eaaa860e3768ad5d0c0039fea">   44</a></span>&#160;<span class="preprocessor">#define SCREEN_LINES 25</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a49b4fe613bf8492af6900eabe794383c">   47</a></span>&#160;<span class="preprocessor">#define SCREEN_COLUMNS 80</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a6511bfd47ae935d09420c07d0ae15af9">   50</a></span>&#160;<span class="preprocessor">#define TABSIZE 8</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/dd1/stdio_8h.html#a0e2b0c7bafad80a1e690b73709433178" title="Variable que controla el número de lineas de la pantalla.">screen_lines</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="../../d6/dd1/stdio_8h.html#aadb5b833923e683e9ed68a621b8687f8" title="Variable que controla el número de columnas de la pantalla.">screen_columns</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a55a7d1fac65fa5d395ca505374538f78">   59</a></span>&#160;<span class="preprocessor">#define COLOR(fg, bg) ((bg &lt;&lt; 4) | fg)</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a7b3b25cba33b07c303f3060fe41887f6">   63</a></span>&#160;<span class="preprocessor">#define BLACK 0</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a79d10e672abb49ad63eeaa8aaef57c38">   65</a></span>&#160;<span class="preprocessor">#define BLUE 1</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#acfbc006ea433ad708fdee3e82996e721">   67</a></span>&#160;<span class="preprocessor">#define GREEN 2</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#ad243f93c16bc4c1d3e0a13b84421d760">   69</a></span>&#160;<span class="preprocessor">#define CYAN 3</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a8d23feea868a983c8c2b661e1e16972f">   71</a></span>&#160;<span class="preprocessor">#define RED 4</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a6f699060902f800f12aaae150f3a708e">   73</a></span>&#160;<span class="preprocessor">#define MAGENTA 5</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#ab2baea56ece91306020afd6d77fd19f9">   75</a></span>&#160;<span class="preprocessor">#define BROWN 6</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a04c5c34bd701165eade98623d1cc0020">   77</a></span>&#160;<span class="preprocessor">#define LIGHTGRAY 7</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a4c08a6ce38e246fb2e4443329645aa5a">   79</a></span>&#160;<span class="preprocessor">#define DARKGRAY 8</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#aaf6e41139cf8cb9ce7824a4f82ff5f83">   81</a></span>&#160;<span class="preprocessor">#define LIGHTBLUE 9</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a4cc964ad8b138b5bf7d54f1c1032d921">   83</a></span>&#160;<span class="preprocessor">#define LIGHTGREEN 10</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a27520e6218a2c2253a81bc291b366e90">   85</a></span>&#160;<span class="preprocessor">#define LIGHTCYAN 11</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a880e260096b011d770b6983e576e1237">   87</a></span>&#160;<span class="preprocessor">#define LIGHTRED 12</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#ad294a323b5a1eebd3ca63f0850937155">   89</a></span>&#160;<span class="preprocessor">#define LIGHTMAGENTA 13</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#abd4f0c15802fdbf7b2a028112a9c2fa5">   91</a></span>&#160;<span class="preprocessor">#define LIGHTBROWN 14</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a87b537f5fa5c109d3c05c13d6b18f382">   93</a></span>&#160;<span class="preprocessor">#define WHITE 15</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a5ff6e798033f03e74730e99f01936f84">   96</a></span>&#160;<span class="preprocessor">#define SPACE 0x20</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a629568514359445d2fbda71d70eeb1ce">   98</a></span>&#160;<span class="preprocessor">#define BACKSPACE 0x08</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a350c9d6cb81908d59427ee96844d1a9c">  100</a></span>&#160;<span class="preprocessor">#define LF &#39;\n&#39;</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#a876ce77f3c672c7162658151e648389e">  102</a></span>&#160;<span class="preprocessor">#define CR &#39;\r&#39;</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="../../d6/dd1/stdio_8h.html#ad58a1fbfc85c7e4790fc55e654f50221">  104</a></span>&#160;<span class="preprocessor">#define TAB 0x09</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/dd1/stdio_8h.html#a948b7a0779c308ac5502c57e282e6933" title="Función para imprimir un caracter.">putchar</a>(<span class="keywordtype">char</span> c);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/dd1/stdio_8h.html#a0569a11ed49990504237605300607f63" title="Función para imprimir una cadena de caracteres.">puts</a>(<span class="keywordtype">char</span> * s );</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="keywordtype">char</span> * ,...);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* STDIO_H_ */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

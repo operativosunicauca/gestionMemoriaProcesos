@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Imagen de Disco usada en el Proyecto</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li class="current"><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Imagen de Disco usada en el Proyecto </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Erwin Meza Vega <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a></dd></dl>
+<p><a class="el" href="../../index.html#project_start">Información del Proyecto</a> : Imagen de Disco usada en el Proyecto</p>
+<p>En este proyecto se usa imagen de disco duro, en la cual se encuentra pre-instalado GRUB. Esta imagen de disco se actualiza dinámicamente para incluir el archivo del kernel compilado.</p>
+<dl class="section user"><dt>Copia del Kernel dentro de la Imagen de Disco</dt><dd></dd></dl>
+<p>Cuando se ejecuta alguno de los Make Targets definidos dentro del proyecto (all, bochs, bochsdbg o qemu), automáticamente se dispara la regla <b>all</b>. La regla <b>all</b> tiene como pre-requisito el kernel compilado, así que dispara las reglas que permiten compilar el código del kernel y obtener el archivo en formato ELF llamado kernel.</p>
+<p>Dentro de la regla <b>all</b> se realiza el siguiente proceso:</p>
+<ol type="1">
+<li>Verificar si existe el archivo disk_template.gz (plantilla de la imagen de disco, comprimida). Si existe, se descomprime el archivo .gz para obtener la plantillallamada disk_template. <pre class="fragment">   -if test -f disk_template.gz; then \
+    gunzip disk_template.gz; \
+    else true; fi</pre></li>
+<li>El archivo disk_template es una imagen de disco duro, que ocupa aproximadamente 5 MB. Dentro de este archivo ya se encuentra instalado GRUB La imagen de disco tiene una geometría de C/H/S de 10/16/63, con una capacidad aproximada de 4.9 MB.</li>
+<li>Copiar el archivo del kernel recién generado dentro del directorio filesys/boot. El directorio filesys contiene la estructura de directorios que se copiará dentro de la única partición de la imagen de disco: <pre class="fragment">/ -+    &lt;-- Directorio raíz de la única partición en la imagen de disco
+   |
+   boot &lt;-- Almacena los archivos de GRUB y el kernel compilado
+       |  
+       |  
+       grub  &lt;-- Almacena los archivos de GRUB
+       |   |
+       |   |
+       | e2fs_stage_1_5  &lt;-- Etapa 1.5 de GRUB. cargado por la etapa 1 de GRUB
+       |   |                 Contiene el código para manejar el sistema de 
+       |   |                 archivos de la partición (ext2). Este archivo
+       |   |                 es opcional, ya que al instalar GRUB este archivo
+       |   |                 se copió en el sector adyacente al sector de
+       |   |                 arranque.
+       |   |
+       | menu.lst    &lt;-- Archivo de configuración leido por GRUB al arranque.
+       |   |             especifica la configuración del menú que despliega
+       |   |             GRUB al arranque y ubicación del kernel en 
+       |   |             (la imagen de) disco.
+       | stage1      &lt;-- Etapa 1 de GRUB. Este archivo es opcional, ya que se
+       |   |             copió en el sector de arranque del disco al instalar 
+       |   |             GRUB.
+       |   |             Carga la etapa 1.5 de GRUB. Después carga la
+       |   |             etapa 2 de GRUB desde el disco y le pasa el control.
+       |   |             Este archivo es opcional.
+       |   |
+       | stage2      &lt;-- Etapa 2 de GRUB. Cargada por la etapa 1 de GRUB.
+       |                 Configura el sistema y presenta el menú que
+       |                 permite cargar el kernel.
+       |                 Este archivo es obligatorio.
+       |                 Cuando el usuario selecciona la única opción 
+       |                 disponible: cargar y pasar el control el archivo kernel
+       |                 que se encuentra en el directorio /boot de la imagen
+       |                 de disco
+       |                 El kernel se carga a la dirección de memoria 0x100000
+       |                 (1 MB)
+       |                  
+       kernel   &lt;-- Archivo que contiene el código compilado del kernel.
+</pre> Este proceso se realiza con el comando: <pre class="fragment">   #Copiar el kernel al directorio filesys/kernel
+ cp -f kernel filesys/boot/kernel</pre></li>
+<li>Crear una copia de la plantilla de la imagen de disco disk_template a un archivo llamado disk_image. Esto se realiza para tener siempre una plantilla vacía en el archivo disk_template. El archivo disk_image será la imagen de disco cargada por los emuladores bochs y grub. <pre class="fragment">    #Copiar la plantilla a la imagen de disco
+ cp -f disk_template disk_image</pre></li>
+<li>Extraer la primera partición de la imagen de disco. La primera partición empieza en el sector 63 de la imagen de disco. <pre class="fragment"> #Extraer la particion inicial
+ dd if=disk_template of=first_partition bs=512 skip=63</pre></li>
+<li>Actualizar el contenido de la primera partición (en el archivo first_partition) con el contenido del directorio filesys. Esto se realiza con la utilidad e2fsimage. <pre class="fragment"> #Copiar el kernel al sistema de archivos
+ e2fsimage -f first_partition -d filesys -n</pre></li>
+<li>Luego se debe copiar la partición actualizada de nuevo a la imagen de disco, y borrar el archivo first_partition. <pre class="fragment"> #Copiar la particion actualizada a la imagen de disco
+ dd if=first_partition of=disk_image bs=512 seek=63
+ #Borrar la particion actualizada
+ rm -f first_partition </pre></li>
+</ol>
+<p>Con este proceso la imagen de disco se actualiza automáticamente cada vez que se compila el kernel.</p>
+<p>A continuación se reproduce la regla 'all' definida en el archivo Makefile. </p>
+<pre class="fragment">all: kernel
+ -if test -f disk_template.gz; then \
+    gunzip disk_template.gz; \
+    else true; fi
+ #Copiar el kernel al directorio filesys/kernel
+ cp -f kernel filesys/boot/kernel
+ #Copiar la plantilla a la imagen de disco
+ cp -f disk_template disk_image
+ #Extraer la particion inicial
+ dd if=disk_template of=first_partition bs=512 skip=63
+ #Copiar el kernel al sistema de archivos
+ e2fsimage -f first_partition -d filesys -n
+ #Copiar la particion actualizada a la imagen de disco
+ dd if=first_partition of=disk_image bs=512 seek=63
+ #Borrar la particion actualizada
+ rm -f first_partition 
+</pre><dl class="section see"><dt>Ver también</dt><dd><a class="el" href="../../dc/dfe/disk_image_creation.html">Creación de Imágenes de Disco con GRUB preinstalado</a> </dd>
+<dd>
+<a href="http://www.gnu.org/software/grub/manual/multiboot/multiboot.html">http://www.gnu.org/software/grub/manual/multiboot/multiboot.html</a> Especificación Multiboot </dd>
+<dd>
+<a href="http://www.skyfree.org/linux/references/ELF_Format.pdf">http://www.skyfree.org/linux/references/ELF_Format.pdf</a> Especificación ELF </dd>
+<dd>
+<a href="http://www.gnu.org/software/grub/">http://www.gnu.org/software/grub/</a> Página oficial de GRUB (Enlace externo) </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

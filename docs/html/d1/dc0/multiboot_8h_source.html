@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Fichero Fuente include/multiboot.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">multiboot.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d1/dc0/multiboot_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef MULTIBOOT_H_</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define MULTIBOOT_H_</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="../../d1/dc0/multiboot_8h.html#a401d25261e2f8c689d60e49c60cebf9f">   16</a></span>&#160;<span class="preprocessor">#define KERNADDR 0x100000</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/* Estas FLAGS se pasan a GRUB. Ver especificacion Multiboot. */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="../../d1/dc0/multiboot_8h.html#aab5e5487e858de2a031cd3f1232f7b60">   20</a></span>&#160;<span class="preprocessor">#define MULTIBOOT_PAGE_ALIGN 1&lt;&lt;0</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="../../d1/dc0/multiboot_8h.html#afdfca6bbbf4b7dca40e9d43e58201f55">   22</a></span>&#160;<span class="preprocessor">#define MULTIBOOT_MEMORY_INFO 1&lt;&lt;1</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="code" href="../../d1/dc0/multiboot_8h.html#a13789ad93ad540c66e7d04118e96b266">   24</a></span>&#160;<span class="preprocessor">#define MULTIBOOT_VIDEO_INFO 1&lt;&lt;2</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="../../d1/dc0/multiboot_8h.html#a791f0c6a97c36de5388c990503ee4639">   27</a></span>&#160;<span class="preprocessor">#define MULTIBOOT_AOUT_KLUDGE 1&lt;&lt;16</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="../../d1/dc0/multiboot_8h.html#ab36ad4b4a42c58aac4ad1f2ba13054e9">   29</a></span>&#160;<span class="preprocessor">#define MULTIBOOT_HEADER_MAGIC 0x1BADB002</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="../../d1/dc0/multiboot_8h.html#a5447ae8b3b45c8ed17ad61c267250992">   31</a></span>&#160;<span class="preprocessor">#define MULTIBOOT_HEADER_FLAGS MULTIBOOT_PAGE_ALIGN | MULTIBOOT_MEMORY_INFO | \</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">          MULTIBOOT_AOUT_KLUDGE</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="../../d1/dc0/multiboot_8h.html#a2fdedb5d948d14c122e68e47ac49bf33">   34</a></span>&#160;<span class="preprocessor">#define MULTIBOOT_CHECKSUM -(MULTIBOOT_HEADER_MAGIC + MULTIBOOT_HEADER_FLAGS)</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="../../d1/dc0/multiboot_8h.html#aacd617f4e3daafd6eab95fb6215ccae4">   38</a></span>&#160;<span class="preprocessor">#define MULTIBOOT_BOOTLOADER_MAGIC 0x2BADB002</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">/* No incluir de aqui en adelante si se incluye este archivo desde codigo</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment"> * en ensamblador */</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#ifndef ASM</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="../../d1/dbd/structmultiboot__header__struct.html">   45</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d1/dbd/structmultiboot__header__struct.html" title="Definición del tipo de datos del Encabezado Multiboot.">multiboot_header_struct</a> {</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#a7154179fe070a40c828f7c03f454d4d6">   47</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#a7154179fe070a40c828f7c03f454d4d6" title="Número mágico.">magic</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#ac92588540e8c1d014a08cd8a45462b19">   49</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#ac92588540e8c1d014a08cd8a45462b19" title="Flags pasadas a GRUB para solicitar información / servicios.">flags</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#a84db6937fa357622520d26d6e60210ba">   52</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#a84db6937fa357622520d26d6e60210ba" title="Número de chequeo. Este valor debe ser igual a la suma de magic y flags.">checksum</a>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#a6ceb66665d7e0c7fb7559c9227a73288">   55</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#a6ceb66665d7e0c7fb7559c9227a73288" title="Desplazamiento (Dirección) en el cual se encuentra el encabezado dentro del archivo del kernel...">header_addr</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#a8d2dd1fe1f2c8013a35896c15c193969">   57</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#a8d2dd1fe1f2c8013a35896c15c193969" title="Dirección en la cual se debe cargar el kernel.">kernel_start</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#af6fb44a3d0bbb0b914904e326e0a616f">   59</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#af6fb44a3d0bbb0b914904e326e0a616f" title="Dirección del final de la sección de datos del kernel.">data_end</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#ad4f401649df3e22e1a7a7e182168c9d1">   61</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#ad4f401649df3e22e1a7a7e182168c9d1" title="Dirección del final de la sección BSS del kernel.">bss_end</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#a2ff5bcbf2404b9d1381c6bdb5df3893e">   63</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/dbd/structmultiboot__header__struct.html#a2ff5bcbf2404b9d1381c6bdb5df3893e" title="Dirección en la cual se debe pasar el control al kernel.">entry_point</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;} <a class="code" href="../../d1/dc0/multiboot_8h.html#aacfa3ed1a546651ebf06331f72f5259c" title="Definición del tipo de datos del Encabezado Multiboot.">multiboot_header_t</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="code" href="../../d5/d58/structaout__symbol__table.html">   67</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d5/d58/structaout__symbol__table.html" title="Tabla de símbolos usadas en el formato a.out.">aout_symbol_table</a></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="code" href="../../d5/d58/structaout__symbol__table.html#a771e60d26d287f31d89eb7c6d165d3d6">   69</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/d58/structaout__symbol__table.html#a771e60d26d287f31d89eb7c6d165d3d6">tabsize</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="../../d5/d58/structaout__symbol__table.html#af1c88c2019cf4b228d31bd5c713dd214">   70</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/d58/structaout__symbol__table.html#af1c88c2019cf4b228d31bd5c713dd214">strsize</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="../../d5/d58/structaout__symbol__table.html#ab36863a07751ac73459d46b677c33b57">   71</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/d58/structaout__symbol__table.html#ab36863a07751ac73459d46b677c33b57">addr</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="../../d5/d58/structaout__symbol__table.html#a05d5cbcb44f437341bd9fa37d589aced">   72</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/d58/structaout__symbol__table.html#a05d5cbcb44f437341bd9fa37d589aced">reserved</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;} <a class="code" href="../../d1/dc0/multiboot_8h.html#a0f63f69abdd0ba14d60b38b0f9bb8161" title="Tabla de símbolos usadas en el formato a.out.">aout_symbol_table_t</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="../../dd/df8/structelf__section__header__table.html">   76</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../dd/df8/structelf__section__header__table.html" title="Tabla de encabezados de sección del kernel en el formato elf.">elf_section_header_table</a></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;{</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="../../dd/df8/structelf__section__header__table.html#a41ddefd3473727cad32a9767c10faed8">   78</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dd/df8/structelf__section__header__table.html#a41ddefd3473727cad32a9767c10faed8">num</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="code" href="../../dd/df8/structelf__section__header__table.html#aac913b3a1f6ef005d66bf7a84428773e">   79</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dd/df8/structelf__section__header__table.html#aac913b3a1f6ef005d66bf7a84428773e">size</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="../../dd/df8/structelf__section__header__table.html#ab36863a07751ac73459d46b677c33b57">   80</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dd/df8/structelf__section__header__table.html#ab36863a07751ac73459d46b677c33b57">addr</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="../../dd/df8/structelf__section__header__table.html#a0d529cca00b446375cb108066469dd2f">   81</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dd/df8/structelf__section__header__table.html#a0d529cca00b446375cb108066469dd2f">shndx</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}<a class="code" href="../../d1/dc0/multiboot_8h.html#a9adc073f558ba5ea8a6e04ba252ab353" title="Tabla de encabezados de sección del kernel en el formato elf.">elf_section_header_table_t</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="../../d5/daf/structmemory__map.html">   86</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d5/daf/structmemory__map.html" title="Estructura de datos que almacena la información de una región de memoria dentro del mapa de memoria p...">memory_map</a></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;{</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="../../d5/daf/structmemory__map.html#a2739b8fdf78d3b5b20f1cb7a654e6b2e">   89</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/daf/structmemory__map.html#a2739b8fdf78d3b5b20f1cb7a654e6b2e" title="Campo no usado.">entry_size</a>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="../../d5/daf/structmemory__map.html#a5491572fddb3c9e8921a0613f28f98d5">   91</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/daf/structmemory__map.html#a5491572fddb3c9e8921a0613f28f98d5" title="32 bits menos significativos de la base de la región de memoria">base_addr_low</a>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="../../d5/daf/structmemory__map.html#afd2f0a619110c215f4791447d295f206">   93</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/daf/structmemory__map.html#afd2f0a619110c215f4791447d295f206" title="32 bits más significativos de la base de la región de memoria">base_addr_high</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="code" href="../../d5/daf/structmemory__map.html#afb2204539d0ac7832ee531b352707260">   95</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/daf/structmemory__map.html#afb2204539d0ac7832ee531b352707260" title="32 bits menos significativos del tamaño de la región de memoria">length_low</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="../../d5/daf/structmemory__map.html#afa9951831ed6cdfaeae2251dd9f254f3">   97</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/daf/structmemory__map.html#afa9951831ed6cdfaeae2251dd9f254f3" title="32 bits más significativos del tamaño de la región de memoria">length_high</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="../../d5/daf/structmemory__map.html#a4bfea42429249a1f65204f0c0f34704a">   99</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/daf/structmemory__map.html#a4bfea42429249a1f65204f0c0f34704a" title="Tipo de área de memoria 1 = disponible, 2 = reservada.">type</a>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;} <a class="code" href="../../d1/dc0/multiboot_8h.html#af3974a9768d03ac2926e8956ec106a01" title="Estructura de datos que almacena la información de una región de memoria dentro del mapa de memoria p...">memory_map_t</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="../../da/d7b/structmod__info.html">  104</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../da/d7b/structmod__info.html" title="Estructura de datos que almacena la información de un módulo cargado por GRUB.">mod_info</a>  {</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="code" href="../../da/d7b/structmod__info.html#a1b6e4a10e32fe043223a6d0bf4439017">  106</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../da/d7b/structmod__info.html#a1b6e4a10e32fe043223a6d0bf4439017" title="Dirección en la cual se cargó el módulo.">mod_start</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="../../da/d7b/structmod__info.html#a1b973d0c3227289d46612a5336cc51cc">  108</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../da/d7b/structmod__info.html#a1b973d0c3227289d46612a5336cc51cc" title="Tamaño en bytes del módulo cargado.">mod_end</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="code" href="../../da/d7b/structmod__info.html#aed1cfb225a5fb77461e7972691e68a72">  110</a></span>&#160; <span class="keywordtype">char</span> * <a class="code" href="../../da/d7b/structmod__info.html#aed1cfb225a5fb77461e7972691e68a72" title="32 Comando usado para cargar el módulo">string</a>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="../../da/d7b/structmod__info.html#a1447feb5d56feef36e4d1c1b72dd98c2">  111</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../da/d7b/structmod__info.html#a1447feb5d56feef36e4d1c1b72dd98c2">always0</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}<a class="code" href="../../d1/dc0/multiboot_8h.html#a9dd40a7be99942fef3dad9405473825a" title="Estructura de datos que almacena la información de un módulo cargado por GRUB.">mod_info_t</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html">  117</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#ac92588540e8c1d014a08cd8a45462b19">  120</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#ac92588540e8c1d014a08cd8a45462b19" title="Versión e información de Multiboot. El kernel deberá comprobar sus bits para verificar si GRUB le pas...">flags</a>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a44e0f2191ac80ceb8061d8c53eb1bf8f">  122</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a44e0f2191ac80ceb8061d8c53eb1bf8f" title="Presente si flags[0] = 1 Memoria baja reportada por la BIOS.">mem_lower</a>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a78603b3f857c553132fd9ae9fac0d4b3">  124</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a78603b3f857c553132fd9ae9fac0d4b3" title="Presente si flags[0] = 1 Memoria alta reportada por la BIOS.">mem_upper</a>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#ae1faa8c6e8cf0ed136cdf5a446fb323d">  127</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#ae1faa8c6e8cf0ed136cdf5a446fb323d" title="Presente si flags[1] = 1 Dispositivo desde el cual se cargó el kernel.">boot_device</a>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a6225f783a7c24dfc5e88b11b47f64d1f">  130</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a6225f783a7c24dfc5e88b11b47f64d1f" title="Presente si flags[2] = 1 Línea de comandos usada para cargar el kernel.">cmdline</a>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a42e0110571b7a44770732204b2455a7b">  133</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a42e0110571b7a44770732204b2455a7b" title="Presente si flags[3] = 1 Número de módulos cargados junto con el kernel.">mods_count</a>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#af5b3157063384ea052b1e65980cc283b">  136</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#af5b3157063384ea052b1e65980cc283b" title="Presente si flags[3] = 1 Dirección de memoria en la cual se encuentra la información de los módulos c...">mods_addr</a>;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; <span class="keyword">union </span>{</div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#ac29db74063304e3aa74f112a2042713e">  141</a></span>&#160;  <a class="code" href="../../d5/d58/structaout__symbol__table.html" title="Tabla de símbolos usadas en el formato a.out.">aout_symbol_table_t</a> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#ac29db74063304e3aa74f112a2042713e">aout_symbol_table</a>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a328a272ade69cf41a6e50e211ac2a2af">  142</a></span>&#160;  <a class="code" href="../../dd/df8/structelf__section__header__table.html" title="Tabla de encabezados de sección del kernel en el formato elf.">elf_section_header_table_t</a> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a328a272ade69cf41a6e50e211ac2a2af">elf_section_table</a>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; }syms;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a776fe5cfff61786521bb7b4f6bacdc4e">  147</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a776fe5cfff61786521bb7b4f6bacdc4e" title="Presente si flags[6] = 1. Tamaño del mapa de memoria creado por GRUB.">mmap_length</a>;</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#ab20d528a1c3c5ce8fc251dfb25a0d5f8">  150</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#ab20d528a1c3c5ce8fc251dfb25a0d5f8" title="Presente si flags[6] = 1. Dirección física de la ubicación del mapa de memoria creado por GRUB...">mmap_addr</a>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a43876a1ebfb04804870d06fc8e1f4270">  155</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a43876a1ebfb04804870d06fc8e1f4270" title="Presente si flags[7] = 1. Especifica el tamaño total de la estructura que describe los drives reporta...">drives_length</a>;<span class="comment">/* Presente si flags[7] = 1 */</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a5034c612de1e5e2bc10f054c49ac86c0">  160</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a5034c612de1e5e2bc10f054c49ac86c0" title="Presente si flags[7] = 1. Especifica la dirección de memoria en la que se encuentra la estructura que...">drives_addr</a>; <span class="comment">/* Presente si flags[7] = 1 */</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a4086f838e773fefd4d129ff744ae1927">  163</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a4086f838e773fefd4d129ff744ae1927" title="Presente si flags[8] = 1. Especifica la dirección de la tabla de configuración de la BIOS...">config_table</a>;</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#ad9808d9aee89b9f5a97798d8fb296036">  167</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#ad9808d9aee89b9f5a97798d8fb296036" title="Presente si flags[9] = 1. Contiene la dirección de memoria en la cual se encuentra una cadena de cara...">boot_loader_name</a>;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#aae7b644014e461ba36518e269c3b8fab">  171</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#aae7b644014e461ba36518e269c3b8fab" title="Presente si flags[10] = 1. Especifica la localización en la memoria de la tabla APM.">apm_table</a>;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a6ca4f1fc73c6b3aad89de60675693953">  176</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a6ca4f1fc73c6b3aad89de60675693953" title="Presente si flags[11] = 1. Contiene la información de control retornada por la función vbe 00...">vbe_control_info</a>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a044477c7e598b4e18890657b6c23f8a8">  180</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a044477c7e598b4e18890657b6c23f8a8" title="Presente si flags[11] = 1. Contiene la información de modo retornada por la función vbe 00...">vbe_mode_info</a>;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#ac89d83d219302bb727da29f27e212e8a">  183</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#ac89d83d219302bb727da29f27e212e8a" title="Presente si flags[11] = 1.">vbe_mode</a>;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a1453d772b1d07f83de6ebf7f07282e0c">  186</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a1453d772b1d07f83de6ebf7f07282e0c" title="Presente si flags[11] = 1.">vbe_interface_seg</a>;</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#adb49bc35e4fe6d0c2b81c6d43c1917ac">  188</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#adb49bc35e4fe6d0c2b81c6d43c1917ac" title="Presente si flags[11] = 1.">vbe_interface_off</a>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="code" href="../../dc/da6/structmultiboot__info__t.html#a57c67c71a817473a959b923c2706418f">  190</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../dc/da6/structmultiboot__info__t.html#a57c67c71a817473a959b923c2706418f" title="Presente si flags[11] = 1.">vbe_interface_len</a>;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;}<a class="code" href="../../dc/da6/structmultiboot__info__t.html" title="Estructura de información Multiboot. Al cargar el kernel, GRUB almacena en el registro EBX un apuntad...">multiboot_info_t</a>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

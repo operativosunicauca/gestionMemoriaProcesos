@@ -55,6 +55,25 @@ heap_t * setup_heap(void * ptr, unsigned int limit) {
  * @param base Dirección lineal de inicio del heap
  * @param limit Tamaño de la región de memoria para asignación dinámica.
  * @return Apuntador al nuevo heap
+ * @verbatim
+Ejemplo:
+     Se quiere crear un una region de memoria, en este caso si hay
+     memoria disponible,se solicita 1M, inicia en una base BASE.
+     Inicialmente se encuentra asi:
+
+     -------     -------     -------     -------     -------
+     |     |     |     |     |     |     |     |     |     |
+     | 36K |-----| 3M  |-----| 6M  |-----| 1M  |-----| 15K |
+     |Libre|     |Usado|     |Usado|     |Libre|     |Usado|
+     -------     -------     -------     -------     -------
+     Luego:
+     -------     -------     -------     -------     -------
+     |     |     |     |     |     |     |     |     |     |
+     | 36K |-----| 3M  |-----| 6M  |-----| 1M  |-----| 15K |
+     |Libre|     |Usado|     |Usado|     |Usado|     |Usado|
+     -------     -------     -------     -------     -------
+
+ @endverbatim
  */
 heap_t *  create_heap(unsigned int base, unsigned int limit) {
 
@@ -194,6 +213,21 @@ memreg_header_t * expand_heap(heap_t * heap, unsigned int limit) {
  * @param size Cantidad de memoria a asignar
  * @return Apuntador a la region de memoria asignada. 0 si no se puede
  * asignar memoria.
+ *
+ * @verbatim
+Ejemplo:
+     Al solicitar 5M de memoria como no hay una región con la cantidad
+     disponible, entonces la función retornara 0 indicando que no se encuentran regiones con memoria suficiente
+
+                      heap
+     -------     -------     -------     -------     -------
+     |     |     |     |     |     |     |     |     |     |
+     | 36K |-----| 3M  |-----| 6M  |-----| 1M  |-----| 15K |
+     |Libre|     |Usado|     |Usado|     |Libre|     |Usado|
+     -------     -------     -------     -------     -------
+
+
+ * @endverbatim
  */
 void * alloc_from_heap(heap_t * heap, unsigned int size) {
 
@@ -374,6 +408,30 @@ void * alloc_from_heap(heap_t * heap, unsigned int size) {
  * @brief Libera una region de memoria dentro de un heap.
  * @param heap Heap de la cual se desea liberar la región
  * @param header Apuntador al encabezado de la region de memoria a liberar
+ * @verbatim
+Ejemplo 1:
+     Se quiere liberar *heap, al invocarse esta llamada:
+
+                              *heap
+     -------     -------     -------     -------     -------
+     |     |     |     |     |     |     |     |     |     |
+     | 36K |-----| 3M  |-----| 6M  |-----| 1M  |-----| 15K |
+     |Libre|     |Usado|     |Usado|     |Libre|     |Usado|
+     -------     -------     -------     -------     -------
+
+
+     Se ha liberado donde apuntaba *heap.
+
+     Ahora, *heap apunta a:
+                              *heap
+     -------     -------     -------     -------
+     |     |     |     |     |     |     |     |
+     | 36K |-----| 3M  |-----| 7M  |-----| 15k |
+     |Libre|     |Usado|     |Libre|     |Usado|
+     -------     -------     -------     -------
+
+
+ @endverbatim
  */
 void free_from_heap(heap_t * heap, memreg_header_t *header) {
 

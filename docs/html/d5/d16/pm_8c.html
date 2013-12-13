@@ -1,0 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo src/pm.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo pm.c<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contiene la implementación de las rutinas para la gestión del modo protegido IA-32 y de la Tabla Global de Descriptores (GDT)  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="../../dc/ddb/pm_8h_source.html">pm.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>&gt;</code><br/>
+</div>
+<p><a href="../../d5/d16/pm_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a65d35f3a543e7286071a3168ab4605be"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a> <a class="el" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54">gdt</a>[<a class="el" href="../../dc/ddb/pm_8h.html#ace2e2665c54b9f05602282eb24b0b2c2">MAX_GDT_ENTRIES</a>]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#a65d35f3a543e7286071a3168ab4605be">__attribute</a> ((aligned(8)))</td></tr>
+<tr class="memdesc:a65d35f3a543e7286071a3168ab4605be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Intel, esta tabla debe estar alineada a un límite de 8 bytes para un óptimo desempeño.  <a href="#a65d35f3a543e7286071a3168ab4605be">Más...</a><br/></td></tr>
+<tr class="separator:a65d35f3a543e7286071a3168ab4605be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57dd32c4dc45bc6417b03ee4628c01ea"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#a57dd32c4dc45bc6417b03ee4628c01ea">get_gdt_selector</a> (<a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a> *desc)</td></tr>
+<tr class="memdesc:a57dd32c4dc45bc6417b03ee4628c01ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que permite obtener el selector en la GDT a partir de un apuntador a un descriptor de segmento.  <a href="#a57dd32c4dc45bc6417b03ee4628c01ea">Más...</a><br/></td></tr>
+<tr class="separator:a57dd32c4dc45bc6417b03ee4628c01ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9e5fbf1bbd433cbb907d0b84845297d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#ae9e5fbf1bbd433cbb907d0b84845297d">get_gdt_descriptor</a> (unsigned short <a class="el" href="../../d4/d35/idt_8h.html#a6dfbfc549c0fa420ccc893f30419419d">selector</a>)</td></tr>
+<tr class="memdesc:ae9e5fbf1bbd433cbb907d0b84845297d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que permite obtener el descriptor de segmento en la GDT a partir de un selector.  <a href="#ae9e5fbf1bbd433cbb907d0b84845297d">Más...</a><br/></td></tr>
+<tr class="separator:ae9e5fbf1bbd433cbb907d0b84845297d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bb809e72cc7c0a9814d2416b3a05475"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#a3bb809e72cc7c0a9814d2416b3a05475">allocate_gdt_descriptor</a> (void)</td></tr>
+<tr class="memdesc:a3bb809e72cc7c0a9814d2416b3a05475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina permite obtener un descriptor de segmento disponible en la GDT.  <a href="#a3bb809e72cc7c0a9814d2416b3a05475">Más...</a><br/></td></tr>
+<tr class="separator:a3bb809e72cc7c0a9814d2416b3a05475"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed409c52ab7585f113ae9344cfcb01a8"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#aed409c52ab7585f113ae9344cfcb01a8">allocate_gdt_selector</a> (void)</td></tr>
+<tr class="memdesc:aed409c52ab7585f113ae9344cfcb01a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buscar un selector disponible dentro de la GDT.  <a href="#aed409c52ab7585f113ae9344cfcb01a8">Más...</a><br/></td></tr>
+<tr class="separator:aed409c52ab7585f113ae9344cfcb01a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26dbca3fbe64a0bf04c21e9e65ed5cbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#a26dbca3fbe64a0bf04c21e9e65ed5cbf">free_gdt_descriptor</a> (<a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a> *desc)</td></tr>
+<tr class="memdesc:a26dbca3fbe64a0bf04c21e9e65ed5cbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina permite liberar un descriptor de segmento en la GDT.  <a href="#a26dbca3fbe64a0bf04c21e9e65ed5cbf">Más...</a><br/></td></tr>
+<tr class="separator:a26dbca3fbe64a0bf04c21e9e65ed5cbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7e6a1b4c72620fa51c45eb475f9e28f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#aa7e6a1b4c72620fa51c45eb475f9e28f">setup_gdt_descriptor</a> (unsigned short <a class="el" href="../../d4/d35/idt_8h.html#a6dfbfc549c0fa420ccc893f30419419d">selector</a>, unsigned int <a class="el" href="../../dc/ddb/pm_8h.html#a2e013c2c6e8010c8116c6f56813df57b">base</a>, unsigned int <a class="el" href="../../dc/ddb/pm_8h.html#ab50c2dcb9d4a34ea1a5ac52272502379">limit</a>, char <a class="el" href="../../d4/d35/idt_8h.html#aa929142c5ddf34cf0915c97a617a1a63">type</a>, char dpl, int code_or_data, char opsize)</td></tr>
+<tr class="memdesc:aa7e6a1b4c72620fa51c45eb475f9e28f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite configurar un descriptor de segmento dentro de la GDT.  <a href="#aa7e6a1b4c72620fa51c45eb475f9e28f">Más...</a><br/></td></tr>
+<tr class="separator:aa7e6a1b4c72620fa51c45eb475f9e28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dee95fcf5b686585b942ed28875b442"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#a1dee95fcf5b686585b942ed28875b442">setup_gdt</a> (void)</td></tr>
+<tr class="memdesc:a1dee95fcf5b686585b942ed28875b442"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta función se encarga de cargar la GDT.  <a href="#a1dee95fcf5b686585b942ed28875b442">Más...</a><br/></td></tr>
+<tr class="separator:a1dee95fcf5b686585b942ed28875b442"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ab8ec4cd5ac80ed9d8929ef85c8d57af6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#ab8ec4cd5ac80ed9d8929ef85c8d57af6">current_gdt_entry</a> = 0</td></tr>
+<tr class="memdesc:ab8ec4cd5ac80ed9d8929ef85c8d57af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable que almacena la siguiente entrada disponible en la GDT.  <a href="#ab8ec4cd5ac80ed9d8929ef85c8d57af6">Más...</a><br/></td></tr>
+<tr class="separator:ab8ec4cd5ac80ed9d8929ef85c8d57af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b415a0cded287180889b9fe60cf6446"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#a6b415a0cded287180889b9fe60cf6446">kernel_code_selector</a></td></tr>
+<tr class="memdesc:a6b415a0cded287180889b9fe60cf6446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable que almacena el selector del descriptor de segmento de código del kernel.  <a href="#a6b415a0cded287180889b9fe60cf6446">Más...</a><br/></td></tr>
+<tr class="separator:a6b415a0cded287180889b9fe60cf6446"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a183bef8cbdf006049e2822099c157bc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#a183bef8cbdf006049e2822099c157bc3">kernel_code_descriptor</a></td></tr>
+<tr class="memdesc:a183bef8cbdf006049e2822099c157bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Referencia al Descriptor de segmento de codigo del kernel dentro de la GDT.  <a href="#a183bef8cbdf006049e2822099c157bc3">Más...</a><br/></td></tr>
+<tr class="separator:a183bef8cbdf006049e2822099c157bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d0799ac95036dfd466eb05289b0e670"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#a6d0799ac95036dfd466eb05289b0e670">kernel_data_selector</a></td></tr>
+<tr class="memdesc:a6d0799ac95036dfd466eb05289b0e670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable que almacena el selector del descriptor de segmento de datos para el kernel.  <a href="#a6d0799ac95036dfd466eb05289b0e670">Más...</a><br/></td></tr>
+<tr class="separator:a6d0799ac95036dfd466eb05289b0e670"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41201ab269c9586ab5fbca6d0a2d9b3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#a41201ab269c9586ab5fbca6d0a2d9b3e">kernel_data_descriptor</a></td></tr>
+<tr class="memdesc:a41201ab269c9586ab5fbca6d0a2d9b3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Referencia al Descriptor de segmento de datos del kernel.  <a href="#a41201ab269c9586ab5fbca6d0a2d9b3e">Más...</a><br/></td></tr>
+<tr class="separator:a41201ab269c9586ab5fbca6d0a2d9b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4abe4bfaac806bbd53c1d63b0f1a952a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dc/ddb/pm_8h.html#a4d1330627fe2cfa11db4008c62baf2e5">gdt_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html#a4abe4bfaac806bbd53c1d63b0f1a952a">gdt_pointer</a></td></tr>
+<tr class="memdesc:a4abe4bfaac806bbd53c1d63b0f1a952a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apuntador a la GDT usado por la instrucción lgdt para cargar la GDT.  <a href="#a4abe4bfaac806bbd53c1d63b0f1a952a">Más...</a><br/></td></tr>
+<tr class="separator:a4abe4bfaac806bbd53c1d63b0f1a952a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Contiene la implementación de las rutinas para la gestión del modo protegido IA-32 y de la Tabla Global de Descriptores (GDT) </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="a65d35f3a543e7286071a3168ab4605be"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a> <a class="el" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54">gdt</a> [<a class="el" href="../../dc/ddb/pm_8h.html#ace2e2665c54b9f05602282eb24b0b2c2">MAX_GDT_ENTRIES</a>] __attribute </td>
+          <td>(</td>
+          <td class="paramtype">(aligned(8))&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Intel, esta tabla debe estar alineada a un límite de 8 bytes para un óptimo desempeño. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3bb809e72cc7c0a9814d2416b3a05475"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a>* allocate_gdt_descriptor </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina permite obtener un descriptor de segmento disponible en la GDT. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Referencia al próximo descriptor de segmento dentro de la GDT que se encuentra disponible, nulo en caso que no exista una entrada disponible dentro de la GDT. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00081">81</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aed409c52ab7585f113ae9344cfcb01a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short allocate_gdt_selector </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Buscar un selector disponible dentro de la GDT. </p>
+<p>Esta rutina permite obtener un descriptor de segmento disponible en la GDT.</p>
+<dl class="section return"><dt>Devuelve</dt><dd>Selector que apunta al descriptor de segmento disponible encontrado dentro de la GDT </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00108">108</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26dbca3fbe64a0bf04c21e9e65ed5cbf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_gdt_descriptor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a> *&#160;</td>
+          <td class="paramname"><em>desc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina permite liberar un descriptor de segmento en la GDT. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">desc</td><td>Apuntador al descriptor que se desa liberar </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00118">118</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae9e5fbf1bbd433cbb907d0b84845297d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a>* get_gdt_descriptor </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>selector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que permite obtener el descriptor de segmento en la GDT a partir de un selector. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">selector</td><td>Selector que permite obtener un descriptor de segmento de la GDT </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Referencia al descriptor de segmento dentro de la GDT </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00065">65</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57dd32c4dc45bc6417b03ee4628c01ea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short get_gdt_selector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a> *&#160;</td>
+          <td class="paramname"><em>desc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que permite obtener el selector en la GDT a partir de un apuntador a un descriptor de segmento. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">desc</td><td>Referencia al descriptor de segmento del cual se desea obtener el selector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Selector que referencia al descriptor dentro de la GDT. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00047">47</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1dee95fcf5b686585b942ed28875b442"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup_gdt </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta función se encarga de cargar la GDT. </p>
+<p>Esta función se encarga de configurar la Tabla Global de Descriptores (GDT) que usará el kernel. La GDT es un arreglo de descriptores de segmento, cada uno de los cuales contiene la información de los segmentos en memoria. Esta rutina realiza los siguientes pasos: </p>
+<ul>
+<li>Buscar el espacio en la GDT para el descriptor de segmento de código del kernel</li>
+</ul>
+<ul>
+<li>Verificar el offset dentro de la GDT. Debe ser igual a la constante <a class="el" href="../../dc/ddb/pm_8h.html#ab6c98f7af7f77b08139f02f671678434">KERNEL_CODE_SELECTOR</a> Definida en <a class="el" href="../../dc/ddb/pm_8h.html" title="Contiene las definiciones relacionadas con el Modo Protegido IA-32.">pm.h</a></li>
+</ul>
+<ul>
+<li>Buscar espacio en la GDT para el descriptor de segmento de datos del kernel</li>
+</ul>
+<ul>
+<li>Verificar el offset dentro de la GDT. Debe ser igual a la constante <a class="el" href="../../dc/ddb/pm_8h.html#aa6c68f1bf413d84abd00bafd773b2e02">KERNEL_DATA_SELECTOR</a> definida en <a class="el" href="../../dc/ddb/pm_8h.html" title="Contiene las definiciones relacionadas con el Modo Protegido IA-32.">pm.h</a></li>
+</ul>
+<ul>
+<li>Definir el segmento de código del kernel como un segmento plano (base = 0, límite = 4 GB, nivel de privilegios 0). Para describir este segmento se usará la segunda entrada de la GDT. El manual de Intel especifica que la primera entrada de la GDT siempre debe ser nula.</li>
+</ul>
+<ul>
+<li><p class="startli">Definir el segmento de datos del kernel como un segmento plano (base = 0, límite = 4 GB, nivel de privilegios 0). Para describir este segmento se usará la tercera entrada de la GDT.</p>
+<p class="startli">La instrucción LGDT recibe un apuntador que tiene dos atributos: Tamaño del GDT - 1 y dirección lineal de la GDT en memoria.</p>
+<p class="startli">Ejecutar el siguiente código en ensamblador, para cargar la GDT y pasar "de nuevo" a modo protegido.</p>
+</li>
+</ul>
+<pre class="fragment">*/
+inline_assembly(".intel_syntax noprefix\n\t\
+                           cli                            \n\t\
+                           lgdt [%0]                      \n\t\
+                           mov edx, cr0                   \n\t\
+                           or edx, 1                      \n\t\
+                           mov cr0, edx                   \n\t\
+                           push %2                        \n\t\
+                           push 0  /* eflags */           \n\t\
+                           push %1                        \n\t\
+                           push OFFSET 1f                 \n\t\
+                           iret                           \n\t\
+                1:                                        \n\t\
+                           pop ecx                        \n\t\
+                           mov ds, cx                     \n\t\
+                           mov es, cx                     \n\t\
+                           mov fs, cx                     \n\t\
+                           mov gs, cx                     \n\t\
+                           mov ss, cx                     \n\t\
+                           .att_syntax prefix\n\t"
+                           :
+                           : "am"(&amp;gdt_pointer),
+                           "b"(kernel_code_selector &amp; 0x0000FFFF),
+                           "c"(kernel_data_selector &amp; 0x0000FFFF)
+                           : "dx");
+
+/** </pre><p>Este código en lenguaje ensamblador realiza las siguientes acciones:</p>
+<ol type="1">
+<li>Deshabilitar las interrupciones</li>
+<li>Ejecutar la instrucción lgdt, pasando como parámetro un apuntador a la GDT configurada.</li>
+<li>Activar el bit PE (Protection Enable) en el registro CR0.</li>
+<li>Simular un retorno de interrupción, para que el registro de segmento CS contenga el valor del selector que referencia al descriptor de segmento de código configurado en la GDT.</li>
+<li>Actualizar los registros de segmento DS, ES, FS, GS y SS para que contengan el valor del selector que referencia al descriptor de segmento de datos configurado en la GDT.</li>
+</ol>
+<p>Observe que básicamente se está pasando de nuevo a modo protegido, esta vez usando la GDT configurada en esta función.</p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00178">178</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa7e6a1b4c72620fa51c45eb475f9e28f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup_gdt_descriptor </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>selector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>limit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>dpl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>code_or_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>opsize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permite configurar un descriptor de segmento dentro de la GDT. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">selector</td><td>Selector que referencia al descriptor de segmento dentro de la GDT </td></tr>
+    <tr><td class="paramname">base</td><td>Dirección lineal del inicio del segmento en memoria </td></tr>
+    <tr><td class="paramname">limit</td><td>Tamaño del segmento </td></tr>
+    <tr><td class="paramname">type</td><td>Tipo de segmento </td></tr>
+    <tr><td class="paramname">dpl</td><td>Nivel de privilegios del segmento </td></tr>
+    <tr><td class="paramname">code_or_data</td><td>1 = Segmento de código o datos, 0 = segmento del sistema </td></tr>
+    <tr><td class="paramname">opsize</td><td>Tamaño de operandos: 0 = 16 bits, 1 = 32 bits </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00142">142</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a class="anchor" id="ab8ec4cd5ac80ed9d8929ef85c8d57af6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int current_gdt_entry = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable que almacena la siguiente entrada disponible en la GDT. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00019">19</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4abe4bfaac806bbd53c1d63b0f1a952a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/ddb/pm_8h.html#a4d1330627fe2cfa11db4008c62baf2e5">gdt_ptr</a> gdt_pointer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Apuntador a la GDT usado por la instrucción lgdt para cargar la GDT. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00038">38</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a183bef8cbdf006049e2822099c157bc3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a>* kernel_code_descriptor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referencia al Descriptor de segmento de codigo del kernel dentro de la GDT. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00027">27</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6b415a0cded287180889b9fe60cf6446"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short kernel_code_selector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable que almacena el selector del descriptor de segmento de código del kernel. </p>
+<p>Referencia al selector de segmento de codigo del kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00023">23</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41201ab269c9586ab5fbca6d0a2d9b3e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d45/structgdt__descriptor.html">gdt_descriptor</a>* kernel_data_descriptor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referencia al Descriptor de segmento de datos del kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00034">34</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d0799ac95036dfd466eb05289b0e670"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short kernel_data_selector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable que almacena el selector del descriptor de segmento de datos para el kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00031">31</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

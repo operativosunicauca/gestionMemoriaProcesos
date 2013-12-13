@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Fichero Fuente include/idt.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">idt.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d4/d35/idt_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef IDT_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define IDT_H_</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408">   14</a></span>&#160;<span class="preprocessor">#define MAX_IDT_ENTRIES 256</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#a3050eb56fdac0c38ce5b0f55514945e8">   17</a></span>&#160;<span class="preprocessor">#define INTERRUPT_GATE_TYPE 0x0E</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#aba6cec9b84dac53ec09b4bc36116dee2">   21</a></span>&#160;<span class="preprocessor">#define IF_ENABLE 0x202</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="../../df/d85/structidt__descriptor.html">   26</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../df/d85/structidt__descriptor.html" title="Definición de la estructura de datos para un descriptor de interrupción.">idt_descriptor</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="../../df/d85/structidt__descriptor.html#a57a891ee5a43cf4f06a426d3362f90a2">   29</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../df/d85/structidt__descriptor.html#a57a891ee5a43cf4f06a426d3362f90a2">offset_low</a>  : 16;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="../../df/d85/structidt__descriptor.html#a6dfbfc549c0fa420ccc893f30419419d">   32</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../df/d85/structidt__descriptor.html#a6dfbfc549c0fa420ccc893f30419419d">selector</a> : 16;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="../../df/d85/structidt__descriptor.html#aa929142c5ddf34cf0915c97a617a1a63">   34</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../df/d85/structidt__descriptor.html#aa929142c5ddf34cf0915c97a617a1a63">type</a> : 16;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="../../df/d85/structidt__descriptor.html#ae72d6f0a810dd98a2c9e4e946954532d">   37</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d85/structidt__descriptor.html#ae72d6f0a810dd98a2c9e4e946954532d">offset_high</a>: 16;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;}<a class="code" href="../../d4/d35/idt_8h.html#a9f2c06eb990c1f10f76d2a2bb248dfcc">__attribute__</a>((packed));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#a57a891ee5a43cf4f06a426d3362f90a2">   41</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../df/d85/structidt__descriptor.html" title="Definición de la estructura de datos para un descriptor de interrupción.">idt_descriptor</a> <a class="code" href="../../df/d85/structidt__descriptor.html" title="Definición de la estructura de datos para un descriptor de interrupción.">idt_descriptor</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#a6dfbfc549c0fa420ccc893f30419419d">   44</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../dc/d2c/structidt__pointer__t.html" title="Estructura de datos para el registro IDTR (puntero a la IDT)">idt_pointer_t</a> {</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#aa929142c5ddf34cf0915c97a617a1a63">   46</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../dc/d2c/structidt__pointer__t.html#ab50c2dcb9d4a34ea1a5ac52272502379" title="Tamaño de la IDT.">limit</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="../../dc/d2c/structidt__pointer__t.html#a2e013c2c6e8010c8116c6f56813df57b">   48</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../dc/d2c/structidt__pointer__t.html#a2e013c2c6e8010c8116c6f56813df57b" title="dirección lineal del inicio de la IDT">base</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#ae72d6f0a810dd98a2c9e4e946954532d">   49</a></span>&#160;} <a class="code" href="../../d4/d35/idt_8h.html#a9f2c06eb990c1f10f76d2a2bb248dfcc">__attribute__</a> ((packed));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#a51effbd893e97a79b82fc50f187b9cc0">   52</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../dc/d2c/structidt__pointer__t.html" title="Estructura de datos para el registro IDTR (puntero a la IDT)">idt_pointer_t</a> <a class="code" href="../../dc/d2c/structidt__pointer__t.html" title="Estructura de datos para el registro IDTR (puntero a la IDT)">idt_ptr</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#a2e013c2c6e8010c8116c6f56813df57b">   53</a></span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d4/d35/idt_8h.html#a0374dab8610e68c12d400cb3afd74ad2" title="Referencia a la tabla de rutinas de servicio de interrupcion. Esta tabla se encuentra definida en el ...">isr_table</a>[];</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">extern</span> <a class="code" href="../../df/d85/structidt__descriptor.html" title="Definición de la estructura de datos para un descriptor de interrupción.">idt_descriptor</a> <a class="code" href="../../d4/d35/idt_8h.html#aad1f59f9e9abef5d706e3f35f4bc72ec" title="Referencia a la tabla de descriptores de interrupcion.">idt</a>[];</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html">   70</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../df/d23/structinterrupt__state.html" title="Estructura que define el estado del procesador al recibir una interrupción o una excepción.">interrupt_state</a> {</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a8fbe564b6eaa9affe24c8fbed1a4c7ea">   72</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a8fbe564b6eaa9affe24c8fbed1a4c7ea" title="Valor del selector GS (Tope de la pila)">gs</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a88d3d1b872b301364b825176981daf14">   74</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a88d3d1b872b301364b825176981daf14" title="Valor del selector FS.">fs</a>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a4305a24abee1f4912083d877c499fcad">   76</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a4305a24abee1f4912083d877c499fcad" title="Valor del selector ES.">es</a>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a41d22b14f5b54c8488f5969c012000d7">   78</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a41d22b14f5b54c8488f5969c012000d7" title="Valor del selector DS.">ds</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a21967b2580b9725a17075b898ff3abc3">   80</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a21967b2580b9725a17075b898ff3abc3" title="Valor del registro EDI.">edi</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#ae508f942b3572ab3ab749fdc35a763da">   82</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#ae508f942b3572ab3ab749fdc35a763da" title="Valor del registro ESI.">esi</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a680481bf6e093a04d619216bef02a2b2">   84</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a680481bf6e093a04d619216bef02a2b2" title="Valor del registro EBP.">ebp</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#af1425d6c20cbfa78828ab126434a1921">   86</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#af1425d6c20cbfa78828ab126434a1921" title="Valor del registro ESP.">esp</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a8996da18df84dface49e6d219a6fbde0">   88</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a8996da18df84dface49e6d219a6fbde0" title="Valor del registro EBX.">ebx</a>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a033ca834eb49bc602eb0e0b358a9a4f1">   90</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a033ca834eb49bc602eb0e0b358a9a4f1" title="Valor del registro EDX.">edx</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a0ea7fea7f82c9647381548939843feaf">   92</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a0ea7fea7f82c9647381548939843feaf" title="Valor del registro ECX.">ecx</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#aa35a8540d25648fda11e3cccd6e4e10c">   94</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#aa35a8540d25648fda11e3cccd6e4e10c" title="Valor del registro EAX.">eax</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1">   96</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1" title="Número de la interrupción (o excepción)">number</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a6d61343c6813d59fa5430f59c7f88e21">   99</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a6d61343c6813d59fa5430f59c7f88e21" title="Código de error. Cero para las excepciones que no generan código de error y para las interrupciones...">error_code</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a0beff8890c336863cdf529a1514654d6">  102</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a0beff8890c336863cdf529a1514654d6" title="Valor de EIP en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesad...">old_eip</a>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a658036b0fbe658096bdc46e946448b38">  105</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a658036b0fbe658096bdc46e946448b38" title="Valor de CS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesado...">old_cs</a>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a0f946f7afe757f0bbde34e24632df34c">  108</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a0f946f7afe757f0bbde34e24632df34c" title="Valor de EFLAGS en el momento en que ocurrió la interrupción (almacenado automáticamente por el proce...">old_eflags</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#a66e0cfe3d312535f3bde9efeaac60cad">  113</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#a66e0cfe3d312535f3bde9efeaac60cad" title="Valor de ESP en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesad...">old_esp</a>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="../../df/d23/structinterrupt__state.html#add9cc91d8acb295c7c2d43356d800eda">  118</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../df/d23/structinterrupt__state.html#add9cc91d8acb295c7c2d43356d800eda" title="Valor de SS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesado...">old_ss</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;} <a class="code" href="../../d4/d35/idt_8h.html#a0246c0919f3295f5febf06af86aba024" title="Estructura que define el estado del procesador al recibir una interrupción o una excepción.">interrupt_state</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d">  122</a></span>&#160;<span class="keyword">typedef</span> void (*<a class="code" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d" title="Definición de tipo para las rutinas de manejo de interrupcion.">interrupt_handler</a>)(<a class="code" href="../../df/d23/structinterrupt__state.html" title="Estructura que define el estado del procesador al recibir una interrupción o una excepción.">interrupt_state</a> *);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#a5913f7c605f44b2511e7d216c28b6d9d">  125</a></span>&#160;<span class="preprocessor">#define NULL_INTERRUPT_HANDLER (interrupt_handler)0</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="code" href="../../d4/d35/idt_8h.html#a785364350593da811ee3d64d53af3532">  139</a></span>&#160;<span class="keyword">static</span> __inline__ <a class="code" href="../../df/d85/structidt__descriptor.html" title="Definición de la estructura de datos para un descriptor de interrupción.">idt_descriptor</a> <a class="code" href="../../d4/d35/idt_8h.html#a785364350593da811ee3d64d53af3532" title="Esta rutina permite crear un descriptor de idt de 32 bits.">idt_descriptor_32</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d4/d35/idt_8h.html#a6dfbfc549c0fa420ccc893f30419419d">selector</a>,</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> offset, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> dpl, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> <a class="code" href="../../d4/d35/idt_8h.html#aa929142c5ddf34cf0915c97a617a1a63">type</a>) {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;   <span class="keywordflow">return</span> (<a class="code" href="../../df/d85/structidt__descriptor.html" title="Definición de la estructura de datos para un descriptor de interrupción.">idt_descriptor</a>) {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="comment">/* offset 0..15*/</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    (<span class="keywordtype">unsigned</span> short)(offset &amp; 0x0000FFFF),</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="comment">/* selector */</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    (<span class="keywordtype">unsigned</span> short) (selector &amp; 0x0000FFFF),</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="comment">/* tipo de descriptor */</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    (<span class="keywordtype">unsigned</span> short)(((1&lt;&lt;7) | ((dpl &amp; 0x03) &lt;&lt; 5) | (type &amp; 0x0F)) &lt;&lt; 8),</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="comment">/* offset 16..31*/</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    ((offset &gt;&gt; 16) &amp; 0x0000FFFF)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;   };</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d35/idt_8h.html#a9782031a7d6cb759022b58789382f5eb" title="Esta rutina se encarga de cargar la IDT.">setup_idt</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* IDT_H_ */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

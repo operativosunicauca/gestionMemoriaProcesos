@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo src/irq.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo irq.c<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contiene la implementacion de las rutinas necesarias para manejar las solicitudes de interrupcion (IRQ) de los dispositivos de entrada / salida.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d2/de7/irq_8h_source.html">irq.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../dc/d9c/stdlib_8h_source.html">stdlib.h</a>&gt;</code><br/>
+</div>
+<p><a href="../../dd/de7/irq_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:af1056c4d9493edebb758d2143fbc049b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de7/irq_8c.html#af1056c4d9493edebb758d2143fbc049b">irq_dispatcher</a> (<a class="el" href="../../df/d23/structinterrupt__state.html">interrupt_state</a> *state)</td></tr>
+<tr class="memdesc:af1056c4d9493edebb758d2143fbc049b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina recibe el control de la rutina de manejo de interrupcion y canaliza esta solicitud a la rutina de manejo de IRQ correspondiente, si se encuentra definida. Dentro de la estructura de datos que recibe, se puede obtener el numero de la interrupcion que ocurrio, asi como el estado del procesador. Con el numero de la interrupcion y restando IDT_IRQ_OFFSET se puede obtener el numero de IRQ.  <a href="#af1056c4d9493edebb758d2143fbc049b">Más...</a><br/></td></tr>
+<tr class="separator:af1056c4d9493edebb758d2143fbc049b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60f49e6b52a3b02f389dff64c8155be4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de7/irq_8c.html#a60f49e6b52a3b02f389dff64c8155be4">irq_remap</a> (void)</td></tr>
+<tr class="memdesc:a60f49e6b52a3b02f389dff64c8155be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que se encarga de re-mapear las IRQ 0x8 a 0xF.  <a href="#a60f49e6b52a3b02f389dff64c8155be4">Más...</a><br/></td></tr>
+<tr class="separator:a60f49e6b52a3b02f389dff64c8155be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a968e852c362480d5ba8d4192e0854af2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de7/irq_8c.html#a968e852c362480d5ba8d4192e0854af2">setup_irq</a> (void)</td></tr>
+<tr class="memdesc:a968e852c362480d5ba8d4192e0854af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina se encarga de crear los manejadores de interrupcion para las 16 IRQ en los procesadores x86. Estas IRQ se re-mapean a las interrupciones con vector 32 .. 47. Todas ellas son manejadas por la rutina 'irq_dispatcher', que se encarga de invocar la rutina de manejo de IRQ correspondiente, si se encuentra definida.  <a href="#a968e852c362480d5ba8d4192e0854af2">Más...</a><br/></td></tr>
+<tr class="separator:a968e852c362480d5ba8d4192e0854af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a470fad09cd8ee471a1300ec395666eef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de7/irq_8c.html#a470fad09cd8ee471a1300ec395666eef">install_irq_handler</a> (int number, <a class="el" href="../../d2/de7/irq_8h.html#aefab4cf400de7ad3d73c4fa71c24f45e">irq_handler</a> handler)</td></tr>
+<tr class="memdesc:a470fad09cd8ee471a1300ec395666eef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina permite definir un nuevo manejador de IRQ.  <a href="#a470fad09cd8ee471a1300ec395666eef">Más...</a><br/></td></tr>
+<tr class="separator:a470fad09cd8ee471a1300ec395666eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41a60b417cdc01ed280ca6bcb9da6cbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de7/irq_8c.html#a41a60b417cdc01ed280ca6bcb9da6cbd">uninstall_irq_handler</a> (int number)</td></tr>
+<tr class="memdesc:a41a60b417cdc01ed280ca6bcb9da6cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina permite quitar un manejador de IRQ.  <a href="#a41a60b417cdc01ed280ca6bcb9da6cbd">Más...</a><br/></td></tr>
+<tr class="separator:a41a60b417cdc01ed280ca6bcb9da6cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a8b1cf32dc47384315810964d89e6f246"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d2/de7/irq_8h.html#aefab4cf400de7ad3d73c4fa71c24f45e">irq_handler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/de7/irq_8c.html#a8b1cf32dc47384315810964d89e6f246">irq_handlers</a> [<a class="el" href="../../d2/de7/irq_8h.html#a0cba3a07e50dcfb6bf445510152ae42d">MAX_IRQ_ROUTINES</a>]</td></tr>
+<tr class="memdesc:a8b1cf32dc47384315810964d89e6f246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arreglo que contiene los apuntadores a las rutinas de manejo de interrupción.  <a href="#a8b1cf32dc47384315810964d89e6f246">Más...</a><br/></td></tr>
+<tr class="separator:a8b1cf32dc47384315810964d89e6f246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Contiene la implementacion de las rutinas necesarias para manejar las solicitudes de interrupcion (IRQ) de los dispositivos de entrada / salida. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../dd/de7/irq_8c_source.html">irq.c</a>.</p>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="a470fad09cd8ee471a1300ec395666eef"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void install_irq_handler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d2/de7/irq_8h.html#aefab4cf400de7ad3d73c4fa71c24f45e">irq_handler</a>&#160;</td>
+          <td class="paramname"><em>handler</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina permite definir un nuevo manejador de IRQ. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>numero de irq a configurar </td></tr>
+    <tr><td class="paramname">handler</td><td>Función a manejar la irq </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/de7/irq_8c_source.html#l00150">150</a> del archivo <a class="el" href="../../dd/de7/irq_8c_source.html">irq.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af1056c4d9493edebb758d2143fbc049b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void irq_dispatcher </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d23/structinterrupt__state.html">interrupt_state</a> *&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina recibe el control de la rutina de manejo de interrupcion y canaliza esta solicitud a la rutina de manejo de IRQ correspondiente, si se encuentra definida. Dentro de la estructura de datos que recibe, se puede obtener el numero de la interrupcion que ocurrio, asi como el estado del procesador. Con el numero de la interrupcion y restando IDT_IRQ_OFFSET se puede obtener el numero de IRQ. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>Apuntador al estado del procesador cuando ocurre la IRQ </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/de7/irq_8c_source.html#l00181">181</a> del archivo <a class="el" href="../../dd/de7/irq_8c_source.html">irq.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a60f49e6b52a3b02f389dff64c8155be4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void irq_remap </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función que se encarga de re-mapear las IRQ 0x8 a 0xF. </p>
+<p>Al arranque, las IRQ 0 a 7 estan mapeadas a las interrupciones 0x8 - 0xF. Estas entradas estan asignadas por defecto a las excepciones x86 (la entrada 8 es Double Fault, por ejemplo). Por esta razon es necesario mapear las IRQ a otros numeros de interrupcion. </p>
+<p>Reprogramación del PIC </p>
+<pre class="fragment">Initialization Command Word 1 - ICW1
+</pre><p> Esta es la palabra primaria para inicializar el PIC. Para inicializar el PIC se requiere que los bits 0 y 4 de ICW1 esten en 1 y los demas en 0. Esto significa que el valor de ICW1 es 0x11. ICW1 debe ser escrita en el registro de comandos del PIC maestro (dirección de e/s 0x20). Si existe un PIC esclavo, ICW1 se debe enviar tambien su registro de comandos del PIC esclavo (0xA0)</p>
+<p>Initialization Command Word 2 - ICW2 Esta palabra permite definir la dirección base (inicial) en la tabla de descriptores de interrupcion que el PIC va a utilizar.</p>
+<p>Debido a que las primeras 32 entradas estan reservadas para las excepciones en la arquitectura IA-32, ICW2 debe contener un valor mayor o igual a 32 (0x20). Los valores de ICW2 representan el numero de IRQ base que manejara el PIC</p>
+<p>Al utilizar los PIC en cascada, se debe enviar ICW2 a los dos controladores en su registro de datos (0x21 y 0xA1 para maestro y esclavo respectivamente), indicando la dirección en la IDT que va a ser utilizada por cada uno de ellos.</p>
+<p>Las primeras 8 IRQ van a ser manejadas por el PIC maestro y se mapearan a partir del numero 32 (0x20). Las siguientes 8 interrupciones las manejara el PIC esclavo, y se mapearan a partir de la interrupcion 40 (0x28).</p>
+<p>Initialization Control Word 3 - ICW3 Esta palabra permite definir cuales lineas de IRQ van a ser compartidas por los PIC maestro y esclavo. Al igual que ICW2, ICW3 tambien se escribe en los registros de datos de los PIC (0x21 y 0xA1 para el PIC maestro y esclavo,respectivamente).</p>
+<p>Dado que en la arquitectura Intel el PIC maestro se conecta con el PIC esclavo por medio de la linea IRQ 2, el valor de ICW3 debe ser 00000100 (0x04), que define el bit 3 (correspondiente a la linea IRQ2) en 1.</p>
+<p>Para el PIC esclavo, el numero de la linea se debe representar en notacion binaria. Por lo tanto, 000 corresponde a la linea de IRQ 0, 001 corresponde a la linea de IRQ 1, 010 corresponde a la linea de IRQ 2, y asi sucesivamente. Debido a que se va a utilizar la linea de IRQ 2, el valor de ICW3 para el PIC esclavo debe ser 00000010, (0x02).</p>
+<p>Initialization Control Word 4 - ICW4 Para ICW4 solo es necesario establecer su bit 0 (x86 mode) y escribirla en los registros de datos del PIC maestro y esclavo (0x21 y 0xA1). El valor de ICW4 debe ser entonces 00000001, es decir, 0x01.</p>
+<p>Se han mapeado las IRQ!. Las IRQ 0-7 seran atendidas por el PIC maestro, y las IRQ 8-15 por el PIC esclavo. Las IRQ0-15 estaran mapeadas en la IDT a partir de la entrada 32 hasta la 47. </p>
+
+<p>Definición en la línea <a class="el" href="../../dd/de7/irq_8c_source.html#l00046">46</a> del archivo <a class="el" href="../../dd/de7/irq_8c_source.html">irq.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a968e852c362480d5ba8d4192e0854af2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup_irq </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina se encarga de crear los manejadores de interrupcion para las 16 IRQ en los procesadores x86. Estas IRQ se re-mapean a las interrupciones con vector 32 .. 47. Todas ellas son manejadas por la rutina 'irq_dispatcher', que se encarga de invocar la rutina de manejo de IRQ correspondiente, si se encuentra definida. </p>
+<p>Esta rutina se encarga de crear las entradas en la IDT para las interrupciones que se desean manejar. Por defecto configura las interrupciones correspondientes a las IRQ de los dispositivos de entradda/ salida, que han sido mapeadas a los numeros 32..47. </p>
+
+<p>Definición en la línea <a class="el" href="../../dd/de7/irq_8c_source.html#l00126">126</a> del archivo <a class="el" href="../../dd/de7/irq_8c_source.html">irq.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41a60b417cdc01ed280ca6bcb9da6cbd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void uninstall_irq_handler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina permite quitar un manejador de IRQ. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">number</td><td>numero de irq a quitar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../dd/de7/irq_8c_source.html#l00164">164</a> del archivo <a class="el" href="../../dd/de7/irq_8c_source.html">irq.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a class="anchor" id="a8b1cf32dc47384315810964d89e6f246"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/de7/irq_8h.html#aefab4cf400de7ad3d73c4fa71c24f45e">irq_handler</a> irq_handlers[<a class="el" href="../../d2/de7/irq_8h.html#a0cba3a07e50dcfb6bf445510152ae42d">MAX_IRQ_ROUTINES</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Arreglo que contiene los apuntadores a las rutinas de manejo de interrupción. </p>
+
+<p>Definición en la línea <a class="el" href="../../dd/de7/irq_8c_source.html#l00020">20</a> del archivo <a class="el" href="../../dd/de7/irq_8c_source.html">irq.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

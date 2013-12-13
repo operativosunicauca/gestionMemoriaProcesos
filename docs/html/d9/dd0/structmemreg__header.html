@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia de la Estructura memreg_header</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../classes.html"><span>Índice&#160;de&#160;estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../functions.html"><span>Campos&#160;de&#160;datos</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Campos de datos</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia de la Estructura memreg_header</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Encabezado de una region de memoria.  
+ <a href="../../d9/dd0/structmemreg__header.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d3/d9c/kmm_8h_source.html">kmm.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Campos de datos</h2></td></tr>
+<tr class="memitem:a2e013c2c6e8010c8116c6f56813df57b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dd0/structmemreg__header.html#a2e013c2c6e8010c8116c6f56813df57b">base</a></td></tr>
+<tr class="memdesc:a2e013c2c6e8010c8116c6f56813df57b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicio del área de datos.  <a href="#a2e013c2c6e8010c8116c6f56813df57b">Más...</a><br/></td></tr>
+<tr class="separator:a2e013c2c6e8010c8116c6f56813df57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad881b1b412cdb9bc8d851726a73c0e5f"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dd0/structmemreg__header.html#ad881b1b412cdb9bc8d851726a73c0e5f">limit</a></td></tr>
+<tr class="memdesc:ad881b1b412cdb9bc8d851726a73c0e5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tamaño de la region de memoria.  <a href="#ad881b1b412cdb9bc8d851726a73c0e5f">Más...</a><br/></td></tr>
+<tr class="separator:ad881b1b412cdb9bc8d851726a73c0e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5810b6407672b8e7aeba609b4bb649de"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dd0/structmemreg__header.html#a5810b6407672b8e7aeba609b4bb649de">used</a></td></tr>
+<tr class="memdesc:a5810b6407672b8e7aeba609b4bb649de"><td class="mdescLeft">&#160;</td><td class="mdescRight">1 = region asignada, 0 = region libre  <a href="#a5810b6407672b8e7aeba609b4bb649de">Más...</a><br/></td></tr>
+<tr class="separator:a5810b6407672b8e7aeba609b4bb649de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd7b5f85892a0dd7c10a99e8bfdd6d3c"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dd0/structmemreg__header.html#abd7b5f85892a0dd7c10a99e8bfdd6d3c">next_memreg_header</a></td></tr>
+<tr class="separator:abd7b5f85892a0dd7c10a99e8bfdd6d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdbc0e85a6973afc996aca09651f1d9e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/dd0/structmemreg__header.html#afdbc0e85a6973afc996aca09651f1d9e">prev_memreg_header</a></td></tr>
+<tr class="separator:afdbc0e85a6973afc996aca09651f1d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Encabezado de una region de memoria. </p>
+
+<p>Definición en la línea <a class="el" href="../../d3/d9c/kmm_8h_source.html#l00033">33</a> del archivo <a class="el" href="../../d3/d9c/kmm_8h_source.html">kmm.h</a>.</p>
+</div><h2 class="groupheader">Documentación de los campos</h2>
+<a class="anchor" id="a2e013c2c6e8010c8116c6f56813df57b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int base</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicio del área de datos. </p>
+
+<p>Definición en la línea <a class="el" href="../../d3/d9c/kmm_8h_source.html#l00035">35</a> del archivo <a class="el" href="../../d3/d9c/kmm_8h_source.html">kmm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad881b1b412cdb9bc8d851726a73c0e5f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int limit</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tamaño de la region de memoria. </p>
+
+<p>Definición en la línea <a class="el" href="../../d3/d9c/kmm_8h_source.html#l00037">37</a> del archivo <a class="el" href="../../d3/d9c/kmm_8h_source.html">kmm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd7b5f85892a0dd7c10a99e8bfdd6d3c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* next_memreg_header</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d3/d9c/kmm_8h_source.html#l00040">40</a> del archivo <a class="el" href="../../d3/d9c/kmm_8h_source.html">kmm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afdbc0e85a6973afc996aca09651f1d9e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* prev_memreg_header</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d3/d9c/kmm_8h_source.html#l00040">40</a> del archivo <a class="el" href="../../d3/d9c/kmm_8h_source.html">kmm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5810b6407672b8e7aeba609b4bb649de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int used</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>1 = region asignada, 0 = region libre </p>
+
+<p>Definición en la línea <a class="el" href="../../d3/d9c/kmm_8h_source.html#l00039">39</a> del archivo <a class="el" href="../../d3/d9c/kmm_8h_source.html">kmm.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación para esta estructura fue generada a partir del siguiente fichero:<ul>
+<li>include/<a class="el" href="../../d3/d9c/kmm_8h_source.html">kmm.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

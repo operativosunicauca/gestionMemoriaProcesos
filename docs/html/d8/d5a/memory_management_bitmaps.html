@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Gestión de Memoria Física con un Mapa de Bits</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li class="current"><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Gestión de Memoria Física con un Mapa de Bits </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Erwin Meza Vega <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a></dd></dl>
+<p><a class="el" href="../../index.html#project_start">Información del Proyecto</a> : Gestión de Memoria Física con un Mapa de Bits</p>
+<p>La gestión de memoria es el mecanismo de asignar y liberar unidades de memoria de forma dinámica. Para ofrecer esta funcionalidad, es necesario contar con una estructura de datos que permita llevar un registro de la memoria que se encuentra asignada y la memoria libre.</p>
+<p>Los mapas de bits son un mecanismo para gestionar memoria que se basan en un principio simple: Usando un bit (cuyo valor puede ser cero o uno) se puede determinar si un byte o una región de memoria se encuentra disponible o no. Esto ofrece una posibilidad sencilla para gestionar memoria, pero se puede ver limitada por el tamaño del mapa de bits en sí.</p>
+<p>Por ejemplo, si se desea gestionar una memoria de 4 GB (2^32 bytes) y se usa un bit por cada byte de memoria (tomando la unidad básica de asignación como un byte), el mapa de bits ocuparía 2^29 bits, es decir 512 MB.</p>
+<p>Una estrategia para solucionar este inconveniente consiste en usar unidades de asignación mayores a un byte. Por ejemplo, si se crea un mapa de bits en el cual cada bit representa una región de memoria (unidad de asignación) de 4 KB (2^12 bytes), el mapa de bits correspondiente para una memoria de 4 GB ´ ocuparía exactamente 128 KB. Este tamaño es aceptable, pero causa que no se puedan asignar unidades de memoria menores a 4 KB.</p>
+<p>A continuación se presenta una descripción gráfica del uso de un mapa de bits. </p>
+<pre class="fragment">                Esquema del Mapa de Bits
+ 
+   +-----------------------------------+        Cada bit en el mapa de bits
+   | 1| 0| 1| 0| 1| 0|..|..|..|..| 0| 1|        representa una unidad de
+   +-----------------------------------+        asignación de memoria  
+     
++-------------------------------------------------------------------------+
+|libre |usada|libre|usada|libre|usada|...  |     |     |     |usada|libre |
+|      |     |     |     |     |     |     |     |     |     |     |      |
++-------------------------------------------------------------------------+</pre><dl class="section user"><dt>Creación del mapa de bits</dt><dd></dd></dl>
+<p>El mapa de bits inicialmente se llena de ceros, para indicar todo el espacio de memoria como no disponible. Luego a partir de la información de la memoria disponible se "habilitan" las entradas correspondientes.</p>
+<dl class="section user"><dt>Asignación de Memoria</dt><dd></dd></dl>
+<p>La asignación de memoria se puede realizar de dos formas:</p>
+<ul>
+<li>Asignar una unidad de memoria: Se recorre el mapa de bits buscando un bit que se encuentre en 1 (región disponible). Si se encuentra este bit, se obtiene el inicio de la dirección de memoria que éste representa y se retorna. <pre class="fragment">                  Asignar una unidad de memoria
+                  
+     +------------- Esta entrada (bit) en el mapa de bits se encuentra en 1.             
+     |              Esto significa que la región asociada a este bit está
+     v              disponible.  
+   +-----------------------------------+        Cada bit en el mapa de bits
+   | 1| 0| 1| 0| 1| 0|..|..|..|..| 0| 1|        representa una unidad de
+   +-----------------------------------+        asignación de memoria  
+     
++-------------------------------------------------------------------------+
+|libre |usada|libre|usada|libre|usada|...  |     |     |     |usada|libre |
+|      |     |     |     |     |     |     |     |     |     |     |      |
++-------------------------------------------------------------------------+
+  ^
+  |
+  +---------- Región de memoria representada por el primer bit. Se debe 
+              retornar la dirección de memoria de inicio de la región.
+
+
+     +------------- La entrada se marca como "no disponible"             
+     |              
+     v  
+   +-----------------------------------+      Mapa de bits actualizado  
+   | 0| 0| 1| 0| 1| 0|..|..|..|..| 0| 1|        
+   +-----------------------------------+          </pre></li>
+<li>Asignar una región de memoria de N bytes: Primero se redondea el tamaño solicitado a un múltiplo del tamaño de una unidad de asignación. Luego se busca dentro del mapa de bits un número consecutivo de bits que sumen la cantidad de memoria solicitada. Si se encuentra, se marcan todos los bits como no disponibles y Se retorna la dirección física que le corresponde al primer bit en el mapa de bits. <pre class="fragment">                  Asignar una región de memoria
+                  
+          +-------------  Este es el inicio de la región de memoria               
+          |               disponible
+          v                
+   +-----------------------------------+        Cada bit en el mapa de bits
+   | 1| 0| 1| 1| 1| 1|..|..|..|..| 0| 1|        representa una unidad de
+   +-----------------------------------+        asignación de memoria  
+     
++-------------------------------------------------------------------------+
+|libre |usada|libre|libre|libre|libre|...  |     |     |     |usada|libre |
+|      |     |     |     |     |     |     |     |     |     |     |      |
++-------------------------------------------------------------------------+
+              ^
+              |
+              +---------- Inicio de la región de memoria. Se retorna la 
+                          dirección que le corresponde al primer bit del mapa.
+
+
+          +-------------  La región de memoria se marca como no disponible               
+          |               
+          v                
+   +-----------------------------------+        Se deben marcar los bits
+   | 1| 0| 0| 0| 0| 0|..|..|..|..| 0| 1|        correspondientes como   
+   +-----------------------------------+        "no disponible"   </pre></li>
+</ul>
+<dl class="section user"><dt>Liberado de Memoria</dt><dd></dd></dl>
+<p>Para liberar memoria se puede simplemente establecer en 1 (disponible) el bit correspondiente a la unidad o la región a liberar.</p>
+<pre class="fragment">                  Liberar una región de memoria
+                  
+          +-------------  Este es el inicio de la región de memoria               
+          |               asignada
+          v                
+   +-----------------------------------+        Cada bit en el mapa de bits
+   | 1| 0| 0| 0| 0| 0|..|..|..|..| 0| 1|        representa una unidad de
+   +-----------------------------------+        asignación de memoria  
+     
++-------------------------------------------------------------------------+
+|libre |usada|usada|usada|usada|usada|...  |     |     |     |usada|libre |
+|      |     |     |     |     |     |     |     |     |     |     |      |
++-------------------------------------------------------------------------+
+              ^
+              |
+              +---------- Inicio de la región de memoria que se desea liberar
+
+
+          +-------------  La región de memoria se marca como  disponible               
+          |               
+          v                
+   +-----------------------------------+        Se deben marcar los bits
+   | 1| 0| 1| 1| 1| 1|..|..|..|..| 0| 1|        correspondientes como   
+   +-----------------------------------+        "no disponible"   </pre><dl class="section see"><dt>Ver también</dt><dd><a href="http://www.gnu.org/software/grub/manual/multiboot/multiboot.html">http://www.gnu.org/software/grub/manual/multiboot/multiboot.html</a> Especificación Multiboot </dd>
+<dd>
+<a href="http://www.skyfree.org/linux/references/ELF_Format.pdf">http://www.skyfree.org/linux/references/ELF_Format.pdf</a> Especificación ELF </dd>
+<dd>
+<a href="http://www.gnu.org/software/grub/">http://www.gnu.org/software/grub/</a> Página oficial de GRUB (Enlace externo) </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

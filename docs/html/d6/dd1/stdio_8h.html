@@ -1,0 +1,835 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo include/stdio.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">'defines'</a> &#124;
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo stdio.h<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contiene las primitivas basicas para entrada / salida.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="../../de/d21/asm_8h_source.html">asm.h</a>&gt;</code><br/>
+</div>
+<p><a href="../../d6/dd1/stdio_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+'defines'</h2></td></tr>
+<tr class="memitem:a5016b8a7f88c7f68bc326ff7fc90736c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a5016b8a7f88c7f68bc326ff7fc90736c">VIDEO_ADDR</a>&#160;&#160;&#160;0XB8000</td></tr>
+<tr class="separator:a5016b8a7f88c7f68bc326ff7fc90736c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa15b9a2eaaa860e3768ad5d0c0039fea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#aa15b9a2eaaa860e3768ad5d0c0039fea">SCREEN_LINES</a>&#160;&#160;&#160;25</td></tr>
+<tr class="memdesc:aa15b9a2eaaa860e3768ad5d0c0039fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número de líneas de la pantalla.  <a href="#aa15b9a2eaaa860e3768ad5d0c0039fea">Más...</a><br/></td></tr>
+<tr class="separator:aa15b9a2eaaa860e3768ad5d0c0039fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49b4fe613bf8492af6900eabe794383c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a49b4fe613bf8492af6900eabe794383c">SCREEN_COLUMNS</a>&#160;&#160;&#160;80</td></tr>
+<tr class="memdesc:a49b4fe613bf8492af6900eabe794383c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número de columnas de la pantalla.  <a href="#a49b4fe613bf8492af6900eabe794383c">Más...</a><br/></td></tr>
+<tr class="separator:a49b4fe613bf8492af6900eabe794383c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6511bfd47ae935d09420c07d0ae15af9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a6511bfd47ae935d09420c07d0ae15af9">TABSIZE</a>&#160;&#160;&#160;8</td></tr>
+<tr class="memdesc:a6511bfd47ae935d09420c07d0ae15af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Espacios en un tabulador.  <a href="#a6511bfd47ae935d09420c07d0ae15af9">Más...</a><br/></td></tr>
+<tr class="separator:a6511bfd47ae935d09420c07d0ae15af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55a7d1fac65fa5d395ca505374538f78"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a55a7d1fac65fa5d395ca505374538f78">COLOR</a>(fg, bg)&#160;&#160;&#160;((bg &lt;&lt; 4) | fg)</td></tr>
+<tr class="memdesc:a55a7d1fac65fa5d395ca505374538f78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro para calcular el byte de atributos de texto y fondo.  <a href="#a55a7d1fac65fa5d395ca505374538f78">Más...</a><br/></td></tr>
+<tr class="separator:a55a7d1fac65fa5d395ca505374538f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b3b25cba33b07c303f3060fe41887f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a7b3b25cba33b07c303f3060fe41887f6">BLACK</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a7b3b25cba33b07c303f3060fe41887f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negro.  <a href="#a7b3b25cba33b07c303f3060fe41887f6">Más...</a><br/></td></tr>
+<tr class="separator:a7b3b25cba33b07c303f3060fe41887f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79d10e672abb49ad63eeaa8aaef57c38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a79d10e672abb49ad63eeaa8aaef57c38">BLUE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a79d10e672abb49ad63eeaa8aaef57c38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Azul.  <a href="#a79d10e672abb49ad63eeaa8aaef57c38">Más...</a><br/></td></tr>
+<tr class="separator:a79d10e672abb49ad63eeaa8aaef57c38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfbc006ea433ad708fdee3e82996e721"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#acfbc006ea433ad708fdee3e82996e721">GREEN</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:acfbc006ea433ad708fdee3e82996e721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verde.  <a href="#acfbc006ea433ad708fdee3e82996e721">Más...</a><br/></td></tr>
+<tr class="separator:acfbc006ea433ad708fdee3e82996e721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad243f93c16bc4c1d3e0a13b84421d760"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#ad243f93c16bc4c1d3e0a13b84421d760">CYAN</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:ad243f93c16bc4c1d3e0a13b84421d760"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cyan.  <a href="#ad243f93c16bc4c1d3e0a13b84421d760">Más...</a><br/></td></tr>
+<tr class="separator:ad243f93c16bc4c1d3e0a13b84421d760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d23feea868a983c8c2b661e1e16972f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a8d23feea868a983c8c2b661e1e16972f">RED</a>&#160;&#160;&#160;4</td></tr>
+<tr class="memdesc:a8d23feea868a983c8c2b661e1e16972f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rojo.  <a href="#a8d23feea868a983c8c2b661e1e16972f">Más...</a><br/></td></tr>
+<tr class="separator:a8d23feea868a983c8c2b661e1e16972f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f699060902f800f12aaae150f3a708e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a6f699060902f800f12aaae150f3a708e">MAGENTA</a>&#160;&#160;&#160;5</td></tr>
+<tr class="memdesc:a6f699060902f800f12aaae150f3a708e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Magenta.  <a href="#a6f699060902f800f12aaae150f3a708e">Más...</a><br/></td></tr>
+<tr class="separator:a6f699060902f800f12aaae150f3a708e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2baea56ece91306020afd6d77fd19f9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#ab2baea56ece91306020afd6d77fd19f9">BROWN</a>&#160;&#160;&#160;6</td></tr>
+<tr class="memdesc:ab2baea56ece91306020afd6d77fd19f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Café  <a href="#ab2baea56ece91306020afd6d77fd19f9">Más...</a><br/></td></tr>
+<tr class="separator:ab2baea56ece91306020afd6d77fd19f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04c5c34bd701165eade98623d1cc0020"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a04c5c34bd701165eade98623d1cc0020">LIGHTGRAY</a>&#160;&#160;&#160;7</td></tr>
+<tr class="memdesc:a04c5c34bd701165eade98623d1cc0020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gris claro.  <a href="#a04c5c34bd701165eade98623d1cc0020">Más...</a><br/></td></tr>
+<tr class="separator:a04c5c34bd701165eade98623d1cc0020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c08a6ce38e246fb2e4443329645aa5a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a4c08a6ce38e246fb2e4443329645aa5a">DARKGRAY</a>&#160;&#160;&#160;8</td></tr>
+<tr class="memdesc:a4c08a6ce38e246fb2e4443329645aa5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gris oscuro.  <a href="#a4c08a6ce38e246fb2e4443329645aa5a">Más...</a><br/></td></tr>
+<tr class="separator:a4c08a6ce38e246fb2e4443329645aa5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf6e41139cf8cb9ce7824a4f82ff5f83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#aaf6e41139cf8cb9ce7824a4f82ff5f83">LIGHTBLUE</a>&#160;&#160;&#160;9</td></tr>
+<tr class="memdesc:aaf6e41139cf8cb9ce7824a4f82ff5f83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Azul claro.  <a href="#aaf6e41139cf8cb9ce7824a4f82ff5f83">Más...</a><br/></td></tr>
+<tr class="separator:aaf6e41139cf8cb9ce7824a4f82ff5f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cc964ad8b138b5bf7d54f1c1032d921"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a4cc964ad8b138b5bf7d54f1c1032d921">LIGHTGREEN</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memdesc:a4cc964ad8b138b5bf7d54f1c1032d921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verde claro.  <a href="#a4cc964ad8b138b5bf7d54f1c1032d921">Más...</a><br/></td></tr>
+<tr class="separator:a4cc964ad8b138b5bf7d54f1c1032d921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27520e6218a2c2253a81bc291b366e90"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a27520e6218a2c2253a81bc291b366e90">LIGHTCYAN</a>&#160;&#160;&#160;11</td></tr>
+<tr class="memdesc:a27520e6218a2c2253a81bc291b366e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cyan claro.  <a href="#a27520e6218a2c2253a81bc291b366e90">Más...</a><br/></td></tr>
+<tr class="separator:a27520e6218a2c2253a81bc291b366e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a880e260096b011d770b6983e576e1237"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a880e260096b011d770b6983e576e1237">LIGHTRED</a>&#160;&#160;&#160;12</td></tr>
+<tr class="memdesc:a880e260096b011d770b6983e576e1237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rojo claro.  <a href="#a880e260096b011d770b6983e576e1237">Más...</a><br/></td></tr>
+<tr class="separator:a880e260096b011d770b6983e576e1237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad294a323b5a1eebd3ca63f0850937155"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#ad294a323b5a1eebd3ca63f0850937155">LIGHTMAGENTA</a>&#160;&#160;&#160;13</td></tr>
+<tr class="memdesc:ad294a323b5a1eebd3ca63f0850937155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Magenta claro.  <a href="#ad294a323b5a1eebd3ca63f0850937155">Más...</a><br/></td></tr>
+<tr class="separator:ad294a323b5a1eebd3ca63f0850937155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd4f0c15802fdbf7b2a028112a9c2fa5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#abd4f0c15802fdbf7b2a028112a9c2fa5">LIGHTBROWN</a>&#160;&#160;&#160;14</td></tr>
+<tr class="memdesc:abd4f0c15802fdbf7b2a028112a9c2fa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Café claro.  <a href="#abd4f0c15802fdbf7b2a028112a9c2fa5">Más...</a><br/></td></tr>
+<tr class="separator:abd4f0c15802fdbf7b2a028112a9c2fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87b537f5fa5c109d3c05c13d6b18f382"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a87b537f5fa5c109d3c05c13d6b18f382">WHITE</a>&#160;&#160;&#160;15</td></tr>
+<tr class="memdesc:a87b537f5fa5c109d3c05c13d6b18f382"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blanco.  <a href="#a87b537f5fa5c109d3c05c13d6b18f382">Más...</a><br/></td></tr>
+<tr class="separator:a87b537f5fa5c109d3c05c13d6b18f382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ff6e798033f03e74730e99f01936f84"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a5ff6e798033f03e74730e99f01936f84">SPACE</a>&#160;&#160;&#160;0x20</td></tr>
+<tr class="memdesc:a5ff6e798033f03e74730e99f01936f84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Caracter ASCII de espacio.  <a href="#a5ff6e798033f03e74730e99f01936f84">Más...</a><br/></td></tr>
+<tr class="separator:a5ff6e798033f03e74730e99f01936f84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629568514359445d2fbda71d70eeb1ce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a629568514359445d2fbda71d70eeb1ce">BACKSPACE</a>&#160;&#160;&#160;0x08</td></tr>
+<tr class="memdesc:a629568514359445d2fbda71d70eeb1ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Caracter ASCII de backspace.  <a href="#a629568514359445d2fbda71d70eeb1ce">Más...</a><br/></td></tr>
+<tr class="separator:a629568514359445d2fbda71d70eeb1ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a350c9d6cb81908d59427ee96844d1a9c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a350c9d6cb81908d59427ee96844d1a9c">LF</a>&#160;&#160;&#160;'\n'</td></tr>
+<tr class="memdesc:a350c9d6cb81908d59427ee96844d1a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Caracter ASCII de Fin de línea.  <a href="#a350c9d6cb81908d59427ee96844d1a9c">Más...</a><br/></td></tr>
+<tr class="separator:a350c9d6cb81908d59427ee96844d1a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a876ce77f3c672c7162658151e648389e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a876ce77f3c672c7162658151e648389e">CR</a>&#160;&#160;&#160;'\r'</td></tr>
+<tr class="memdesc:a876ce77f3c672c7162658151e648389e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Caracter ASCII de Retorno de carro.  <a href="#a876ce77f3c672c7162658151e648389e">Más...</a><br/></td></tr>
+<tr class="separator:a876ce77f3c672c7162658151e648389e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad58a1fbfc85c7e4790fc55e654f50221"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#ad58a1fbfc85c7e4790fc55e654f50221">TAB</a>&#160;&#160;&#160;0x09</td></tr>
+<tr class="memdesc:ad58a1fbfc85c7e4790fc55e654f50221"><td class="mdescLeft">&#160;</td><td class="mdescRight">Caracter ASCII de Tabulador.  <a href="#ad58a1fbfc85c7e4790fc55e654f50221">Más...</a><br/></td></tr>
+<tr class="separator:ad58a1fbfc85c7e4790fc55e654f50221"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a948b7a0779c308ac5502c57e282e6933"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a948b7a0779c308ac5502c57e282e6933">putchar</a> (char c)</td></tr>
+<tr class="memdesc:a948b7a0779c308ac5502c57e282e6933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para imprimir un caracter.  <a href="#a948b7a0779c308ac5502c57e282e6933">Más...</a><br/></td></tr>
+<tr class="separator:a948b7a0779c308ac5502c57e282e6933"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0569a11ed49990504237605300607f63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a0569a11ed49990504237605300607f63">puts</a> (char *s)</td></tr>
+<tr class="memdesc:a0569a11ed49990504237605300607f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función para imprimir una cadena de caracteres.  <a href="#a0569a11ed49990504237605300607f63">Más...</a><br/></td></tr>
+<tr class="separator:a0569a11ed49990504237605300607f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05518ab241076a365f2acd326cfc9c70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70">printf</a> (char *,...)</td></tr>
+<tr class="memdesc:a05518ab241076a365f2acd326cfc9c70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esa funcion implementa en forma basica el comportamiento de 'printf' en C.  <a href="#a05518ab241076a365f2acd326cfc9c70">Más...</a><br/></td></tr>
+<tr class="separator:a05518ab241076a365f2acd326cfc9c70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ab9c7edee839bc15fabe5b63a126afd7f"><td class="memItemLeft" align="right" valign="top">unsigned short *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#ab9c7edee839bc15fabe5b63a126afd7f">videoptr</a></td></tr>
+<tr class="memdesc:ab9c7edee839bc15fabe5b63a126afd7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apuntador al inicio de la memoria de video.  <a href="#ab9c7edee839bc15fabe5b63a126afd7f">Más...</a><br/></td></tr>
+<tr class="separator:ab9c7edee839bc15fabe5b63a126afd7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4319ad5eb1a906019725d95a3643ee16"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a4319ad5eb1a906019725d95a3643ee16">text_attributes</a></td></tr>
+<tr class="memdesc:a4319ad5eb1a906019725d95a3643ee16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte que almacena los atributos de texto.  <a href="#a4319ad5eb1a906019725d95a3643ee16">Más...</a><br/></td></tr>
+<tr class="separator:a4319ad5eb1a906019725d95a3643ee16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e2b0c7bafad80a1e690b73709433178"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#a0e2b0c7bafad80a1e690b73709433178">screen_lines</a></td></tr>
+<tr class="memdesc:a0e2b0c7bafad80a1e690b73709433178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable que controla el número de lineas de la pantalla.  <a href="#a0e2b0c7bafad80a1e690b73709433178">Más...</a><br/></td></tr>
+<tr class="separator:a0e2b0c7bafad80a1e690b73709433178"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadb5b833923e683e9ed68a621b8687f8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/dd1/stdio_8h.html#aadb5b833923e683e9ed68a621b8687f8">screen_columns</a></td></tr>
+<tr class="memdesc:aadb5b833923e683e9ed68a621b8687f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable que controla el número de columnas de la pantalla.  <a href="#aadb5b833923e683e9ed68a621b8687f8">Más...</a><br/></td></tr>
+<tr class="separator:aadb5b833923e683e9ed68a621b8687f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Contiene las primitivas basicas para entrada / salida. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+</div><h2 class="groupheader">Documentación de los 'defines'</h2>
+<a class="anchor" id="a629568514359445d2fbda71d70eeb1ce"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BACKSPACE&#160;&#160;&#160;0x08</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Caracter ASCII de backspace. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00098">98</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7b3b25cba33b07c303f3060fe41887f6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BLACK&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Negro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00063">63</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a79d10e672abb49ad63eeaa8aaef57c38"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BLUE&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Azul. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00065">65</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab2baea56ece91306020afd6d77fd19f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BROWN&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Café </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00075">75</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a55a7d1fac65fa5d395ca505374538f78"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define COLOR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fg, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bg&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((bg &lt;&lt; 4) | fg)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Macro para calcular el byte de atributos de texto y fondo. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00059">59</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a876ce77f3c672c7162658151e648389e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CR&#160;&#160;&#160;'\r'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Caracter ASCII de Retorno de carro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00102">102</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad243f93c16bc4c1d3e0a13b84421d760"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CYAN&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cyan. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00069">69</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4c08a6ce38e246fb2e4443329645aa5a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DARKGRAY&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gris oscuro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00079">79</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acfbc006ea433ad708fdee3e82996e721"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define GREEN&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verde. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00067">67</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a350c9d6cb81908d59427ee96844d1a9c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LF&#160;&#160;&#160;'\n'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Caracter ASCII de Fin de línea. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00100">100</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf6e41139cf8cb9ce7824a4f82ff5f83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHTBLUE&#160;&#160;&#160;9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Azul claro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00081">81</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd4f0c15802fdbf7b2a028112a9c2fa5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHTBROWN&#160;&#160;&#160;14</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Café claro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00091">91</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a27520e6218a2c2253a81bc291b366e90"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHTCYAN&#160;&#160;&#160;11</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cyan claro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00085">85</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a04c5c34bd701165eade98623d1cc0020"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHTGRAY&#160;&#160;&#160;7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gris claro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00077">77</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4cc964ad8b138b5bf7d54f1c1032d921"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHTGREEN&#160;&#160;&#160;10</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verde claro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00083">83</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad294a323b5a1eebd3ca63f0850937155"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHTMAGENTA&#160;&#160;&#160;13</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Magenta claro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00089">89</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a880e260096b011d770b6983e576e1237"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIGHTRED&#160;&#160;&#160;12</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rojo claro. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00087">87</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f699060902f800f12aaae150f3a708e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAGENTA&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Magenta. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00073">73</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8d23feea868a983c8c2b661e1e16972f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RED&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rojo. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00071">71</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a49b4fe613bf8492af6900eabe794383c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SCREEN_COLUMNS&#160;&#160;&#160;80</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Número de columnas de la pantalla. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00047">47</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa15b9a2eaaa860e3768ad5d0c0039fea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SCREEN_LINES&#160;&#160;&#160;25</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Número de líneas de la pantalla. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00044">44</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ff6e798033f03e74730e99f01936f84"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SPACE&#160;&#160;&#160;0x20</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Caracter ASCII de espacio. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00096">96</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad58a1fbfc85c7e4790fc55e654f50221"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TAB&#160;&#160;&#160;0x09</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Caracter ASCII de Tabulador. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00104">104</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6511bfd47ae935d09420c07d0ae15af9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TABSIZE&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Espacios en un tabulador. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00050">50</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5016b8a7f88c7f68bc326ff7fc90736c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VIDEO_ADDR&#160;&#160;&#160;0XB8000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00017">17</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a87b537f5fa5c109d3c05c13d6b18f382"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define WHITE&#160;&#160;&#160;15</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Blanco. </p>
+
+<p>Definición en la línea <a class="el" href="../../d6/dd1/stdio_8h_source.html#l00093">93</a> del archivo <a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="a05518ab241076a365f2acd326cfc9c70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printf </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>format</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esa funcion implementa en forma basica el comportamiento de 'printf' en C. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">format</td><td>Formato de la cadena de salida </td></tr>
+    <tr><td class="paramname">...</td><td>Lista de referencias a memoria de las variables a imprimir </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d9/df6/stdio_8c_source.html#l00311">311</a> del archivo <a class="el" href="../../d9/df6/stdio_8c_source.html">stdio.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a948b7a0779c308ac5502c57e282e6933"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void putchar </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función para imprimir un caracter. </p>
+<p>Esta rutina imprime directamente en la memoria de video. No valida caracteres especiales. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>caracter ascii a imprimir</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta rutina imprime directamente en la memoria de video. Valida caracteres especiales, como fin de línea, tabulador y backspace. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>caracter ascii a imprimir </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d9/df6/stdio_8c_source.html#l00066">66</a> del archivo <a class="el" href="../../d9/df6/stdio_8c_source.html">stdio.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0569a11ed49990504237605300607f63"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void puts </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función para imprimir una cadena de caracteres. </p>
+<p>Esta rutina no valida caracteres especiales. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Cadena terminada en nulo que se desea imprimir</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Esta rutina valida caracteres especiales, como fin de línea, tabulador y backspace. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Cadena terminada en nulo que se desea imprimir </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d9/df6/stdio_8c_source.html#l00124">124</a> del archivo <a class="el" href="../../d9/df6/stdio_8c_source.html">stdio.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a class="anchor" id="aadb5b833923e683e9ed68a621b8687f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int screen_columns</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable que controla el número de columnas de la pantalla. </p>
+
+<p>Definición en la línea <a class="el" href="../../d9/df6/stdio_8c_source.html#l00040">40</a> del archivo <a class="el" href="../../d9/df6/stdio_8c_source.html">stdio.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e2b0c7bafad80a1e690b73709433178"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int screen_lines</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable que controla el número de lineas de la pantalla. </p>
+
+<p>Definición en la línea <a class="el" href="../../d9/df6/stdio_8c_source.html#l00037">37</a> del archivo <a class="el" href="../../d9/df6/stdio_8c_source.html">stdio.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4319ad5eb1a906019725d95a3643ee16"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char text_attributes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Byte que almacena los atributos de texto. </p>
+
+<p>Definición en la línea <a class="el" href="../../d9/df6/stdio_8c_source.html#l00034">34</a> del archivo <a class="el" href="../../d9/df6/stdio_8c_source.html">stdio.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab9c7edee839bc15fabe5b63a126afd7f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short* videoptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Apuntador al inicio de la memoria de video. </p>
+<p>La memoria de video se encuentra mapeada en la dirección lineal 0xB8000. Cada caracter en pantalla ocupa dos caracteres (bytes) en la memoria de video:</p>
+<ul>
+<li>El byte menos significativo contiene el caracter ASCII a mostrar</li>
+<li>El byte más significativo contiene los atributos de texto y fondo del caracter a mostrar. A su vez este byte se subdivide en: <pre class="fragment">*    7  6  5  4  3  2  1  0
+*   +-----------------------+
+*   |I |F |F |F |I |B |B |B |
+*   +-----------------------+
+*   </pre> Los bits F correspondel al color del texto (Foreground). Los bits B corresponden al color de fondo (Background). El bit I corresponde a la intensidad del color de fondo (0 = oscuro, 1 = claro) o del color del texto. </li>
+</ul>
+
+<p>Definición en la línea <a class="el" href="../../d9/df6/stdio_8c_source.html#l00031">31</a> del archivo <a class="el" href="../../d9/df6/stdio_8c_source.html">stdio.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

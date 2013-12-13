@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo include/asm.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">'defines'</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo asm.h<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Rutinas para la ejecución de código ensamblador para la arquitectura IA-32.  
+<a href="#details">Más...</a></p>
+
+<p><a href="../../de/d21/asm_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+'defines'</h2></td></tr>
+<tr class="memitem:a582320ed9a528ae377c2de027ac94616"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/asm_8h.html#a582320ed9a528ae377c2de027ac94616">inline_assembly</a>(code...)&#160;&#160;&#160;__asm__ __volatile__(code)</td></tr>
+<tr class="memdesc:a582320ed9a528ae377c2de027ac94616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias para incluir codigo ensamblador dentro del código en C.  <a href="#a582320ed9a528ae377c2de027ac94616">Más...</a><br/></td></tr>
+<tr class="separator:a582320ed9a528ae377c2de027ac94616"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:aa7390b8745ba4780ae6059ad4811359d"><td class="memItemLeft" align="right" valign="top">static __inline__ unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/asm_8h.html#aa7390b8745ba4780ae6059ad4811359d">inb</a> (unsigned short port)</td></tr>
+<tr class="memdesc:aa7390b8745ba4780ae6059ad4811359d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee un byte de un puerto de entrada / salida.  <a href="#aa7390b8745ba4780ae6059ad4811359d">Más...</a><br/></td></tr>
+<tr class="separator:aa7390b8745ba4780ae6059ad4811359d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d1c1943820519a119d15d10a37c8821"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/asm_8h.html#a7d1c1943820519a119d15d10a37c8821">outb</a> (unsigned short port, unsigned char data)</td></tr>
+<tr class="memdesc:a7d1c1943820519a119d15d10a37c8821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escribe un byte en un puerto de entrada / salida.  <a href="#a7d1c1943820519a119d15d10a37c8821">Más...</a><br/></td></tr>
+<tr class="separator:a7d1c1943820519a119d15d10a37c8821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b6e1c737a0db29e2e83bd82b787bea"><td class="memItemLeft" align="right" valign="top">static __inline__ unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/asm_8h.html#ab2b6e1c737a0db29e2e83bd82b787bea">inw</a> (unsigned short port)</td></tr>
+<tr class="memdesc:ab2b6e1c737a0db29e2e83bd82b787bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lee un word de un puerto de entrada / salida.  <a href="#ab2b6e1c737a0db29e2e83bd82b787bea">Más...</a><br/></td></tr>
+<tr class="separator:ab2b6e1c737a0db29e2e83bd82b787bea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd5e953ad22cda998ab0fe6ae56d1ab"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/asm_8h.html#a2cd5e953ad22cda998ab0fe6ae56d1ab">outw</a> (unsigned short port, unsigned short data)</td></tr>
+<tr class="memdesc:a2cd5e953ad22cda998ab0fe6ae56d1ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escribe un word en un puerto de entrada / salida.  <a href="#a2cd5e953ad22cda998ab0fe6ae56d1ab">Más...</a><br/></td></tr>
+<tr class="separator:a2cd5e953ad22cda998ab0fe6ae56d1ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Rutinas para la ejecución de código ensamblador para la arquitectura IA-32. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License.</dd></dl>
+<p>Dado que algunas instrucciones sólo se pueden ejecutar directamente en lenguaje ensamblador, se hace uso de inline assembly (assembler en-linea) para incluir código en ensamblador directamente dentro del código en C.</p>
+<pre class="fragment">__asm__ __volatile__(" instrucciones_asm"
+      : operandos de salida
+      : operandos de entrada
+      : registros a invalidar
+      );
+</pre><dl class="section see"><dt>Ver también</dt><dd><a href="http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html">http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html</a> HOWTO de assembler en línea. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../de/d21/asm_8h_source.html">asm.h</a>.</p>
+</div><h2 class="groupheader">Documentación de los 'defines'</h2>
+<a class="anchor" id="a582320ed9a528ae377c2de027ac94616"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define inline_assembly</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">code...</td><td>)</td>
+          <td>&#160;&#160;&#160;__asm__ __volatile__(code)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias para incluir codigo ensamblador dentro del código en C. </p>
+
+<p>Definición en la línea <a class="el" href="../../de/d21/asm_8h_source.html#l00034">34</a> del archivo <a class="el" href="../../de/d21/asm_8h_source.html">asm.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="aa7390b8745ba4780ae6059ad4811359d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ unsigned char inb </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>port</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lee un byte de un puerto de entrada / salida. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Puerto de E/S del cual se debe leer el byte </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Byte leido del puerto. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../de/d21/asm_8h_source.html#l00042">42</a> del archivo <a class="el" href="../../de/d21/asm_8h_source.html">asm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab2b6e1c737a0db29e2e83bd82b787bea"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ unsigned short inw </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>port</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lee un word de un puerto de entrada / salida. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Puerto de E/S del cual se debe leer el byte </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Word leido del puerto. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../de/d21/asm_8h_source.html#l00063">63</a> del archivo <a class="el" href="../../de/d21/asm_8h_source.html">asm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d1c1943820519a119d15d10a37c8821"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void outb </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Escribe un byte en un puerto de entrada / salida. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Puerto de E/S al cual se puede escribir el byte </td></tr>
+    <tr><td class="paramname">data</td><td>Byte a escribir en el puerto. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../de/d21/asm_8h_source.html#l00054">54</a> del archivo <a class="el" href="../../de/d21/asm_8h_source.html">asm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2cd5e953ad22cda998ab0fe6ae56d1ab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void outw </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Escribe un word en un puerto de entrada / salida. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port</td><td>Puerto de E/S al cual se puede escribir el word </td></tr>
+    <tr><td class="paramname">data</td><td>Word a escribir en el puerto. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>void </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../de/d21/asm_8h_source.html#l00075">75</a> del archivo <a class="el" href="../../de/d21/asm_8h_source.html">asm.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

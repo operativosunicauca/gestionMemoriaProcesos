@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo src/idt.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo idt.c<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Este archivo implementa las primitivas para el manejo de interrupciones en la arquitectura IA-32.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../dc/d9c/stdlib_8h_source.html">stdlib.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../de/d21/asm_8h_source.html">asm.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../dc/ddb/pm_8h_source.html">pm.h</a>&gt;</code><br/>
+</div>
+<p><a href="../../d5/d05/idt_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a67eeeb6e6bc96929a33b66e3870b38f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d85/structidt__descriptor.html">idt_descriptor</a> <a class="el" href="../../d4/d35/idt_8h.html#aad1f59f9e9abef5d706e3f35f4bc72ec">idt</a>[<a class="el" href="../../d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408">MAX_IDT_ENTRIES</a>]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d05/idt_8c.html#a67eeeb6e6bc96929a33b66e3870b38f4">__attribute__</a> ((aligned(8)))</td></tr>
+<tr class="memdesc:a67eeeb6e6bc96929a33b66e3870b38f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tabla de descriptores de interrupción (IDT)  <a href="#a67eeeb6e6bc96929a33b66e3870b38f4">Más...</a><br/></td></tr>
+<tr class="separator:a67eeeb6e6bc96929a33b66e3870b38f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09d659cc734a4dbbee2d6832a670e207"><td class="memItemLeft" align="right" valign="top">static __inline__ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d05/idt_8c.html#a09d659cc734a4dbbee2d6832a670e207">same_dpl</a> (unsigned short sel1, unsigned short sel2)</td></tr>
+<tr class="memdesc:a09d659cc734a4dbbee2d6832a670e207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina permite determinar si dos selectores se encuentran en el mismo nivel de privilegios.  <a href="#a09d659cc734a4dbbee2d6832a670e207">Más...</a><br/></td></tr>
+<tr class="separator:a09d659cc734a4dbbee2d6832a670e207"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e6e7e765b126c17b4080184d13577a7"><td class="memItemLeft" align="right" valign="top">static __inline__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d05/idt_8c.html#a8e6e7e765b126c17b4080184d13577a7">dump_interrupt_state</a> (<a class="el" href="../../df/d23/structinterrupt__state.html">interrupt_state</a> *state)</td></tr>
+<tr class="memdesc:a8e6e7e765b126c17b4080184d13577a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina permite mostrar el estado en el cual se encuentra el procesador cuando ocurrio una interrupción.  <a href="#a8e6e7e765b126c17b4080184d13577a7">Más...</a><br/></td></tr>
+<tr class="separator:a8e6e7e765b126c17b4080184d13577a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9782031a7d6cb759022b58789382f5eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d05/idt_8c.html#a9782031a7d6cb759022b58789382f5eb">setup_idt</a> (void)</td></tr>
+<tr class="memdesc:a9782031a7d6cb759022b58789382f5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina se encarga de cargar la IDT.  <a href="#a9782031a7d6cb759022b58789382f5eb">Más...</a><br/></td></tr>
+<tr class="separator:a9782031a7d6cb759022b58789382f5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a889ba321f899261c91e92feae534fb70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d05/idt_8c.html#a889ba321f899261c91e92feae534fb70">install_interrupt_handler</a> (unsigned char index, <a class="el" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d">interrupt_handler</a> handler)</td></tr>
+<tr class="memdesc:a889ba321f899261c91e92feae534fb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instala un nuevo manejador de interrupción para un número de interrupción determinado.  <a href="#a889ba321f899261c91e92feae534fb70">Más...</a><br/></td></tr>
+<tr class="separator:a889ba321f899261c91e92feae534fb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace9ef57f748f1d20ad893a81c3d3c3b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d05/idt_8c.html#ace9ef57f748f1d20ad893a81c3d3c3b1">uninstall_interrupt_handler</a> (unsigned char index)</td></tr>
+<tr class="memdesc:ace9ef57f748f1d20ad893a81c3d3c3b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desinstala un manejador de interrupción.  <a href="#ace9ef57f748f1d20ad893a81c3d3c3b1">Más...</a><br/></td></tr>
+<tr class="separator:ace9ef57f748f1d20ad893a81c3d3c3b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491194ab27dc6f0939626c92cf4b376e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d05/idt_8c.html#a491194ab27dc6f0939626c92cf4b376e">interrupt_dispatcher</a> ()</td></tr>
+<tr class="memdesc:a491194ab27dc6f0939626c92cf4b376e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina recibe el control de la Rutina de Servicio de Interrupción (ISR) isr0, isr1.. etc. correspondiente. Su trabajo consiste en determinar el vector de interrupción a partir del estado que recibe como parametro, y de invocar la rutina de manejo de interrupción adecuada, si existe.  <a href="#a491194ab27dc6f0939626c92cf4b376e">Más...</a><br/></td></tr>
+<tr class="separator:a491194ab27dc6f0939626c92cf4b376e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a289c55e4d6cde1516ac5b16a0caf3459"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d35/idt_8h.html#a51effbd893e97a79b82fc50f187b9cc0">idt_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d05/idt_8c.html#a289c55e4d6cde1516ac5b16a0caf3459">idt_pointer</a></td></tr>
+<tr class="memdesc:a289c55e4d6cde1516ac5b16a0caf3459"><td class="mdescLeft">&#160;</td><td class="mdescRight">El apuntador al IDT que se utiliza en la instruccion lidt.  <a href="#a289c55e4d6cde1516ac5b16a0caf3459">Más...</a><br/></td></tr>
+<tr class="separator:a289c55e4d6cde1516ac5b16a0caf3459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc7a0623aadf5f38415f8847cb297c86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d">interrupt_handler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d05/idt_8c.html#adc7a0623aadf5f38415f8847cb297c86">interrupt_handlers</a> [<a class="el" href="../../d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408">MAX_IDT_ENTRIES</a>]</td></tr>
+<tr class="memdesc:adc7a0623aadf5f38415f8847cb297c86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arreglo que almacena las referencias a las rutinas de manejo de interrupción. La rutina install_interrupt_handler almacena las referencias a las rutinas en este arreglo.  <a href="#adc7a0623aadf5f38415f8847cb297c86">Más...</a><br/></td></tr>
+<tr class="separator:adc7a0623aadf5f38415f8847cb297c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b415a0cded287180889b9fe60cf6446"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d05/idt_8c.html#a6b415a0cded287180889b9fe60cf6446">kernel_code_selector</a></td></tr>
+<tr class="memdesc:a6b415a0cded287180889b9fe60cf6446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Referencia al selector de segmento de codigo del kernel.  <a href="#a6b415a0cded287180889b9fe60cf6446">Más...</a><br/></td></tr>
+<tr class="separator:a6b415a0cded287180889b9fe60cf6446"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Este archivo implementa las primitivas para el manejo de interrupciones en la arquitectura IA-32. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../d5/d05/idt_8c_source.html">idt.c</a>.</p>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="a67eeeb6e6bc96929a33b66e3870b38f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d85/structidt__descriptor.html">idt_descriptor</a> <a class="el" href="../../d4/d35/idt_8h.html#aad1f59f9e9abef5d706e3f35f4bc72ec">idt</a> [<a class="el" href="../../d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408">MAX_IDT_ENTRIES</a>] __attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(aligned(8))&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tabla de descriptores de interrupción (IDT) </p>
+
+</div>
+</div>
+<a class="anchor" id="a8e6e7e765b126c17b4080184d13577a7"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ dump_interrupt_state </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d23/structinterrupt__state.html">interrupt_state</a> *&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Esta rutina permite mostrar el estado en el cual se encuentra el procesador cuando ocurrio una interrupción. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>Apuntador al marco de pila de interrupción. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d5/d05/idt_8c_source.html#l00055">55</a> del archivo <a class="el" href="../../d5/d05/idt_8c_source.html">idt.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a889ba321f899261c91e92feae534fb70"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void install_interrupt_handler </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d">interrupt_handler</a>&#160;</td>
+          <td class="paramname"><em>handler</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Instala un nuevo manejador de interrupción para un número de interrupción determinado. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Número de interrupción para la cual se desea instalar el manejador </td></tr>
+    <tr><td class="paramname">handler</td><td>Función para el manejo de la interrupción. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d5/d05/idt_8c_source.html#l00111">111</a> del archivo <a class="el" href="../../d5/d05/idt_8c_source.html">idt.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a491194ab27dc6f0939626c92cf4b376e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void interrupt_dispatcher </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina recibe el control de la Rutina de Servicio de Interrupción (ISR) isr0, isr1.. etc. correspondiente. Su trabajo consiste en determinar el vector de interrupción a partir del estado que recibe como parametro, y de invocar la rutina de manejo de interrupción adecuada, si existe. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d05/idt_8c_source.html#l00138">138</a> del archivo <a class="el" href="../../d5/d05/idt_8c_source.html">idt.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a09d659cc734a4dbbee2d6832a670e207"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ int same_dpl </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>sel1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>sel2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Esta rutina permite determinar si dos selectores se encuentran en el mismo nivel de privilegios. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sel1</td><td>Selector 1 </td></tr>
+    <tr><td class="paramname">sel2</td><td>Selector 2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>int 1 = los selectores tienen igual DPL, 0 = los selectores tienen diferente DPL. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d5/d05/idt_8c_source.html#l00037">37</a> del archivo <a class="el" href="../../d5/d05/idt_8c_source.html">idt.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9782031a7d6cb759022b58789382f5eb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup_idt </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina se encarga de cargar la IDT. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d05/idt_8c_source.html#l00086">86</a> del archivo <a class="el" href="../../d5/d05/idt_8c_source.html">idt.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ace9ef57f748f1d20ad893a81c3d3c3b1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void uninstall_interrupt_handler </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desinstala un manejador de interrupción. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Número de la interrupción para la cual se va a desinstalar el manejador </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d5/d05/idt_8c_source.html#l00124">124</a> del archivo <a class="el" href="../../d5/d05/idt_8c_source.html">idt.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a class="anchor" id="a289c55e4d6cde1516ac5b16a0caf3459"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d35/idt_8h.html#a51effbd893e97a79b82fc50f187b9cc0">idt_ptr</a> idt_pointer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>El apuntador al IDT que se utiliza en la instruccion lidt. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d05/idt_8c_source.html#l00020">20</a> del archivo <a class="el" href="../../d5/d05/idt_8c_source.html">idt.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adc7a0623aadf5f38415f8847cb297c86"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d">interrupt_handler</a> interrupt_handlers[<a class="el" href="../../d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408">MAX_IDT_ENTRIES</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Arreglo que almacena las referencias a las rutinas de manejo de interrupción. La rutina install_interrupt_handler almacena las referencias a las rutinas en este arreglo. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d05/idt_8c_source.html#l00027">27</a> del archivo <a class="el" href="../../d5/d05/idt_8c_source.html">idt.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6b415a0cded287180889b9fe60cf6446"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short kernel_code_selector</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Referencia al selector de segmento de codigo del kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d5/d16/pm_8c_source.html#l00023">23</a> del archivo <a class="el" href="../../d5/d16/pm_8c_source.html">pm.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

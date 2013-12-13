@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia de la Estructura gdt_descriptor</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../classes.html"><span>Índice&#160;de&#160;estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../functions.html"><span>Campos&#160;de&#160;datos</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Campos de datos</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia de la Estructura gdt_descriptor</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Estructura de datos para un descriptor de segmento.  
+ <a href="../../de/d45/structgdt__descriptor.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../dc/ddb/pm_8h_source.html">pm.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Campos de datos</h2></td></tr>
+<tr class="memitem:ac7f6edf6d279540453de033a2c6302e4"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d45/structgdt__descriptor.html#ac7f6edf6d279540453de033a2c6302e4">low</a>: 32</td></tr>
+<tr class="memdesc:ac7f6edf6d279540453de033a2c6302e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bits menos significativos del descriptor. Agrupan Limite 0..15 y Base 0..15 del descriptor.  <a href="#ac7f6edf6d279540453de033a2c6302e4">Más...</a><br/></td></tr>
+<tr class="separator:ac7f6edf6d279540453de033a2c6302e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57443906c445dd48f3238acc8a9c75f3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d45/structgdt__descriptor.html#a57443906c445dd48f3238acc8a9c75f3">high</a>: 32</td></tr>
+<tr class="separator:a57443906c445dd48f3238acc8a9c75f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Estructura de datos para un descriptor de segmento. </p>
+<p>De acuerdo con el manual de Intel, un descriptor de segmento en modo protegido de 32 bits es una estructura de datos que ocupa 8 bytes (64 bits), con el siguiente formato (Ver Cap. 3, Seccion 3.4.5, en Intel® 64 and IA-32 Architectures Software Developer’s Manual Volume 3A: System Programming Guide, Part 1)</p>
+<pre class="fragment">31                               16     12 11    8 7              0
+ ------------------------------------------------------------------
+|                | |D| |A|        | |   | |       |                |
+|  Base 24..31   |G|/|L|V| Limite |P|DPL|S| Tipo  |   Base 16..23  |
+|                | |B| |L| 16..19 | |   | |       |                |
+ ------------------------------------------------------------------  MSB
+ 31                               16 15                           0
+ ------------------------------------------------------------------
+|                                 |                                |
+|        Base 0..15               |          Limite 0..15          |
+|                                 |                                |
+ ------------------------------------------------------------------  LSB</pre><p>La distribución de los bits dentro del descriptor se explica a continuación:</p>
+<ul>
+<li>Los bits Base 0..31 permiten definir la base del segmento en el espacio lineal de 32 bits.</li>
+<li>Los bits Limite 0..19 permiten definir el tamaño del segmento. Este límite también se relaciona con el bit G (Granularidad) de la siguiente forma:<ul>
+<li>Si G es 0, el tamaño del segmento en bytes es igual al valor almacenado en Limite</li>
+<li>Si G = 1, el tamaño del segmento es el valor almacenado en Limite multiplicado por 4096.</li>
+</ul>
+</li>
+<li>El bit D/B funciona diferente para para segmentos de codigo y datos. Para modo protegido de 32 bits este bit debe tener valor de 1. Consulte el manual de Intel para más detalles.</li>
+<li>El bit L debe ser 0 para modo protegido de 32 bits.</li>
+<li>El bit AVL puede ser tener como valor 1 o 0. Por defecto se toma 0.</li>
+<li>El bit P es 1 si el segmento está presente, 0 en caso contrario.</li>
+<li>El bit DPL define el nivel de privilegios del descriptor. Por tener 2 bits puede almacenar tres valores: 0, 1 y 2. 0 es el mayor privilegio.</li>
+<li>El bit S para descriptores de segmento de codigo o datos debe ser 1.</li>
+<li>Los bits correspondientes a Tipo definen el tipo de segmento. Vea la sección 3.5.1 del manual de Intel mencionado.<ul>
+<li>Para segmentos de código, Tipo tiene el valor binario de 1010 = 0xA</li>
+<li>Para segmentos de datos, Tipo tiene el valor binario de 0010 = 0x2Estructura de datos para un descriptor de segmento </li>
+</ul>
+</li>
+</ul>
+
+<p>Definición en la línea <a class="el" href="../../dc/ddb/pm_8h_source.html#l00092">92</a> del archivo <a class="el" href="../../dc/ddb/pm_8h_source.html">pm.h</a>.</p>
+</div><h2 class="groupheader">Documentación de los campos</h2>
+<a class="anchor" id="a57443906c445dd48f3238acc8a9c75f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int high</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>bits más significativos del descriptor. Agrupan Base 16..23, Tipo, S, DPL, P, Límite, AVL, L, D/B, G y Base 24..31 </p>
+
+<p>Definición en la línea <a class="el" href="../../dc/ddb/pm_8h_source.html#l00098">98</a> del archivo <a class="el" href="../../dc/ddb/pm_8h_source.html">pm.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac7f6edf6d279540453de033a2c6302e4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int low</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bits menos significativos del descriptor. Agrupan Limite 0..15 y Base 0..15 del descriptor. </p>
+
+<p>Definición en la línea <a class="el" href="../../dc/ddb/pm_8h_source.html#l00095">95</a> del archivo <a class="el" href="../../dc/ddb/pm_8h_source.html">pm.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación para esta estructura fue generada a partir del siguiente fichero:<ul>
+<li>include/<a class="el" href="../../dc/ddb/pm_8h_source.html">pm.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

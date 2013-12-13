@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo src/exception.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo exception.c<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Este archivo implementa las primitivas necesarias para el manejo de excepciones en la arquitectura IA-32.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="../../dd/d2d/exception_8h_source.html">exception.h</a>&gt;</code><br/>
+</div>
+<p><a href="../../d4/d43/exception_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:acccb5e3de60f72eacd7efb046ec6c267"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d43/exception_8c.html#acccb5e3de60f72eacd7efb046ec6c267">exception_dispatcher</a> ()</td></tr>
+<tr class="memdesc:acccb5e3de60f72eacd7efb046ec6c267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina recibe el control de la interrupt_dispatcher. Su trabajo consiste en determinar el vector de interrupcion a partir del estado que recibe como parametro, y de invocar la rutina de manejo de excepcion adecuada, si existe.  <a href="#acccb5e3de60f72eacd7efb046ec6c267">Más...</a><br/></td></tr>
+<tr class="separator:acccb5e3de60f72eacd7efb046ec6c267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeabb6fee229c6885f9e32c8d9cf7e8c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d43/exception_8c.html#aeabb6fee229c6885f9e32c8d9cf7e8c4">setup_exceptions</a> (void)</td></tr>
+<tr class="memdesc:aeabb6fee229c6885f9e32c8d9cf7e8c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina crea un manejador de interrupción para las 32 excepciones de IA-32 e inicializa la tabla de manejadores de excepción. Para todas las excepciones se establece la rutina 'exception_dispatcher' como la rutina de manejo de interrupción. Esta rutina se encarga de "despachar" a un manejador de la excepción, configurado para cada una de ellas mediante la función <a class="el" href="../../d4/d43/exception_8c.html#a20e07f41764b9b872a45208a9a3900d7" title="Esta rutina permite definir un nuevo manejador de excepcion para una de las excepciones de los proces...">install_exception_handler()</a>.  <a href="#aeabb6fee229c6885f9e32c8d9cf7e8c4">Más...</a><br/></td></tr>
+<tr class="separator:aeabb6fee229c6885f9e32c8d9cf7e8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20e07f41764b9b872a45208a9a3900d7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d43/exception_8c.html#a20e07f41764b9b872a45208a9a3900d7">install_exception_handler</a> (unsigned char index, <a class="el" href="../../dd/d2d/exception_8h.html#a7f0c1b311199826d556ad6f925ff7cb9">exception_handler</a> handler)</td></tr>
+<tr class="memdesc:a20e07f41764b9b872a45208a9a3900d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina permite definir un nuevo manejador de excepcion para una de las excepciones de los procesadores x86.  <a href="#a20e07f41764b9b872a45208a9a3900d7">Más...</a><br/></td></tr>
+<tr class="separator:a20e07f41764b9b872a45208a9a3900d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a16d47440b855c9b6113c7d06465f02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d43/exception_8c.html#a1a16d47440b855c9b6113c7d06465f02">uninstall_exception_handler</a> (unsigned char index)</td></tr>
+<tr class="memdesc:a1a16d47440b855c9b6113c7d06465f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina permite quitar un manejador de excepcion.  <a href="#a1a16d47440b855c9b6113c7d06465f02">Más...</a><br/></td></tr>
+<tr class="separator:a1a16d47440b855c9b6113c7d06465f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a3ec3c1e26fba0c6c7090e0d70b805459"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d2d/exception_8h.html#a7f0c1b311199826d556ad6f925ff7cb9">exception_handler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d43/exception_8c.html#a3ec3c1e26fba0c6c7090e0d70b805459">exception_handlers</a> [<a class="el" href="../../dd/d2d/exception_8h.html#a7d754bc23dd152e841c98483a9b1d801">MAX_EXCEPTIONS</a>]</td></tr>
+<tr class="separator:a3ec3c1e26fba0c6c7090e0d70b805459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a400a24fe612d4aed84b56f656bef32a2"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d43/exception_8c.html#a400a24fe612d4aed84b56f656bef32a2">exceptions</a> []</td></tr>
+<tr class="memdesc:a400a24fe612d4aed84b56f656bef32a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Excepciones del procesador IA-32.  <a href="#a400a24fe612d4aed84b56f656bef32a2">Más...</a><br/></td></tr>
+<tr class="separator:a400a24fe612d4aed84b56f656bef32a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Este archivo implementa las primitivas necesarias para el manejo de excepciones en la arquitectura IA-32. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../d4/d43/exception_8c_source.html">exception.c</a>.</p>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="acccb5e3de60f72eacd7efb046ec6c267"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void exception_dispatcher </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina recibe el control de la interrupt_dispatcher. Su trabajo consiste en determinar el vector de interrupcion a partir del estado que recibe como parametro, y de invocar la rutina de manejo de excepcion adecuada, si existe. </p>
+<p>Esta rutina recibe el control de la interrupt_dispatcher. Su trabajo consiste en determinar el vector de interrupcion a partir del contexto actual de interrupcion, y de invocar la rutina de manejo de excepcion adecuada, si existe. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d43/exception_8c_source.html#l00093">93</a> del archivo <a class="el" href="../../d4/d43/exception_8c_source.html">exception.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a20e07f41764b9b872a45208a9a3900d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int install_exception_handler </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/d2d/exception_8h.html#a7f0c1b311199826d556ad6f925ff7cb9">exception_handler</a>&#160;</td>
+          <td class="paramname"><em>handler</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina permite definir un nuevo manejador de excepcion para una de las excepciones de los procesadores x86. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Número de la excepción a la cual se le desea instalar la rutina de manejo </td></tr>
+    <tr><td class="paramname">handler</td><td>Función de manejo de la excepción </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d4/d43/exception_8c_source.html#l00136">136</a> del archivo <a class="el" href="../../d4/d43/exception_8c_source.html">exception.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeabb6fee229c6885f9e32c8d9cf7e8c4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup_exceptions </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina crea un manejador de interrupción para las 32 excepciones de IA-32 e inicializa la tabla de manejadores de excepción. Para todas las excepciones se establece la rutina 'exception_dispatcher' como la rutina de manejo de interrupción. Esta rutina se encarga de "despachar" a un manejador de la excepción, configurado para cada una de ellas mediante la función <a class="el" href="../../d4/d43/exception_8c.html#a20e07f41764b9b872a45208a9a3900d7" title="Esta rutina permite definir un nuevo manejador de excepcion para una de las excepciones de los proces...">install_exception_handler()</a>. </p>
+<p>Esta rutina crea un manejador de interrupcion para las 32 excepciones x86 e inicializa la tabla de manejadores de excepcion. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d43/exception_8c_source.html#l00071">71</a> del archivo <a class="el" href="../../d4/d43/exception_8c_source.html">exception.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a16d47440b855c9b6113c7d06465f02"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void uninstall_exception_handler </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina permite quitar un manejador de excepcion. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Número de la excepción a la cual se desea desinstalar su manejador </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d4/d43/exception_8c_source.html#l00150">150</a> del archivo <a class="el" href="../../d4/d43/exception_8c_source.html">exception.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a class="anchor" id="a3ec3c1e26fba0c6c7090e0d70b805459"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d2d/exception_8h.html#a7f0c1b311199826d556ad6f925ff7cb9">exception_handler</a> exception_handlers[<a class="el" href="../../dd/d2d/exception_8h.html#a7d754bc23dd152e841c98483a9b1d801">MAX_EXCEPTIONS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Estructura de datos para almacenar las rutinas que manejaran las excepciones </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d43/exception_8c_source.html#l00016">16</a> del archivo <a class="el" href="../../d4/d43/exception_8c_source.html">exception.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a400a24fe612d4aed84b56f656bef32a2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char* exceptions[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Excepciones del procesador IA-32. </p>
+
+<p>Definición en la línea <a class="el" href="../../d4/d43/exception_8c_source.html#l00027">27</a> del archivo <a class="el" href="../../d4/d43/exception_8c_source.html">exception.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Globales</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="modules.html"><span>Módulos</span></a></li>
+      <li><a href="annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li class="current"><a href="globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow3" class="tabs2">
+    <ul class="tablist">
+      <li><a href="globals.html"><span>Todo</span></a></li>
+      <li><a href="globals_func.html"><span>Funciones</span></a></li>
+      <li><a href="globals_vars.html"><span>Variables</span></a></li>
+      <li><a href="globals_type.html"><span>'typedefs'</span></a></li>
+      <li class="current"><a href="globals_defs.html"><span>'defines'</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_b"><span>b</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
+      <li><a href="#index_e"><span>e</span></a></li>
+      <li><a href="#index_f"><span>f</span></a></li>
+      <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_h"><span>h</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_k"><span>k</span></a></li>
+      <li><a href="#index_l"><span>l</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
+      <li><a href="#index_v"><span>v</span></a></li>
+      <li><a href="#index_w"><span>w</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="contents">
+&#160;
+
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>AVG_ALLOC_SIZE
+: <a class="el" href="d3/d9c/kmm_8h.html#a6949db3b119f579e14d86cec8315d43a">kmm.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
+<li>BACKSPACE
+: <a class="el" href="d6/dd1/stdio_8h.html#a629568514359445d2fbda71d70eeb1ce">stdio.h</a>
+</li>
+<li>BLACK
+: <a class="el" href="d6/dd1/stdio_8h.html#a7b3b25cba33b07c303f3060fe41887f6">stdio.h</a>
+</li>
+<li>BLUE
+: <a class="el" href="d6/dd1/stdio_8h.html#a79d10e672abb49ad63eeaa8aaef57c38">stdio.h</a>
+</li>
+<li>BROWN
+: <a class="el" href="d6/dd1/stdio_8h.html#ab2baea56ece91306020afd6d77fd19f9">stdio.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>clear_bit
+: <a class="el" href="dc/d9c/stdlib_8h.html#ad62c97b65134b47807e8ae5965c86528">stdlib.h</a>
+</li>
+<li>CODE_SEGMENT
+: <a class="el" href="dc/ddb/pm_8h.html#a68a1a14be9d0dc22325b1556a218be2b">pm.h</a>
+</li>
+<li>COLOR
+: <a class="el" href="d6/dd1/stdio_8h.html#a55a7d1fac65fa5d395ca505374538f78">stdio.h</a>
+</li>
+<li>CR
+: <a class="el" href="d6/dd1/stdio_8h.html#a876ce77f3c672c7162658151e648389e">stdio.h</a>
+</li>
+<li>CYAN
+: <a class="el" href="d6/dd1/stdio_8h.html#ad243f93c16bc4c1d3e0a13b84421d760">stdio.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>DARKGRAY
+: <a class="el" href="d6/dd1/stdio_8h.html#a4c08a6ce38e246fb2e4443329645aa5a">stdio.h</a>
+</li>
+<li>DATA_SEGMENT
+: <a class="el" href="dc/ddb/pm_8h.html#a0f24531c685844ffcdb721f2dedb8f73">pm.h</a>
+</li>
+<li>DEFINE_GENERIC_LIST_LINKS
+: <a class="el" href="d0/d32/generic__linked__list_8h.html#a52880b8e8128834fdb848f917c430c40">generic_linked_list.h</a>
+</li>
+<li>DEFINE_GENERIC_LIST_TYPE
+: <a class="el" href="d0/d32/generic__linked__list_8h.html#a138219afaf1d63e471d8a27cde176654">generic_linked_list.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_e"></a>- e -</h3><ul>
+<li>EOI
+: <a class="el" href="d2/de7/irq_8h.html#a04c9015da7e7ea45f3b80793809e2d7b">irq.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>FREE_MEMREGS_LIMIT
+: <a class="el" href="d3/d9c/kmm_8h.html#a069194d385408c321c10365701a5f78d">kmm.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
+<li>GREEN
+: <a class="el" href="d6/dd1/stdio_8h.html#acfbc006ea433ad708fdee3e82996e721">stdio.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>HEAP_MIN_SIZE
+: <a class="el" href="d3/d9c/kmm_8h.html#a6000da6aee6de14d187fec34f0648279">kmm.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>IDT_IRQ_OFFSET
+: <a class="el" href="d2/de7/irq_8h.html#a5445cbda25025ca7604e50a05a1398ea">irq.h</a>
+</li>
+<li>IF_ENABLE
+: <a class="el" href="d4/d35/idt_8h.html#aba6cec9b84dac53ec09b4bc36116dee2">idt.h</a>
+</li>
+<li>IMPLEMENT_GENERIC_LIST_TYPE
+: <a class="el" href="d0/d32/generic__linked__list_8h.html#aa6ca08bf6322691524b10d4690a9db89">generic_linked_list.h</a>
+</li>
+<li>inline_assembly
+: <a class="el" href="de/d21/asm_8h.html#a582320ed9a528ae377c2de027ac94616">asm.h</a>
+</li>
+<li>INTERRUPT_GATE_TYPE
+: <a class="el" href="d4/d35/idt_8h.html#a3050eb56fdac0c38ce5b0f55514945e8">idt.h</a>
+</li>
+<li>IRQ0_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#a3be79970226cf37a87119174e7b9f9d9">irq.h</a>
+</li>
+<li>IRQ10_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#aa230febd255642eb8a70c3575c819aff">irq.h</a>
+</li>
+<li>IRQ11_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#affea6d314ce2c7d0045de6914d58fefd">irq.h</a>
+</li>
+<li>IRQ12_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#a6e2de3475bbeec15f52318832568fb16">irq.h</a>
+</li>
+<li>IRQ13_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#ac0ce335495042fab36476d9a7824aaad">irq.h</a>
+</li>
+<li>IRQ14_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#af15e46d941a0fd7c6c272eb40d660b38">irq.h</a>
+</li>
+<li>IRQ15_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#a56b532eba1cf09fab30c4275e9cea413">irq.h</a>
+</li>
+<li>IRQ1_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#a399504eda3549c9b61c233f04bf8d776">irq.h</a>
+</li>
+<li>IRQ2_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#a53dbd3d2e234669b25d3fa38f6736f1e">irq.h</a>
+</li>
+<li>IRQ3_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#a5cd6678b03975e857c44315958ed0126">irq.h</a>
+</li>
+<li>IRQ4_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#ab21c6d18aa7854eb50791290ed098041">irq.h</a>
+</li>
+<li>IRQ5_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#a4dac284bd090262f9523360a96eb66c4">irq.h</a>
+</li>
+<li>IRQ6_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#a0ac08e52e8dde300b97fb24b3275f5ca">irq.h</a>
+</li>
+<li>IRQ7_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#af4cf482b849c234af6a4cca7a5961046">irq.h</a>
+</li>
+<li>IRQ8_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#a902194648649df242cf156a522cec66c">irq.h</a>
+</li>
+<li>IRQ9_INTERRUPT
+: <a class="el" href="d2/de7/irq_8h.html#a5051bb80a390be313818aea4105d5a52">irq.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_k"></a>- k -</h3><ul>
+<li>KERNADDR
+: <a class="el" href="d1/dc0/multiboot_8h.html#a401d25261e2f8c689d60e49c60cebf9f">multiboot.h</a>
+</li>
+<li>KERNEL_CODE_SELECTOR
+: <a class="el" href="dc/ddb/pm_8h.html#ab6c98f7af7f77b08139f02f671678434">pm.h</a>
+</li>
+<li>KERNEL_DATA_SELECTOR
+: <a class="el" href="dc/ddb/pm_8h.html#aa6c68f1bf413d84abd00bafd773b2e02">pm.h</a>
+</li>
+<li>KERNEL_HEAP_SIZE
+: <a class="el" href="d5/df1/physmem_8h.html#af654f7f40cf60edfba570a6411640cd4">physmem.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
+<li>LF
+: <a class="el" href="d6/dd1/stdio_8h.html#a350c9d6cb81908d59427ee96844d1a9c">stdio.h</a>
+</li>
+<li>LIGHTBLUE
+: <a class="el" href="d6/dd1/stdio_8h.html#aaf6e41139cf8cb9ce7824a4f82ff5f83">stdio.h</a>
+</li>
+<li>LIGHTBROWN
+: <a class="el" href="d6/dd1/stdio_8h.html#abd4f0c15802fdbf7b2a028112a9c2fa5">stdio.h</a>
+</li>
+<li>LIGHTCYAN
+: <a class="el" href="d6/dd1/stdio_8h.html#a27520e6218a2c2253a81bc291b366e90">stdio.h</a>
+</li>
+<li>LIGHTGRAY
+: <a class="el" href="d6/dd1/stdio_8h.html#a04c5c34bd701165eade98623d1cc0020">stdio.h</a>
+</li>
+<li>LIGHTGREEN
+: <a class="el" href="d6/dd1/stdio_8h.html#a4cc964ad8b138b5bf7d54f1c1032d921">stdio.h</a>
+</li>
+<li>LIGHTMAGENTA
+: <a class="el" href="d6/dd1/stdio_8h.html#ad294a323b5a1eebd3ca63f0850937155">stdio.h</a>
+</li>
+<li>LIGHTRED
+: <a class="el" href="d6/dd1/stdio_8h.html#a880e260096b011d770b6983e576e1237">stdio.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
+<li>MAGENTA
+: <a class="el" href="d6/dd1/stdio_8h.html#a6f699060902f800f12aaae150f3a708e">stdio.h</a>
+</li>
+<li>MASTER_PIC_COMMAND_PORT
+: <a class="el" href="d2/de7/irq_8h.html#adb8cddeaad16327c7104e8ee7e47ff14">irq.h</a>
+</li>
+<li>MASTER_PIC_DATA_PORT
+: <a class="el" href="d2/de7/irq_8h.html#aaa7a6876158c3a35d7b8b935d99e1871">irq.h</a>
+</li>
+<li>MAX_EXCEPTIONS
+: <a class="el" href="dd/d2d/exception_8h.html#a7d754bc23dd152e841c98483a9b1d801">exception.h</a>
+</li>
+<li>MAX_GDT_ENTRIES
+: <a class="el" href="dc/ddb/pm_8h.html#ace2e2665c54b9f05602282eb24b0b2c2">pm.h</a>
+</li>
+<li>MAX_IDT_ENTRIES
+: <a class="el" href="d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408">idt.h</a>
+</li>
+<li>MAX_IRQ_ROUTINES
+: <a class="el" href="d2/de7/irq_8h.html#a0cba3a07e50dcfb6bf445510152ae42d">irq.h</a>
+</li>
+<li>MEMORY_UNIT_SIZE
+: <a class="el" href="d5/df1/physmem_8h.html#abd03c49c90122f4dc22745979c5db642">physmem.h</a>
+</li>
+<li>MEMORY_UNITS
+: <a class="el" href="d5/df1/physmem_8h.html#a1fde4dbd3bbdb9a44b67a032f162bb6e">physmem.h</a>
+</li>
+<li>MEMREG_FOOTER_SIZE
+: <a class="el" href="d3/d9c/kmm_8h.html#a872175f1b2ac007390853db39d3f50e7">kmm.h</a>
+</li>
+<li>MEMREG_GRANULARITY
+: <a class="el" href="d3/d9c/kmm_8h.html#ac17688a51d7df7ccf1e2bdebf7c5f669">kmm.h</a>
+</li>
+<li>MEMREG_HEADER_SIZE
+: <a class="el" href="d3/d9c/kmm_8h.html#afd39898588e3adee929ed00ea988ce51">kmm.h</a>
+</li>
+<li>MEMREG_MIN_SIZE
+: <a class="el" href="d3/d9c/kmm_8h.html#ad655f6042fb12659e737fe14f5aeba15">kmm.h</a>
+</li>
+<li>MEMREG_SIZE
+: <a class="el" href="d3/d9c/kmm_8h.html#a4ba07e0581b7452a43c9dd01bcaaa068">kmm.h</a>
+</li>
+<li>MULTIBOOT_AOUT_KLUDGE
+: <a class="el" href="d1/dc0/multiboot_8h.html#a791f0c6a97c36de5388c990503ee4639">multiboot.h</a>
+</li>
+<li>MULTIBOOT_BOOTLOADER_MAGIC
+: <a class="el" href="d1/dc0/multiboot_8h.html#aacd617f4e3daafd6eab95fb6215ccae4">multiboot.h</a>
+</li>
+<li>MULTIBOOT_CHECKSUM
+: <a class="el" href="d1/dc0/multiboot_8h.html#a2fdedb5d948d14c122e68e47ac49bf33">multiboot.h</a>
+</li>
+<li>MULTIBOOT_HEADER_FLAGS
+: <a class="el" href="d1/dc0/multiboot_8h.html#a5447ae8b3b45c8ed17ad61c267250992">multiboot.h</a>
+</li>
+<li>MULTIBOOT_HEADER_MAGIC
+: <a class="el" href="d1/dc0/multiboot_8h.html#ab36ad4b4a42c58aac4ad1f2ba13054e9">multiboot.h</a>
+</li>
+<li>MULTIBOOT_MEMORY_INFO
+: <a class="el" href="d1/dc0/multiboot_8h.html#afdfca6bbbf4b7dca40e9d43e58201f55">multiboot.h</a>
+</li>
+<li>MULTIBOOT_PAGE_ALIGN
+: <a class="el" href="d1/dc0/multiboot_8h.html#aab5e5487e858de2a031cd3f1232f7b60">multiboot.h</a>
+</li>
+<li>MULTIBOOT_VIDEO_INFO
+: <a class="el" href="d1/dc0/multiboot_8h.html#a13789ad93ad540c66e7d04118e96b266">multiboot.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>NULL_INTERRUPT_HANDLER
+: <a class="el" href="d4/d35/idt_8h.html#a5913f7c605f44b2511e7d216c28b6d9d">idt.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>RED
+: <a class="el" href="d6/dd1/stdio_8h.html#a8d23feea868a983c8c2b661e1e16972f">stdio.h</a>
+</li>
+<li>RING0_DPL
+: <a class="el" href="dc/ddb/pm_8h.html#a776be9cb692f1ca42cd343f85a7720ee">pm.h</a>
+</li>
+<li>RING1_DPL
+: <a class="el" href="dc/ddb/pm_8h.html#a4f41c5f061957ff88d8304f4335c9f16">pm.h</a>
+</li>
+<li>RING2_DPL
+: <a class="el" href="dc/ddb/pm_8h.html#a555be8fcfb8165ab854d6f2904f60693">pm.h</a>
+</li>
+<li>RING3_DPL
+: <a class="el" href="dc/ddb/pm_8h.html#a69fccce98d4baedba8b21dcea3c01b76">pm.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>SCREEN_COLUMNS
+: <a class="el" href="d6/dd1/stdio_8h.html#a49b4fe613bf8492af6900eabe794383c">stdio.h</a>
+</li>
+<li>SCREEN_LINES
+: <a class="el" href="d6/dd1/stdio_8h.html#aa15b9a2eaaa860e3768ad5d0c0039fea">stdio.h</a>
+</li>
+<li>set_bit
+: <a class="el" href="dc/d9c/stdlib_8h.html#a6f8cf673352be42c1d631bbd64adca83">stdlib.h</a>
+</li>
+<li>SLAVE_PIC_COMMAND_PORT
+: <a class="el" href="d2/de7/irq_8h.html#a25f812fed4a6a3712e9e4d066f1f79c8">irq.h</a>
+</li>
+<li>SLAVE_PIC_DATA_PORT
+: <a class="el" href="d2/de7/irq_8h.html#a6ff3e7697c551bcf860b1f1c66911e11">irq.h</a>
+</li>
+<li>SPACE
+: <a class="el" href="d6/dd1/stdio_8h.html#a5ff6e798033f03e74730e99f01936f84">stdio.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>TAB
+: <a class="el" href="d6/dd1/stdio_8h.html#ad58a1fbfc85c7e4790fc55e654f50221">stdio.h</a>
+</li>
+<li>TABSIZE
+: <a class="el" href="d6/dd1/stdio_8h.html#a6511bfd47ae935d09420c07d0ae15af9">stdio.h</a>
+</li>
+<li>test_bit
+: <a class="el" href="dc/d9c/stdlib_8h.html#a4afdad34d3a3038bf058e51fb92884a8">stdlib.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_v"></a>- v -</h3><ul>
+<li>VIDEO_ADDR
+: <a class="el" href="d6/dd1/stdio_8h.html#a5016b8a7f88c7f68bc326ff7fc90736c">stdio.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
+<li>WHITE
+: <a class="el" href="d6/dd1/stdio_8h.html#a87b537f5fa5c109d3c05c13d6b18f382">stdio.h</a>
+</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

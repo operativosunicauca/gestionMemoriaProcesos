@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Fichero Fuente src/pm.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">pm.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d5/d16/pm_8c.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dc/ddb/pm_8h.html" title="Contiene las definiciones relacionadas con el Modo Protegido IA-32.">pm.h</a>&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d6/dd1/stdio_8h.html" title="Contiene las primitivas basicas para entrada / salida.">stdio.h</a>&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a> <a class="code" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54" title="Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Int...">gdt</a>[<a class="code" href="../../dc/ddb/pm_8h.html#ace2e2665c54b9f05602282eb24b0b2c2" title="Número m{aximo de entradas de la GDT.">MAX_GDT_ENTRIES</a>] <a class="code" href="../../d5/d16/pm_8c.html#a65d35f3a543e7286071a3168ab4605be" title="Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Int...">__attribute</a>((aligned(8)));</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#ab8ec4cd5ac80ed9d8929ef85c8d57af6">   19</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="../../d5/d16/pm_8c.html#ab8ec4cd5ac80ed9d8929ef85c8d57af6" title="Variable que almacena la siguiente entrada disponible en la GDT.">current_gdt_entry</a> = 0;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#a6b415a0cded287180889b9fe60cf6446">   23</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../d5/d05/idt_8c.html#a6b415a0cded287180889b9fe60cf6446" title="Referencia al selector de segmento de codigo del kernel.">kernel_code_selector</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#a183bef8cbdf006049e2822099c157bc3">   27</a></span>&#160;<a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a> * <a class="code" href="../../d5/d16/pm_8c.html#a183bef8cbdf006049e2822099c157bc3" title="Referencia al Descriptor de segmento de codigo del kernel dentro de la GDT.">kernel_code_descriptor</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#a6d0799ac95036dfd466eb05289b0e670">   31</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../d5/d16/pm_8c.html#a6d0799ac95036dfd466eb05289b0e670" title="Variable que almacena el selector del descriptor de segmento de datos para el kernel.">kernel_data_selector</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#a41201ab269c9586ab5fbca6d0a2d9b3e">   34</a></span>&#160;<a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a> * <a class="code" href="../../d5/d16/pm_8c.html#a41201ab269c9586ab5fbca6d0a2d9b3e" title="Referencia al Descriptor de segmento de datos del kernel.">kernel_data_descriptor</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#a4abe4bfaac806bbd53c1d63b0f1a952a">   38</a></span>&#160;<a class="code" href="../../db/d1e/structgdt__pointer__t.html" title="Estructura de datos para el registro GDTR (puntero a la GDT)">gdt_ptr</a> <a class="code" href="../../d5/d16/pm_8c.html#a4abe4bfaac806bbd53c1d63b0f1a952a" title="Apuntador a la GDT usado por la instrucción lgdt para cargar la GDT.">gdt_pointer</a>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#a57dd32c4dc45bc6417b03ee4628c01ea">   47</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../dc/ddb/pm_8h.html#a57dd32c4dc45bc6417b03ee4628c01ea" title="Función que permite obtener el selector en la GDT a partir de un apuntador a un descriptor de segment...">get_gdt_selector</a>(<a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a> * desc) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> offset = (<span class="keywordtype">unsigned</span> short)((<span class="keywordtype">char</span>*)desc - (<span class="keywordtype">char</span>*)<a class="code" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54" title="Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Int...">gdt</a>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; <span class="keywordflow">if</span> (offset &lt; 0) {<span class="keywordflow">return</span> 0;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="keywordflow">if</span> (offset &gt; <span class="keyword">sizeof</span>(<a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a>) * <a class="code" href="../../dc/ddb/pm_8h.html#ace2e2665c54b9f05602282eb24b0b2c2" title="Número m{aximo de entradas de la GDT.">MAX_GDT_ENTRIES</a>) {<span class="keywordflow">return</span> 0;}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="keywordflow">if</span> (offset % <span class="keyword">sizeof</span>(<a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a>)) {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; <span class="keywordflow">return</span> offset;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#ae9e5fbf1bbd433cbb907d0b84845297d">   65</a></span>&#160;<a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a> * <a class="code" href="../../dc/ddb/pm_8h.html#ae9e5fbf1bbd433cbb907d0b84845297d" title="Función que permite obtener el descriptor de segmento en la GDT a partir de un selector.">get_gdt_descriptor</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../d4/d35/idt_8h.html#a6dfbfc549c0fa420ccc893f30419419d">selector</a>) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; <span class="keywordflow">if</span> (selector &lt; 0) {<span class="keywordflow">return</span> 0;}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; <span class="keywordflow">if</span> (selector &gt; <span class="keyword">sizeof</span>(<a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a>) * <a class="code" href="../../dc/ddb/pm_8h.html#ace2e2665c54b9f05602282eb24b0b2c2" title="Número m{aximo de entradas de la GDT.">MAX_GDT_ENTRIES</a>) {<span class="keywordflow">return</span> 0;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; <span class="keywordflow">if</span> (selector % <span class="keyword">sizeof</span>(<a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a>)) {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; <span class="keywordflow">return</span> &amp;<a class="code" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54" title="Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Int...">gdt</a>[selector&gt;&gt;3];</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#a3bb809e72cc7c0a9814d2416b3a05475">   81</a></span>&#160;<a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a> * <a class="code" href="../../dc/ddb/pm_8h.html#a3bb809e72cc7c0a9814d2416b3a05475" title="Esta rutina permite obtener un descriptor de segmento disponible en la GDT.">allocate_gdt_descriptor</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> next_gdt_entry;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; next_gdt_entry = <a class="code" href="../../d5/d16/pm_8c.html#ab8ec4cd5ac80ed9d8929ef85c8d57af6" title="Variable que almacena la siguiente entrada disponible en la GDT.">current_gdt_entry</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; <span class="keywordflow">do</span> {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;   <span class="keywordflow">if</span>(next_gdt_entry != 0  <span class="comment">/* Valida? */</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;     &amp;&amp; <a class="code" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54" title="Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Int...">gdt</a>[next_gdt_entry].<a class="code" href="../../dc/ddb/pm_8h.html#ac7f6edf6d279540453de033a2c6302e4" title="Bits menos significativos del descriptor. Agrupan Limite 0..15 y Base 0..15 del descriptor.">low</a> == 0 <span class="comment">/* Entrada vacia? */</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;     &amp;&amp;  <a class="code" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54" title="Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Int...">gdt</a>[next_gdt_entry].<a class="code" href="../../dc/ddb/pm_8h.html#a57443906c445dd48f3238acc8a9c75f3">high</a> == 0){</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">/*Entrada valida!*/</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="comment">/* Marcar la entrada como &#39;Presente&#39; para evitar</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">     * que una llamada concurrente encuentre la misma entrada */</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54" title="Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Int...">gdt</a>[next_gdt_entry].<a class="code" href="../../de/d45/structgdt__descriptor.html#a57443906c445dd48f3238acc8a9c75f3">high</a> |= 1 &lt;&lt; 15;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    current_gdt_entry = (current_gdt_entry + 1) % <a class="code" href="../../dc/ddb/pm_8h.html#ace2e2665c54b9f05602282eb24b0b2c2" title="Número m{aximo de entradas de la GDT.">MAX_GDT_ENTRIES</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> &amp;<a class="code" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54" title="Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Int...">gdt</a>[next_gdt_entry];</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;   }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;   next_gdt_entry = (next_gdt_entry + 1) % <a class="code" href="../../dc/ddb/pm_8h.html#ace2e2665c54b9f05602282eb24b0b2c2" title="Número m{aximo de entradas de la GDT.">MAX_GDT_ENTRIES</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; }<span class="keywordflow">while</span> (next_gdt_entry &gt; current_gdt_entry);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#aed409c52ab7585f113ae9344cfcb01a8">  108</a></span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../dc/ddb/pm_8h.html#aed409c52ab7585f113ae9344cfcb01a8" title="Esta rutina permite obtener un descriptor de segmento disponible en la GDT.">allocate_gdt_selector</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; <a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a> * desc = <a class="code" href="../../dc/ddb/pm_8h.html#a3bb809e72cc7c0a9814d2416b3a05475" title="Esta rutina permite obtener un descriptor de segmento disponible en la GDT.">allocate_gdt_descriptor</a>();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; <span class="keywordflow">if</span> (desc == 0) {<span class="keywordflow">return</span> 0;}</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; <span class="keywordflow">return</span> <a class="code" href="../../dc/ddb/pm_8h.html#a57dd32c4dc45bc6417b03ee4628c01ea" title="Función que permite obtener el selector en la GDT a partir de un apuntador a un descriptor de segment...">get_gdt_selector</a>(desc);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#a26dbca3fbe64a0bf04c21e9e65ed5cbf">  118</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/ddb/pm_8h.html#a3ff2c25115ae9b8a0678aa9754238832" title="Esta rutina permite liberar un descriptor de segmento en la GDT.">free_gdt_descriptor</a>(<a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a> *desc) {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../d4/d35/idt_8h.html#a6dfbfc549c0fa420ccc893f30419419d">selector</a> = <a class="code" href="../../dc/ddb/pm_8h.html#a57dd32c4dc45bc6417b03ee4628c01ea" title="Función que permite obtener el selector en la GDT a partir de un apuntador a un descriptor de segment...">get_gdt_selector</a>(desc);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> index;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; <span class="keywordflow">if</span> (selector == 0) {<span class="keywordflow">return</span>;}</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  index = selector &gt;&gt; 3;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <a class="code" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54" title="Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Int...">gdt</a>[index].<a class="code" href="../../de/d45/structgdt__descriptor.html#ac7f6edf6d279540453de033a2c6302e4" title="Bits menos significativos del descriptor. Agrupan Limite 0..15 y Base 0..15 del descriptor.">low</a> = 0;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <a class="code" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54" title="Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Int...">gdt</a>[index].<a class="code" href="../../de/d45/structgdt__descriptor.html#a57443906c445dd48f3238acc8a9c75f3">high</a> = 0;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  current_gdt_entry = index;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#aa7e6a1b4c72620fa51c45eb475f9e28f">  142</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/ddb/pm_8h.html#a1df1579b2ca062c4658686a96b3f58da" title="Permite configurar un descriptor de segmento dentro de la GDT.">setup_gdt_descriptor</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../d4/d35/idt_8h.html#a6dfbfc549c0fa420ccc893f30419419d">selector</a> , <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d4/d35/idt_8h.html#a2e013c2c6e8010c8116c6f56813df57b" title="dirección lineal del inicio de la IDT">base</a>,</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d4/d35/idt_8h.html#ab50c2dcb9d4a34ea1a5ac52272502379" title="Tamaño de la IDT.">limit</a>, <span class="keywordtype">char</span> <a class="code" href="../../d4/d35/idt_8h.html#aa929142c5ddf34cf0915c97a617a1a63">type</a>, <span class="keywordtype">char</span> dpl, <span class="keywordtype">int</span> code_or_data, <span class="keywordtype">char</span> opsize)</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; <a class="code" href="../../de/d45/structgdt__descriptor.html" title="Estructura de datos para un descriptor de segmento.">gdt_descriptor</a> * desc;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; desc = <a class="code" href="../../dc/ddb/pm_8h.html#ae9e5fbf1bbd433cbb907d0b84845297d" title="Función que permite obtener el descriptor de segmento en la GDT a partir de un selector.">get_gdt_descriptor</a>(selector);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; <span class="keywordflow">if</span> (desc == 0) {<span class="keywordflow">return</span>;}</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; desc-&gt;<a class="code" href="../../de/d45/structgdt__descriptor.html#ac7f6edf6d279540453de033a2c6302e4" title="Bits menos significativos del descriptor. Agrupan Limite 0..15 y Base 0..15 del descriptor.">low</a> = ( <span class="comment">/* Base 0..15 */</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;     ((base &amp; 0x0000FFFF) &lt;&lt; 16) |</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;     <span class="comment">/* limit 0..15 */</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;     (limit &amp; 0x0000FFFF));</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; desc-&gt;<a class="code" href="../../de/d45/structgdt__descriptor.html#a57443906c445dd48f3238acc8a9c75f3">high</a> = (  <span class="comment">/* Base 24..31 */</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;     (base &amp; 0xFF000000) |</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;     <span class="comment">/* C = (G=1, D/B=?, L=0, AVL=0) */</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;     (limit &amp; 0x008F0000) |</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;     ((opsize &amp; 0x1) &lt;&lt; 22) |</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;     <span class="comment">/* P = 1, S = code_or_data */</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;     (0x8000 | ((code_or_data &amp; 1) &lt;&lt; 12)) |</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;     ((dpl &amp; 0x03) &lt;&lt; 13) |</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;     (type &amp; 0x0F) &lt;&lt; 8 |</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;     ((base &amp; 0x00FF0000) &gt;&gt; 16)</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;     );</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="code" href="../../d5/d16/pm_8c.html#a1dee95fcf5b686585b942ed28875b442">  178</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../dc/ddb/pm_8h.html#a1dee95fcf5b686585b942ed28875b442" title="Esta función se encarga de cargar la GDT.">setup_gdt</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; kernel_code_selector = <a class="code" href="../../dc/ddb/pm_8h.html#aed409c52ab7585f113ae9344cfcb01a8" title="Esta rutina permite obtener un descriptor de segmento disponible en la GDT.">allocate_gdt_selector</a>();</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; <span class="keywordflow">if</span> (kernel_code_selector != <a class="code" href="../../dc/ddb/pm_8h.html#ab6c98f7af7f77b08139f02f671678434" title="Desplazamiento en bytes dentro de la GDT a partir del cual se encuentra el descriptor de segmento de ...">KERNEL_CODE_SELECTOR</a>){</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Kernel code selector must be %x\n&quot;</span>, <a class="code" href="../../dc/ddb/pm_8h.html#ab6c98f7af7f77b08139f02f671678434" title="Desplazamiento en bytes dentro de la GDT a partir del cual se encuentra el descriptor de segmento de ...">KERNEL_CODE_SELECTOR</a>);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  <span class="keywordflow">for</span> (;;);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; }</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; kernel_data_selector = <a class="code" href="../../dc/ddb/pm_8h.html#aed409c52ab7585f113ae9344cfcb01a8" title="Esta rutina permite obtener un descriptor de segmento disponible en la GDT.">allocate_gdt_selector</a>();</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; <span class="keywordflow">if</span> (kernel_data_selector != <a class="code" href="../../dc/ddb/pm_8h.html#aa6c68f1bf413d84abd00bafd773b2e02" title="Desplazamiento en bytes dentro de la GDT a partir del cual se encuentra el descriptor de segmento de ...">KERNEL_DATA_SELECTOR</a>){</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Kernel data selector must be %x\n&quot;</span>, <a class="code" href="../../dc/ddb/pm_8h.html#aa6c68f1bf413d84abd00bafd773b2e02" title="Desplazamiento en bytes dentro de la GDT a partir del cual se encuentra el descriptor de segmento de ...">KERNEL_DATA_SELECTOR</a>);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="keywordflow">for</span> (;;);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; <a class="code" href="../../dc/ddb/pm_8h.html#a1df1579b2ca062c4658686a96b3f58da" title="Permite configurar un descriptor de segmento dentro de la GDT.">setup_gdt_descriptor</a>(kernel_code_selector,0, 0xFFFFFFFF,</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;   <a class="code" href="../../dc/ddb/pm_8h.html#a68a1a14be9d0dc22325b1556a218be2b" title="Tipo de segmento de código.">CODE_SEGMENT</a>, 0, 1, 1);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; <a class="code" href="../../dc/ddb/pm_8h.html#a1df1579b2ca062c4658686a96b3f58da" title="Permite configurar un descriptor de segmento dentro de la GDT.">setup_gdt_descriptor</a>(kernel_data_selector,0, 0xFFFFFFFF,</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;   <a class="code" href="../../dc/ddb/pm_8h.html#a0f24531c685844ffcdb721f2dedb8f73" title="Tipo de segmento de datos.">DATA_SEGMENT</a>, 0, 1, 1);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; gdt_pointer.<a class="code" href="../../db/d1e/structgdt__pointer__t.html#ab50c2dcb9d4a34ea1a5ac52272502379">limit</a> = <span class="keyword">sizeof</span>(<a class="code" href="../../dc/ddb/pm_8h.html#a6c164a91c4815a5b627c363f9654b018" title="Tipo de datos para el descriptor de segmento.">gdt_descriptor</a>)*<a class="code" href="../../dc/ddb/pm_8h.html#ace2e2665c54b9f05602282eb24b0b2c2" title="Número m{aximo de entradas de la GDT.">MAX_GDT_ENTRIES</a> - 1;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; <span class="comment">/* dirección lineal de 32 bits en donde se encuentra la GDT. */</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; gdt_pointer.<a class="code" href="../../db/d1e/structgdt__pointer__t.html#a2e013c2c6e8010c8116c6f56813df57b">base</a> = (<span class="keywordtype">unsigned</span> int) &amp;<a class="code" href="../../dc/ddb/pm_8h.html#ab5928fbfed86b779eb07b1b37c48bd54" title="Tabla Global de Descriptores (GDT). Es un arreglo de descriptores de segmento. Según el manual de Int...">gdt</a>;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; <a class="code" href="../../de/d21/asm_8h.html#a582320ed9a528ae377c2de027ac94616" title="Alias para incluir codigo ensamblador dentro del código en C.">inline_assembly</a>(<span class="stringliteral">&quot;.intel_syntax noprefix\n\t\</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="stringliteral">                            cli                            \n\t\</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="stringliteral">                            lgdt [%0]                      \n\t\</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="stringliteral">                            mov edx, cr0                   \n\t\</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="stringliteral">                            or edx, 1                      \n\t\</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="stringliteral">                            mov cr0, edx                   \n\t\</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="stringliteral">                            push %2                        \n\t\</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="stringliteral">                            push 0  /* eflags */           \n\t\</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="stringliteral">                            push %1                        \n\t\</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="stringliteral">                            push OFFSET 1f                 \n\t\</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="stringliteral">                            iret                           \n\t\</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="stringliteral">                 1:                                        \n\t\</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="stringliteral">                            pop ecx                        \n\t\</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="stringliteral">                            mov ds, cx                     \n\t\</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="stringliteral">                            mov es, cx                     \n\t\</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="stringliteral">                            mov fs, cx                     \n\t\</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="stringliteral">                            mov gs, cx                     \n\t\</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="stringliteral">                            mov ss, cx                     \n\t\</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="stringliteral">                            .att_syntax prefix\n\t&quot;</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;                            :</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;                            : <span class="stringliteral">&quot;am&quot;</span>(&amp;gdt_pointer),</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                            <span class="stringliteral">&quot;b&quot;</span>(kernel_code_selector &amp; 0x0000FFFF),</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                            <span class="stringliteral">&quot;c&quot;</span>(kernel_data_selector &amp; 0x0000FFFF)</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                            : <span class="stringliteral">&quot;dx&quot;</span>);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Uso de los servicios de la BIOS</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li class="current"><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Uso de los servicios de la BIOS </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Erwin Meza Vega <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a></dd></dl>
+<p><a class="el" href="../../index.html#project_start">Información del Proyecto</a> : <a class="el" href="../../d8/d50/ia32_intro.html">Programación de procesadores de arquitectura IA-32</a> : <a class="el" href="../../d8/d4b/ia32_assembly_basics.html">Ensamblador para procesadores IA-32</a> : Servicios de la BIOS</p>
+<dl class="section user"><dt>Breve reseña de la BIOS</dt><dd></dd></dl>
+<p>La BIOS (Basic Input-Output System) ofrece una serie de servicios, en forma de interrupciones por software que pueden ser invocadas desde el código de un sector de arranque o de un sistema operativo que se ejecuta en Modo Real. Este documento presenta los conceptos básicos relacionados con el uso de los servicios proporcionados por la BIOS.</p>
+<p>Cuando se enciende el computador o se pulsa el boton RESET, el procesador pasa el control a la BIOS. La BIOS contiene una serie de rutinas encargadas de establecer un entorno inicial para la ejecución del procesador en modo real. Sus principales tareas son:</p>
+<p>Realizar un chequeo inicial del hardware (procesador, memoria RAM y dispositivos de entrada/salida)</p>
+<p>Mapear algunos dispositivos de entrada / salida en memoria (por ejemplo, la memoria de video de modo texto a color en la direccion 0xB8000</p>
+<p>Establecer las rutinas básicas de manejo de interrupción para los dispositivos que ha detectado, las rutinas para el manejo de las excepciones del procesador y las rutinas para los servicios proporcionados por la BIOS.</p>
+<p>En la arquitectura IA-32, las interrupciones pueden ser de tres tipos: interrupciones lanzadas por el hardware (por ejemplo interrupciones del teclado, del mouse, etc), interrupciones generadas por software (mediante la instrucción int <b>N</b>, donde N es el número de la interrupción), y condiciones de error del procesador, conocidas como excepciones (por ejemplo, división por cero).</p>
+<p>La BIOS configura la Tabla de Descriptores de Interrupción (Interrupt Descriptor Table, IDT) al inicio de la memoria RAM. Esta tabla contiene exactamente 256 entradas de 4 bytes, las cuales contienen apuntadores a rutinas de manejo de interrupción. Cada apuntador consta de dos valores, que representan los valores de deben tomar <b>CS</b> e <b>IP</b> para apuntar a la rutina específica que maneja la interrupción.</p>
+<dl class="section user"><dt>Manejo de Interrupciones</dt><dd></dd></dl>
+<p>Cuando ocurre la interrupcion N, el procesador automáticamente almacena en la pila el valor actual de CS e EI (es decir la dirección de la siguiente instrucción que se debe ejecutar luego de completar la rutina de manejo de interrupción). Luego, busca la N-ésima entrada de la IDT, que se encuentra exactamente a N * 4 bytes desde su inicio (dado que cada entrada ocupa exactamente 4 bytes). Esta entrada contiene los valores que debe tomar CS e IP para ejecutar la rutina para manejar la interrupción N.</p>
+<p>Cuando la rutina de manejo de interrupción termina,el procesador obtiene de la pila los valores de CS e IP que permiten retornar al punto de ejecución en el cual se encontraba el procesador en el momento en que ocurrió la interrupción.</p>
+<p>En la actualidad, los servicios de la BIOS sólo se utilizan mientras el código del sector de arranque ejecuta la funcionalidad necesaria para cargar el kernel y pasar a modo protegido de 32 bits. Una vez en modo protegido, kernel completa la carga del sistema operativo, en el cual se incluye el código específico para acceder a los dispositivos de entrada y salida sin necesidad de usar los servicios de la BIOS.</p>
+<h1><a class="anchor" id="basic_bios_usage"></a>
+Uso básico de los servicios de la BIOS</h1>
+<p>Para usar los servicios de la BIOS en modo real, el código debe establecer primero los registros del procesador en unos valores específicos para cada servicio. Luego se debe invocar una interrupción por software, por medio de la instrucción int N (donde N es el numero de la interrupción).</p>
+<p>A continuación se presentan los servicios mas comunes que se usan en modo real. Para cada uno de ellos, se especifica el número de la interrupción que se debe invocar, y los valores de los registros del procesador que deben ser establecidos antes de invocar la interrupcion y los valores que retorna la BIOS.</p>
+<h1><a class="anchor" id="bios_video_services"></a>
+(int 0x10)</h1>
+<p>La BIOS ofrece una serie de servicios de video por medio de la interrupción 0x10. A continuación se presentan los servicios de video más importantes:</p>
+<dl class="section user"><dt>Establecer el modo de video</dt><dd></dd></dl>
+<pre class="fragment">    AH = 0x00
+    AL = modo de video
+</pre><p>Algunos modos de video válidos para cualquier tarjeta de video VGA son:</p>
+<pre class="fragment">       AL = 0x00  Modo texto de 25 filas, 40 columnas, blanco y negro
+          = 0x01  Modo texto de 25 filas, 40 columnas, 16 colores
+          = 0x02  Modo texto de 25 filas, 80 columas, escala de grises
+          = 0x03  Modo texto de 25 filas, 80 columnas, 16 colores
+          = 0x04  Modo grafico de 320x200 pixels, 4 colores por pixel
+          = 0x0D  Modo grafico de 320x200 pixels, 16 colores por pixel
+          = 0x0E  Modo grafico de 640x200 pixels, 16 colores por pixel          
+          = 0x11  Modo grafico de 640x480 pixels, blanco y negro
+          = 0x12  Modo grafico de 640x480 pixels, 16 colores por pixel
+          = 0x13  Modo grafico de 320x200 pixels, 256 colores por pixel
+</pre><p>Estos modos dependen del tipo de tarjeta grafica (CGA, EGA, VGA). El modo de video por defecto es Modo Texto, 25 filas, 80 columnas, 16 colores.</p>
+<dl class="section user"><dt>Leer la posición actual del cursor</dt><dd></dd></dl>
+<pre class="fragment">    ah  = 0x03
+</pre><p>La BIOS almacena la fila actual del cursor en el registro DH, y la columna actual en el registro DL.</p>
+<dl class="section user"><dt>Establecer la posicion del cursor</dt><dd></dd></dl>
+<pre class="fragment">    AH = 02
+    DH = fila
+    DL = columna
+</pre><p>Esta rutina establece la posicion del cursor a los valores especificados. Todas las posiciones son relativas a 0,0, que representa la esquina superior de la pantalla. Si no se configura de otra forma, la pantalla de video de solo texto ocupa 25 filas por 80 columnas (fila 0 a 24, columna 0 a 79).</p>
+<dl class="section user"><dt>Escribir un caracter en modo 'terminal' (modo texto)</dt><dd></dd></dl>
+<pre class="fragment">    AH = 0x0E
+    AL = Caracter ascii que se desea escribir
+</pre><p>Esta rutina imprime el caracter en la pantalla. Los caracteres Backspace (0x08), Fin de línea (0x0A) y Retorno de Carro (0x0D) se tratan de forma consistente. Igualmente, se actualiza la posición actual del cursor.</p>
+<h1><a class="anchor" id="bios_keyboard_services"></a>
+Servicios de teclado(int 0x16)</h1>
+<p>La BIOS ofrece una serie de servicios de teclado por medio de la interrupción 0x16. A continuación se presentan los servicios de teclado mas importantes:</p>
+<dl class="section user"><dt>Leer un caracter de teclado</dt><dd></dd></dl>
+<pre class="fragment">    AH = 0x00
+</pre><p>La BIOS almacena el caracter ASCII leido en el registro AL, y el código de escaneo (Scan Code) en el registro AH. Si se presionó una tecla de funcion especial (shift, esc, F1, etc), AL contiene 0x00.</p>
+<dl class="section user"><dt>Leer el estado del teclado</dt><dd></dd></dl>
+<pre class="fragment">    AH = 0x01
+</pre><p>Si no existe una tecla presionada, AX toma el valor de cero. Si existe una tecla presionada, AL contiene el código ASCII de la tecla, y AH contiene el código de escaneo (Scan Code). Tambien si existe una tecla presionada, el bit ZF (Zero Flag) del registro FLAGS se establece en 0.</p>
+<dl class="section user"><dt>Leer el estado de 'shift' </dt><dd></dd></dl>
+<pre class="fragment">    AH = 0x02
+</pre> <pre class="fragment">La BIOS establece los bits del registro AL con el siguiente formato:
+</pre><pre class="fragment">    ¦7¦6¦5¦4¦3¦2¦1¦0¦  
+    ¦ ¦ ¦ ¦ ¦ ¦ ¦ +---- right shift está presionado
+    ¦ ¦ ¦ ¦ ¦ ¦ +----- left shift está presionado
+    ¦ ¦ ¦ ¦ ¦ +------ CTRL está presionado
+    ¦ ¦ ¦ ¦ +------- ALT está presionado
+    ¦ ¦ ¦ +-------- Scroll Lock está activo
+    ¦ ¦ +--------- Num Lock está activo
+    ¦ +---------- Caps Lock está activo
+    +----------- Insert está activo
+</pre><h1><a class="anchor" id="bios_disk_services"></a>
+Servicios de disco (int 0x13)</h1>
+<p>Por medio de la interrupción 0x13, la BIOS ofrece una serie de servicios para los discos. A continuación solo se presenta el servicio que permite leer sectores del disco.</p>
+<dl class="section user"><dt>Leer sectores de disco</dt><dd></dd></dl>
+<pre class="fragment">   AH = 0x02
+   AL = Numero de sectores a leer 
+   CH = numero de la pista / cilindro  * ver nota
+   CL = numero del sector * ver nota
+   DH = numero de la cabeza 
+   DL = numero del drive (0x00=floppy A:, 0x01=floppy B:, 80h=disco primario, 
+                           81h=disco  secundario)
+   ES:BX = Apuntador a la posición de memoria en la cual se leen los datos</pre><dl class="section note"><dt>Nota</dt><dd>El formato del registro CX (CH:CL) es el siguiente:</dd></dl>
+<pre class="fragment">   ¦F¦E¦D¦C¦B¦A¦9¦8¦7¦6¦5-0¦  CX
+   ¦ ¦ ¦ ¦ ¦ ¦ ¦ ¦ ¦ ¦  +-----  Numero del sector (6 bits)
+   ¦ ¦ ¦ ¦ ¦ ¦ ¦ ¦ +---------  2 bits mas significativos de la pista / cilindro
+   +------------------------  8 bits menos significativos de la pista / cilindro
+</pre><p>La BIOS lee el número de sectores especificados en el registro AL, comenzando en el sector, el cilindro y la cabeza especificados en los registros CL, CH y DH del disco especificado en DL a la posicion de memoria apuntada por ES:BX. La BIOS entonces almacena el AH el estado de la lectura, en AL el nÚmero de lectores que se pudieron leer, y establece el bit CF (Carry Flag) del registro FLAGS en 0 si la lectura fue exitosa o 1 si ocurriÓ un error.</p>
+<p>Las lecturas de disco se deberían re-intentar al menos tres veces, para permitir que el controlador del disco se ubique en los sectores que se desean leer. Debido a que en estos ejemplos se usa una imagen de disco, se supone que la lectura nunca falla. En caso que la lectura falle, el código entra en un ciclo infinito.</p>
+<h1><a class="anchor" id="bios_usage_examples"></a>
+Ejemplo de uso de servicios de la BIOS</h1>
+<p>Los siguientes ejemplos asumen que el código se está ejecutando en modo real (por ejemplo este código es ejecutado por un sector de arranque cargado por la BIOS en la dirección 0x7C00).</p>
+<dl class="section user"><dt>Imprimir el carácter '@' por pantalla:</dt><dd></dd></dl>
+<pre class="fragment">  mov ah, 0x0E /* Servicio a usar */
+  mov al, 0x40 /* Caracter '@' */
+  int 0x10 /* Invocar la interrupción 0x10 : servicios de video de la BIOS */
+</pre><p>Otra versión del código para imprimir un carácter por pantalla:</p>
+<pre class="fragment">  mov ax, 0x0E40 /* AH = 0x0E, AL = 0x40 */
+  int 0x10 /* Invocar la interrupción 0x10 : servicios de video de la BIOS */
+</pre><dl class="section user"><dt>Leer un carácter del teclado:</dt><dd></dd></dl>
+<pre class="fragment"> mov AH, 0x00 /* Servicio de teclado : leer un caracter */
+ int 0x16 /* Invocar la interrupción 0x16: servicios de teclado de la BIOS */
+</pre><dl class="section user"><dt>Leer el segundo sector del floppy (cilindro 0, pista 0, sector 2) a la dirección de memoria 0x1000</dt><dd></dd></dl>
+<pre class="fragment">  mov AX, 0x100
+  mov ES, AX /* ES = 0x100*/
+  mov BX, 0x0000  /* BX = 0, por lo tanto ES:BX apunta a 0x1000 */
+  
+  mov AH, 0x2   /*  Servicio de disco: leer un sector */
+  mov AL, 1 /* Número de sectores a leer: 1 */
+  
+  mov CH, 0x00 /* Pista / cilindro =  0 */
+  mov DH, 0x00 /* Cabeza = 0*/
+  mov CL, 0x02 /* Sector número 2 */
+  
+  mov DL, 0x00 /* Drive 0x00 = floppy, 0x80 = disco primario */
+ 
+  int 0x13</pre><dl class="section see"><dt>Ver también</dt><dd><a class="el" href="../../d8/d4b/ia32_assembly_basics.html">Ensamblador para procesadores IA-32</a> </dd>
+<dd>
+<a class="el" href="../../da/de6/ia32_using_the_stack.html">Uso de la Pila en IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d5/d02/ia32_using_routines.html">Creación y uso de rutinas</a> </dd>
+<dd>
+<a class="el" href="../../d0/d4f/ia32_execution_environment.html">Entorno de ejecución en IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d3/d4c/ia32_operation_modes.html">Modos de Operación de procesadores IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d4/de9/ia32_memory_organization.html">Organización de Memoria en Procesadores IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d0/d4f/ia32_execution_environment.html">Entorno de ejecución en IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d0/dec/protected_mode_setup.html">Paso a Modo Protegido en Procesadores IA-32</a> </dd>
+<dd>
+<a class="el" href="../../d8/dfe/gdt_page.html">Tabla Global de Descriptores - GDT</a></dd>
+<dd>
+<a href="http://www.gnu.org/software/grub/">http://www.gnu.org/software/grub/</a> Página oficial de GRUB (Enlace externo) </dd>
+<dd>
+<a href="http://docs.huihoo.com/help-pc/int.html">http://docs.huihoo.com/help-pc/int.html</a> Documentación de los servicios de la BIOS </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

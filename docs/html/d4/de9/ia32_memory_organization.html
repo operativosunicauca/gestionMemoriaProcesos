@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Organización de Memoria en Procesadores IA-32</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li class="current"><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Organización de Memoria en Procesadores IA-32 </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><dl class="section author"><dt>Autor</dt><dd>Erwin Meza Vega <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a></dd></dl>
+<p><a class="el" href="../../index.html#project_start">Información del Proyecto</a> : <a class="el" href="../../d8/d50/ia32_intro.html">Programación de procesadores de arquitectura IA-32</a> : Organización de la Memoria</p>
+<p>La memoria en los procesadores de arquitectura IA-32 se puede organizar y manejar en tres formas básicas: Modo Segmentado, Modo Real de Direcciones y Modo Plano. A continuación se muestran los detalles de cada uno de estos modos.</p>
+<dl class="section user"><dt>Modo Segmentado</dt><dd></dd></dl>
+<p>Este es el modo por defecto de organización de memoria. En este modo, la memoria se aprecia como un conjunto de espacios lineales denominados segmentos. Cada segmento puede ser de diferente tipo, siendo los más comunes segmentos de código y datos.</p>
+<p>Para referenciar un byte dentro de un segmento se debe usar una dirección lógica , que se compone de un par selector: desplazamiento (offset). El valor del selector se usa como índice en una tabla de descriptores. El descriptor referenciado contiene la base del segmento, es decir la dirección lineal del inicio del segmento.</p>
+<p>El desplazamiento (offset) determina el número de bytes que se debe desplazar desde el la base segmento. Así se obtiene una dirección lineal en el espacio de direcciones de memoria.</p>
+<p>Si el procesador tiene deshabilitada la paginación (comportamiento por defecto), la dirección lineal es la misma dirección física (En RAM). En el momento de habilitar la paginación, el procesador debe realizar un proceso adicional para traducir la dirección lineal obtenida a una dirección física. El offset se almacena en un registro de propósito general, cuyo tamaño es de 32 bits de esta forma, el tamaño máximo de un segmento es de 4GB.</p>
+<p>A continuación se presenta una figura que ilustra cómo realiza este proceso.</p>
+<pre class="fragment">   Dirección Lógica                           Espacio lineal de direcciones
+   +-------+  +---------------+         4 GB +--------------------+
+   | sel   |  |  offset       |              |                    |
+   +-------+  +---------------+              |                    | 
+    selector    desplazamiento               |                    |
+      |              |                       |                    | 
+      |              |                       |                    |
+      |              |                       |--------------------|--+         
+      |              |                       |                    |  |    
+      |              |                       |   Segmento de      |  | Tamaño
+      |              |                       |   Memoria          |  | del
+      |              |                       |                    |  | segmento
+      |              +---------------------&gt; | Dirección Lineal   |  | (límite)
+      |                                      |        ^           |  |
+      |              +                       |        |           |  |
+      |                                      |        |           |  |
+      +------------ base   -----------------&gt;|--------|-----------|--+ Base del
+          Con el selector se halla           |        |           |    segmento
+          la "base" del segmento             |        |           |      ^
+          (Su dirección de inicio en la      |        |           |      |
+           memoria)                          |        |           |      |
+                                             |        |           |      |
+                                           0 +--------------------+      -</pre><p>Consulte la página <a class="el" href="../../d8/dfe/gdt_page.html">Tabla Global de Descriptores - GDT</a> para más detalles de la traducción de una dirección lógica a una dirección lineal.</p>
+<dl class="section user"><dt>Modo Real de Direcciones</dt><dd></dd></dl>
+<p>El modo real de direcciones es un caso especial del modo segmentado, que se usa cuando el procesador se encuentra operando en Modo Real. Se usa para ofrecer compatibilidad con programas desarrollados para generaciones anteriores de procesadores, que abarcan hasta el propio 8086. En modo real de direcciones el espacio lineal de direcciones se encuentra dividido en segmentos con un tamaño máximo de 64 Kilobytes. Esto se debe a que cuando el computador opera en modo real, sólo es sólo es posible usar los 16 bits menos significativos de los registros de propósito general, que se usan para almacenar el desplazamiento de la dirección lineal dentro del segmento.</p>
+<p>Las direcciones lógicas en modo real también están conformadas por un selector y un offset. Tanto el selector como el desplazamiento tienen un tamaño de 16 bits. Con el fin de permitir el acceso a un espacio de direcciones lineal mayor, el selector almacena la dirección de inicio del segmento dividida en 16. Para traducir una dirección lógica a lineal, el procesador toma el valor del selector y lo multiplica automáticamente por 16, para hallar la base del segmento. Luego a esta base le suma el offset, para obtener una dirección lineal de 20 bits. Así, en modo real sólo se puede acceder al primer MegaByte de memoria. La siguiente figura ilustra el proceso de transformar una dirección lógica a lineal en el modo real de direcciones.</p>
+<pre class="fragment">   Dirección Lógica                           Espacio lineal de direcciones
+   +-------+  +---------------+         1 MB +--------------------+
+   |base/16|  |   offset      |              |                    |
+   +-------+  +---------------+              |                    | 
+    selector    desplazamiento               |                    |
+      |              |                       |                    | 
+      |              |                       |                    |
+      |              |                       |--------------------|--+         
+      |              |                       |                    |  |    
+      |              |                       |   Segmento de      |  | Tamaño
+      |              |                       |   Memoria          |  | del
+      |              |                       |                    |  | segmento
+      |              +---------------------&gt; | Dirección Lineal   |  | (límite)
+      |                                      |        ^           |  | Máx 64 KB
+      |              +                       |        |           |  |
+      |                                      |        |           |  |
+      +------------ base   -----------------&gt;|--------|-----------|--+ Base del
+          El selector almacena la base       |        |           |    segmento
+          del segmento dividida en 16.       |        |           |      ^
+          El procesador multiplica el        |        |           |      |
+          valor del selector por 16 para     |        |           |      |
+          hallar la base del segmento.       |        |           |      |
+                                           0 +--------------------+      -</pre><dl class="section user"><dt>Modo Plano (Flat)</dt><dd></dd></dl>
+<p>El modo plano es otro caso especial del modo segmentado. La memoria en este modo se presenta como un espacio continuo de direcciones (espacio lineal de direcciones). Para procesadores de 32 bits, este espacio abarca desde el byte 0 hasta el byte 2^32 (4GB). En la práctica, el modo plano se puede activar al definir segmentos que ocupan todo el espacio lineal (con base = 0 y un tamaño igual al máximo tamaño disponible).</p>
+<p>Dado que en este modo se puede ignorar la base del segmento (al considerar que siempre inicia en 0), el desplazamiento en una dirección lógica es igual a la dirección lineal (Ver figura).</p>
+<pre class="fragment">   Dirección Lógica                           Espacio lineal de direcciones
+   +-------+  +---------------+         4 GB +--------------------+-+
+   | sel   |  |   offset      |              |                    | |
+   +-------+  +---------------+              |                    | |
+    selector    desplazamiento               |                    | |
+      |              |                       |                    | |
+      |              |                       |                    | |
+      |              |                       |                    | |          
+      |              |                       |                    | |     
+      |              |                       |   Segmento de      | |  Tamaño
+      |              |                       |   Memoria          | |  del
+      |              |   offset              |                    | |  segmento
+      |              +---------------------&gt; | Dirección Lineal   | |    =
+      |                                      |  = offset          | |  Tamaño 
+      |              +                       |        ^           | |  del 
+      |             base = 0                 |        |           | |  espacio
+      |                                      |        |           | |  lineal
+      |   En el modo plano (flat), el        |        |           | |  de      
+      |   segmento tiene como base 0 y como  |        |           | |direcciones
+      |   límite el tamaño del espacio       |        |           | |     
+      |   lineal de direcciones.             |        |           | |     
+      |                                      |        |           | |     
+      +-----------------------------------&gt;0 +--------------------+-+     </pre><dl class="section see"><dt>Ver también</dt><dd><a class="el" href="../../d1/d75/bios_and_booting.html">BIOS y Arranque del Computador</a> </dd>
+<dd>
+<a class="el" href="../../d0/dec/protected_mode_setup.html">Paso a Modo Protegido en Procesadores IA-32</a></dd>
+<dd>
+<a href="http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html">http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html</a> (Enlace externo) </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

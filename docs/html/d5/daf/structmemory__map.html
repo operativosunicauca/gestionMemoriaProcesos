@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia de la Estructura memory_map</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../classes.html"><span>Índice&#160;de&#160;estructura&#160;de&#160;datos</span></a></li>
+      <li><a href="../../functions.html"><span>Campos&#160;de&#160;datos</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Campos de datos</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia de la Estructura memory_map</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Estructura de datos que almacena la información de una región de memoria dentro del mapa de memoria proporcionado por GRUB.  
+ <a href="../../d5/daf/structmemory__map.html#details">Más...</a></p>
+
+<p><code>#include &lt;<a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Campos de datos</h2></td></tr>
+<tr class="memitem:a2739b8fdf78d3b5b20f1cb7a654e6b2e"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/daf/structmemory__map.html#a2739b8fdf78d3b5b20f1cb7a654e6b2e">entry_size</a></td></tr>
+<tr class="memdesc:a2739b8fdf78d3b5b20f1cb7a654e6b2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Campo no usado.  <a href="#a2739b8fdf78d3b5b20f1cb7a654e6b2e">Más...</a><br/></td></tr>
+<tr class="separator:a2739b8fdf78d3b5b20f1cb7a654e6b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5491572fddb3c9e8921a0613f28f98d5"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/daf/structmemory__map.html#a5491572fddb3c9e8921a0613f28f98d5">base_addr_low</a></td></tr>
+<tr class="memdesc:a5491572fddb3c9e8921a0613f28f98d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">32 bits menos significativos de la base de la región de memoria  <a href="#a5491572fddb3c9e8921a0613f28f98d5">Más...</a><br/></td></tr>
+<tr class="separator:a5491572fddb3c9e8921a0613f28f98d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd2f0a619110c215f4791447d295f206"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/daf/structmemory__map.html#afd2f0a619110c215f4791447d295f206">base_addr_high</a></td></tr>
+<tr class="memdesc:afd2f0a619110c215f4791447d295f206"><td class="mdescLeft">&#160;</td><td class="mdescRight">32 bits más significativos de la base de la región de memoria  <a href="#afd2f0a619110c215f4791447d295f206">Más...</a><br/></td></tr>
+<tr class="separator:afd2f0a619110c215f4791447d295f206"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb2204539d0ac7832ee531b352707260"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/daf/structmemory__map.html#afb2204539d0ac7832ee531b352707260">length_low</a></td></tr>
+<tr class="memdesc:afb2204539d0ac7832ee531b352707260"><td class="mdescLeft">&#160;</td><td class="mdescRight">32 bits menos significativos del tamaño de la región de memoria  <a href="#afb2204539d0ac7832ee531b352707260">Más...</a><br/></td></tr>
+<tr class="separator:afb2204539d0ac7832ee531b352707260"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa9951831ed6cdfaeae2251dd9f254f3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/daf/structmemory__map.html#afa9951831ed6cdfaeae2251dd9f254f3">length_high</a></td></tr>
+<tr class="memdesc:afa9951831ed6cdfaeae2251dd9f254f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">32 bits más significativos del tamaño de la región de memoria  <a href="#afa9951831ed6cdfaeae2251dd9f254f3">Más...</a><br/></td></tr>
+<tr class="separator:afa9951831ed6cdfaeae2251dd9f254f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bfea42429249a1f65204f0c0f34704a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/daf/structmemory__map.html#a4bfea42429249a1f65204f0c0f34704a">type</a></td></tr>
+<tr class="memdesc:a4bfea42429249a1f65204f0c0f34704a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipo de área de memoria 1 = disponible, 2 = reservada.  <a href="#a4bfea42429249a1f65204f0c0f34704a">Más...</a><br/></td></tr>
+<tr class="separator:a4bfea42429249a1f65204f0c0f34704a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Estructura de datos que almacena la información de una región de memoria dentro del mapa de memoria proporcionado por GRUB. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00086">86</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+</div><h2 class="groupheader">Documentación de los campos</h2>
+<a class="anchor" id="afd2f0a619110c215f4791447d295f206"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int base_addr_high</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>32 bits más significativos de la base de la región de memoria </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00093">93</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5491572fddb3c9e8921a0613f28f98d5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int base_addr_low</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>32 bits menos significativos de la base de la región de memoria </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00091">91</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2739b8fdf78d3b5b20f1cb7a654e6b2e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int entry_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Campo no usado. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00089">89</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afa9951831ed6cdfaeae2251dd9f254f3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int length_high</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>32 bits más significativos del tamaño de la región de memoria </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00097">97</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afb2204539d0ac7832ee531b352707260"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int length_low</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>32 bits menos significativos del tamaño de la región de memoria </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00095">95</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4bfea42429249a1f65204f0c0f34704a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tipo de área de memoria 1 = disponible, 2 = reservada. </p>
+
+<p>Definición en la línea <a class="el" href="../../d1/dc0/multiboot_8h_source.html#l00099">99</a> del archivo <a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>.</p>
+
+</div>
+</div>
+<hr/>La documentación para esta estructura fue generada a partir del siguiente fichero:<ul>
+<li>include/<a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

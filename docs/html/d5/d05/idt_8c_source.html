@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Fichero Fuente src/idt.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">idt.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d5/d05/idt_8c.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d4/d35/idt_8h.html" title="Contiene las definiciones globales requeridas para el manejo de interrupciones en la arquitectura IA-...">idt.h</a>&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dc/d9c/stdlib_8h.html" title="Contiene las definiciones de algunas funciones de utilidad.">stdlib.h</a>&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d6/dd1/stdio_8h.html" title="Contiene las primitivas basicas para entrada / salida.">stdio.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../de/d21/asm_8h.html" title="Rutinas para la ejecución de código ensamblador para la arquitectura IA-32.">asm.h</a>&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dc/ddb/pm_8h.html" title="Contiene las definiciones relacionadas con el Modo Protegido IA-32.">pm.h</a>&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<a class="code" href="../../df/d85/structidt__descriptor.html" title="Definición de la estructura de datos para un descriptor de interrupción.">idt_descriptor</a> <a class="code" href="../../d4/d35/idt_8h.html#aad1f59f9e9abef5d706e3f35f4bc72ec" title="Referencia a la tabla de descriptores de interrupcion.">idt</a>[<a class="code" href="../../d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408" title="Número de entradas en la IDT: 256 en la arquitectura IA-32.">MAX_IDT_ENTRIES</a>] <a class="code" href="../../d4/d35/idt_8h.html#a9f2c06eb990c1f10f76d2a2bb248dfcc">__attribute__</a>((aligned(8)));</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="../../d5/d05/idt_8c.html#a289c55e4d6cde1516ac5b16a0caf3459">   20</a></span>&#160;<a class="code" href="../../dc/d2c/structidt__pointer__t.html" title="Estructura de datos para el registro IDTR (puntero a la IDT)">idt_ptr</a> <a class="code" href="../../d5/d05/idt_8c.html#a289c55e4d6cde1516ac5b16a0caf3459" title="El apuntador al IDT que se utiliza en la instruccion lidt.">idt_pointer</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="../../d5/d05/idt_8c.html#adc7a0623aadf5f38415f8847cb297c86">   27</a></span>&#160;<a class="code" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d" title="Definición de tipo para las rutinas de manejo de interrupcion.">interrupt_handler</a> <a class="code" href="../../d5/d05/idt_8c.html#adc7a0623aadf5f38415f8847cb297c86" title="Arreglo que almacena las referencias a las rutinas de manejo de interrupción. La rutina install_inter...">interrupt_handlers</a>[<a class="code" href="../../d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408" title="Número de entradas en la IDT: 256 en la arquitectura IA-32.">MAX_IDT_ENTRIES</a>];</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="../../d5/d05/idt_8c.html#a09d659cc734a4dbbee2d6832a670e207">   37</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">int</span> <a class="code" href="../../d5/d05/idt_8c.html#a09d659cc734a4dbbee2d6832a670e207" title="Esta rutina permite determinar si dos selectores se encuentran en el mismo nivel de privilegios...">same_dpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> sel1, <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> sel2) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span class="comment">/* Comparar los bits 0 y 1 de los selectores. Si son iguales,</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">  * los selectores tienen el mismo DPL.</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">  * Recuerde que el formato de un selector es:</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">  * bits 0 - 1: DPL</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">  * bit 2: Indicador de tabla (0 = gdt, 1 = ldt)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">  * bits 3-15 : indice del selector.</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">  * Asi, al realizar la operacion &#39;and&#39; con el valor 0x03, se enmascaran</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">  * solo los bits correspondientes al DPL. Luego los dos valores se</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">  * comparan para determinar si son iguales. */</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keywordflow">return</span> ((sel1 &amp; 0x03) == (sel2 &amp; 0x03));</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="../../d5/d05/idt_8c.html#a8e6e7e765b126c17b4080184d13577a7">   55</a></span>&#160;<span class="keyword">static</span> __inline__ <a class="code" href="../../d5/d05/idt_8c.html#a8e6e7e765b126c17b4080184d13577a7" title="Esta rutina permite mostrar el estado en el cual se encuentra el procesador cuando ocurrio una interr...">dump_interrupt_state</a>(<a class="code" href="../../df/d23/structinterrupt__state.html" title="Estructura que define el estado del procesador al recibir una interrupción o una excepción.">interrupt_state</a> * state) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> current_cs;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Interrupt state: \n&quot;</span>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;======================================\n&quot;</span>);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;gs: %x fs: %x es: %x ds: %x\n&quot;</span>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a8fbe564b6eaa9affe24c8fbed1a4c7ea" title="Valor del selector GS (Tope de la pila)">gs</a>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a88d3d1b872b301364b825176981daf14" title="Valor del selector FS.">fs</a>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a4305a24abee1f4912083d877c499fcad" title="Valor del selector ES.">es</a>,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;   state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a41d22b14f5b54c8488f5969c012000d7" title="Valor del selector DS.">ds</a>);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;edi: %x esi: %x ebp: %x esp: %x ebx: %x edx: %x ecx: %x eax: %x\n&quot;</span>,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;   state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a21967b2580b9725a17075b898ff3abc3" title="Valor del registro EDI.">edi</a>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#ae508f942b3572ab3ab749fdc35a763da" title="Valor del registro ESI.">esi</a>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a680481bf6e093a04d619216bef02a2b2" title="Valor del registro EBP.">ebp</a>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#af1425d6c20cbfa78828ab126434a1921" title="Valor del registro ESP.">esp</a>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a8996da18df84dface49e6d219a6fbde0" title="Valor del registro EBX.">ebx</a>,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;   state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a033ca834eb49bc602eb0e0b358a9a4f1" title="Valor del registro EDX.">edx</a>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a0ea7fea7f82c9647381548939843feaf" title="Valor del registro ECX.">ecx</a>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#aa35a8540d25648fda11e3cccd6e4e10c" title="Valor del registro EAX.">eax</a>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Number=%d Error code: %d\n&quot;</span>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1" title="Número de la interrupción (o excepción)">number</a>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a6d61343c6813d59fa5430f59c7f88e21" title="Código de error. Cero para las excepciones que no generan código de error y para las interrupciones...">error_code</a>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;old eip: %u old cs: %x\n&quot;</span>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a0beff8890c336863cdf529a1514654d6" title="Valor de EIP en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesad...">old_eip</a>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a658036b0fbe658096bdc46e946448b38" title="Valor de CS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesado...">old_cs</a>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; <a class="code" href="../../de/d21/asm_8h.html#a582320ed9a528ae377c2de027ac94616" title="Alias para incluir codigo ensamblador dentro del código en C.">inline_assembly</a>(<span class="stringliteral">&quot;push %%cs; pop %%eax&quot;</span> :<span class="stringliteral">&quot;=a&quot;</span>(current_cs));</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Current cs: %u\n&quot;</span>, current_cs);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; <span class="comment">/* Verificar si ocurrio un cambio de nivel de privilegios */</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; <span class="keywordflow">if</span> (current_cs != state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a658036b0fbe658096bdc46e946448b38" title="Valor de CS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesado...">old_cs</a> &amp;&amp; !<a class="code" href="../../d5/d05/idt_8c.html#a09d659cc734a4dbbee2d6832a670e207" title="Esta rutina permite determinar si dos selectores se encuentran en el mismo nivel de privilegios...">same_dpl</a>(current_cs, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a658036b0fbe658096bdc46e946448b38" title="Valor de CS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesado...">old_cs</a>)) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Old DPL: %d Old ss: %x Old esp: %u\n&quot;</span>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a658036b0fbe658096bdc46e946448b38" title="Valor de CS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesado...">old_cs</a> &amp; 0x03,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#add9cc91d8acb295c7c2d43356d800eda" title="Valor de SS en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesado...">old_ss</a>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a66e0cfe3d312535f3bde9efeaac60cad" title="Valor de ESP en el momento en que ocurrió la interrupción (almacenado automáticamente por el procesad...">old_esp</a>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;EFLAGS: %b\n&quot;</span>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#a0f946f7afe757f0bbde34e24632df34c" title="Valor de EFLAGS en el momento en que ocurrió la interrupción (almacenado automáticamente por el proce...">old_eflags</a>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;======================================\n&quot;</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code" href="../../d5/d05/idt_8c.html#a6b415a0cded287180889b9fe60cf6446" title="Referencia al selector de segmento de codigo del kernel.">kernel_code_selector</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="code" href="../../d5/d05/idt_8c.html#a9782031a7d6cb759022b58789382f5eb">   86</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d35/idt_8h.html#a9782031a7d6cb759022b58789382f5eb" title="Esta rutina se encarga de cargar la IDT.">setup_idt</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; <span class="comment">/* Configurar la base y el limite de la estructura idt_pointer</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">  * que se utilizara en la instruccion lidt. */</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; idt_pointer.<a class="code" href="../../dc/d2c/structidt__pointer__t.html#ab50c2dcb9d4a34ea1a5ac52272502379" title="Tamaño de la IDT.">limit</a> = (<span class="keyword">sizeof</span>(<a class="code" href="../../d4/d35/idt_8h.html#ade47a4f07e2e31cc1e35c0a81b9513b0" title="Definición del tipo de datos para el descriptor de segmento.">idt_descriptor</a>) * <a class="code" href="../../d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408" title="Número de entradas en la IDT: 256 en la arquitectura IA-32.">MAX_IDT_ENTRIES</a>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; idt_pointer.<a class="code" href="../../dc/d2c/structidt__pointer__t.html#a2e013c2c6e8010c8116c6f56813df57b" title="dirección lineal del inicio de la IDT">base</a> = (<span class="keywordtype">unsigned</span> int) &amp;<a class="code" href="../../d4/d35/idt_8h.html#aad1f59f9e9abef5d706e3f35f4bc72ec" title="Referencia a la tabla de descriptores de interrupcion.">idt</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code" href="../../d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408" title="Número de entradas en la IDT: 256 en la arquitectura IA-32.">MAX_IDT_ENTRIES</a>; i++) {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <a class="code" href="../../d4/d35/idt_8h.html#aad1f59f9e9abef5d706e3f35f4bc72ec" title="Referencia a la tabla de descriptores de interrupcion.">idt</a>[i] = <a class="code" href="../../d4/d35/idt_8h.html#a785364350593da811ee3d64d53af3532" title="Esta rutina permite crear un descriptor de idt de 32 bits.">idt_descriptor_32</a>(kernel_code_selector, <a class="code" href="../../d4/d35/idt_8h.html#a0374dab8610e68c12d400cb3afd74ad2" title="Referencia a la tabla de rutinas de servicio de interrupcion. Esta tabla se encuentra definida en el ...">isr_table</a>[i],</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="../../dc/ddb/pm_8h.html#a776be9cb692f1ca42cd343f85a7720ee" title="Nivel de privilegios 0.">RING0_DPL</a>, <a class="code" href="../../d4/d35/idt_8h.html#a3050eb56fdac0c38ce5b0f55514945e8" title="Constante para el tipo de descriptor &#39;interrupt_gate&#39;.">INTERRUPT_GATE_TYPE</a>);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; <span class="comment">/* Y finalmente cargar la IDT con inline assembly */</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; <a class="code" href="../../de/d21/asm_8h.html#a582320ed9a528ae377c2de027ac94616" title="Alias para incluir codigo ensamblador dentro del código en C.">inline_assembly</a>(<span class="stringliteral">&quot;lidt (%0)&quot;</span> : :<span class="stringliteral">&quot;a&quot;</span>(&amp;idt_pointer));</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="code" href="../../d5/d05/idt_8c.html#a889ba321f899261c91e92feae534fb70">  111</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d05/idt_8c.html#a889ba321f899261c91e92feae534fb70" title="Instala un nuevo manejador de interrupción para un número de interrupción determinado.">install_interrupt_handler</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> index, <a class="code" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d" title="Definición de tipo para las rutinas de manejo de interrupcion.">interrupt_handler</a> handler) {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; <span class="keywordflow">if</span> (interrupt_handlers[index] != <a class="code" href="../../d4/d35/idt_8h.html#a5913f7c605f44b2511e7d216c28b6d9d" title="Constante para definir un manejador de interrupcion vacio.">NULL_INTERRUPT_HANDLER</a>) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Error! handler for routine %d was already set!\n&quot;</span>, index);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; interrupt_handlers[index] = handler;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="code" href="../../d5/d05/idt_8c.html#ace9ef57f748f1d20ad893a81c3d3c3b1">  124</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d05/idt_8c.html#ace9ef57f748f1d20ad893a81c3d3c3b1" title="Desinstala un manejador de interrupción.">uninstall_interrupt_handler</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> index) {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; <span class="comment">/* Simplemente quitar la referencia a la rutina de manejo de interrupción.*/</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; <span class="keywordflow">if</span> (index &lt; <a class="code" href="../../d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408" title="Número de entradas en la IDT: 256 en la arquitectura IA-32.">MAX_IDT_ENTRIES</a>) {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  interrupt_handlers[index] = <a class="code" href="../../d4/d35/idt_8h.html#a5913f7c605f44b2511e7d216c28b6d9d" title="Constante para definir un manejador de interrupcion vacio.">NULL_INTERRUPT_HANDLER</a>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;}</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="code" href="../../d5/d05/idt_8c.html#a491194ab27dc6f0939626c92cf4b376e">  138</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d5/d05/idt_8c.html#a491194ab27dc6f0939626c92cf4b376e" title="Esta rutina recibe el control de la Rutina de Servicio de Interrupción (ISR) isr0, isr1.. etc. correspondiente. Su trabajo consiste en determinar el vector de interrupción a partir del estado que recibe como parametro, y de invocar la rutina de manejo de interrupción adecuada, si existe.">interrupt_dispatcher</a>() {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; <span class="comment">/* Esta variable definida en isr.S contiene el valor del apuntador</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">  * actual al tope de la pila (esp)*/</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; <span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> current_esp;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; <a class="code" href="../../df/d23/structinterrupt__state.html" title="Estructura que define el estado del procesador al recibir una interrupción o una excepción.">interrupt_state</a> * state;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; state = (<a class="code" href="../../df/d23/structinterrupt__state.html" title="Estructura que define el estado del procesador al recibir una interrupción o una excepción.">interrupt_state</a> *)current_esp;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; <a class="code" href="../../d4/d35/idt_8h.html#aeaa305bfae70071746fe660873550f4d" title="Definición de tipo para las rutinas de manejo de interrupcion.">interrupt_handler</a> handler;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; <span class="comment">/* Buscar la rutina que maneja la interrupcion */</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; handler = interrupt_handlers[state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1" title="Número de la interrupción (o excepción)">number</a>];</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; <span class="comment">/* Si la rutina existe, ejecutarla y pasarle como parametro los registros.*/</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; <span class="keywordflow">if</span> (handler != <a class="code" href="../../d4/d35/idt_8h.html#a5913f7c605f44b2511e7d216c28b6d9d" title="Constante para definir un manejador de interrupcion vacio.">NULL_INTERRUPT_HANDLER</a>) {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  handler(state);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="comment">/* En caso contrario, informar que ocurrio una interrupcion</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">   * que no tiene un manejador asociado.*/</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="keywordflow">if</span> (state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1" title="Número de la interrupción (o excepción)">number</a> &lt; 32) { <span class="comment">/* Excepcion*/</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;   <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;x86 Exception [%d]. System Halted!\n&quot;</span>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1" title="Número de la interrupción (o excepción)">number</a>);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  } <span class="keywordflow">else</span> { <span class="comment">/* Interrupcion */</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;   <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Unhandled interrupt [%d]. System halted.&quot;</span>, state-&gt;<a class="code" href="../../df/d23/structinterrupt__state.html#ae8d56af1549c1276c20aae645c223ab1" title="Número de la interrupción (o excepción)">number</a>);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <span class="comment">/* Mostrar el estado de la interrupcion. */</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <a class="code" href="../../d5/d05/idt_8c.html#a8e6e7e765b126c17b4080184d13577a7" title="Esta rutina permite mostrar el estado en el cual se encuentra el procesador cuando ocurrio una interr...">dump_interrupt_state</a>(state);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="comment">/* Bloquear el kernel cuando ocurre una excepcion o una</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">   * interrupcion que no tiene manejador asociado.</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">   * Recuerde que esta rutina se esta ejecutando con las interrupciones</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">   * deshabilitadas, por lo cual no existe forma de romper el</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">   * ciclo infinito que se define a continuacion.*/</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keywordflow">for</span> (;;)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;   ;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; }</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

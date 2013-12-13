@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['magenta',['MAGENTA',['../d6/dd1/stdio_8h.html#a6f699060902f800f12aaae150f3a708e',1,'stdio.h']]],
+  ['master_5fpic_5fcommand_5fport',['MASTER_PIC_COMMAND_PORT',['../d2/de7/irq_8h.html#adb8cddeaad16327c7104e8ee7e47ff14',1,'irq.h']]],
+  ['master_5fpic_5fdata_5fport',['MASTER_PIC_DATA_PORT',['../d2/de7/irq_8h.html#aaa7a6876158c3a35d7b8b935d99e1871',1,'irq.h']]],
+  ['max_5fexceptions',['MAX_EXCEPTIONS',['../dd/d2d/exception_8h.html#a7d754bc23dd152e841c98483a9b1d801',1,'exception.h']]],
+  ['max_5fgdt_5fentries',['MAX_GDT_ENTRIES',['../dc/ddb/pm_8h.html#ace2e2665c54b9f05602282eb24b0b2c2',1,'pm.h']]],
+  ['max_5fidt_5fentries',['MAX_IDT_ENTRIES',['../d4/d35/idt_8h.html#a80cdc89f1b37e291a6ef90a29a228408',1,'idt.h']]],
+  ['max_5firq_5froutines',['MAX_IRQ_ROUTINES',['../d2/de7/irq_8h.html#a0cba3a07e50dcfb6bf445510152ae42d',1,'irq.h']]],
+  ['memory_5funit_5fsize',['MEMORY_UNIT_SIZE',['../d5/df1/physmem_8h.html#abd03c49c90122f4dc22745979c5db642',1,'physmem.h']]],
+  ['memory_5funits',['MEMORY_UNITS',['../d5/df1/physmem_8h.html#a1fde4dbd3bbdb9a44b67a032f162bb6e',1,'physmem.h']]],
+  ['memreg_5ffooter_5fsize',['MEMREG_FOOTER_SIZE',['../d3/d9c/kmm_8h.html#a872175f1b2ac007390853db39d3f50e7',1,'kmm.h']]],
+  ['memreg_5fgranularity',['MEMREG_GRANULARITY',['../d3/d9c/kmm_8h.html#ac17688a51d7df7ccf1e2bdebf7c5f669',1,'kmm.h']]],
+  ['memreg_5fheader_5fsize',['MEMREG_HEADER_SIZE',['../d3/d9c/kmm_8h.html#afd39898588e3adee929ed00ea988ce51',1,'kmm.h']]],
+  ['memreg_5fmin_5fsize',['MEMREG_MIN_SIZE',['../d3/d9c/kmm_8h.html#ad655f6042fb12659e737fe14f5aeba15',1,'kmm.h']]],
+  ['memreg_5fsize',['MEMREG_SIZE',['../d3/d9c/kmm_8h.html#a4ba07e0581b7452a43c9dd01bcaaa068',1,'kmm.h']]],
+  ['multiboot_5faout_5fkludge',['MULTIBOOT_AOUT_KLUDGE',['../d1/dc0/multiboot_8h.html#a791f0c6a97c36de5388c990503ee4639',1,'multiboot.h']]],
+  ['multiboot_5fbootloader_5fmagic',['MULTIBOOT_BOOTLOADER_MAGIC',['../d1/dc0/multiboot_8h.html#aacd617f4e3daafd6eab95fb6215ccae4',1,'multiboot.h']]],
+  ['multiboot_5fchecksum',['MULTIBOOT_CHECKSUM',['../d1/dc0/multiboot_8h.html#a2fdedb5d948d14c122e68e47ac49bf33',1,'multiboot.h']]],
+  ['multiboot_5fheader_5fflags',['MULTIBOOT_HEADER_FLAGS',['../d1/dc0/multiboot_8h.html#a5447ae8b3b45c8ed17ad61c267250992',1,'multiboot.h']]],
+  ['multiboot_5fheader_5fmagic',['MULTIBOOT_HEADER_MAGIC',['../d1/dc0/multiboot_8h.html#ab36ad4b4a42c58aac4ad1f2ba13054e9',1,'multiboot.h']]],
+  ['multiboot_5fmemory_5finfo',['MULTIBOOT_MEMORY_INFO',['../d1/dc0/multiboot_8h.html#afdfca6bbbf4b7dca40e9d43e58201f55',1,'multiboot.h']]],
+  ['multiboot_5fpage_5falign',['MULTIBOOT_PAGE_ALIGN',['../d1/dc0/multiboot_8h.html#aab5e5487e858de2a031cd3f1232f7b60',1,'multiboot.h']]],
+  ['multiboot_5fvideo_5finfo',['MULTIBOOT_VIDEO_INFO',['../d1/dc0/multiboot_8h.html#a13789ad93ad540c66e7d04118e96b266',1,'multiboot.h']]]
+];
