@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo doc_bitmap/physmem.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_023aac0c7e54fa6dc44a478a7fc875c6.html">doc_bitmap</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">'defines'</a> &#124;
+<a href="#func-members">Funciones</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo physmem.h<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contiene las definiciones relacionadas con las gestión de memoria del kernel.  
+<a href="#details">Más...</a></p>
+
+<p><a href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+'defines'</h2></td></tr>
+<tr class="memitem:af78515c7c6559d8135e1bac2f675999a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#af78515c7c6559d8135e1bac2f675999a">MMAP_LOCATION</a>&#160;&#160;&#160;0x500</td></tr>
+<tr class="memdesc:af78515c7c6559d8135e1bac2f675999a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Localizacion del mapa de bits de memoria.  <a href="#af78515c7c6559d8135e1bac2f675999a">Más...</a><br/></td></tr>
+<tr class="separator:af78515c7c6559d8135e1bac2f675999a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd03c49c90122f4dc22745979c5db642"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642">MEMORY_UNIT_SIZE</a>&#160;&#160;&#160;4096</td></tr>
+<tr class="memdesc:abd03c49c90122f4dc22745979c5db642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tamaño de la unidad de asignación de memoria.  <a href="#abd03c49c90122f4dc22745979c5db642">Más...</a><br/></td></tr>
+<tr class="separator:abd03c49c90122f4dc22745979c5db642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc94eef615e605c46dd786e9ec5ebe10"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#acc94eef615e605c46dd786e9ec5ebe10">BYTES_PER_ENTRY</a>&#160;&#160;&#160;sizeof(unsigned int)</td></tr>
+<tr class="memdesc:acc94eef615e605c46dd786e9ec5ebe10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número de bytes que tiene una entrada en el mapa de bits.  <a href="#acc94eef615e605c46dd786e9ec5ebe10">Más...</a><br/></td></tr>
+<tr class="separator:acc94eef615e605c46dd786e9ec5ebe10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfe642c84b5974b81a83766652af5e06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abfe642c84b5974b81a83766652af5e06">BITS_PER_ENTRY</a>&#160;&#160;&#160;(8 * <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#acc94eef615e605c46dd786e9ec5ebe10">BYTES_PER_ENTRY</a>)</td></tr>
+<tr class="memdesc:abfe642c84b5974b81a83766652af5e06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número de bits que tiene una entrada en el mapa de bits.  <a href="#abfe642c84b5974b81a83766652af5e06">Más...</a><br/></td></tr>
+<tr class="separator:abfe642c84b5974b81a83766652af5e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fde4dbd3bbdb9a44b67a032f162bb6e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#a1fde4dbd3bbdb9a44b67a032f162bb6e">MEMORY_UNITS</a>&#160;&#160;&#160;(<a class="el" href="../../d7/d4f/src_2physmem_8c.html#a3b7c9b85fabf9cce726d13c5974b4797">memory_length</a> / <a class="el" href="../../d1/d3a/include_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642">MEMORY_UNIT_SIZE</a>)</td></tr>
+<tr class="memdesc:a1fde4dbd3bbdb9a44b67a032f162bb6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Número de unidades en la memoria disponible.  <a href="#a1fde4dbd3bbdb9a44b67a032f162bb6e">Más...</a><br/></td></tr>
+<tr class="separator:a1fde4dbd3bbdb9a44b67a032f162bb6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3c1d543dca8d63c2d7856c6f85b77f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#ae3c1d543dca8d63c2d7856c6f85b77f6">bitmap_entry</a>(addr)&#160;&#160;&#160;( addr /  <a class="el" href="../../d1/d3a/include_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642">MEMORY_UNIT_SIZE</a>) / ( <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abfe642c84b5974b81a83766652af5e06">BITS_PER_ENTRY</a> )</td></tr>
+<tr class="memdesc:ae3c1d543dca8d63c2d7856c6f85b77f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entrada en el mapa de bits correspondiente a una dirección.  <a href="#ae3c1d543dca8d63c2d7856c6f85b77f6">Más...</a><br/></td></tr>
+<tr class="separator:ae3c1d543dca8d63c2d7856c6f85b77f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe2c03274b46df7a12b218a15651d7c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abe2c03274b46df7a12b218a15651d7c6">bitmap_offset</a>(addr)&#160;&#160;&#160;(addr / <a class="el" href="../../d1/d3a/include_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642">MEMORY_UNIT_SIZE</a>) % ( <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abfe642c84b5974b81a83766652af5e06">BITS_PER_ENTRY</a> )</td></tr>
+<tr class="memdesc:abe2c03274b46df7a12b218a15651d7c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Desplazamiento en bits dentro de la entrada en el mapa de bits.  <a href="#abe2c03274b46df7a12b218a15651d7c6">Más...</a><br/></td></tr>
+<tr class="separator:abe2c03274b46df7a12b218a15651d7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:af711637f21461ed6252595238aa52983"><td class="memItemLeft" align="right" valign="top">static __inline__ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#af711637f21461ed6252595238aa52983">round_down_to_memory_unit</a> (addr)</td></tr>
+<tr class="memdesc:af711637f21461ed6252595238aa52983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que redondea una dirección de memoria a la dirección más cercana por debajo que sea múltiplo de MEMORY_UNIT_SIZE.  <a href="#af711637f21461ed6252595238aa52983">Más...</a><br/></td></tr>
+<tr class="separator:af711637f21461ed6252595238aa52983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04bb1a508cbed0aa2b632fcbb089c597"><td class="memItemLeft" align="right" valign="top">static __inline__ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#a04bb1a508cbed0aa2b632fcbb089c597">round_up_to_memory_unit</a> (addr)</td></tr>
+<tr class="memdesc:a04bb1a508cbed0aa2b632fcbb089c597"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función que redondea una dirección de memoria a la dirección más cercana por encima que sea múltiplo de MEMORY_UNIT_SIZE.  <a href="#a04bb1a508cbed0aa2b632fcbb089c597">Más...</a><br/></td></tr>
+<tr class="separator:a04bb1a508cbed0aa2b632fcbb089c597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8950a0a5d1ef2c64d6d99cbb29222803"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#a8950a0a5d1ef2c64d6d99cbb29222803">setup_memory</a> (void)</td></tr>
+<tr class="memdesc:a8950a0a5d1ef2c64d6d99cbb29222803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina inicializa el mapa de bits de memoria, a partir de la informacion obtenida del GRUB.  <a href="#a8950a0a5d1ef2c64d6d99cbb29222803">Más...</a><br/></td></tr>
+<tr class="separator:a8950a0a5d1ef2c64d6d99cbb29222803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadd0b9312de2cecc64eb3ad54b1c41ac"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#aadd0b9312de2cecc64eb3ad54b1c41ac">allocate_unit</a> (void)</td></tr>
+<tr class="memdesc:aadd0b9312de2cecc64eb3ad54b1c41ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca una unidad libre dentro del mapa de bits de memoria.  <a href="#aadd0b9312de2cecc64eb3ad54b1c41ac">Más...</a><br/></td></tr>
+<tr class="separator:aadd0b9312de2cecc64eb3ad54b1c41ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdcca4b8b513b02dea3356a7cba690cc"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#afdcca4b8b513b02dea3356a7cba690cc">allocate_unit_region</a> (unsigned int length)</td></tr>
+<tr class="memdesc:afdcca4b8b513b02dea3356a7cba690cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca una región de memoria contigua libre dentro del mapa de bits de memoria.  <a href="#afdcca4b8b513b02dea3356a7cba690cc">Más...</a><br/></td></tr>
+<tr class="separator:afdcca4b8b513b02dea3356a7cba690cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a026d8bb4aa874d7dfe709788e97407ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#a026d8bb4aa874d7dfe709788e97407ee">free_unit</a> (char *addr)</td></tr>
+<tr class="memdesc:a026d8bb4aa874d7dfe709788e97407ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite liberar una unidad de memoria.  <a href="#a026d8bb4aa874d7dfe709788e97407ee">Más...</a><br/></td></tr>
+<tr class="separator:a026d8bb4aa874d7dfe709788e97407ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a271c1c35507a26e6b3e6825219d7669a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#a271c1c35507a26e6b3e6825219d7669a">free_region</a> (char *start_addr, unsigned int length)</td></tr>
+<tr class="memdesc:a271c1c35507a26e6b3e6825219d7669a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite liberar una región de memoria.  <a href="#a271c1c35507a26e6b3e6825219d7669a">Más...</a><br/></td></tr>
+<tr class="separator:a271c1c35507a26e6b3e6825219d7669a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Contiene las definiciones relacionadas con las gestión de memoria del kernel. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">physmem.h</a>.</p>
+</div><h2 class="groupheader">Documentación de los 'defines'</h2>
+<a class="anchor" id="ae3c1d543dca8d63c2d7856c6f85b77f6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define bitmap_entry</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">addr</td><td>)</td>
+          <td>&#160;&#160;&#160;( addr /  <a class="el" href="../../d1/d3a/include_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642">MEMORY_UNIT_SIZE</a>) / ( <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abfe642c84b5974b81a83766652af5e06">BITS_PER_ENTRY</a> )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Entrada en el mapa de bits correspondiente a una dirección. </p>
+<p>Definiendo la la direccion con el parametro de entrada addr, la direccion en el mapa de bits que ocupa </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html#l00046">46</a> del archivo <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abe2c03274b46df7a12b218a15651d7c6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define bitmap_offset</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">addr</td><td>)</td>
+          <td>&#160;&#160;&#160;(addr / <a class="el" href="../../d1/d3a/include_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642">MEMORY_UNIT_SIZE</a>) % ( <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abfe642c84b5974b81a83766652af5e06">BITS_PER_ENTRY</a> )</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Desplazamiento en bits dentro de la entrada en el mapa de bits. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html#l00050">50</a> del archivo <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abfe642c84b5974b81a83766652af5e06"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BITS_PER_ENTRY&#160;&#160;&#160;(8 * <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html#acc94eef615e605c46dd786e9ec5ebe10">BYTES_PER_ENTRY</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Número de bits que tiene una entrada en el mapa de bits. </p>
+<p>Equivale a que el numero de bits por cada unidad de memoria en este caso, son 32bits </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html#l00033">33</a> del archivo <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc94eef615e605c46dd786e9ec5ebe10"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BYTES_PER_ENTRY&#160;&#160;&#160;sizeof(unsigned int)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Número de bytes que tiene una entrada en el mapa de bits. </p>
+<p>Equivale a que el numero de bytes por cada unidad de memoria </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html#l00027">27</a> del archivo <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd03c49c90122f4dc22745979c5db642"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEMORY_UNIT_SIZE&#160;&#160;&#160;4096</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tamaño de la unidad de asignación de memoria. </p>
+<p>El valor por default es 4096 es decir 4KB </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html#l00022">22</a> del archivo <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1fde4dbd3bbdb9a44b67a032f162bb6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEMORY_UNITS&#160;&#160;&#160;(<a class="el" href="../../d7/d4f/src_2physmem_8c.html#a3b7c9b85fabf9cce726d13c5974b4797">memory_length</a> / <a class="el" href="../../d1/d3a/include_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642">MEMORY_UNIT_SIZE</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Número de unidades en la memoria disponible. </p>
+<p>MEMORY_UNITS calcula el numero de unidades que estan disponible para ello hace la operacion de el tamaño total de memoria disponible dividido por MEMORY_UNIT_SIZE </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html#l00040">40</a> del archivo <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af78515c7c6559d8135e1bac2f675999a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MMAP_LOCATION&#160;&#160;&#160;0x500</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Localizacion del mapa de bits de memoria. </p>
+<p>En esta direccion es donde esta localizada la estructura de datos del mapa de bits </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html#l00017">17</a> del archivo <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="aadd0b9312de2cecc64eb3ad54b1c41ac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* allocate_unit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Busca una unidad libre dentro del mapa de bits de memoria. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Dirección de inicio de la unidad en memoria. El proceso que realiza esta funcion es, <pre class="fragment">  1.Verificar si no existen unidades libres, de ser asi, el valor de
+    retorno es 0.
+  2.Luego si existen unidades libres, entonces, se inicia una iteracion
+    en busqueda de una unidad de memoria libre por el mapa de bits.
+  3.De no existir una unidad libre dentro del mapa de bits, entonces
+    devuelve 0;
+    En caso de que si, devuelve la direccion de inicio lineal en la
+    de donde se encuentra libre la unidad encontrada, para ello lo
+    hace multiplicando las unidades libres de memoria por el tamaño
+    de asignacion de una unidad de memoria;
+</pre></dd>
+<dd>
+Dirección de inicio de la unidad en memoria.</dd>
+<dd>
+Direcciï¿½n de inicio de la unidad en memoria. </dd></dl>
+<pre class="fragment">                  Define las unidades disponibles de memoria
+</pre><p> que dispone </p>
+
+<p>Definición en la línea <a class="el" href="../../de/d99/doc__bitmap_2physmem_8c_source.html#l00288">288</a> del archivo <a class="el" href="../../de/d99/doc__bitmap_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afdcca4b8b513b02dea3356a7cba690cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* allocate_unit_region </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>length</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Busca una región de memoria contigua libre dentro del mapa de bits de memoria. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>Tamaño de la región de memoria a asignar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Dirección de inicio de la región en memoria.</dd></dl>
+<p>El proceso que realiza esta funcion es, </p>
+<pre class="fragment">  1.Verificar si no existen unidades libres, de ser asi, el valor de
+    retorno es 0
+  2.Luego si existen unidades libres, entonces, se inicia una iteracion
+    en busqueda de una unidad de memoria disponible.
+  3.De no existir una unidad libre dentro del mapa de bits, entonces
+    devuelve 0; en caso de que si, devuelve la direccion de inicio
+    de la region de memoria multiplicando las unidades libres
+    de memoria por el tamaño de asignacin de una unidad de memoria.
+</pre><p>Busca una región de memoria contigua libre dentro del mapa de bits de memoria.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>Tamaï¿½o de la regiï¿½n de memoria a asignar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Direcciï¿½n de inicio de la regiï¿½n en memoria. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../de/d99/doc__bitmap_2physmem_8c_source.html#l00332">332</a> del archivo <a class="el" href="../../de/d99/doc__bitmap_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a271c1c35507a26e6b3e6825219d7669a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_region </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>start_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permite liberar una región de memoria. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_addr</td><td>Dirección de memoria del inicio de la región a liberar </td></tr>
+    <tr><td class="paramname">length</td><td>Tamaño de la región a liberar</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Para permitir la liberacion de una region de memoria, se siguen estos pasos; </p>
+<pre class="fragment">1.Si la direccion que se recibe es menor a la unidad minima permitida de
+ asignacion de memoria, significa que se quiere liberar memoria que no
+ esta disponible, ya que esta usada por el KERNEL o los modulos que se
+ cargan con el KERNEL, en este caso termina sin realizar la peticion.
+2.Se convierte a una direccion lineal para poner en el mapa de bits como
+ disponible mediante un ciclo permitiendo liberar toda la region de memoria
+ en unidades de memoria disponibles.
+3.Se marca esa unidad liberada, como la proxima unidad para asignar, y aumenta
+ el numero de unidades libres.
+</pre> 
+<p>Definición en la línea <a class="el" href="../../de/d99/doc__bitmap_2physmem_8c_source.html#l00417">417</a> del archivo <a class="el" href="../../de/d99/doc__bitmap_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a026d8bb4aa874d7dfe709788e97407ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_unit </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>addr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permite liberar una unidad de memoria. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Dirección de memoria dentro del área a liberar.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Para permitir la liberacion de una unidad de memoria, se define la secuencia de pasos como: </p>
+<pre class="fragment">1.Si la direccion que se recibe es menor a la unidad minima permitida de
+ asignacion de memoria, significa que se quiere liberar memoria que no
+ esta disponible, ya que esta usada por el KERNEL o los modulos que se
+ cargan con el KERNEL, en este caso termina sin realizar la peticion.
+2.Se convierte a una direccion lineal para ponerla en el mapa de bits como
+ disponible.
+3.Se marca esa unidad liberada, como la proxima unidad para asignar, y aumenta
+ el numero de unidades libres.
+</pre> 
+<p>Definición en la línea <a class="el" href="../../de/d99/doc__bitmap_2physmem_8c_source.html#l00392">392</a> del archivo <a class="el" href="../../de/d99/doc__bitmap_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af711637f21461ed6252595238aa52983"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ unsigned int round_down_to_memory_unit </td>
+          <td>(</td>
+          <td class="paramtype">addr&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Función que redondea una dirección de memoria a la dirección más cercana por debajo que sea múltiplo de MEMORY_UNIT_SIZE. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html#l00055">55</a> del archivo <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a04bb1a508cbed0aa2b632fcbb089c597"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ unsigned int round_up_to_memory_unit </td>
+          <td>(</td>
+          <td class="paramtype">addr&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Función que redondea una dirección de memoria a la dirección más cercana por encima que sea múltiplo de MEMORY_UNIT_SIZE. </p>
+
+<p>Definición en la línea <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html#l00065">65</a> del archivo <a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">physmem.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8950a0a5d1ef2c64d6d99cbb29222803"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup_memory </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina inicializa el mapa de bits de memoria, a partir de la informacion obtenida del GRUB. </p>
+<p>Basicamente lo que se hace es configurar el mapa de bits de la memoria, para ello la secuencia de pasos que realiza dicha configuracion es: </p>
+<pre class="fragment">  1.Cargar una estructura de tipo multiboot_info_t con la
+   informacion del multiboot que es la informacion que el GRUB
+   almacena luego de cargar el KERNEL.
+  2.Limpia el mapa de bits, haciendo memory_bitmap[i] = 0,
+      donde i=1,2,3.... (memory_bitmap_length-1)
+  3.Verifica si el GRUB cargo la informacion solicitada en la
+   estructura del multiboot. En el proyecto actual, se omite
+   esta parte.
+  4.Se establece, la minima direccion de memoria permitida para
+   liberar, a esta se le asignara la direccion lineal de donde
+   termina el KERNEL.
+  5.Verifica si la direccion del mapa de bits son validos, para ello
+   verifica que el bit info-&gt;flags[6] sea 1, lo que sifnifica que  mmap_length
+   y mmap_addr son validos .
+  6.Verifica que la region de memoria cumple con las condiciones
+   para ser considerada como Memoria Disponible.
+   Para ello, se debe considerar que:
+   -&gt;La primera unidad de memoria este ubicada en la posición de
+   memoria mayor o igual que 1 MB.
+   -&gt;nmap-&gt;type que es el tipo de area de memoria si es 1.
+   6,1.Lo que significa disponible, de lo contrario es que ya esta reservada.
+    Si la region esta marcada como disponible y la posicion esta por
+    encima de la direccion  de la posicion del KERNEL en memora,
+    se procede a verificar si el KERNEL se encuentre en esa region.
+    Entonces se toma el inicio de la memoria disponible en la posicion
+    en la cual finaliza el KERNEL.
+    Seguido a esto, se verifica si se cargaron los modulos con el KERNEL
+    En caso de que hayan modulos que se carguen con el KERNEL, entonces
+    la direccion de posicion inicial cambian ahora y empezadia desde luego
+    de los modulos cargado; de lo contrario no se afecta.
+    y por ultimo se resta el espacio que ahora dispone.
+
+   6,2.Si la region ya esta reservada, y/o que la primera unidad de memoria
+       es menor que 1 MB, lo que significa que el KERNEL no se encuentra en
+       esta region, entonces el tamaño es mayor que la region encontrada.
+
+7.Si existe una region de memoria disponible, es decir si la direccion donde
+ inicia la primera unidad de memoria es valida, y el tamaño disponible es
+ valido.
+ Se procede a establecer en que direccion de memoria se debe ubicar para
+ la asignacion de memoria permitida a liberar, para esto, se calcula la
+ direccion en la cual finaliza la memoria disponibe, hace unos ajustes de
+ redondeo, se calcula el tamaño de region disponible con las unidades ya
+ redondeadas, y se procede a establecer las variables globales del KERNEL.
+8.Se marca la direccion de memoria como disponibley la direccion de memoria
+ de la cual se puede liberar memoria.</pre> <p>Existe un mapa de memoria válido creado por GRUB?</p>
+<p>Si verifica que el bit en la posición 6 es 1, entonces se crea un mapa valido de memoria, es decir que mmap_length y mmap_addr son validos</p>
+<p>Existe un mapa de memoria vï¿½lido creado por GRUB?</p>
+<p>Verificar si la regiï¿½n de memoria cumple con las condiciones para ser considerada "memoria disponible".</p>
+<p>Importante: Si se supone un procesador de 32 bits, los valores de la parte alta de base y length (base_addr_high y length_high) son cero. Por esta razon se pueden ignorar y solo se usan los 32 bits menos significativos de base y length.</p>
+<p>Para que una region de memoria sea considerada "memoria
+disponible", debe cumplir con las siguientes condiciones:</p>
+<ul>
+<li>Estar ubicada en una posicion de memoria mayor o igual que 1 MB.</li>
+<li>Tener su atributo 'type' en 1 = memoria disponible.</li>
+</ul>
+
+<p>Definición en la línea <a class="el" href="../../de/d99/doc__bitmap_2physmem_8c_source.html#l00067">67</a> del archivo <a class="el" href="../../de/d99/doc__bitmap_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

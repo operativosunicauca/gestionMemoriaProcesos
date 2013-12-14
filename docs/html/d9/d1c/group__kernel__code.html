@@ -86,6 +86,15 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Archivos</h2></td></tr>
+<tr class="memitem:d7/d9f/doc__bitmap_2kernel_8c"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/doc__bitmap_2kernel_8c.html">kernel.c</a></td></tr>
+<tr class="memdesc:d7/d9f/doc__bitmap_2kernel_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Código de inicialización del kernel en C. Este código recibe el control de <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a> y continúa con la ejecución. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:de/d99/doc__bitmap_2physmem_8c"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d99/doc__bitmap_2physmem_8c.html">physmem.c</a></td></tr>
+<tr class="memdesc:de/d99/doc__bitmap_2physmem_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contiene la implementación de las rutinas relacionadas con las gestión de memoria física. La memoria se gestiona en unidades de 4096 bytes. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:d2/d70/doc__bitmap_2physmem_8h"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h.html">physmem.h</a></td></tr>
+<tr class="memdesc:d2/d70/doc__bitmap_2physmem_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contiene las definiciones relacionadas con las gestión de memoria del kernel. <br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:de/d21/asm_8h"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d21/asm_8h.html">asm.h</a></td></tr>
 <tr class="memdesc:de/d21/asm_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rutinas para la ejecución de código ensamblador para la arquitectura IA-32. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,8 +116,8 @@ Archivos</h2></td></tr>
 <tr class="memitem:d1/dc0/multiboot_8h"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dc0/multiboot_8h.html">multiboot.h</a></td></tr>
 <tr class="memdesc:d1/dc0/multiboot_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contiene algunas constantes necesarias para el kernel relacionadas con la especificación Multiboot. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d5/df1/physmem_8h"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html">physmem.h</a></td></tr>
-<tr class="memdesc:d5/df1/physmem_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contiene las definiciones relacionadas con las gestión de memoria del kernel. <br/></td></tr>
+<tr class="memitem:d1/d3a/include_2physmem_8h"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d3a/include_2physmem_8h.html">physmem.h</a></td></tr>
+<tr class="memdesc:d1/d3a/include_2physmem_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contiene las definiciones relacionadas con las gestión de memoria del kernel. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:dc/ddb/pm_8h"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/ddb/pm_8h.html">pm.h</a></td></tr>
 <tr class="memdesc:dc/ddb/pm_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contiene las definiciones relacionadas con el Modo Protegido IA-32. <br/></td></tr>
@@ -131,11 +140,11 @@ Archivos</h2></td></tr>
 <tr class="memitem:d5/df9/isr_8_s"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df9/isr_8_s.html">isr.S</a></td></tr>
 <tr class="memdesc:d5/df9/isr_8_s"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contiene la definicion y la implementacion de las rutinas de servicio de interrupcion para las 255 interrupciones que se pueden generar en un procesador IA-32. Todas las rutinas establecen un marco de pila uniforme, y luego invocan a la rutina <a class="el" href="../../d5/d05/idt_8c.html#a491194ab27dc6f0939626c92cf4b376e" title="Esta rutina recibe el control de la Rutina de Servicio de Interrupción (ISR) isr0, isr1.. etc. correspondiente. Su trabajo consiste en determinar el vector de interrupción a partir del estado que recibe como parametro, y de invocar la rutina de manejo de interrupción adecuada, si existe.">interrupt_dispatcher()</a>. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:d9/d26/kernel_8c"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d26/kernel_8c.html">kernel.c</a></td></tr>
-<tr class="memdesc:d9/d26/kernel_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Código de inicialización del kernel en C. Este código recibe el control de <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a> y continúa con la ejecución. <br/></td></tr>
+<tr class="memitem:d4/d4f/src_2kernel_8c"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d4f/src_2kernel_8c.html">kernel.c</a></td></tr>
+<tr class="memdesc:d4/d4f/src_2kernel_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Código de inicialización del kernel en C. Este código recibe el control de <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a> y continúa con la ejecución. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:dd/dcb/physmem_8c"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcb/physmem_8c.html">physmem.c</a></td></tr>
-<tr class="memdesc:dd/dcb/physmem_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica. La memoria se gestiona en unidades de 4096 bytes. <br/></td></tr>
+<tr class="memitem:d7/d4f/src_2physmem_8c"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html">physmem.c</a></td></tr>
+<tr class="memdesc:d7/d4f/src_2physmem_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica. La memoria se gestiona en unidades de 4096 bytes. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:d5/d16/pm_8c"><td class="memItemLeft" align="right" valign="top">archivo &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d16/pm_8c.html">pm.c</a></td></tr>
 <tr class="memdesc:d5/d16/pm_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contiene la implementación de las rutinas para la gestión del modo protegido IA-32 y de la Tabla Global de Descriptores (GDT) <br/></td></tr>

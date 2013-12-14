@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Fichero Fuente doc_bitmap/physmem.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_023aac0c7e54fa6dc44a478a7fc875c6.html">doc_bitmap</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">physmem.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d2/d70/doc__bitmap_2physmem_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef PHYSMEM_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PHYSMEM_H_</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#af78515c7c6559d8135e1bac2f675999a">   17</a></span>&#160;<span class="preprocessor">#define MMAP_LOCATION 0x500</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642">   22</a></span>&#160;<span class="preprocessor">#define MEMORY_UNIT_SIZE 4096</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#acc94eef615e605c46dd786e9ec5ebe10">   27</a></span>&#160;<span class="preprocessor">#define BYTES_PER_ENTRY sizeof(unsigned int)</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abfe642c84b5974b81a83766652af5e06">   33</a></span>&#160;<span class="preprocessor">#define BITS_PER_ENTRY (8 * BYTES_PER_ENTRY)</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#a1fde4dbd3bbdb9a44b67a032f162bb6e">   40</a></span>&#160;<span class="preprocessor">#define MEMORY_UNITS (memory_length / MEMORY_UNIT_SIZE)</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#ae3c1d543dca8d63c2d7856c6f85b77f6">   46</a></span>&#160;<span class="preprocessor">#define bitmap_entry(addr) \</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"> ( addr /  MEMORY_UNIT_SIZE) / ( BITS_PER_ENTRY )</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abe2c03274b46df7a12b218a15651d7c6">   50</a></span>&#160;<span class="preprocessor">#define bitmap_offset(addr) \</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor"> (addr / MEMORY_UNIT_SIZE) % ( BITS_PER_ENTRY )</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#af711637f21461ed6252595238aa52983">   55</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#af711637f21461ed6252595238aa52983" title="Función que redondea una dirección de memoria a la dirección más cercana por debajo que sea múltiplo ...">round_down_to_memory_unit</a>(addr) {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; <span class="keywordflow">if</span> (addr &lt; 0) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <span class="keyword">volatile</span> remainder = addr % <a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642" title="Tamaño de la unidad de asignación de memoria.">MEMORY_UNIT_SIZE</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> addr - remainder;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#a04bb1a508cbed0aa2b632fcbb089c597">   65</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#a04bb1a508cbed0aa2b632fcbb089c597" title="Función que redondea una dirección de memoria a la dirección más cercana por encima que sea múltiplo ...">round_up_to_memory_unit</a>(addr) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; <span class="keywordflow">if</span> (addr &lt; 0) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; <span class="keyword">volatile</span> remainder = addr % <a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642" title="Tamaño de la unidad de asignación de memoria.">MEMORY_UNIT_SIZE</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; <span class="keywordflow">if</span> (remainder &gt; 0) {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordflow">return</span> addr + <a class="code" href="../../d2/d70/doc__bitmap_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642" title="Tamaño de la unidad de asignación de memoria.">MEMORY_UNIT_SIZE</a> - remainder;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; <span class="keywordflow">return</span> addr;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d99/doc__bitmap_2physmem_8c.html#a8950a0a5d1ef2c64d6d99cbb29222803" title="Esta rutina inicializa el mapa de bits de memoria, a partir de la informacion obtenida del GRUB...">setup_memory</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keywordtype">char</span> * <a class="code" href="../../de/d99/doc__bitmap_2physmem_8c.html#aadd0b9312de2cecc64eb3ad54b1c41ac" title="Busca una unidad libre dentro del mapa de bits de memoria.">allocate_unit</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keywordtype">char</span> * <a class="code" href="../../de/d99/doc__bitmap_2physmem_8c.html#afdcca4b8b513b02dea3356a7cba690cc" title="Busca una región de memoria contigua libre dentro del mapa de bits de memoria.">allocate_unit_region</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d99/doc__bitmap_2physmem_8c.html#a026d8bb4aa874d7dfe709788e97407ee" title="Permite liberar una unidad de memoria.">free_unit</a>(<span class="keywordtype">char</span> *addr);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d99/doc__bitmap_2physmem_8c.html#a271c1c35507a26e6b3e6825219d7669a" title="Permite liberar una región de memoria.">free_region</a>(<span class="keywordtype">char</span> *start_addr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PHYSMEM_H_ */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

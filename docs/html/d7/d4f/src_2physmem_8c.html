@@ -1,0 +1,1050 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo src/physmem.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo physmem.c<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica. La memoria se gestiona en unidades de 4096 bytes.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="../../d3/d9c/kmm_8h_source.html">kmm.h</a>&gt;</code><br/>
+<code>#include &lt;physmem.h&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../dc/d9c/stdlib_8h_source.html">stdlib.h</a>&gt;</code><br/>
+</div>
+<p><a href="../../d7/d4f/src_2physmem_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:a8950a0a5d1ef2c64d6d99cbb29222803"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a8950a0a5d1ef2c64d6d99cbb29222803">setup_memory</a> (void)</td></tr>
+<tr class="memdesc:a8950a0a5d1ef2c64d6d99cbb29222803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta rutina inicializa el mapa de bits de memoria, a partir de la informacion obtenida del GRUB.  <a href="#a8950a0a5d1ef2c64d6d99cbb29222803">Más...</a><br/></td></tr>
+<tr class="separator:a8950a0a5d1ef2c64d6d99cbb29222803"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe29acb95fb642b1d6639f7d3593d201"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#afe29acb95fb642b1d6639f7d3593d201">allocate_unit</a> ()</td></tr>
+<tr class="memdesc:afe29acb95fb642b1d6639f7d3593d201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca una unidad libre dentro del mapa de bits de memoria.  <a href="#afe29acb95fb642b1d6639f7d3593d201">Más...</a><br/></td></tr>
+<tr class="separator:afe29acb95fb642b1d6639f7d3593d201"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefa6e121afc225468bc3b136428552e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#aefa6e121afc225468bc3b136428552e6">allocate_unit_region</a> (unsigned int length)</td></tr>
+<tr class="memdesc:aefa6e121afc225468bc3b136428552e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Busca una regiï¿½n de memoria contigua libre dentro del mapa de bits de memoria.  <a href="#aefa6e121afc225468bc3b136428552e6">Más...</a><br/></td></tr>
+<tr class="separator:aefa6e121afc225468bc3b136428552e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a982e21bba4d065f5c762e9a617bad2c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a982e21bba4d065f5c762e9a617bad2c1">free_unit</a> (unsigned int start_dir)</td></tr>
+<tr class="memdesc:a982e21bba4d065f5c762e9a617bad2c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite liberar una unidad de memoria. Recibiendo la direcciÃ³n de la unidad que vamos a liberar. Se crea una variable start que serÃ¡ la unidad que vamos a liberar. Recorremos mediante un for y utilizando un node_iterator ptr la lista del kernel(kernel_list).Si el estado de ptr es usado y ptr empieza en start entonces se verifica si el tamaÃ±o del nodo ptr es igual a uno, en caso de ser asÃ­ liberamos la memoria, aumentamos las unidades que estÃ¡n libres y enlazamos los nodos que quedan libres; llamando la funciÃ³n UnirNodosLibres.  <a href="#a982e21bba4d065f5c762e9a617bad2c1">Más...</a><br/></td></tr>
+<tr class="separator:a982e21bba4d065f5c762e9a617bad2c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad37fdd7c43e1092a00fe53d8eca2a4f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#ad37fdd7c43e1092a00fe53d8eca2a4f9">free_region</a> (unsigned int start_addr, unsigned int length)</td></tr>
+<tr class="memdesc:ad37fdd7c43e1092a00fe53d8eca2a4f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite liberar una regiÃ³n de memoria. Primero declaramos 2 unsigned int (start y end) a statr le asignamos la direcciÃ³n de memoria donde empieza la regiÃ³n de memoria que vamos a liberar, luego verificamos que la regiÃ³n empiece dentro de ona posiciÃ³n permitida. A end se le asignarÃ¡ el nÃºmero donde termina esta regiÃ³n y despuÃ©s en un ciclo for que va desde start hasta end se irÃ¡ liberando cada unidad de memoria.  <a href="#ad37fdd7c43e1092a00fe53d8eca2a4f9">Más...</a><br/></td></tr>
+<tr class="separator:ad37fdd7c43e1092a00fe53d8eca2a4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d6d6d860a3dd67eb762ee84a2a8368c"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a6d6d6d860a3dd67eb762ee84a2a8368c">kmalloc</a> (unsigned int size)</td></tr>
+<tr class="memdesc:a6d6d6d860a3dd67eb762ee84a2a8368c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solicita asignacion de memoria dentro del heap.  <a href="#a6d6d6d860a3dd67eb762ee84a2a8368c">Más...</a><br/></td></tr>
+<tr class="separator:a6d6d6d860a3dd67eb762ee84a2a8368c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a069f85a5001d71bc44d8be6532a4e432"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a069f85a5001d71bc44d8be6532a4e432">kfree</a> (void *ptr)</td></tr>
+<tr class="memdesc:a069f85a5001d71bc44d8be6532a4e432"><td class="mdescLeft">&#160;</td><td class="mdescRight">Solicita liberar una region de memoria dentro del heap.  <a href="#a069f85a5001d71bc44d8be6532a4e432">Más...</a><br/></td></tr>
+<tr class="separator:a069f85a5001d71bc44d8be6532a4e432"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec0ffbc2b9c56d76912e39c2008bab66"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#aec0ffbc2b9c56d76912e39c2008bab66">create_memory_list</a> ()</td></tr>
+<tr class="separator:aec0ffbc2b9c56d76912e39c2008bab66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70496e6b3af0d31e02f652860b91574c"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a70496e6b3af0d31e02f652860b91574c">inicializar_memoria_disponible</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *<a class="el" href="../../d7/d4f/src_2physmem_8c.html#ac1144537cd6e5d0f03d0a5f527f06279">kernel_list</a>, unsigned int start, unsigned int length)</td></tr>
+<tr class="separator:a70496e6b3af0d31e02f652860b91574c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c6773048c51daadbecea61f36b7154a"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a6c6773048c51daadbecea61f36b7154a">create_node</a> (char state, unsigned int start, unsigned int length)</td></tr>
+<tr class="separator:a6c6773048c51daadbecea61f36b7154a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec2809ce45caa388ee92c264b0d5e081"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#aec2809ce45caa388ee92c264b0d5e081">push_front</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *l, <a class="el" href="../../d5/da1/structnode.html">node</a> *unit)</td></tr>
+<tr class="separator:aec2809ce45caa388ee92c264b0d5e081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16c7b822ead23c4dfbdc9ae04ddf8f4d"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a16c7b822ead23c4dfbdc9ae04ddf8f4d">push_back</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *l, <a class="el" href="../../d5/da1/structnode.html">node</a> *unit)</td></tr>
+<tr class="separator:a16c7b822ead23c4dfbdc9ae04ddf8f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9461f7156316a49704d6b29c218eaa79"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a9461f7156316a49704d6b29c218eaa79">pop_front</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *l)</td></tr>
+<tr class="separator:a9461f7156316a49704d6b29c218eaa79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54d3e8a2cdf3dd3c443f47a44167bf3f"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a54d3e8a2cdf3dd3c443f47a44167bf3f">pop_back</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *l)</td></tr>
+<tr class="separator:a54d3e8a2cdf3dd3c443f47a44167bf3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87cec397fcef3f976c973e3e286165fc"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d1/d3a/include_2physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a87cec397fcef3f976c973e3e286165fc">head</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *l)</td></tr>
+<tr class="separator:a87cec397fcef3f976c973e3e286165fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a7d931412eb63841547274eeea47b74"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d1/d3a/include_2physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a8a7d931412eb63841547274eeea47b74">next</a> (<a class="el" href="../../d1/d3a/include_2physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a> it)</td></tr>
+<tr class="separator:a8a7d931412eb63841547274eeea47b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdef7a1fd863a6d3770c1268cb06add3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#acdef7a1fd863a6d3770c1268cb06add3">main</a> ()</td></tr>
+<tr class="memdesc:acdef7a1fd863a6d3770c1268cb06add3"><td class="mdescLeft">&#160;</td><td class="mdescRight">La prueba simple de <a class="el" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> mediante un ciclo for.  <a href="#acdef7a1fd863a6d3770c1268cb06add3">Más...</a><br/></td></tr>
+<tr class="separator:acdef7a1fd863a6d3770c1268cb06add3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1ddf0a32d8199bc61786f9aa2d053e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#ab1ddf0a32d8199bc61786f9aa2d053e3">asignar_unidades</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *klist, unsigned int nUnits)</td></tr>
+<tr class="memdesc:ab1ddf0a32d8199bc61786f9aa2d053e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Al asignar memoria a un proceso nos llega la lista y la cantidad de unidades que se necesitan reservar.  <a href="#ab1ddf0a32d8199bc61786f9aa2d053e3">Más...</a><br/></td></tr>
+<tr class="separator:ab1ddf0a32d8199bc61786f9aa2d053e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9e0eee65372a5accd6209501ee9b81c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#ac9e0eee65372a5accd6209501ee9b81c">unirNodosLibres</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *klist, <a class="el" href="../../d5/da1/structnode.html">node</a> *posicionActual)</td></tr>
+<tr class="memdesc:ac9e0eee65372a5accd6209501ee9b81c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Esta funciÃ³n recibe la vista enlazada y un nodo donde se encuentra la posiciÃ³n libre. En el primer caso la lista que recibe contiene un elemento el cual es el nodo libre, por lo tanto se deja de esta manera.  <a href="#ac9e0eee65372a5accd6209501ee9b81c">Más...</a><br/></td></tr>
+<tr class="separator:ac9e0eee65372a5accd6209501ee9b81c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac1144537cd6e5d0f03d0a5f527f06279"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#ac1144537cd6e5d0f03d0a5f527f06279">kernel_list</a></td></tr>
+<tr class="separator:ac1144537cd6e5d0f03d0a5f527f06279"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3f8e5e6efd4fa5f068c4fc6157a2cb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#ae3f8e5e6efd4fa5f068c4fc6157a2cb0">kernel_node</a></td></tr>
+<tr class="separator:ae3f8e5e6efd4fa5f068c4fc6157a2cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02a922df692761fcc8069b32f64ebcca"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a02a922df692761fcc8069b32f64ebcca">kernel_heap</a></td></tr>
+<tr class="memdesc:a02a922df692761fcc8069b32f64ebcca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable global para el heap. Sobre este heap actua kmalloc.  <a href="#a02a922df692761fcc8069b32f64ebcca">Más...</a><br/></td></tr>
+<tr class="separator:a02a922df692761fcc8069b32f64ebcca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60e8553f71601609aa230d89a1e4018c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a60e8553f71601609aa230d89a1e4018c">kernel_heap_start</a></td></tr>
+<tr class="memdesc:a60e8553f71601609aa230d89a1e4018c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable global del kernel que almacena el inicio del heap del kernel.  <a href="#a60e8553f71601609aa230d89a1e4018c">Más...</a><br/></td></tr>
+<tr class="separator:a60e8553f71601609aa230d89a1e4018c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa962c577ebd577c348d5ed7177a222e3"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#aa962c577ebd577c348d5ed7177a222e3">next_free_unit</a></td></tr>
+<tr class="memdesc:aa962c577ebd577c348d5ed7177a222e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Siguiente unidad disponible en el mapa de bits.  <a href="#aa962c577ebd577c348d5ed7177a222e3">Más...</a><br/></td></tr>
+<tr class="separator:aa962c577ebd577c348d5ed7177a222e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ccfaaebc92582ebfc1da56e137d99f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#ad6ccfaaebc92582ebfc1da56e137d99f">free_units</a></td></tr>
+<tr class="memdesc:ad6ccfaaebc92582ebfc1da56e137d99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numero de marcos libres en la memoria.  <a href="#ad6ccfaaebc92582ebfc1da56e137d99f">Más...</a><br/></td></tr>
+<tr class="separator:ad6ccfaaebc92582ebfc1da56e137d99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70cb0d368bbf8a61840366fa5ced6a4c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a70cb0d368bbf8a61840366fa5ced6a4c">total_units</a></td></tr>
+<tr class="memdesc:a70cb0d368bbf8a61840366fa5ced6a4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Numero total de unidades en la memoria.  <a href="#a70cb0d368bbf8a61840366fa5ced6a4c">Más...</a><br/></td></tr>
+<tr class="separator:a70cb0d368bbf8a61840366fa5ced6a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b8d77a6b1d35ac61aba798b812ef167"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a0b8d77a6b1d35ac61aba798b812ef167">base_unit</a></td></tr>
+<tr class="memdesc:a0b8d77a6b1d35ac61aba798b812ef167"><td class="mdescLeft">&#160;</td><td class="mdescRight">Marco inicial de las unidades disponibles en memoria.  <a href="#a0b8d77a6b1d35ac61aba798b812ef167">Más...</a><br/></td></tr>
+<tr class="separator:a0b8d77a6b1d35ac61aba798b812ef167"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51355d0a048f67232a9d7c7cd39a5356"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a51355d0a048f67232a9d7c7cd39a5356">memory_start</a></td></tr>
+<tr class="memdesc:a51355d0a048f67232a9d7c7cd39a5356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable global del kernel que almacena el inicio de la regiï¿½n de memoria disponible.  <a href="#a51355d0a048f67232a9d7c7cd39a5356">Más...</a><br/></td></tr>
+<tr class="separator:a51355d0a048f67232a9d7c7cd39a5356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b7c9b85fabf9cce726d13c5974b4797"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a3b7c9b85fabf9cce726d13c5974b4797">memory_length</a></td></tr>
+<tr class="memdesc:a3b7c9b85fabf9cce726d13c5974b4797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable global del kernel que almacena el tamaï¿½o en bytes de la memoria disponible.  <a href="#a3b7c9b85fabf9cce726d13c5974b4797">Más...</a><br/></td></tr>
+<tr class="separator:a3b7c9b85fabf9cce726d13c5974b4797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b0aa813ace82f29472b2a69ca8d26b1"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d4f/src_2physmem_8c.html#a6b0aa813ace82f29472b2a69ca8d26b1">allowed_free_start</a></td></tr>
+<tr class="memdesc:a6b0aa813ace82f29472b2a69ca8d26b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mï¿½nima direcciï¿½n de memoria permitida para liberar.  <a href="#a6b0aa813ace82f29472b2a69ca8d26b1">Más...</a><br/></td></tr>
+<tr class="separator:a6b0aa813ace82f29472b2a69ca8d26b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica. La memoria se gestiona en unidades de 4096 bytes. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
+
+<p>Definición en el archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="afe29acb95fb642b1d6639f7d3593d201"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void allocate_unit </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Busca una unidad libre dentro del mapa de bits de memoria. </p>
+<dl class="section return"><dt>Devuelve</dt><dd>Direcciï¿½n de inicio de la unidad en memoria. </dd></dl>
+<pre class="fragment">                  Define las unidades disponibles de memoria
+</pre><p> que dispone </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00282">282</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aefa6e121afc225468bc3b136428552e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void allocate_unit_region </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>length</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Busca una regiï¿½n de memoria contigua libre dentro del mapa de bits de memoria. </p>
+<p>Busca una región de memoria contigua libre dentro del mapa de bits de memoria.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>Tamaï¿½o de la regiï¿½n de memoria a asignar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Direcciï¿½n de inicio de la regiï¿½n en memoria. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00303">303</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab1ddf0a32d8199bc61786f9aa2d053e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void asignar_unidades </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname"><em>klist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>nUnits</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Al asignar memoria a un proceso nos llega la lista y la cantidad de unidades que se necesitan reservar. </p>
+<p>Declaración de la función asignar_unidades implementada en physmem.c.</p>
+<p>Se recorre la lista con un apuntador que inicia en la cabecera y termina al final o donde se pueda asignar a la memoria.</p>
+<p>Para esto se verifica si al nodo al que apunta se encuentra libre, si esto ocurre el tamaÃ±o del nodo deberÃ¡ corresponder a las unidades requeridas para reservar; y se cambia el estado del nodo a usado.</p>
+<p>Por el contrario si el tamaÃ±o del nodo es mayor a las unidades requeridas, se nombra Ocupado y se enlaza a la lista.</p>
+<p>Se crea un nuevo nodo que lleva la memoria libre y empieza despuÃ©s del espacio requerido.</p>
+<p>Los nodos se vinculan a la lista tomando en cuenta que el nodo que se encuentra libre fue el primer nodo de la lista, un nodo distinto al inicial o el ultimo nodo de la lista</p>
+<p>Memory_list -&gt; La lista que indica las unidades libres de memoria n_units-&gt; Un entero sin signo, corresponde al tamaÃ±o de memoria que quiero solicitar </p>
+<dl class="section return"><dt>Devuelve</dt><dd>retorna la funcion void recurrido con los cambios realizados </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00621">621</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aec0ffbc2b9c56d76912e39c2008bab66"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ <a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a>* create_memory_list </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00443">443</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6c6773048c51daadbecea61f36b7154a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ <a class="el" href="../../d5/da1/structnode.html">node</a>* create_node </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00463">463</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad37fdd7c43e1092a00fe53d8eca2a4f9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_region </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>start_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permite liberar una regiÃ³n de memoria. Primero declaramos 2 unsigned int (start y end) a statr le asignamos la direcciÃ³n de memoria donde empieza la regiÃ³n de memoria que vamos a liberar, luego verificamos que la regiÃ³n empiece dentro de ona posiciÃ³n permitida. A end se le asignarÃ¡ el nÃºmero donde termina esta regiÃ³n y despuÃ©s en un ciclo for que va desde start hasta end se irÃ¡ liberando cada unidad de memoria. </p>
+<p>Permite liberar una región de memoria.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_addr</td><td>Direccion de memoria del inicio de la regiÃ³n a liberar </td></tr>
+    <tr><td class="paramname">length</td><td>TamaÃ±o de la regiÃ³n a liberar </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00401">401</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a982e21bba4d065f5c762e9a617bad2c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_unit </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>start_dir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Permite liberar una unidad de memoria. Recibiendo la direcciÃ³n de la unidad que vamos a liberar. Se crea una variable start que serÃ¡ la unidad que vamos a liberar. Recorremos mediante un for y utilizando un node_iterator ptr la lista del kernel(kernel_list).Si el estado de ptr es usado y ptr empieza en start entonces se verifica si el tamaÃ±o del nodo ptr es igual a uno, en caso de ser asÃ­ liberamos la memoria, aumentamos las unidades que estÃ¡n libres y enlazamos los nodos que quedan libres; llamando la funciÃ³n UnirNodosLibres. </p>
+<p>Permite liberar una unidad de memoria.</p>
+<p>*En caso contrario, que tamaÃ±o de ptr sea diferente de uno, se crea un nodo auxiliar que iniciara donde comienza ptr ptr el inicio se le aumentara en uno y el tamaÃ±o se le restara en uno, se aumentara las unidades libres, luego tenemos que verificar si el nodo anterior de ptr es o no nulo, para enlazar el n en la lista, dado el caso que la unidad a liberar sea la Ãºltima de la lista o no.</p>
+<p>En cada caso se deberÃ¡n unir los nodos libres.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">star_dir-&gt;</td><td>recibe la direcciÃ³n que vamos a liberar addr Direcciï¿½n de memoria dentro del ï¿½rea a liberar. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00351">351</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a87cec397fcef3f976c973e3e286165fc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ <a class="el" href="../../d1/d3a/include_2physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a> head </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname"><em>l</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00571">571</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a70496e6b3af0d31e02f652860b91574c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void inicializar_memoria_disponible </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname"><em>kernel_list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00453">453</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a069f85a5001d71bc44d8be6532a4e432"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void kfree </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Solicita liberar una region de memoria dentro del heap. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Puntero a la base de la region de memoria a liberar </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00433">433</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d6d6d860a3dd67eb762ee84a2a8368c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* kmalloc </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Solicita asignacion de memoria dentro del heap. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Tamaï¿½o requerido </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Puntero a la base de la region de memoria asignada, 0 si no es posible asignar memoria. </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00425">425</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acdef7a1fd863a6d3770c1268cb06add3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void main </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>La prueba simple de <a class="el" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> mediante un ciclo for. </p>
+<p>Declaración de la función main implementada en physmem.c. </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00585">585</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8a7d931412eb63841547274eeea47b74"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ <a class="el" href="../../d1/d3a/include_2physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a> next </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d3a/include_2physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a>&#160;</td>
+          <td class="paramname"><em>it</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00576">576</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a54d3e8a2cdf3dd3c443f47a44167bf3f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void* pop_back </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname"><em>l</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00548">548</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9461f7156316a49704d6b29c218eaa79"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void* pop_front </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname"><em>l</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00524">524</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a16c7b822ead23c4dfbdc9ae04ddf8f4d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void* push_back </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td>
+          <td class="paramname"><em>unit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00502">502</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aec2809ce45caa388ee92c264b0d5e081"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void* push_front </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td>
+          <td class="paramname"><em>unit</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00476">476</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8950a0a5d1ef2c64d6d99cbb29222803"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup_memory </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta rutina inicializa el mapa de bits de memoria, a partir de la informacion obtenida del GRUB. </p>
+<p>Basicamente lo que se hace es configurar el mapa de bits de la memoria, para ello la secuencia de pasos que realiza dicha configuracion es: </p>
+<pre class="fragment">  1.Cargar una estructura de tipo multiboot_info_t con la
+   informacion del multiboot que es la informacion que el GRUB
+   almacena luego de cargar el KERNEL.
+  2.Limpia el mapa de bits, haciendo memory_bitmap[i] = 0,
+      donde i=1,2,3.... (memory_bitmap_length-1)
+  3.Verifica si el GRUB cargo la informacion solicitada en la
+   estructura del multiboot. En el proyecto actual, se omite
+   esta parte.
+  4.Se establece, la minima direccion de memoria permitida para
+   liberar, a esta se le asignara la direccion lineal de donde
+   termina el KERNEL.
+  5.Verifica si la direccion del mapa de bits son validos, para ello
+   verifica que el bit info-&gt;flags[6] sea 1, lo que sifnifica que  mmap_length
+   y mmap_addr son validos .
+  6.Verifica que la region de memoria cumple con las condiciones
+   para ser considerada como Memoria Disponible.
+   Para ello, se debe considerar que:
+   -&gt;La primera unidad de memoria este ubicada en la posición de
+   memoria mayor o igual que 1 MB.
+   -&gt;nmap-&gt;type que es el tipo de area de memoria si es 1.
+   6,1.Lo que significa disponible, de lo contrario es que ya esta reservada.
+    Si la region esta marcada como disponible y la posicion esta por
+    encima de la direccion  de la posicion del KERNEL en memora,
+    se procede a verificar si el KERNEL se encuentre en esa region.
+    Entonces se toma el inicio de la memoria disponible en la posicion
+    en la cual finaliza el KERNEL.
+    Seguido a esto, se verifica si se cargaron los modulos con el KERNEL
+    En caso de que hayan modulos que se carguen con el KERNEL, entonces
+    la direccion de posicion inicial cambian ahora y empezadia desde luego
+    de los modulos cargado; de lo contrario no se afecta.
+    y por ultimo se resta el espacio que ahora dispone.
+
+   6,2.Si la region ya esta reservada, y/o que la primera unidad de memoria
+       es menor que 1 MB, lo que significa que el KERNEL no se encuentra en
+       esta region, entonces el tamaño es mayor que la region encontrada.
+
+7.Si existe una region de memoria disponible, es decir si la direccion donde
+ inicia la primera unidad de memoria es valida, y el tamaño disponible es
+ valido.
+ Se procede a establecer en que direccion de memoria se debe ubicar para
+ la asignacion de memoria permitida a liberar, para esto, se calcula la
+ direccion en la cual finaliza la memoria disponibe, hace unos ajustes de
+ redondeo, se calcula el tamaño de region disponible con las unidades ya
+ redondeadas, y se procede a establecer las variables globales del KERNEL.
+8.Se marca la direccion de memoria como disponibley la direccion de memoria
+ de la cual se puede liberar memoria.</pre> <p>Existe un mapa de memoria vï¿½lido creado por GRUB?</p>
+<p>Verificar si la regiï¿½n de memoria cumple con las condiciones para ser considerada "memoria disponible".</p>
+<p>Importante: Si se supone un procesador de 32 bits, los valores de la parte alta de base y length (base_addr_high y length_high) son cero. Por esta razon se pueden ignorar y solo se usan los 32 bits menos significativos de base y length.</p>
+<p>Para que una region de memoria sea considerada "memoria
+disponible", debe cumplir con las siguientes condiciones:</p>
+<ul>
+<li>Estar ubicada en una posicion de memoria mayor o igual que 1 MB.</li>
+<li>Tener su atributo 'type' en 1 = memoria disponible.</li>
+</ul>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00054">54</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac9e0eee65372a5accd6209501ee9b81c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void unirNodosLibres </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
+          <td class="paramname"><em>klist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td>
+          <td class="paramname"><em>posicionActual</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Esta funciÃ³n recibe la vista enlazada y un nodo donde se encuentra la posiciÃ³n libre. En el primer caso la lista que recibe contiene un elemento el cual es el nodo libre, por lo tanto se deja de esta manera. </p>
+<p>Declaración de la función unirNodosLibres implementada en physmem.c.</p>
+<pre class="fragment">En el siguiente caso se verifica si el nodoAnterior y nodoSiguiente se
+encuentran libres, es decir si esta libre a la izquierda o a la derecha.
+
+En este caso quitamos el nodo de la posiciÃ³nActual y el de la derecha.
+DespuÃ©s se verifica si el nodoSiguiente del actual, es diferente de nulo;
+entonces se procede a quitar el nodoActual y nodosSguiente, para obtener uno
+solo con el tamaÃ±o libre.
+
+Ahora con este nuevo nodo se verifica si el nodoAnterior es diferente de  nulo
+o se encuentra libre.
+
+Luego se procede a unir estos nuevos nodos y el anterior
+serÃ¡ el nuevo Nodo libre con el tamaÃ±o de ambos.
+
+Teniendo encuentra si el nodoSiguiente es o no nulo, con lo que se harÃ¡
+los respectivos pasos.
+
+Por lo contrario, si el nodoAnterior es igual a nulo entramos a ver si
+el siguiente es diferente de nulo. En este caso, si el nodoSiguiente fue
+diferente de nulo y es libre; ademÃ¡s si el siguiente del siguiente fue
+diferente de nulo hacemos la asignaciÃ³n del tamaÃ±o al nodo posiciÃ³nActual
+uniÃ©ndolo con el nodoSiguiente y libera el nodoSiguiente.
+
+En cambio si el nodoSguiente al siguiente es nulo le asigna al nodo posicionActual
+su tamaÃ±o mas el tamaÃ±o del nodoSiguiente y lo coloca al final de la lista;
+En el caso que el nodoSiguiente fuera igual a nulo, ya retornarÃ­amos la lista
+
+Luego, si nodoAnterior es diferente de cero, y el estado del nodoAnterior es libre
+entramos a preguntar si el estado del nodo siguiente es libre y si es asi verificamos
+si el nodoSiguiente del siguiente es nulo. En caso, de ser asÃ­ el tamaÃ±o de la posiciÃ³n
+actual serÃ¡ igual al tamaÃ±o de la posicionActual mÃ¡s el tamaÃ±o del nodoSiguiente.
+
+Luego desenlazamos el nodoSiguiente y lo liberamos. En el caso de ser nulo el nodoSiguente al nodoSiguiente,
+simplemente le adicionamos el tamaÃ±o de nodoSiguiente al nodo posicionActual y lo ponemos al final de la lista.
+</pre><dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">klist-&gt;</td><td>Lista enlazada *posicionActual-&gt; Posicion libre</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>retorna la funciÃ³n void recurrido con los cambios realizados  Ejemplo de 12 Posibles casos que se analizan para liberar unidades de <em>la lista *DONDE: _ : Esta vacio *: Indica que se acaba de liberar U: Indica la existencia de mas nodos L: Indica que el nodo se encuentra Libre _ -L</em>- _ _ -L*- L U -L*- L U -L- L* L* -L- U L -L*- U U -L*-L- U U -L-L*- U U -L-L*- L U -L-L*- L- U L -L*-L- U  </dd></dl>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00744">744</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a class="anchor" id="a6b0aa813ace82f29472b2a69ca8d26b1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int allowed_free_start</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mï¿½nima direcciï¿½n de memoria permitida para liberar. </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00048">48</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b8d77a6b1d35ac61aba798b812ef167"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int base_unit</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Marco inicial de las unidades disponibles en memoria. </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00038">38</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6ccfaaebc92582ebfc1da56e137d99f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int free_units</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Numero de marcos libres en la memoria. </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00032">32</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a02a922df692761fcc8069b32f64ebcca"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d9c/kmm_8h.html#ad3bb09826584eab4757c6cd2f988e7d6">heap_t</a>* kernel_heap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Variable global para el heap. Sobre este heap actua kmalloc. </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00022">22</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a60e8553f71601609aa230d89a1e4018c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int kernel_heap_start</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable global del kernel que almacena el inicio del heap del kernel. </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00026">26</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac1144537cd6e5d0f03d0a5f527f06279"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a>* kernel_list</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00017">17</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae3f8e5e6efd4fa5f068c4fc6157a2cb0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/da1/structnode.html">node</a>* kernel_node</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00018">18</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b7c9b85fabf9cce726d13c5974b4797"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int memory_length</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable global del kernel que almacena el tamaï¿½o en bytes de la memoria disponible. </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00045">45</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a51355d0a048f67232a9d7c7cd39a5356"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int memory_start</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable global del kernel que almacena el inicio de la regiï¿½n de memoria disponible. </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00042">42</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa962c577ebd577c348d5ed7177a222e3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int next_free_unit</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Siguiente unidad disponible en el mapa de bits. </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00029">29</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a70cb0d368bbf8a61840366fa5ced6a4c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int total_units</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Numero total de unidades en la memoria. </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html#l00035">35</a> del archivo <a class="el" href="../../d7/d4f/src_2physmem_8c_source.html">physmem.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

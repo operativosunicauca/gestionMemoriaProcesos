@@ -8,6 +8,6 @@ var searchData=
   ['ring1_5fdpl',['RING1_DPL',['../dc/ddb/pm_8h.html#a4f41c5f061957ff88d8304f4335c9f16',1,'pm.h']]],
   ['ring2_5fdpl',['RING2_DPL',['../dc/ddb/pm_8h.html#a555be8fcfb8165ab854d6f2904f60693',1,'pm.h']]],
   ['ring3_5fdpl',['RING3_DPL',['../dc/ddb/pm_8h.html#a69fccce98d4baedba8b21dcea3c01b76',1,'pm.h']]],
-  ['round_5fdown_5fto_5fmemory_5funit',['round_down_to_memory_unit',['../d5/df1/physmem_8h.html#af711637f21461ed6252595238aa52983',1,'physmem.h']]],
-  ['round_5fup_5fto_5fmemory_5funit',['round_up_to_memory_unit',['../d5/df1/physmem_8h.html#a04bb1a508cbed0aa2b632fcbb089c597',1,'physmem.h']]]
+  ['round_5fdown_5fto_5fmemory_5funit',['round_down_to_memory_unit',['../d2/d70/doc__bitmap_2physmem_8h.html#af711637f21461ed6252595238aa52983',1,'round_down_to_memory_unit(addr):&#160;physmem.h'],['../d1/d3a/include_2physmem_8h.html#af711637f21461ed6252595238aa52983',1,'round_down_to_memory_unit(addr):&#160;physmem.h']]],
+  ['round_5fup_5fto_5fmemory_5funit',['round_up_to_memory_unit',['../d2/d70/doc__bitmap_2physmem_8h.html#a04bb1a508cbed0aa2b632fcbb089c597',1,'round_up_to_memory_unit(addr):&#160;physmem.h'],['../d1/d3a/include_2physmem_8h.html#a04bb1a508cbed0aa2b632fcbb089c597',1,'round_up_to_memory_unit(addr):&#160;physmem.h']]]
 ];

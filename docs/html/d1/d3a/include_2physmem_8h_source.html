@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Fichero Fuente include/physmem.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">physmem.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d1/d3a/include_2physmem_8h.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#ifndef PHYSMEM_H_</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PHYSMEM_H_</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="../../d1/d3a/include_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642">   14</a></span>&#160;<span class="preprocessor">#define MEMORY_UNIT_SIZE 4096</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="../../d1/d3a/include_2physmem_8h.html#a1fde4dbd3bbdb9a44b67a032f162bb6e">   17</a></span>&#160;<span class="preprocessor">#define MEMORY_UNITS (memory_length / MEMORY_UNIT_SIZE)</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="../../d1/d3a/include_2physmem_8h.html#af711637f21461ed6252595238aa52983">   21</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/d3a/include_2physmem_8h.html#af711637f21461ed6252595238aa52983" title="Función que redondea una dirección de memoria a la dirección más cercana por debajo que sea múltiplo ...">round_down_to_memory_unit</a>(addr) {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; <span class="keywordflow">if</span> (addr &lt; 0) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; <span class="keyword">volatile</span> remainder = addr % <a class="code" href="../../d1/d3a/include_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642" title="Tamaño de la unidad de asignación de memoria.">MEMORY_UNIT_SIZE</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> addr - remainder;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="code" href="../../d1/d3a/include_2physmem_8h.html#a04bb1a508cbed0aa2b632fcbb089c597">   31</a></span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d1/d3a/include_2physmem_8h.html#a04bb1a508cbed0aa2b632fcbb089c597" title="Función que redondea una dirección de memoria a la dirección más cercana por encima que sea múltiplo ...">round_up_to_memory_unit</a>(addr) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; <span class="keywordflow">if</span> (addr &lt; 0) { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span class="keyword">volatile</span> remainder = addr % <a class="code" href="../../d1/d3a/include_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642" title="Tamaño de la unidad de asignación de memoria.">MEMORY_UNIT_SIZE</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; <span class="keywordflow">if</span> (remainder &gt; 0) {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordflow">return</span> addr + <a class="code" href="../../d1/d3a/include_2physmem_8h.html#abd03c49c90122f4dc22745979c5db642" title="Tamaño de la unidad de asignación de memoria.">MEMORY_UNIT_SIZE</a> - remainder;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; <span class="keywordflow">return</span> addr;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="../../d1/d3a/include_2physmem_8h.html#af654f7f40cf60edfba570a6411640cd4">   44</a></span>&#160;<span class="preprocessor">#define KERNEL_HEAP_SIZE 0x100000</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">void</span> * <a class="code" href="../../d1/d3a/include_2physmem_8h.html#a6d6d6d860a3dd67eb762ee84a2a8368c" title="Solicita asignacion de memoria dentro del heap.">kmalloc</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">void</span>  <a class="code" href="../../d1/d3a/include_2physmem_8h.html#a069f85a5001d71bc44d8be6532a4e432" title="Solicita liberar una region de memoria dentro del heap.">kfree</a>(<span class="keywordtype">void</span> * ptr);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d99/doc__bitmap_2physmem_8c.html#a8950a0a5d1ef2c64d6d99cbb29222803" title="Esta rutina inicializa el mapa de bits de memoria, a partir de la informacion obtenida del GRUB...">setup_memory</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d99/doc__bitmap_2physmem_8c.html#aadd0b9312de2cecc64eb3ad54b1c41ac" title="Busca una unidad libre dentro del mapa de bits de memoria.">allocate_unit</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d99/doc__bitmap_2physmem_8c.html#afdcca4b8b513b02dea3356a7cba690cc" title="Busca una región de memoria contigua libre dentro del mapa de bits de memoria.">allocate_unit_region</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d99/doc__bitmap_2physmem_8c.html#a271c1c35507a26e6b3e6825219d7669a" title="Permite liberar una región de memoria.">free_region</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> start_addr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">/*-------------Se crea todo lo referente a la memory_lista -------------------*/</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="code" href="../../d5/da1/structnode.html">   96</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node</a> {</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="../../d5/da1/structnode.html#afc09df66e4e1131bad27f84d29bd8726">   97</a></span>&#160; <span class="keywordtype">char</span> <a class="code" href="../../d5/da1/structnode.html#afc09df66e4e1131bad27f84d29bd8726">state</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="../../d5/da1/structnode.html#a885b350339beb75f5940572b641aaa58">   98</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/da1/structnode.html#a885b350339beb75f5940572b641aaa58">start</a>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="../../d5/da1/structnode.html#ac8d42bcd4a44e078047ccd7291059238">   99</a></span>&#160; <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="../../d5/da1/structnode.html#ac8d42bcd4a44e078047ccd7291059238">length</a>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="code" href="../../d5/da1/structnode.html#a0dc1b6470487aa86d9936e3cab8b95be">  100</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node</a> *<a class="code" href="../../d5/da1/structnode.html#a0dc1b6470487aa86d9936e3cab8b95be">next</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="code" href="../../d5/da1/structnode.html#aba783da56f092df6846bd3b7b9555728">  101</a></span>&#160;       <span class="keyword">struct </span><a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node</a> *<a class="code" href="../../d5/da1/structnode.html#aba783da56f092df6846bd3b7b9555728">previous</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}<a class="code" href="../../d1/d3a/include_2physmem_8h.html#af4aeda155dbe167f1c1cf38cb65bf324" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node</a>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="../../d1/d3a/include_2physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">  105</a></span>&#160;<span class="keyword">typedef</span> <a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node</a> * <a class="code" href="../../d1/d3a/include_2physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="code" href="../../d7/d99/structmemory__list.html">  112</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> {</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="code" href="../../d7/d99/structmemory__list.html#a4bc3a90bae6b2a4949d3160c629879db">  113</a></span>&#160;       <a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node</a> *<a class="code" href="../../d7/d99/structmemory__list.html#a4bc3a90bae6b2a4949d3160c629879db">head</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="code" href="../../d7/d99/structmemory__list.html#aad32c04a1a3a51d987b21782f6b97b92">  114</a></span>&#160;       <a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node</a> *<a class="code" href="../../d7/d99/structmemory__list.html#aad32c04a1a3a51d987b21782f6b97b92">tail</a>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="code" href="../../d7/d99/structmemory__list.html#ad43c3812e6d13e0518d9f8b8f463ffcf">  115</a></span>&#160;       <span class="keywordtype">int</span> <a class="code" href="../../d7/d99/structmemory__list.html#ad43c3812e6d13e0518d9f8b8f463ffcf">count</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;} <a class="code" href="../../d1/d3a/include_2physmem_8h.html#ae2958b1a91d28588d354366c7c8b6ca0" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">static</span> __inline__ <a class="code" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> * <a class="code" href="../../d1/d3a/include_2physmem_8h.html#aec0ffbc2b9c56d76912e39c2008bab66" title="construye una nueva lista.">create_memory_list</a>();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> <a class="code" href="../../d1/d3a/include_2physmem_8h.html#aab6a59fafed2782072f6d7f790e2a61d" title="Agrega los nodos que representan la memoria disponible en la lista.">inicializar_memoria_disponible</a>(<a class="code" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> *,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">static</span> __inline__ <a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node</a> * <a class="code" href="../../d1/d3a/include_2physmem_8h.html#ac541ca4737fd15ac73fc4d55907f36a5" title="Crea un nuevo nodo.">create_node</a>(<span class="keywordtype">char</span>,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> * <a class="code" href="../../d1/d3a/include_2physmem_8h.html#a21baf943b2f9352509a531b6206fbd9f" title="Agrega un nodo en el frente de la lista.">push_front</a>(<a class="code" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> *, <a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node</a> *);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> * <a class="code" href="../../d1/d3a/include_2physmem_8h.html#a251f2258231eefe0ad419b73d0fbbba2" title="Agrega un nodo al final de la lista.">push_back</a>(<a class="code" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> *, <a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node</a> * );</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> * <a class="code" href="../../d1/d3a/include_2physmem_8h.html#afaccb21f57209d357608ab633a27e8bb" title="Quita el nodo que se encuentra al inicio de la lista.">pop_front</a>(<a class="code" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> *);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> * <a class="code" href="../../d1/d3a/include_2physmem_8h.html#a7f9ed58c02514095b8afe1320b293fbb" title="Quita el nodo que se encuenta el final de la lista.">pop_back</a>(<a class="code" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> *);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keyword">static</span> __inline__ <a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node_iterator</a> <a class="code" href="../../d1/d3a/include_2physmem_8h.html#a6f2d8be1a11543ee8d99cc03bf77aaba" title="Con esta función obtengo el nodo del inicio de la lista.">head</a>(<a class="code" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> *);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="keyword">static</span> __inline__ <a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node_iterator</a> <a class="code" href="../../d1/d3a/include_2physmem_8h.html#ac2b96c57dcf1283789c7031f319f7715" title="Con esta función obtengo el siguiente a un nodo dado.">next</a>(<a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node_iterator</a>);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d3a/include_2physmem_8h.html#acdef7a1fd863a6d3770c1268cb06add3" title="Declaración de la función main implementada en physmem.c.">main</a>();</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d99/doc__bitmap_2physmem_8c.html#a026d8bb4aa874d7dfe709788e97407ee" title="Permite liberar una unidad de memoria.">free_unit</a>( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../de/d99/doc__bitmap_2physmem_8c.html#a271c1c35507a26e6b3e6825219d7669a" title="Permite liberar una región de memoria.">free_region</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> start_addr, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d3a/include_2physmem_8h.html#a976cadc7662d76d7023129c66e3a2fd6" title="Declaración de la función asignar_unidades implementada en physmem.c.">asignar_unidades</a>(<a class="code" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a>*,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d1/d3a/include_2physmem_8h.html#a37faf0202d020fc6220be7d802cb6f04" title="Declaración de la función unirNodosLibres implementada en physmem.c.">unirNodosLibres</a>(<a class="code" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> *,<a class="code" href="../../d5/da1/structnode.html" title="En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista e...">node</a> *);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PHYSMEM_H_ */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>

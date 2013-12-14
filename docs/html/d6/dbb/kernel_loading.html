@@ -235,12 +235,12 @@ kernel /boot/vmlinuz</pre><p>En este caso para la opción "Aprendiendo Sistemas 
 <li>Configurar la pila del kernel: En este caso el tope de la pila se establece en la dirección física 0x9FC00.</li>
 <li>Restablecer el registro EFLAGS</li>
 </ul>
-<p>Luego, el código en ensamblador almacena en la pila (recién configurada) los parámetros que enviará a la función cmain (<a class="el" href="../../d9/d26/kernel_8c.html" title="Código de inicialización del kernel en C. Este código recibe el control de start.S y continúa con la ...">kernel.c</a>). Estos parámetros son:</p>
+<p>Luego, el código en ensamblador almacena en la pila (recién configurada) los parámetros que enviará a la función cmain (kernel.c). Estos parámetros son:</p>
 <ul>
 <li>Valor de EBX: Apuntador a la dirección de memoria en la cual GRUB ha creado la estructura de información Multiboot.</li>
 <li>Valor de EAX: Número mágico, que permite al código en C verificar si el kernel fué cargado por un cargador de arranque compatible con la Especificación Multiboot.</li>
 </ul>
-<p>Después de insertar los parámetros en la pila, el código en ensamblador invoca la función cmain, definida en el archivo <a class="el" href="../../d9/d26/kernel_8c.html" title="Código de inicialización del kernel en C. Este código recibe el control de start.S y continúa con la ...">kernel.c</a>. Esto se logra mediante el siguiente código definido en <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a>:</p>
+<p>Después de insertar los parámetros en la pila, el código en ensamblador invoca la función cmain, definida en el archivo kernel.c. Esto se logra mediante el siguiente código definido en <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a>:</p>
 <pre class="fragment">  /* Enviar los parámetros al kernel */
   push ebx /* dirección fisica de memoria en la cual se encuentra
         la estructura de informacion multiboot. Esta puede
@@ -256,7 +256,7 @@ kernel /boot/vmlinuz</pre><p>En este caso para la opción "Aprendiendo Sistemas 
 <p>Se debe recordar que una función en C recibe los parámetros de forma inversa a como se insertaron en la pila en lenguaje ensamblador. Por este motivo la definición de la función cmain es la siguiente:</p>
 <pre class="fragment">void cmain(unsigned int magic, void * multiboot_info)
 </pre><p>Dentro de la función cmain se continúa con la inicialización del kernel. En esta función se debe incluir la llamada a otras rutinas que permitirán tener un kernel, y (en un futuro) un sistema operativo funcional.</p>
-<p>Cuando la función <a class="el" href="../../d9/d26/kernel_8c.html#ac81b272b403fb3e4a4c5c1cc389b4195" title="Función principal del kernel. Esta rutina recibe el control del codigo en ensamblador de start...">cmain()</a> termina, el control se cede de nuevo al código del archivo <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a>. Este código retira los parámetros almacenados en la pila, y entra en un ciclo infinito para mantener ocupado el procesador y evitar que éste se reinicie:</p>
+<p>Cuando la función <a class="el" href="../../d7/d9f/doc__bitmap_2kernel_8c.html#ac81b272b403fb3e4a4c5c1cc389b4195" title="Función principal del kernel. Esta rutina recibe el control del codigo en ensamblador de start...">cmain()</a> termina, el control se cede de nuevo al código del archivo <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a>. Este código retira los parámetros almacenados en la pila, y entra en un ciclo infinito para mantener ocupado el procesador y evitar que éste se reinicie:</p>
 <pre class="fragment">  /* La función cmain() retorna a este punto. Se debe entrar en un ciclo
   infinito, para que el procesador no siga ejecutando instrucciones al finalizar
   la ejecución del kernel. */

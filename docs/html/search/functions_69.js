@@ -3,7 +3,7 @@ var searchData=
   ['idt_5fdescriptor_5f32',['idt_descriptor_32',['../d4/d35/idt_8h.html#a785364350593da811ee3d64d53af3532',1,'idt.h']]],
   ['implement_5fgeneric_5flist_5ftype',['IMPLEMENT_GENERIC_LIST_TYPE',['../d8/d6a/kmm_8c.html#a51139e57f788c33e8e3135195204ec38',1,'kmm.c']]],
   ['inb',['inb',['../de/d21/asm_8h.html#aa7390b8745ba4780ae6059ad4811359d',1,'asm.h']]],
-  ['inicializar_5fmemoria_5fdisponible',['inicializar_memoria_disponible',['../d5/df1/physmem_8h.html#aab6a59fafed2782072f6d7f790e2a61d',1,'inicializar_memoria_disponible(memory_list *, unsigned int, unsigned int):&#160;physmem.h'],['../dd/dcb/physmem_8c.html#a70496e6b3af0d31e02f652860b91574c',1,'inicializar_memoria_disponible(memory_list *kernel_list, unsigned int start, unsigned int length):&#160;physmem.c']]],
+  ['inicializar_5fmemoria_5fdisponible',['inicializar_memoria_disponible',['../d1/d3a/include_2physmem_8h.html#aab6a59fafed2782072f6d7f790e2a61d',1,'inicializar_memoria_disponible(memory_list *, unsigned int, unsigned int):&#160;physmem.h'],['../d7/d4f/src_2physmem_8c.html#a70496e6b3af0d31e02f652860b91574c',1,'inicializar_memoria_disponible(memory_list *kernel_list, unsigned int start, unsigned int length):&#160;physmem.c']]],
   ['init_5flist_5fmemreg_5fheader',['init_list_memreg_header',['../d3/d9c/kmm_8h.html#ab269f7539ff989976bfc7d78cecfb67d',1,'kmm.h']]],
   ['insert_5fordered_5fmemreg_5fheader',['insert_ordered_memreg_header',['../d3/d9c/kmm_8h.html#a3cab36b08c04025fa41b18d34a7a056e',1,'kmm.h']]],
   ['install_5fexception_5fhandler',['install_exception_handler',['../d4/d43/exception_8c.html#a20e07f41764b9b872a45208a9a3900d7',1,'exception.c']]],

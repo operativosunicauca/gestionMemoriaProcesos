@@ -67,14 +67,14 @@ void setup_memory(void);
  @brief Busca una unidad libre dentro del mapa de bits de memoria.
  * @return Dirección de inicio de la unidad en memoria.
  */
-void allocate_unit();
+void * allocate_unit();
 
 /** @brief Busca una región de memoria contigua libre dentro del mapa de bits
  * de memoria.
  * @param length Tamaño de la región de memoria a asignar.
  * @return Dirección de inicio de la región en memoria.
  */
-void allocate_unit_region(unsigned int length);
+void * allocate_unit_region(unsigned int length);
 
 /**
  * @brief Permite liberar una región de memoria.
@@ -203,7 +203,7 @@ void free_region(unsigned int start_addr, unsigned int length);
 /**
  * @brief Declaración de la función asignar_unidades implementada en physmem.c.
  */
-void asignar_unidades(memory_list*,unsigned int);
+void * asignar_unidades(memory_list*,unsigned int);
 
 /**
  * @brief Declaración de la función unirNodosLibres implementada en physmem.c.

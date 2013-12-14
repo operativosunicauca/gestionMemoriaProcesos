@@ -279,20 +279,18 @@ void setup_memory(void){
  @brief Busca una unidad libre dentro del mapa de bits de memoria.
  * @return Direcci�n de inicio de la unidad en memoria.
  */
-void allocate_unit() {
+void * allocate_unit() {
 
 	/* Si no existen unidades libres, retornar*/
 	if (free_units == 0) {
 		//printf("Warning! out of memory!\n");
-		return;
+		return (void *)("Warning! out of memory!");
 	}
-	/* TODO: Implementar la logica para recorrer la memory_lista de
-	 * unidades de memoria y buscar un espacio libre.
-	 * Es posible que se deba partir un nodo libre en dos.
-	 * Se debe retornar un apuntador char * al inicio de la
-	 * region libre. */
-		asignar_unidades(kernel_list,1);
-	return;
+	/*En este metodo asignar_unidades(kernel_list,1) se implementa
+		 * la logica para recorrer la memory_list de unidades de memoria
+		 *  y buscar un espacio libre.
+		 *  Internamente de serr necesario se parte un nodo libre en dos.*/
+	return asignar_unidades(kernel_list,1);
 }
 
 /** @brief Busca una regi�n de memoria contigua libre dentro del mapa de bits
@@ -300,7 +298,7 @@ void allocate_unit() {
  * @param length Tama�o de la regi�n de memoria a asignar.
  * @return Direcci�n de inicio de la regi�n en memoria.
  */
-void allocate_unit_region(unsigned int length) {
+void * allocate_unit_region(unsigned int length) {
 	unsigned int unit;
 	unsigned int unit_count;
 	unsigned int i;
@@ -314,20 +312,21 @@ void allocate_unit_region(unsigned int length) {
 
 	if (free_units < unit_count) {
 		//printf("Warning! out of memory!\n");
-		return;
+		return (void *)("Warning! out of memory!");
 	}
 
-	/* TODO: Iterar por la memory_lista para encontra un nodo
-	 * que tenga al menos el numero de unidades solicitados.
-	 * Marcar el nodo como usado, y crear un nuevo nodo en
-	 * el cual queda el resto de unidades disponibles. */
+	/*En este segmento se hace llamado a la función
+		 * asignar_unidades(kernel_list,length); con el fin de iterar
+		 * por la memory_list y encontrar un nodo que tenga al menos
+		 * el número de nodos solicitado, de ser necesario, marcar el
+		 * nodo como usado, y crear un nuevo nodo en el cual queda
+		 * el resto de unidades disponibles.*/
 	if(length > 1){
-			asignar_unidades(kernel_list,length);
+			return asignar_unidades(kernel_list,length);
 	}
 	else{
-			allocate_unit();
+			return allocate_unit();
 	}
-	return;
 }
 
 /**
@@ -355,10 +354,11 @@ void free_unit(unsigned int start_dir) {
 	start = round_down_to_memory_unit(start_dir);
 	start = start / 4096;
 	//if (start < allowed_free_start) {return;}
-	/* TODO: Buscar la unidad en la memory_lista de unidades, y marcarla como
-	 * disponible.
-	 * Es posible que se requiera fusionar nodos en la memory_lista!*/
-
+	/* Se busca la unidad en la memory_list deunidades y se marca
+		 * como libre 'L'.
+		 * Se invoca el metodo unirNodosLibres(kernel_list,nodo_libre);
+		 * ya que de ser necesario se fusionarán nodos del amemory_list.
+		 */
 	node_iterator ptr;
 	for (ptr = head(kernel_list); ptr != 0; ptr= next(ptr)) {
 		if(ptr->state == 'U' && ptr->start == start){
@@ -618,7 +618,7 @@ void main(){
   @return retorna la funcion void recurrido con los cambios realizados
 */
 
-void asignar_unidades(memory_list *klist,unsigned int nUnits)
+void * asignar_unidades(memory_list *klist,unsigned int nUnits)
 {
 	node_iterator ptr;
 	node *n;
@@ -627,7 +627,7 @@ void asignar_unidades(memory_list *klist,unsigned int nUnits)
 			if(ptr->length == nUnits){
 				ptr->state = 'U';
 				free_units -= nUnits;
-				return;
+				return (void *)ptr->start;
 			}
 			else if(ptr->length > nUnits){
 				node *new_node = create_node('U',ptr->start,nUnits);
@@ -644,7 +644,7 @@ void asignar_unidades(memory_list *klist,unsigned int nUnits)
 						push_front(klist,old_node);
 						push_front(klist,new_node);
 					}
-					return;
+					return (void *)new_node->start;
 				}
 				else{
 					free_units -= nUnits;
@@ -666,11 +666,12 @@ void asignar_unidades(memory_list *klist,unsigned int nUnits)
 						ptr->next = 0;
 						kfree(ptr);
 					}
-					return;
+					return (void *)new_node->start;
 				}
 			}
 		}
 	}
+	return (void *)("Warning! out of memory!");
 }
 /**
 @brief  Esta función recibe la vista enlazada y un nodo donde se encuentra la

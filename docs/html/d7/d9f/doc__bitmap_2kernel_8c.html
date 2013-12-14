@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.3.1"/>
+<title>Proyecto 10 - Gestión de Memoria Física: Referencia del Archivo doc_bitmap/kernel.c</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Proyecto 10 - Gestión de Memoria Física
+   &#160;<span id="projectnumber">0.9</span>
+   </div>
+   <div id="projectbrief">Aprendiendo Sistemas Operativos</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.8.3.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="../../pages.html"><span>Páginas&#160;relacionadas</span></a></li>
+      <li><a href="../../modules.html"><span>Módulos</span></a></li>
+      <li><a href="../../annotated.html"><span>Estructuras&#160;de&#160;Datos</span></a></li>
+      <li class="current"><a href="../../files.html"><span>Archivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../files.html"><span>Lista&#160;de&#160;archivos</span></a></li>
+      <li><a href="../../globals.html"><span>Globales</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Estructuras de Datos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Archivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funciones</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>&apos;typedefs&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>&apos;defines&apos;</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Grupos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_023aac0c7e54fa6dc44a478a7fc875c6.html">doc_bitmap</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funciones</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle">
+<div class="title">Referencia del Archivo kernel.c<div class="ingroups"><a class="el" href="../../d9/d1c/group__kernel__code.html">Código del Kernel</a></div></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Código de inicialización del kernel en C. Este código recibe el control de <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a> y continúa con la ejecución.  
+<a href="#details">Más...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="../../dc/ddb/pm_8h_source.html">pm.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d1/dc0/multiboot_8h_source.html">multiboot.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d6/dd1/stdio_8h_source.html">stdio.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../dc/d9c/stdlib_8h_source.html">stdlib.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d4/d35/idt_8h_source.html">idt.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="../../d2/d70/doc__bitmap_2physmem_8h_source.html">physmem.h</a>&gt;</code><br/>
+</div>
+<p><a href="../../d7/d9f/doc__bitmap_2kernel_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ac81b272b403fb3e4a4c5c1cc389b4195"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/doc__bitmap_2kernel_8c.html#ac81b272b403fb3e4a4c5c1cc389b4195">cmain</a> (unsigned int magic, void *multiboot_info)</td></tr>
+<tr class="memdesc:ac81b272b403fb3e4a4c5c1cc389b4195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Función principal del kernel. Esta rutina recibe el control del codigo en ensamblador de <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a>.  <a href="#ac81b272b403fb3e4a4c5c1cc389b4195">Más...</a><br/></td></tr>
+<tr class="separator:ac81b272b403fb3e4a4c5c1cc389b4195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a12fa0463bcd1fdbb93136dd2b4b7bc0b"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d9f/doc__bitmap_2kernel_8c.html#a12fa0463bcd1fdbb93136dd2b4b7bc0b">multiboot_info_location</a></td></tr>
+<tr class="memdesc:a12fa0463bcd1fdbb93136dd2b4b7bc0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable global del kernel que almacena la localizacion de la estructura multiboot que recibe del GRUB.  <a href="#a12fa0463bcd1fdbb93136dd2b4b7bc0b">Más...</a><br/></td></tr>
+<tr class="separator:a12fa0463bcd1fdbb93136dd2b4b7bc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
+<div class="textblock"><p>Código de inicialización del kernel en C. Este código recibe el control de <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a> y continúa con la ejecución. </p>
+<dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License.</dd></dl>
+<p>Luego de configurar la GDT, la IDT, las interrupciones, las excepciones y las IRQ, este código configura el mapa de bits que permitirá gestionar la memoria física en unidades de 4096 bytes. Este mapa de bits se referencia con la variable <a class="el" href="../../de/d99/doc__bitmap_2physmem_8c.html#aeb137a3196b0b15cda8890cd7e158a25">memory_bitmap</a> (physmem.c), la cual apunta a la dirección MMAP_LOCATION.</p>
+<p>El mapa de bits de memoria ocupa exactamente 128 KB, y permite gestionar hasta 4 GB de memoria física. </p>
+
+<p>Definición en el archivo <a class="el" href="../../d7/d9f/doc__bitmap_2kernel_8c_source.html">kernel.c</a>.</p>
+</div><h2 class="groupheader">Documentación de las funciones</h2>
+<a class="anchor" id="ac81b272b403fb3e4a4c5c1cc389b4195"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void cmain </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>magic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>multiboot_info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Función principal del kernel. Esta rutina recibe el control del codigo en ensamblador de <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a>. </p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">magic</td><td>Número mágico pasado por GRUB al código de start,S </td></tr>
+    <tr><td class="paramname">multiboot_info</td><td>Apuntador a la estructura de información multiboot </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definición en la línea <a class="el" href="../../d7/d9f/doc__bitmap_2kernel_8c_source.html#l00040">40</a> del archivo <a class="el" href="../../d7/d9f/doc__bitmap_2kernel_8c_source.html">kernel.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentación de las variables</h2>
+<a class="anchor" id="a12fa0463bcd1fdbb93136dd2b4b7bc0b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int multiboot_info_location</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Variable global del kernel que almacena la localizacion de la estructura multiboot que recibe del GRUB. </p>
+
+<p>Definición en la línea <a class="el" href="../../d7/d9f/doc__bitmap_2kernel_8c_source.html#l00031">31</a> del archivo <a class="el" href="../../d7/d9f/doc__bitmap_2kernel_8c_source.html">kernel.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.3.1
+</small></address>
+</body>
+</html>
