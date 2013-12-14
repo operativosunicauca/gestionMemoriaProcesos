@@ -3,8 +3,8 @@
  * @ingroup kernel_code 
  * @author Erwin Meza <emezav@gmail.com>
  * @copyright GNU Public License. 
- * @brief Contiene la implementación de las rutinas relacionadas
- * con las gestión de memoria física. La memoria se gestiona en unidades
+ * @brief Contiene la implementacion de las rutinas relacionadas
+ * con las gestion de memoria fisica. La memoria se gestiona en unidades
  * de 4096 bytes.
  */
 
@@ -37,14 +37,14 @@ int total_units;
 /** @brief Marco inicial de las unidades  disponibles en memoria */
 unsigned int base_unit;
 
-/** @brief Variable global del kernel que almacena el inicio de la región
+/** @brief Variable global del kernel que almacena el inicio de la regiï¿½n
  * de memoria disponible */
 unsigned int memory_start;
-/** @brief Variable global del kernel que almacena el tamaño en bytes de
+/** @brief Variable global del kernel que almacena el tamaï¿½o en bytes de
  * la memoria disponible */
 unsigned int memory_length;
 
-/** @brief Mínima dirección de memoria permitida para liberar */
+/** @brief Mï¿½nima direcciï¿½n de memoria permitida para liberar */
 unsigned int allowed_free_start;
 
 /**
@@ -65,7 +65,7 @@ void setup_memory(void){
 
 	int i;
 
-	unsigned int mods_end; /* Almacena la dirección de memoria final
+	unsigned int mods_end; /* Almacena la direcciï¿½n de memoria final
 	del ultimo modulo cargado, o 0 si no se cargaron modulos. */
 
 	printf("Inicio del kernel: %x\n", multiboot_header.kernel_start);
@@ -73,7 +73,7 @@ void setup_memory(void){
 	printf("Fin del segmento BSS: %x\n", multiboot_header.bss_end);
 	printf("Punto de entrada del kernel: %x\n", multiboot_header.entry_point);
 
-	/* si flags[3] = 1, se especificaron módulos que deben ser cargados junto
+	/* si flags[3] = 1, se especificaron mï¿½dulos que deben ser cargados junto
 	 * con el kernel*/
 
 	mods_end = 0;
@@ -93,16 +93,18 @@ void setup_memory(void){
 					mod_info->string);*/
 			if (mod_info->mod_end > mods_end) {
 				/* Los modulos se redondean a limites de 4 KB, redondear
-				 * la dirección final del modulo a un limite de 4096 */
+				 * la direcciï¿½n final del modulo a un limite de 4096 */
 				mods_end = mod_info->mod_end + (mod_info->mod_end % 4096);
 			}
 		}
 	}
 
+	//printf("Mods end: %u\n", mods_end);
+
 	/* si flags[6] = 1, los campos mmap_length y mmap_addr son validos */
 
 	/* Revisar las regiones de memoria, y extraer la region de memoria
-	 * de mayor tamano, maracada como disponible, cuya dirección base sea
+	 * de mayor tamano, maracada como disponible, cuya direcciï¿½n base sea
 	 * mayor o igual a la posicion del kernel en memoria.
 	 */
 
@@ -116,7 +118,7 @@ void setup_memory(void){
 	 * al finalizar el kernel + el fin del HEAP del kernel*/
 	allowed_free_start = round_up_to_memory_unit(multiboot_header.bss_end);
 
-	/** Existe un mapa de memoria válido creado por GRUB? */
+	/** Existe un mapa de memoria vï¿½lido creado por GRUB? */
 	if (test_bit(info->flags, 6)) {
 		memory_map_t *mmap;
 
@@ -136,7 +138,7 @@ void setup_memory(void){
 					mmap->length_low,
 					mmap->type);
 
-			/** Verificar si la región de memoria cumple con las condiciones
+			/** Verificar si la regiï¿½n de memoria cumple con las condiciones
 			 * para ser considerada "memoria disponible".
 			 *
 			 * Importante: Si se supone un procesador de 32 bits, los valores
@@ -151,7 +153,7 @@ void setup_memory(void){
 			 * 	1 MB.
 			 * - Tener su atributo 'type' en 1 = memoria disponible.
 			 * */
-			/* La region esta marcada como disponible y su dirección base
+			/* La region esta marcada como disponible y su direcciï¿½n base
 			 * esta por encima de la posicion del kernel en memoria ?*/
 			if (mmap->type == 1 &&
 					mmap->base_addr_low >= multiboot_header.kernel_start) {
@@ -161,6 +163,7 @@ void setup_memory(void){
 				/* Verificar si el kernel se encuentra en esta region */
 				if (multiboot_header.bss_end >= tmp_start &&
 						multiboot_header.bss_end <= tmp_start + tmp_length) {
+					//printf("Kernel is on this region!. Base: %u\n", tmp_start);
 					/* El kernel se encuentra en esta region. Tomar el inicio
 					 * de la memoria disponible en la posicion en la cual
 					 * finaliza el kernel
@@ -204,7 +207,7 @@ void setup_memory(void){
 
 	printf("Memory start at %u = %x\n", memory_start, memory_start);
 
-	/* Existe una región de memoria disponible? */
+	/* Existe una regiï¿½n de memoria disponible? */
 	if (memory_start > 0 && memory_length > 0) {
 
 		/* Se encontro memoria disponible? configurar el heap del kernel
@@ -225,23 +228,23 @@ void setup_memory(void){
 		printf("Kernel heap at: 0x%x Size: %d KB\n", kernel_heap->base,
 				kernel_heap->limit / 1024);
 
-		/* Antes de retornar, establecer la minima dirección de memoria
+		/* Antes de retornar, establecer la minima direcciï¿½n de memoria
 		 * permitida para liberar*/
 
 		//printf("Free units before setting up memory: %d\n", free_units);
 
 		tmp_start = memory_start;
-		/* Calcular la dirección en la cual finaliza la memoria disponible */
+		/* Calcular la direcciï¿½n en la cual finaliza la memoria disponible */
 		tmp_end = tmp_start + memory_length;
 
-		/* Redondear el inicio y el fin de la región de memoria disponible a
+		/* Redondear el inicio y el fin de la regiï¿½n de memoria disponible a
 		 * unidades de memoria */
 
 		tmp_start = round_up_to_memory_unit(tmp_start);
 		tmp_end = round_down_to_memory_unit(tmp_end);
 
-		/* Calcular el tamaño de la región de memoria disponible, redondeada
-		 * a límites de unidades de memoria */
+		/* Calcular el tamaï¿½o de la regiï¿½n de memoria disponible, redondeada
+		 * a lï¿½mites de unidades de memoria */
 		tmp_length = tmp_end - tmp_start;
 
 		/* Actualizar las variables globales del kernel */
@@ -250,12 +253,15 @@ void setup_memory(void){
 
 		printf("Memory start at %u = %x\n", (memory_start), memory_start);
 
-		/* Crear la memory_list con un unico nodo disponible*/
+		/* Marcar la regiï¿½n de memoria como disponible */
+		//free_region_original((char*)memory_start, memory_length);
+
+//----------------------------------------------------------------------------------
 		kernel_list = create_memory_list();
 		inicializar_memoria_disponible(kernel_list,(memory_start), memory_length);
 
 
-		/* Establecer la dirección de memoria a partir
+		/* Establecer la direcciï¿½n de memoria a partir
 		 * de la cual se puede liberar memoria */
 		allowed_free_start = memory_start;
 		next_free_unit = allowed_free_start / MEMORY_UNIT_SIZE;
@@ -271,27 +277,28 @@ void setup_memory(void){
 
 /**
  @brief Busca una unidad libre dentro del mapa de bits de memoria.
- * @return Dirección de inicio de la unidad en memoria.
+ * @return Direcciï¿½n de inicio de la unidad en memoria.
  */
 void allocate_unit() {
 
 	/* Si no existen unidades libres, retornar*/
 	if (free_units == 0) {
-		printf("Warning! out of memory!\n");
+		//printf("Warning! out of memory!\n");
 		return;
 	}
-	/*En este metodo asignar_unidades(kernel_list,1) se implementa
-	 * la logica para recorrer la memory_list de unidades de memoria
-	 *  y buscar un espacio libre.
-	 *  Internamente de serr necesario se parte un nodo libre en dos.*/
+	/* TODO: Implementar la logica para recorrer la memory_lista de
+	 * unidades de memoria y buscar un espacio libre.
+	 * Es posible que se deba partir un nodo libre en dos.
+	 * Se debe retornar un apuntador char * al inicio de la
+	 * region libre. */
 		asignar_unidades(kernel_list,1);
 	return;
 }
 
-/** @brief Busca una región de memoria contigua libre dentro del mapa de bits
+/** @brief Busca una regiï¿½n de memoria contigua libre dentro del mapa de bits
  * de memoria.
- * @param length Tamaño de la región de memoria a asignar.
- * @return Dirección de inicio de la región en memoria.
+ * @param length Tamaï¿½o de la regiï¿½n de memoria a asignar.
+ * @return Direcciï¿½n de inicio de la regiï¿½n en memoria.
  */
 void allocate_unit_region(unsigned int length) {
 	unsigned int unit;
@@ -310,12 +317,10 @@ void allocate_unit_region(unsigned int length) {
 		return;
 	}
 
-	/*En este segmento se hace llamado a la función
-	 * asignar_unidades(kernel_list,length); con el fin de iterar
-	 * por la memory_list y encontrar un nodo que tenga al menos
-	 * el número de nodos solicitado, de ser necesario, marcar el
-	 * nodo como usado, y crear un nuevo nodo en el cual queda
-	 * el resto de unidades disponibles.*/
+	/* TODO: Iterar por la memory_lista para encontra un nodo
+	 * que tenga al menos el numero de unidades solicitados.
+	 * Marcar el nodo como usado, y crear un nuevo nodo en
+	 * el cual queda el resto de unidades disponibles. */
 	if(length > 1){
 			asignar_unidades(kernel_list,length);
 	}
@@ -326,21 +331,34 @@ void allocate_unit_region(unsigned int length) {
 }
 
 /**
- * @brief Permite liberar una unidad de memoria.
- * @param addr Dirección de memoria dentro del área a liberar.
+ * @brief Permite liberar una unidad de memoria. Recibiendo la direcciÃ³n de la
+ * unidad que vamos a liberar. Se crea una variable start que serÃ¡ la unidad que vamos a liberar.
+ * Recorremos mediante un for y utilizando un node_iterator ptr
+ * la lista del kernel(kernel_list).Si el estado de ptr es usado y ptr empieza en start entonces se verifica si el tamaÃ±o del nodo
+ * ptr es igual a uno, en caso de ser asÃ­ liberamos la memoria, aumentamos las unidades que estÃ¡n libres
+ * y enlazamos los nodos que quedan libres; llamando la funciÃ³n UnirNodosLibres.
+ *
+ *En caso contrario, que tamaÃ±o de ptr sea diferente de uno, se crea un nodo auxiliar que iniciara donde comienza ptr
+ * ptr el inicio se le aumentara en uno y el tamaÃ±o se le restara en uno, se aumentara las unidades libres, luego tenemos
+ * que verificar si el nodo anterior de ptr es o no nulo, para enlazar el n en la lista, dado el caso que la unidad a liberar
+ * sea la Ãºltima de la lista o no.
+ *
+ * En cada caso se deberÃ¡n unir los nodos libres.
+
+ * @param star_dir-> recibe la direcciÃ³n que vamos a liberar
+ * addr Direcciï¿½n de memoria dentro del ï¿½rea a liberar.
  */
 void free_unit(unsigned int start_dir) {
 	unsigned int start;
 	unsigned int unit;
 
 	start = round_down_to_memory_unit(start_dir);
-	if (start < allowed_free_start) {return;}
 	start = start / 4096;
-	/* Se busca la unidad en la memory_list deunidades y se marca
-	 * como libre 'L'.
-	 * Se invoca el metodo unirNodosLibres(kernel_list,nodo_libre);
-	 * ya que de ser necesario se fusionarán nodos del amemory_list.
-	 */
+	//if (start < allowed_free_start) {return;}
+	/* TODO: Buscar la unidad en la memory_lista de unidades, y marcarla como
+	 * disponible.
+	 * Es posible que se requiera fusionar nodos en la memory_lista!*/
+
 	node_iterator ptr;
 	for (ptr = head(kernel_list); ptr != 0; ptr= next(ptr)) {
 		if(ptr->state == 'U' && ptr->start == start){
@@ -369,15 +387,17 @@ void free_unit(unsigned int start_dir) {
 		}
 	}
 }
+
 /**
- * @brief Permite liberar una región de memoria. Primero declaramos 2 unsigned int (start y end)
- * a statr le asignamos la dirección de memoria donde empieza la región de memoria que vamos a liberar,
- *   luego verificamos que la región empiece dentro de ona posición permitida. A end se le asignará el número
- *   donde termina esta región y después en un ciclo for que va desde start hasta end se irá liberando
+ * @brief Permite liberar una regiÃ³n de memoria. Primero declaramos 2 unsigned int (start y end)
+ * a statr le asignamos la direcciÃ³n de memoria donde empieza la regiÃ³n de memoria que vamos a liberar,
+ *   luego verificamos que la regiÃ³n empiece dentro de ona posiciÃ³n permitida. A end se le asignarÃ¡ el nÃºmero
+ *   donde termina esta regiÃ³n y despuÃ©s en un ciclo for que va desde start hasta end se irÃ¡ liberando
  *   cada unidad de memoria.
- * @param start_addr Dirección de memoria del inicio de la región a liberar
- * @param length Tamaño de la región a liberar
+ * @param start_addr Direccion de memoria del inicio de la regiÃ³n a liberar
+ * @param length TamaÃ±o de la regiÃ³n a liberar
  */
+
 void free_region(unsigned int start_addr, unsigned int length){
 	unsigned int start;
 	unsigned int end;
@@ -391,11 +411,14 @@ void free_region(unsigned int start_addr, unsigned int length){
 	for (; start < end; start += MEMORY_UNIT_SIZE) {
 		free_unit(start);
 	}
+
+	/* Almacenar el inicio de la regiï¿½n liberada para una prï¿½xima asignaciï¿½n */
+	//next_free_unit = (unsigned int)start_addr / MEMORY_UNIT_SIZE;
 }
 
 /**
  * @brief Solicita asignacion de memoria dentro del heap.
- * @param size Tamaño requerido
+ * @param size Tamaï¿½o requerido
  * @return Puntero a la base de la region de memoria asignada, 0 si
  *  		 no es posible asignar memoria.
  */
@@ -433,6 +456,7 @@ static __inline__ void  inicializar_memoria_disponible(memory_list *kernel_list,
 	n = create_node('L',start / MEMORY_UNIT_SIZE,length / MEMORY_UNIT_SIZE);
 	push_front(kernel_list,n);
 	free_units = n->length;
+	//printf("---->ESTADO: %c, INICIO: 0x%u, TAMAï¿½O: 0x%u\n",n->state, n->start, n->length);
 }
 
 static __inline__ node *
@@ -450,9 +474,13 @@ create_node(char state,unsigned int start,unsigned int length) {
 
 static __inline__ void *
 push_front(memory_list *l, node * unit) {
+	//node * n;
+
 	if (l == 0) {
 		return 0;
 	}
+
+	//n = create_node(unit->state ,unit->start,unit->length);
 
 	if (l->head == 0) { /*Primer elemento en la memory_lista  */
 		l->head = unit;
@@ -463,7 +491,7 @@ push_front(memory_list *l, node * unit) {
 		l->head->previous = unit;
 		l->head = unit;
 	}
-	//printf("---->ESTADO: %c, INICIO: 0x%u, TAMAÑO: 0x%u\n",unit->state, unit->start, unit->length);
+	//printf("---->ESTADO: %c, INICIO: 0x%u, TAMAï¿½O: 0x%u\n",unit->state, unit->start, unit->length);
 
 	l->count++;
 
@@ -550,7 +578,10 @@ static __inline__ node_iterator next(node_iterator it) {
 	return it->next;
 }
 
-/*la prueba simple de memory_listas*/
+
+/**
+ * @brief La prueba simple de memory_list mediante un ciclo for.
+ */
 void main(){
 
 	printf("<<<<<<KERNEL LIST>>>>>>\n");
@@ -559,6 +590,33 @@ void main(){
 		printf("---->ESTADO: %c, UNIDAD INICIO: %u, TAMANO: %u\n",ptr->state, ptr->start, ptr->length);
 	}
 }
+
+/**
+* @brief Al asignar memoria a un proceso nos llega la lista y
+  * la cantidad de unidades  que se necesitan reservar.
+
+  * Se recorre la lista con un apuntador que inicia en la cabecera
+  * y termina al final o donde  se pueda asignar a la memoria.
+
+  * Para esto se verifica si al nodo al que apunta se encuentra libre, si esto
+  * ocurre el tamaÃ±o del nodo deberÃ¡ corresponder a las unidades requeridas
+  * para reservar; y se cambia el estado del nodo a usado.
+
+  * Por el contrario si el tamaÃ±o del nodo es mayor a las unidades requeridas,
+  * se nombra Ocupado y se enlaza a la lista.
+
+  * Se crea un nuevo nodo que lleva la memoria libre y empieza despuÃ©s del
+  * espacio requerido.
+
+  * Los nodos se vinculan a la lista tomando en cuenta que el nodo que se
+  * encuentra libre fue el primer nodo de la lista, un nodo distinto al inicial
+  * o el ultimo nodo de la lista
+
+  @parametros Memory_list -> La lista que indica las unidades libres de memoria
+   * n_units-> Un entero sin signo, corresponde al tamaÃ±o de memoria que quiero
+   * solicitar
+  @return retorna la funcion void recurrido con los cambios realizados
+*/
 
 void asignar_unidades(memory_list *klist,unsigned int nUnits)
 {
@@ -614,6 +672,74 @@ void asignar_unidades(memory_list *klist,unsigned int nUnits)
 		}
 	}
 }
+/**
+@brief  Esta funciÃ³n recibe la vista enlazada y un nodo donde se encuentra la
+  * posiciÃ³n libre. En el primer caso la lista que recibe contiene un elemento
+  * el cual es el nodo libre, por lo tanto se deja de esta manera.
+
+  * En el siguiente caso se verifica si el nodoAnterior y nodoSiguiente se
+  * encuentran libres, es decir si esta libre a la izquierda o a la derecha.
+
+  * En este caso quitamos el nodo de la posiciÃ³nActual y el de la derecha.
+  * DespuÃ©s se verifica si el nodoSiguiente del actual, es diferente de nulo;
+  * entonces se procede a quitar el nodoActual y nodosSguiente, para obtener uno
+  * solo con el tamaÃ±o libre.
+
+  * Ahora con este nuevo nodo se verifica si el nodoAnterior es diferente de  nulo
+  * o se encuentra libre.
+
+  * Luego se procede a unir estos nuevos nodos y el anterior
+  * serÃ¡ el nuevo Nodo libre con el tamaÃ±o de ambos.
+
+  * Teniendo encuentra si el nodoSiguiente es o no nulo, con lo que se harÃ¡
+  * los respectivos pasos.
+
+  * Por lo contrario, si el nodoAnterior es igual a nulo entramos a ver si
+  * el siguiente es diferente de nulo. En este caso, si el nodoSiguiente fue
+  * diferente de nulo y es libre; ademÃ¡s si el siguiente del siguiente fue
+  * diferente de nulo hacemos la asignaciÃ³n del tamaÃ±o al nodo posiciÃ³nActual
+  * uniÃ©ndolo con el nodoSiguiente y libera el nodoSiguiente.
+  *
+  * En cambio si el nodoSguiente al siguiente es nulo le asigna al nodo posicionActual
+  * su tamaÃ±o mas el tamaÃ±o del nodoSiguiente y lo coloca al final de la lista;
+  * En el caso que el nodoSiguiente fuera igual a nulo, ya retornarÃ­amos la lista
+  *
+  * Luego, si nodoAnterior es diferente de cero, y el estado del nodoAnterior es libre
+  * entramos a preguntar si el estado del nodo siguiente es libre y si es asi verificamos
+  * si el nodoSiguiente del siguiente es nulo. En caso, de ser asÃ­ el tamaÃ±o de la posiciÃ³n
+  * actual serÃ¡ igual al tamaÃ±o de la posicionActual mÃ¡s el tamaÃ±o del nodoSiguiente.
+  *
+  * Luego desenlazamos el nodoSiguiente y lo liberamos. En el caso de ser nulo el nodoSiguente al nodoSiguiente,
+  * simplemente le adicionamos el tamaÃ±o de nodoSiguiente al nodo posicionActual y lo ponemos al final de la lista.
+
+@param klist-> Lista enlazada
+*posicionActual-> Posicion libre
+
+@return retorna la funciÃ³n void recurrido con los cambios realizados
+*/
+
+/**
+@overwrite Ejemplo de 12 Posibles casos que se analizan para liberar unidades de
+ *la lista
+ *DONDE:
+ *  _ : Esta vacio
+ *  *: Indica que se acaba de liberar
+ *  U: Indica la existencia de mas nodos
+ *  L: Indica que el nodo se encuentra Libre
+ *     _ -L*- _
+ *     _ -L*- L
+ *     U -L*- L
+ *     U -L-  L*
+ *     L* -L- U
+ *     L -L*- U
+ *     U -L*-L- U
+ *     U -L-L*- U
+ *     U -L-L*- L
+ *     U -L-L*- L- U
+ *     L -L*-L- U
+ @end_overwrite
+
+*/
 
 void unirNodosLibres(memory_list *klist , node* posicionActual )
 {

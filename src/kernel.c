@@ -66,37 +66,44 @@ void cmain(unsigned int magic, void * multiboot_info) {
 	setup_memory();
 
 	printf("Kernel started\n");
+
+	/** @brief sección de prueba de la gestión de memoria*/
+
+		//allocate_unit();
+		//allocate_unit();
+		//allocate_unit();
+		//allocate_unit();
+		//allocate_unit_region(16);
+		allocate_unit_region(15857);
+		allocate_unit();
+		main();
+		//free_unit(523*4096);
+		//free_unit(524*4096);
+		//main();
+		//allocate_unit();
+		//main();
+		free_region(523*4096,15858);
+		main();
+		free_unit(16381*4096);
+		main();
 	/* Probar la gestion de unidades de memoria */
 
-	/*En el siguiente segmento se prueba la asinacion de unidades,
-	 * regiones, liberacion de unidades y liberacion de regiones:
-	 * allocate_unit();
-	 * allocate_unit_region(length);
-	 * free_unit();
-	 * free_region(start_dir,length);
-	 * Además se cuenta con una funcion main() que permite vizualizar
-	 * la lista según el lugar y la operación dónde se la invoque
-	 * por lo general despues de ejecutar alguna de las anteriones
-	 * funciones y así poder ver como evoluciona la memory_list.
-	 *
-	 * Advertencia: Es muy probable que al hacer llamado de cierto
-	 * número de veces a las funciones, se le asigne al monticulo una
-	 * unidad mas de memoria, reduciendo el numero de unidades de la
-	 * memory_list
-	 */
+	/* Reservar una unidad  */
+	/*addr = allocate_unit();
+	printf("Allocated address: %x = %d\n", addr, addr);
 
-		allocate_unit();
-		allocate_unit();
-		allocate_unit_region(16);
+	addr = allocate_unit_region(0xFFFF);
 
-		main();
-		free_region(523*4096,5);
-		free_unit(528*4096);
-		//free_region(541*4096,16);
-		main();
+	printf("Allocated region: %x\n", addr);
+
+	addr = allocate_unit();
+
+	printf("Allocated address: %x\n", addr);
+
+	printf("Last allocated address: %x, %u\n",addr, addr);
 
 	inline_assembly("sti");
-
+*/
 	printf("Kernel finished\n");
 
 }

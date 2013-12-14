@@ -130,40 +130,45 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; <a class="code" href="../../d5/df1/physmem_8h.html#a8950a0a5d1ef2c64d6d99cbb29222803" title="Esta rutina inicializa el mapa de bits de memoria, a partir de la informacion obtenida del GRUB...">setup_memory</a>();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Kernel started\n&quot;</span>);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; <span class="comment">/* Probar la gestion de unidades de memoria */</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; <span class="comment">/*En el siguiente segmento se prueba la asinacion de unidades,</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">  * regiones, liberacion de unidades y liberacion de regiones:</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">  * allocate_unit();</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">  * allocate_unit_region(length);</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">  * free_unit();</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">  * free_region(start_dir,length);</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">  * Además se cuenta con una funcion main() que permite vizualizar</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">  * la lista según el lugar y la operación dónde se la invoque</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">  * por lo general despues de ejecutar alguna de las anteriones</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">  * funciones y así poder ver como evoluciona la memory_list.</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">  *</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">  * Advertencia: Es muy probable que al hacer llamado de cierto</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">  * número de veces a las funciones, se le asigne al monticulo una</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">  * unidad mas de memoria, reduciendo el numero de unidades de la</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">  * memory_list</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">  */</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#afe29acb95fb642b1d6639f7d3593d201" title="Busca una unidad libre dentro del mapa de bits de memoria.">allocate_unit</a>();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#afe29acb95fb642b1d6639f7d3593d201" title="Busca una unidad libre dentro del mapa de bits de memoria.">allocate_unit</a>();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#aefa6e121afc225468bc3b136428552e6" title="Busca una región de memoria contigua libre dentro del mapa de bits de memoria.">allocate_unit_region</a>(16);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#acdef7a1fd863a6d3770c1268cb06add3" title="Permite imprimir los datos de la memory_list.">main</a>();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#ad37fdd7c43e1092a00fe53d8eca2a4f9" title="Permite liberar una región de memoria.">free_region</a>(523*4096,5);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#a0764342c13c1a182cc07d732f3e5738c" title="Permite liberar una unidad de memoria.">free_unit</a>(528*4096);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="comment">//free_region(541*4096,16);</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#acdef7a1fd863a6d3770c1268cb06add3" title="Permite imprimir los datos de la memory_list.">main</a>();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; <a class="code" href="../../de/d21/asm_8h.html#a582320ed9a528ae377c2de027ac94616" title="Alias para incluir codigo ensamblador dentro del código en C.">inline_assembly</a>(<span class="stringliteral">&quot;sti&quot;</span>);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Kernel finished\n&quot;</span>);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">//allocate_unit();</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="comment">//allocate_unit();</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">//allocate_unit();</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">//allocate_unit();</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="comment">//allocate_unit_region(16);</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#aefa6e121afc225468bc3b136428552e6" title="Busca una región de memoria contigua libre dentro del mapa de bits de memoria.">allocate_unit_region</a>(15857);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#afe29acb95fb642b1d6639f7d3593d201" title="Busca una unidad libre dentro del mapa de bits de memoria.">allocate_unit</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#acdef7a1fd863a6d3770c1268cb06add3" title="Declaración de la función main implementada en physmem.c.">main</a>();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="comment">//free_unit(523*4096);</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="comment">//free_unit(524*4096);</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">//main();</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="comment">//allocate_unit();</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="comment">//main();</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#ad37fdd7c43e1092a00fe53d8eca2a4f9" title="Permite liberar una región de memoria.">free_region</a>(523*4096,15858);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#acdef7a1fd863a6d3770c1268cb06add3" title="Declaración de la función main implementada en physmem.c.">main</a>();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#a0764342c13c1a182cc07d732f3e5738c" title="Permite liberar una unidad de memoria.">free_unit</a>(16381*4096);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <a class="code" href="../../d5/df1/physmem_8h.html#acdef7a1fd863a6d3770c1268cb06add3" title="Declaración de la función main implementada en physmem.c.">main</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; <span class="comment">/* Probar la gestion de unidades de memoria */</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; <span class="comment">/* Reservar una unidad  */</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; <span class="comment">/*addr = allocate_unit();</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment"> printf(&quot;Allocated address: %x = %d\n&quot;, addr, addr);</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"> addr = allocate_unit_region(0xFFFF);</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment"> printf(&quot;Allocated region: %x\n&quot;, addr);</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"> addr = allocate_unit();</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"> printf(&quot;Allocated address: %x\n&quot;, addr);</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment"> printf(&quot;Last allocated address: %x, %u\n&quot;,addr, addr);</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment"> inline_assembly(&quot;sti&quot;);</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; <a class="code" href="../../d6/dd1/stdio_8h.html#a05518ab241076a365f2acd326cfc9c70" title="Esa funcion implementa en forma basica el comportamiento de &#39;printf&#39; en C.">printf</a>(<span class="stringliteral">&quot;Kernel finished\n&quot;</span>);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -122,7 +122,7 @@ Variables</h2></td></tr>
 <div class="textblock"><p>Código de inicialización del kernel en C. Este código recibe el control de <a class="el" href="../../d4/dfb/start_8_s.html" title="Punto de entrada del kernel.">start.S</a> y continúa con la ejecución. </p>
 <dl class="section author"><dt>Autor</dt><dd>Erwin Meza <a href="#" onclick="location.href='mai'+'lto:'+'eme'+'za'+'v@g'+'ma'+'il.'+'co'+'m'; return false;">emeza<span style="display: none;">.nosp@m.</span>v@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a> </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License.</dd></dl>
-<p>Luego de configurar la GDT, la IDT, las interrupciones, las excepciones y las IRQ, este código configura el mapa de bits que permitirá gestionar la memoria física en unidades de 4096 bytes. Este mapa de bits se referencia con la variable memory_bitmap (<a class="el" href="../../dd/dcb/physmem_8c.html" title="Contiene la implementación de las rutinas relacionadas con las gestión de memoria física...">physmem.c</a>), la cual apunta a la dirección MMAP_LOCATION.</p>
+<p>Luego de configurar la GDT, la IDT, las interrupciones, las excepciones y las IRQ, este código configura el mapa de bits que permitirá gestionar la memoria física en unidades de 4096 bytes. Este mapa de bits se referencia con la variable memory_bitmap (<a class="el" href="../../dd/dcb/physmem_8c.html" title="Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica...">physmem.c</a>), la cual apunta a la dirección MMAP_LOCATION.</p>
 <p>El mapa de bits de memoria ocupa exactamente 128 KB, y permite gestionar hasta 4 GB de memoria física. </p>
 
 <p>Definición en el archivo <a class="el" href="../../d9/d26/kernel_8c_source.html">kernel.c</a>.</p>
@@ -159,6 +159,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<p>sección de prueba de la gestión de memoria </p>
 
 <p>Definición en la línea <a class="el" href="../../d9/d26/kernel_8c_source.html#l00040">40</a> del archivo <a class="el" href="../../d9/d26/kernel_8c_source.html">kernel.c</a>.</p>
 

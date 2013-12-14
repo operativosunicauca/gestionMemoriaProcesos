@@ -105,10 +105,10 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Estructuras de datos</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/da1/structnode.html">node</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura que permite crear unidades o regiones.  <a href="../../d5/da1/structnode.html#details">Más...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista enlazada. Tiene un apuntador previous y un apuntador nex para ue sea doblemente enlazada. Tiene un estado (state) que va a representar L o U (Libre o Usado). Además tiene un start que me indica en que parte de la memoria inicia esta región ya sea libre u ocupada y tiene un lenght que me indica el tamaño de esta región que representa el nodo.  <a href="../../d5/da1/structnode.html#details">Más...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura que maneja las unidades o regiones.  <a href="../../d7/d99/structmemory__list.html#details">Más...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creamos una estructura de datos <a class="el" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> que será la lista enlazada con la que haremos el la gestión de la memoria. Tiene dos nodos, la cabeza (head) y la cola (tail) con los que vamos a referenciar todos los nodos que pertenecen a la lista. También tiene un contador (count) que va a llevar el número de nodos que componen la lista.  <a href="../../d7/d99/structmemory__list.html#details">Más...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -126,12 +126,12 @@ Estructuras de datos</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 'typedefs'</h2></td></tr>
 <tr class="memitem:af4aeda155dbe167f1c1cf38cb65bf324"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d5/da1/structnode.html">node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#af4aeda155dbe167f1c1cf38cb65bf324">node</a></td></tr>
-<tr class="memdesc:af4aeda155dbe167f1c1cf38cb65bf324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura que permite crear unidades o regiones.  <a href="#af4aeda155dbe167f1c1cf38cb65bf324">Más...</a><br/></td></tr>
+<tr class="memdesc:af4aeda155dbe167f1c1cf38cb65bf324"><td class="mdescLeft">&#160;</td><td class="mdescRight">En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista enlazada. Tiene un apuntador previous y un apuntador nex para ue sea doblemente enlazada. Tiene un estado (state) que va a representar L o U (Libre o Usado). Además tiene un start que me indica en que parte de la memoria inicia esta región ya sea libre u ocupada y tiene un lenght que me indica el tamaño de esta región que representa el nodo.  <a href="#af4aeda155dbe167f1c1cf38cb65bf324">Más...</a><br/></td></tr>
 <tr class="separator:af4aeda155dbe167f1c1cf38cb65bf324"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeed645bbf6d53327dddcdee4dcc0f427"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a></td></tr>
 <tr class="separator:aeed645bbf6d53327dddcdee4dcc0f427"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2958b1a91d28588d354366c7c8b6ca0"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#ae2958b1a91d28588d354366c7c8b6ca0">memory_list</a></td></tr>
-<tr class="memdesc:ae2958b1a91d28588d354366c7c8b6ca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estructura que maneja las unidades o regiones.  <a href="#ae2958b1a91d28588d354366c7c8b6ca0">Más...</a><br/></td></tr>
+<tr class="memdesc:ae2958b1a91d28588d354366c7c8b6ca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creamos una estructura de datos <a class="el" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> que será la lista enlazada con la que haremos el la gestión de la memoria. Tiene dos nodos, la cabeza (head) y la cola (tail) con los que vamos a referenciar todos los nodos que pertenecen a la lista. También tiene un contador (count) que va a llevar el número de nodos que componen la lista.  <a href="#ae2958b1a91d28588d354366c7c8b6ca0">Más...</a><br/></td></tr>
 <tr class="separator:ae2958b1a91d28588d354366c7c8b6ca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -161,43 +161,43 @@ Funciones</h2></td></tr>
 <tr class="memdesc:ad37fdd7c43e1092a00fe53d8eca2a4f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite liberar una región de memoria.  <a href="#ad37fdd7c43e1092a00fe53d8eca2a4f9">Más...</a><br/></td></tr>
 <tr class="separator:ad37fdd7c43e1092a00fe53d8eca2a4f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec0ffbc2b9c56d76912e39c2008bab66"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#aec0ffbc2b9c56d76912e39c2008bab66">create_memory_list</a> ()</td></tr>
-<tr class="memdesc:aec0ffbc2b9c56d76912e39c2008bab66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite crear la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> vacia.  <a href="#aec0ffbc2b9c56d76912e39c2008bab66">Más...</a><br/></td></tr>
+<tr class="memdesc:aec0ffbc2b9c56d76912e39c2008bab66"><td class="mdescLeft">&#160;</td><td class="mdescRight">construye una nueva lista.  <a href="#aec0ffbc2b9c56d76912e39c2008bab66">Más...</a><br/></td></tr>
 <tr class="separator:aec0ffbc2b9c56d76912e39c2008bab66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab6a59fafed2782072f6d7f790e2a61d"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#aab6a59fafed2782072f6d7f790e2a61d">inicializar_memoria_disponible</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *, unsigned int, unsigned int)</td></tr>
-<tr class="memdesc:aab6a59fafed2782072f6d7f790e2a61d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite crear la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> con el numero de undades disponobles para asignar.  <a href="#aab6a59fafed2782072f6d7f790e2a61d">Más...</a><br/></td></tr>
+<tr class="memdesc:aab6a59fafed2782072f6d7f790e2a61d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega los nodos que representan la memoria disponible en la lista.  <a href="#aab6a59fafed2782072f6d7f790e2a61d">Más...</a><br/></td></tr>
 <tr class="separator:aab6a59fafed2782072f6d7f790e2a61d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac541ca4737fd15ac73fc4d55907f36a5"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#ac541ca4737fd15ac73fc4d55907f36a5">create_node</a> (char, unsigned int, unsigned int)</td></tr>
-<tr class="memdesc:ac541ca4737fd15ac73fc4d55907f36a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite crear una unidad o region.  <a href="#ac541ca4737fd15ac73fc4d55907f36a5">Más...</a><br/></td></tr>
+<tr class="memdesc:ac541ca4737fd15ac73fc4d55907f36a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Crea un nuevo nodo.  <a href="#ac541ca4737fd15ac73fc4d55907f36a5">Más...</a><br/></td></tr>
 <tr class="separator:ac541ca4737fd15ac73fc4d55907f36a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21baf943b2f9352509a531b6206fbd9f"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a21baf943b2f9352509a531b6206fbd9f">push_front</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *, <a class="el" href="../../d5/da1/structnode.html">node</a> *)</td></tr>
-<tr class="memdesc:a21baf943b2f9352509a531b6206fbd9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite asignar al frente una unidad o región nueva a la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>.  <a href="#a21baf943b2f9352509a531b6206fbd9f">Más...</a><br/></td></tr>
+<tr class="memdesc:a21baf943b2f9352509a531b6206fbd9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega un nodo en el frente de la lista.  <a href="#a21baf943b2f9352509a531b6206fbd9f">Más...</a><br/></td></tr>
 <tr class="separator:a21baf943b2f9352509a531b6206fbd9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a251f2258231eefe0ad419b73d0fbbba2"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a251f2258231eefe0ad419b73d0fbbba2">push_back</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *, <a class="el" href="../../d5/da1/structnode.html">node</a> *)</td></tr>
-<tr class="memdesc:a251f2258231eefe0ad419b73d0fbbba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite asignar al final una unidad o región nueva a la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>.  <a href="#a251f2258231eefe0ad419b73d0fbbba2">Más...</a><br/></td></tr>
+<tr class="memdesc:a251f2258231eefe0ad419b73d0fbbba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Agrega un nodo al final de la lista.  <a href="#a251f2258231eefe0ad419b73d0fbbba2">Más...</a><br/></td></tr>
 <tr class="separator:a251f2258231eefe0ad419b73d0fbbba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaccb21f57209d357608ab633a27e8bb"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#afaccb21f57209d357608ab633a27e8bb">pop_front</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *)</td></tr>
-<tr class="memdesc:afaccb21f57209d357608ab633a27e8bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite actualizar la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> removiendo al frente una unidad o region que ha sido fusionada.  <a href="#afaccb21f57209d357608ab633a27e8bb">Más...</a><br/></td></tr>
+<tr class="memdesc:afaccb21f57209d357608ab633a27e8bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quita el nodo que se encuentra al inicio de la lista.  <a href="#afaccb21f57209d357608ab633a27e8bb">Más...</a><br/></td></tr>
 <tr class="separator:afaccb21f57209d357608ab633a27e8bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f9ed58c02514095b8afe1320b293fbb"><td class="memItemLeft" align="right" valign="top">static __inline__ void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a7f9ed58c02514095b8afe1320b293fbb">pop_back</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *)</td></tr>
-<tr class="memdesc:a7f9ed58c02514095b8afe1320b293fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite actualizar la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> removiendo al final una unidad o region que ha sido fusionada.  <a href="#a7f9ed58c02514095b8afe1320b293fbb">Más...</a><br/></td></tr>
+<tr class="memdesc:a7f9ed58c02514095b8afe1320b293fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quita el nodo que se encuenta el final de la lista.  <a href="#a7f9ed58c02514095b8afe1320b293fbb">Más...</a><br/></td></tr>
 <tr class="separator:a7f9ed58c02514095b8afe1320b293fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f2d8be1a11543ee8d99cc03bf77aaba"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a6f2d8be1a11543ee8d99cc03bf77aaba">head</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *)</td></tr>
-<tr class="memdesc:a6f2d8be1a11543ee8d99cc03bf77aaba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite Extraer la cabeza de la lista para cualquier caso que requiera ser iterada.  <a href="#a6f2d8be1a11543ee8d99cc03bf77aaba">Más...</a><br/></td></tr>
+<tr class="memdesc:a6f2d8be1a11543ee8d99cc03bf77aaba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Con esta función obtengo el nodo del inicio de la lista.  <a href="#a6f2d8be1a11543ee8d99cc03bf77aaba">Más...</a><br/></td></tr>
 <tr class="separator:a6f2d8be1a11543ee8d99cc03bf77aaba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2b96c57dcf1283789c7031f319f7715"><td class="memItemLeft" align="right" valign="top">static __inline__ <a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#ac2b96c57dcf1283789c7031f319f7715">next</a> (<a class="el" href="../../d5/df1/physmem_8h.html#aeed645bbf6d53327dddcdee4dcc0f427">node_iterator</a>)</td></tr>
-<tr class="memdesc:ac2b96c57dcf1283789c7031f319f7715"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite permite recorrer la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> a partir de una unidad o region.  <a href="#ac2b96c57dcf1283789c7031f319f7715">Más...</a><br/></td></tr>
+<tr class="memdesc:ac2b96c57dcf1283789c7031f319f7715"><td class="mdescLeft">&#160;</td><td class="mdescRight">Con esta función obtengo el siguiente a un nodo dado.  <a href="#ac2b96c57dcf1283789c7031f319f7715">Más...</a><br/></td></tr>
 <tr class="separator:ac2b96c57dcf1283789c7031f319f7715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdef7a1fd863a6d3770c1268cb06add3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#acdef7a1fd863a6d3770c1268cb06add3">main</a> ()</td></tr>
-<tr class="memdesc:acdef7a1fd863a6d3770c1268cb06add3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite imprimir los datos de la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>.  <a href="#acdef7a1fd863a6d3770c1268cb06add3">Más...</a><br/></td></tr>
+<tr class="memdesc:acdef7a1fd863a6d3770c1268cb06add3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaración de la función main implementada en <a class="el" href="../../dd/dcb/physmem_8c.html" title="Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica...">physmem.c</a>.  <a href="#acdef7a1fd863a6d3770c1268cb06add3">Más...</a><br/></td></tr>
 <tr class="separator:acdef7a1fd863a6d3770c1268cb06add3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0764342c13c1a182cc07d732f3e5738c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a0764342c13c1a182cc07d732f3e5738c">free_unit</a> (unsigned int)</td></tr>
 <tr class="memdesc:a0764342c13c1a182cc07d732f3e5738c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite liberar una unidad de memoria.  <a href="#a0764342c13c1a182cc07d732f3e5738c">Más...</a><br/></td></tr>
 <tr class="separator:a0764342c13c1a182cc07d732f3e5738c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a976cadc7662d76d7023129c66e3a2fd6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a976cadc7662d76d7023129c66e3a2fd6">asignar_unidades</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *, unsigned int)</td></tr>
-<tr class="memdesc:a976cadc7662d76d7023129c66e3a2fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite asignar unidades en la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>.  <a href="#a976cadc7662d76d7023129c66e3a2fd6">Más...</a><br/></td></tr>
+<tr class="memdesc:a976cadc7662d76d7023129c66e3a2fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaración de la función asignar_unidades implementada en <a class="el" href="../../dd/dcb/physmem_8c.html" title="Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica...">physmem.c</a>.  <a href="#a976cadc7662d76d7023129c66e3a2fd6">Más...</a><br/></td></tr>
 <tr class="separator:a976cadc7662d76d7023129c66e3a2fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37faf0202d020fc6220be7d802cb6f04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/df1/physmem_8h.html#a37faf0202d020fc6220be7d802cb6f04">unirNodosLibres</a> (<a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *, <a class="el" href="../../d5/da1/structnode.html">node</a> *)</td></tr>
-<tr class="memdesc:a37faf0202d020fc6220be7d802cb6f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite fusionar nodos libres y adyacentes.  <a href="#a37faf0202d020fc6220be7d802cb6f04">Más...</a><br/></td></tr>
+<tr class="memdesc:a37faf0202d020fc6220be7d802cb6f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaración de la función unirNodosLibres implementada en <a class="el" href="../../dd/dcb/physmem_8c.html" title="Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica...">physmem.c</a>.  <a href="#a37faf0202d020fc6220be7d802cb6f04">Más...</a><br/></td></tr>
 <tr class="separator:a37faf0202d020fc6220be7d802cb6f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descripción detallada</h2>
@@ -266,7 +266,7 @@ Funciones</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Estructura que maneja las unidades o regiones. </p>
+<p>Creamos una estructura de datos <a class="el" href="../../d7/d99/structmemory__list.html" title="Creamos una estructura de datos memory_list que será la lista enlazada con la que haremos el la gesti...">memory_list</a> que será la lista enlazada con la que haremos el la gestión de la memoria. Tiene dos nodos, la cabeza (head) y la cola (tail) con los que vamos a referenciar todos los nodos que pertenecen a la lista. También tiene un contador (count) que va a llevar el número de nodos que componen la lista. </p>
 
 </div>
 </div>
@@ -280,7 +280,7 @@ Funciones</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Estructura que permite crear unidades o regiones. </p>
+<p>En esta parte creamos una estructura de datos node. Que va a representar cada nodo de nuestra lista enlazada. Tiene un apuntador previous y un apuntador nex para ue sea doblemente enlazada. Tiene un estado (state) que va a representar L o U (Libre o Usado). Además tiene un start que me indica en que parte de la memoria inicia esta región ya sea libre u ocupada y tiene un lenght que me indica el tamaño de esta región que representa el nodo. </p>
 
 </div>
 </div>
@@ -294,7 +294,7 @@ Funciones</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definición en la línea <a class="el" href="../../d5/df1/physmem_8h_source.html#l00098">98</a> del archivo <a class="el" href="../../d5/df1/physmem_8h_source.html">physmem.h</a>.</p>
+<p>Definición en la línea <a class="el" href="../../d5/df1/physmem_8h_source.html#l00105">105</a> del archivo <a class="el" href="../../d5/df1/physmem_8h_source.html">physmem.h</a>.</p>
 
 </div>
 </div>
@@ -313,9 +313,11 @@ Funciones</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Busca una unidad libre dentro del mapa de bits de memoria. </p>
-<dl class="section return"><dt>Devuelve</dt><dd>Dirección de inicio de la unidad en memoria. </dd></dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Dirección de inicio de la unidad en memoria.</dd>
+<dd>
+Direcciï¿½n de inicio de la unidad en memoria. </dd></dl>
 
-<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00276">276</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00282">282</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
 
 </div>
 </div>
@@ -340,9 +342,17 @@ Funciones</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Devuelve</dt><dd>Dirección de inicio de la región en memoria. </dd></dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Dirección de inicio de la región en memoria.</dd></dl>
+<p>Busca una región de memoria contigua libre dentro del mapa de bits de memoria.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>Tamaï¿½o de la regiï¿½n de memoria a asignar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Direcciï¿½n de inicio de la regiï¿½n en memoria. </dd></dl>
 
-<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00296">296</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00303">303</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
 
 </div>
 </div>
@@ -354,13 +364,13 @@ Funciones</h2></td></tr>
           <td class="memname">void asignar_unidades </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>klist</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>int</em>&#160;</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>nUnits</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -370,16 +380,17 @@ Funciones</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Permite asignar unidades en la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>. </p>
-<dl class="params"><dt>Parámetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
-    <tr><td class="paramname">length</td><td>Tamaño de unidades a asignar. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Declaración de la función asignar_unidades implementada en <a class="el" href="../../dd/dcb/physmem_8c.html" title="Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica...">physmem.c</a>. </p>
+<p>Declaración de la función asignar_unidades implementada en <a class="el" href="../../dd/dcb/physmem_8c.html" title="Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica...">physmem.c</a>.</p>
+<p>Se recorre la lista con un apuntador que inicia en la cabecera y termina al final o donde se pueda asignar a la memoria.</p>
+<p>Para esto se verifica si al nodo al que apunta se encuentra libre, si esto ocurre el tamaÃ±o del nodo deberÃ¡ corresponder a las unidades requeridas para reservar; y se cambia el estado del nodo a usado.</p>
+<p>Por el contrario si el tamaÃ±o del nodo es mayor a las unidades requeridas, se nombra Ocupado y se enlaza a la lista.</p>
+<p>Se crea un nuevo nodo que lleva la memoria libre y empieza despuÃ©s del espacio requerido.</p>
+<p>Los nodos se vinculan a la lista tomando en cuenta que el nodo que se encuentra libre fue el primer nodo de la lista, un nodo distinto al inicial o el ultimo nodo de la lista</p>
+<p>Memory_list -&gt; La lista que indica las unidades libres de memoria n_units-&gt; Un entero sin signo, corresponde al tamaÃ±o de memoria que quiero solicitar </p>
+<dl class="section return"><dt>Devuelve</dt><dd>retorna la funcion void recurrido con los cambios realizados </dd></dl>
 
-<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00563">563</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00621">621</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
 
 </div>
 </div>
@@ -404,7 +415,7 @@ Funciones</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Permite crear la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> vacia. </p>
+<p>construye una nueva lista. </p>
 
 </div>
 </div>
@@ -446,15 +457,16 @@ Funciones</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Permite crear una unidad o region. </p>
+<p>Crea un nuevo nodo. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state</td><td>estado de la unidad o region libre:'L' o usada: 'U'. </td></tr>
-    <tr><td class="paramname">start</td><td>Direccion de la unidad o region trabajado. </td></tr>
-    <tr><td class="paramname">length</td><td>Tamaño de la unidad o region trabajado. </td></tr>
+    <tr><td class="paramname">El</td><td>estado del nodo L o U </td></tr>
+    <tr><td class="paramname">Dirección</td><td>de memoria que representa el Start. </td></tr>
+    <tr><td class="paramname">El</td><td>tamaño que tendrá esta memoria libre o usada. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Devuelve el nodo que fue creado. </dd></dl>
 
 </div>
 </div>
@@ -493,13 +505,13 @@ Funciones</h2></td></tr>
 <p>Permite liberar una región de memoria.</p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">start_addr</td><td>Dirección de memoria del inicio de la región a liberar </td></tr>
-    <tr><td class="paramname">length</td><td>Tamaño de la región a liberar </td></tr>
+    <tr><td class="paramname">start_addr</td><td>Direccion de memoria del inicio de la regiÃ³n a liberar </td></tr>
+    <tr><td class="paramname">length</td><td>TamaÃ±o de la regiÃ³n a liberar </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00381">381</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00401">401</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
 
 </div>
 </div>
@@ -520,12 +532,21 @@ Funciones</h2></td></tr>
 <p>Permite liberar una unidad de memoria. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addr</td><td>Dirección de memoria dentro del área a liberar. </td></tr>
+    <tr><td class="paramname">addr</td><td>Dirección de memoria dentro del área a liberar.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Permite liberar una unidad de memoria.</p>
+<p>*En caso contrario, que tamaÃ±o de ptr sea diferente de uno, se crea un nodo auxiliar que iniciara donde comienza ptr ptr el inicio se le aumentara en uno y el tamaÃ±o se le restara en uno, se aumentara las unidades libres, luego tenemos que verificar si el nodo anterior de ptr es o no nulo, para enlazar el n en la lista, dado el caso que la unidad a liberar sea la Ãºltima de la lista o no.</p>
+<p>En cada caso se deberÃ¡n unir los nodos libres.</p>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">star_dir-&gt;</td><td>recibe la direcciÃ³n que vamos a liberar addr Direcciï¿½n de memoria dentro del ï¿½rea a liberar. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00332">332</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00351">351</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
 
 </div>
 </div>
@@ -551,13 +572,14 @@ Funciones</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Permite Extraer la cabeza de la lista para cualquier caso que requiera ser iterada. </p>
+<p>Con esta función obtengo el nodo del inicio de la lista. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
+    <tr><td class="paramname">La</td><td>lista de la memoria. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Devuelve</dt><dd>el nodo que se encuenta en el inicio de la lista </dd></dl>
 
 </div>
 </div>
@@ -599,11 +621,12 @@ Funciones</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Permite crear la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> con el numero de undades disponobles para asignar. </p>
+<p>Agrega los nodos que representan la memoria disponible en la lista. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">start_addr</td><td>Dirección de memoria del inicio de la región libre </td></tr>
-    <tr><td class="paramname">length</td><td>Tamaño region o numero de unidades libres. </td></tr>
+    <tr><td class="paramname">La</td><td>lista enlazada </td></tr>
+    <tr><td class="paramname">El</td><td>inicio de la memoria libre. </td></tr>
+    <tr><td class="paramname">El</td><td>tamanio que tendrá la memoria libre. </td></tr>
   </table>
   </dd>
 </dl>
@@ -632,7 +655,7 @@ Funciones</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00410">410</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00433">433</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
 
 </div>
 </div>
@@ -657,9 +680,16 @@ Funciones</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Devuelve</dt><dd>Puntero a la base de la region de memoria asignada, 0 si no es posible asignar memoria.</dd></dl>
+<dl class="params"><dt>Parámetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Tamaï¿½o requerido </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Devuelve</dt><dd>Puntero a la base de la region de memoria asignada, 0 si no es posible asignar memoria. </dd></dl>
 
-<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00402">402</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00425">425</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
 
 </div>
 </div>
@@ -676,9 +706,9 @@ Funciones</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Permite imprimir los datos de la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>. </p>
+<p>Declaración de la función main implementada en <a class="el" href="../../dd/dcb/physmem_8c.html" title="Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica...">physmem.c</a>. </p>
 
-<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00554">554</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00585">585</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
 
 </div>
 </div>
@@ -704,13 +734,14 @@ Funciones</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Permite permite recorrer la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> a partir de una unidad o region. </p>
+<p>Con esta función obtengo el siguiente a un nodo dado. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
+    <tr><td class="paramname">Nodo</td><td>del cual quiero saber cual es su siguiente. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Devuelve</dt><dd>El nodo Siguiente. </dd></dl>
 
 </div>
 </div>
@@ -736,13 +767,7 @@ Funciones</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Permite actualizar la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> removiendo al final una unidad o region que ha sido fusionada. </p>
-<dl class="params"><dt>Parámetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Quita el nodo que se encuenta el final de la lista. </p>
 
 </div>
 </div>
@@ -768,13 +793,7 @@ Funciones</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Permite actualizar la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a> removiendo al frente una unidad o region que ha sido fusionada. </p>
-<dl class="params"><dt>Parámetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Quita el nodo que se encuentra al inicio de la lista. </p>
 
 </div>
 </div>
@@ -810,11 +829,10 @@ Funciones</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Permite asignar al final una unidad o región nueva a la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>. </p>
+<p>Agrega un nodo al final de la lista. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
-    <tr><td class="paramname">nodo</td><td>Unidad o región asignada. </td></tr>
+    <tr><td class="paramname">El</td><td>nodo que será agregado en la lista.. </td></tr>
   </table>
   </dd>
 </dl>
@@ -853,11 +871,11 @@ Funciones</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Permite asignar al frente una unidad o región nueva a la <a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a>. </p>
+<p>Agrega un nodo en el frente de la lista. </p>
 <dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
-    <tr><td class="paramname">nodo</td><td>Unidad o región asignada. </td></tr>
+    <tr><td class="paramname">La</td><td>lista de la memoria. </td></tr>
+    <tr><td class="paramname">El</td><td>nodo que será agregado en la lista. </td></tr>
   </table>
   </dd>
 </dl>
@@ -935,8 +953,8 @@ Funciones</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Esta rutina inicializa el mapa de bits de memoria, a partir de la informacion obtenida del GRUB. </p>
-<p>Existe un mapa de memoria válido creado por GRUB?</p>
-<p>Verificar si la región de memoria cumple con las condiciones para ser considerada "memoria disponible".</p>
+<p>Existe un mapa de memoria vï¿½lido creado por GRUB?</p>
+<p>Verificar si la regiï¿½n de memoria cumple con las condiciones para ser considerada "memoria disponible".</p>
 <p>Importante: Si se supone un procesador de 32 bits, los valores de la parte alta de base y length (base_addr_high y length_high) son cero. Por esta razon se pueden ignorar y solo se usan los 32 bits menos significativos de base y length.</p>
 <p>Para que una region de memoria sea considerada "memoria
 disponible", debe cumplir con las siguientes condiciones:</p>
@@ -957,13 +975,13 @@ disponible", debe cumplir con las siguientes condiciones:</p>
           <td class="memname">void unirNodosLibres </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../d7/d99/structmemory__list.html">memory_list</a> *&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>klist</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="../../d5/da1/structnode.html">node</a> *&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramname"><em>posicionActual</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -973,16 +991,51 @@ disponible", debe cumplir con las siguientes condiciones:</p>
       </table>
 </div><div class="memdoc">
 
-<p>Permite fusionar nodos libres y adyacentes. </p>
-<dl class="params"><dt>Parámetros</dt><dd>
+<p>Declaración de la función unirNodosLibres implementada en <a class="el" href="../../dd/dcb/physmem_8c.html" title="Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica...">physmem.c</a>. </p>
+<p>Declaración de la función unirNodosLibres implementada en <a class="el" href="../../dd/dcb/physmem_8c.html" title="Contiene la implementacion de las rutinas relacionadas con las gestion de memoria fisica...">physmem.c</a>.</p>
+<pre class="fragment">En el siguiente caso se verifica si el nodoAnterior y nodoSiguiente se
+encuentran libres, es decir si esta libre a la izquierda o a la derecha.
+
+En este caso quitamos el nodo de la posiciÃ³nActual y el de la derecha.
+DespuÃ©s se verifica si el nodoSiguiente del actual, es diferente de nulo;
+entonces se procede a quitar el nodoActual y nodosSguiente, para obtener uno
+solo con el tamaÃ±o libre.
+
+Ahora con este nuevo nodo se verifica si el nodoAnterior es diferente de  nulo
+o se encuentra libre.
+
+Luego se procede a unir estos nuevos nodos y el anterior
+serÃ¡ el nuevo Nodo libre con el tamaÃ±o de ambos.
+
+Teniendo encuentra si el nodoSiguiente es o no nulo, con lo que se harÃ¡
+los respectivos pasos.
+
+Por lo contrario, si el nodoAnterior es igual a nulo entramos a ver si
+el siguiente es diferente de nulo. En este caso, si el nodoSiguiente fue
+diferente de nulo y es libre; ademÃ¡s si el siguiente del siguiente fue
+diferente de nulo hacemos la asignaciÃ³n del tamaÃ±o al nodo posiciÃ³nActual
+uniÃ©ndolo con el nodoSiguiente y libera el nodoSiguiente.
+
+En cambio si el nodoSguiente al siguiente es nulo le asigna al nodo posicionActual
+su tamaÃ±o mas el tamaÃ±o del nodoSiguiente y lo coloca al final de la lista;
+En el caso que el nodoSiguiente fuera igual a nulo, ya retornarÃ­amos la lista
+
+Luego, si nodoAnterior es diferente de cero, y el estado del nodoAnterior es libre
+entramos a preguntar si el estado del nodo siguiente es libre y si es asi verificamos
+si el nodoSiguiente del siguiente es nulo. En caso, de ser asÃ­ el tamaÃ±o de la posiciÃ³n
+actual serÃ¡ igual al tamaÃ±o de la posicionActual mÃ¡s el tamaÃ±o del nodoSiguiente.
+
+Luego desenlazamos el nodoSiguiente y lo liberamos. En el caso de ser nulo el nodoSiguente al nodoSiguiente,
+simplemente le adicionamos el tamaÃ±o de nodoSiguiente al nodo posicionActual y lo ponemos al final de la lista.
+</pre><dl class="params"><dt>Parámetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname"><a class="el" href="../../d7/d99/structmemory__list.html" title="Estructura que maneja las unidades o regiones.">memory_list</a></td><td>lista de memoria. </td></tr>
-    <tr><td class="paramname">nodo</td><td>unidad o región que se acaba de liberar. </td></tr>
+    <tr><td class="paramname">klist-&gt;</td><td>Lista enlazada *posicionActual-&gt; Posicion libre</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Devuelve</dt><dd>retorna la funciÃ³n void recurrido con los cambios realizados  Ejemplo de 12 Posibles casos que se analizan para liberar unidades de <em>la lista *DONDE: _ : Esta vacio *: Indica que se acaba de liberar U: Indica la existencia de mas nodos L: Indica que el nodo se encuentra Libre _ -L</em>- _ _ -L*- L U -L*- L U -L- L* L* -L- U L -L*- U U -L*-L- U U -L-L*- U U -L-L*- L U -L-L*- L- U L -L*-L- U  </dd></dl>
 
-<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00618">618</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
+<p>Definición en la línea <a class="el" href="../../dd/dcb/physmem_8c_source.html#l00744">744</a> del archivo <a class="el" href="../../dd/dcb/physmem_8c_source.html">physmem.c</a>.</p>
 
 </div>
 </div>
